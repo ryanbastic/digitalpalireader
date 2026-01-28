@@ -1,0 +1,43 @@
+# Makefile for Digital Pali Reader Go Server
+
+.PHONY: all build run clean test docker
+
+# Default target
+all: build
+
+# Build the Go binary
+build:
+	go build -o bin/dpr ./cmd/dpr
+
+# Run in development mode
+run: build
+	./bin/dpr -data ./public -port 8080
+
+# Run directly with go run
+dev:
+	go run ./cmd/dpr -data ./public -port 8080
+
+# Clean build artifacts
+clean:
+	rm -rf bin/
+
+# Run tests
+test:
+	go test ./...
+
+# Format code
+fmt:
+	go fmt ./...
+	gofmt -s -w .
+
+# Lint code
+lint:
+	go vet ./...
+
+# Docker build
+docker:
+	docker build -t digitalpalireader-go -f Dockerfile.go .
+
+# Docker run
+docker-run:
+	docker run -p 8080:8080 digitalpalireader-go

@@ -1,0 +1,142 @@
+/* Pali text styling */
+#text-content {
+    font-family: var(--font-pali);
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+}
+
+/* Pali paragraph */
+.pali {
+    margin-bottom: var(--space-4);
+    text-align: justify;
+    hyphens: auto;
+}
+
+.pali:first-of-type::first-letter {
+    font-size: var(--font-size-3xl);
+    font-weight: bold;
+    float: left;
+    margin-right: var(--space-2);
+    line-height: 1;
+}
+
+/* Bold text in Pali (often used for verse numbers) */
+.pali b {
+    font-weight: 600;
+    color: var(--color-primary-dark);
+}
+
+/* Variant readings */
+.variant {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.variant::before {
+    content: "(";
+}
+
+.variant::after {
+    content: ")";
+}
+
+/* Cross-reference markers */
+.ref {
+    font-size: var(--font-size-xs);
+    color: var(--color-accent);
+    vertical-align: super;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.ref:hover {
+    text-decoration: underline;
+}
+
+/* Section headers within text */
+.section-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    margin: var(--space-6) 0 var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid var(--color-border);
+}
+
+/* Verse formatting */
+.verse {
+    margin: var(--space-4) 0;
+    padding-left: var(--space-6);
+    border-left: 3px solid var(--color-accent);
+}
+
+.verse-line {
+    display: block;
+    margin-bottom: var(--space-1);
+}
+
+/* Clickable words for dictionary lookup */
+.pali-word {
+    cursor: pointer;
+    border-bottom: 1px dotted var(--color-border);
+    transition: all var(--transition-fast);
+}
+
+.pali-word:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+}
+
+/* Navigation buttons for prev/next section */
+.text-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-8);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.text-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-4);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-fast);
+}
+
+.text-nav-btn:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.text-nav-btn.prev::before {
+    content: "← ";
+}
+
+.text-nav-btn.next::after {
+    content: " →";
+}
+
+/* Highlight for search results */
+mark {
+    background-color: rgba(128, 90, 213, 0.2);
+    padding: 0 var(--space-1);
+    border-radius: 2px;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: var(--space-12);
+    color: var(--color-text-muted);
+}
+
+.empty-state h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-4);
+}

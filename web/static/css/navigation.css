@@ -1,0 +1,196 @@
+/* Navigation-specific styles */
+.nav-hierarchy {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hierarchy type indicators */
+.hier-badge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    margin-left: var(--space-2);
+}
+
+.hier-badge.mula {
+    background-color: rgba(72, 187, 120, 0.2);
+    color: var(--color-success);
+}
+
+.hier-badge.att {
+    background-color: rgba(128, 90, 213, 0.2);
+    color: var(--color-accent);
+}
+
+.hier-badge.tika {
+    background-color: rgba(237, 137, 54, 0.2);
+    color: var(--color-warning);
+}
+
+/* Book availability indicators */
+.book-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-3);
+    margin: var(--space-1) 0;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.book-item:hover {
+    background-color: var(--color-bg-alt);
+}
+
+.book-name {
+    flex: 1;
+    font-size: var(--font-size-sm);
+}
+
+.book-availability {
+    display: flex;
+    gap: var(--space-1);
+}
+
+.avail-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-border);
+}
+
+.avail-dot.available {
+    background-color: var(--color-success);
+}
+
+/* Section list in nav tree */
+.section-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.section-list li {
+    padding: var(--space-2) var(--space-3);
+    margin: var(--space-1) 0;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.section-list li:hover {
+    background-color: var(--color-bg-alt);
+}
+
+.section-list li.active {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+/* Nested sections */
+.section-list .nested {
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--color-border);
+    margin-left: var(--space-2);
+}
+
+/* Collapsible sections */
+.collapsible {
+    cursor: pointer;
+}
+
+.collapsible::before {
+    content: "▶";
+    display: inline-block;
+    width: 16px;
+    font-size: var(--font-size-xs);
+    transition: transform var(--transition-fast);
+}
+
+.collapsible.expanded::before {
+    transform: rotate(90deg);
+}
+
+.collapsible-content {
+    display: none;
+    padding-left: var(--space-4);
+}
+
+.collapsible.expanded + .collapsible-content {
+    display: block;
+}
+
+/* Quick jump buttons */
+.quick-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+}
+
+.quick-jump-btn {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-size-xs);
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.quick-jump-btn:hover {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+}
+
+/* Search within navigation */
+.nav-search {
+    margin-bottom: var(--space-4);
+}
+
+.nav-search input {
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+}
+
+.nav-search input::placeholder {
+    color: var(--color-text-muted);
+}
+
+/* History list */
+.history-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-3);
+    margin: var(--space-1) 0;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.history-item:hover {
+    background-color: var(--color-bg-alt);
+}
+
+.history-item .time {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-left: auto;
+}

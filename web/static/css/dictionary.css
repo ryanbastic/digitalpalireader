@@ -1,0 +1,187 @@
+/* Dictionary panel styles */
+.dict-search {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.dict-search input[type="search"] {
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-base);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+}
+
+/* Dictionary results */
+#dict-results {
+    margin-top: var(--space-4);
+    max-height: calc(100vh - 350px);
+    overflow-y: auto;
+}
+
+.dict-entry {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--space-4);
+    margin-bottom: var(--space-3);
+}
+
+.dict-entry-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-2);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.dict-entry-word {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-accent);
+    font-family: var(--font-pali);
+}
+
+.dict-entry-source {
+    font-size: var(--font-size-xs);
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--color-bg-alt);
+    border-radius: var(--border-radius);
+    color: var(--color-text-muted);
+}
+
+.dict-entry-definition {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text);
+}
+
+.dict-entry-definition b {
+    color: var(--color-primary-dark);
+}
+
+.dict-entry-definition i {
+    color: var(--color-text-secondary);
+}
+
+/* Small caps for abbreviations */
+.dict-entry-definition smallcaps {
+    font-variant: small-caps;
+}
+
+/* No results state */
+.dict-no-results {
+    text-align: center;
+    padding: var(--space-8);
+    color: var(--color-text-muted);
+}
+
+.dict-no-results h3 {
+    margin-bottom: var(--space-2);
+}
+
+/* Loading state */
+.dict-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6);
+    color: var(--color-text-muted);
+}
+
+/* Result count */
+.dict-result-count {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Dictionary history */
+.dict-history {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.dict-history h4 {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+}
+
+.dict-history-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dict-history-item {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-fast);
+}
+
+.dict-history-item:hover {
+    background-color: var(--color-bg-alt);
+    color: var(--color-accent);
+}
+
+/* Inline dictionary popup (for text clicks) */
+.dict-popup {
+    position: fixed;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-4);
+    max-width: 400px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.dict-popup-close {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    background: none;
+    border: none;
+    font-size: var(--font-size-lg);
+    cursor: pointer;
+    color: var(--color-text-muted);
+}
+
+.dict-popup-close:hover {
+    color: var(--color-text);
+}
+
+.dict-popup-word {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: var(--space-2);
+}
+
+.dict-popup-definition {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dict-popup {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-width: none;
+        max-height: 50vh;
+        border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+    }
+}

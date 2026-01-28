@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Digital Pāli Reader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#FFFFDD"/>
+    <meta name="Description" content="A tool for immersive study of Pāli canon and the language.">
+    <link rel="apple-touch-icon" href="/images/logo192.png">
+    <link rel="icon" href="/favicon.png" />
+    <script>
+      const initObjList = Object.keys(window);
+      const whitelist = [
+        "initObjList",
+        "whitelist",
+        "diffVarList",
+        "deploymentEnvironmentName",
+        "deploymentReleaseNumber",
+        "deploymentCreatedTimestamp",
+        "deploymentAppInsightsInstrumentationKey",
+        "environmentName",
+        "releaseNumber",
+        "createdTimestamp",
+        "sdkInstance",
+        "aiName",
+        "aisdk",
+        "progressBar",
+        "ko",
+        "bootstrap",
+        "DPR_PAL",
+        "DPR_Send",
+        "DPR_Receive",
+        "DPR_Gesture",
+        "DPRChrome",
+        "DPRSend",
+        "DPRNav",
+        "DPRXML",
+        "XML_Load",
+        "DPROpts",
+        "DPR_Translations",
+        "DPR_Chrome",
+        "digitalpalireader",
+        "DPR_BottomPane",
+        "__otherDialogsViewModel",
+        "w",
+        "Microsoft",
+        "$",
+        "jQuery",
+        "Popper",
+        "DPR_DataLoader",
+        "DPR_send_bottom_mod",
+        "DPR_conjugate_mod",
+        "DPR_receive_mod",
+        "DPR_search_history_mod",
+        "DPR_analysis_declension_mod",
+        "DPR_analysis_output_mod",
+        "DT_LIST",
+        "DPR_history_mod",
+        "DPR_move_mod",
+        "DPR_navigation_mod",
+        "DPR_prefload_mod",
+        "DPR_bv_mod",
+        "DPR_translit_mod",
+        "DPR_translitCore_mod",
+        "DPR_navigation_common_mod",
+        "DPR_io_mod",
+        "DPR_search_mod",
+        "DPR_sortaz_mod",
+        "DPR_dict_mod",
+        "DPR_bookmarks_mod",
+        "DPR_config_mod",
+        "DPR_xml_mod",
+        "DPR_convert_mod",
+        "DPR_grammar_mod",
+        "DPR_translate_mod",
+        "e",
+        "t",
+        "DPR1_send_mod",
+        "DPR1_format_mod",
+        "DPR1_search_mod",
+        "DPR1_dict_xml_mod",
+        "DPR1_chrome_mod",
+        "DPR1_analysis_function_mod"
+      ];
+      const diffVarLists = () => {
+        console.log("Global Variables introduced by DPR-")
+        console.log(Object.keys(window).filter(a => !((typeof window[a] === "function") || whitelist.includes(a) || initObjList.includes(a))))
+        console.log("Keys added to DPR_G after init-")
+        console.log(Object.keys(DPR_G).filter(a => !(whitelist.includes(a) || initDPR_GList.includes(a))))
+      }
+    </script>
+
+  </head>
+
+  <body>
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+      <div id="main-container-toast-container" class="position-absolute">
+      </div>
+    </div>
+    <div id="main-container-loading-page" data-bind="visible: loadingFeatureVisible">
+      <img id="main-container-loading-page-spinner" class="spin-img-infinitely" src="/images/dwheel.png" alt="Loading...">
+    </div>
+    <div id="main-container" data-bind="hidden: loadingFeatureVisible">
+      <div id="main-panel">
+        <div id="main-sidebar" data-bind="visible: sidebarVisible()">
+          <div id="main-sidebar-content" class="card chromeback">
+            <div class="card-header d-flex align-items-center px-2">
+              <span class="font-weight-bold mr-auto"><a href="/" title="Home (Keyboard shortcut: v)">Digital Pāli Reader</a></span>
+              <a href="/" class="btn  btn-sm btn-light m-0 mr-1" role="button" title="Home/Buddha Vacana (Keyboard shortcut: v)">
+                <i class="fa fa-home"></i>
+              </a>
+              <a href="/_dprhtml/help.html" target="_blank" rel="noreferrer" class="btn btn-sm btn-light m-0 mr-1"
+                role="button" title="Digital Pāli Reader documentation (Keyboard shortcut: h)">
+                <i class="fa fa-question-circle"></i>
+              </a>
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-light m-0 mr-1 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <button type="button" class="btn btn-sm btn-light dropdown-item m-0" onclick="window.DPR_Globals.SettingsDialogViewModel.switchTheme('light')"
+                    title="Switch to light theme">
+                    Default (Light)
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light dropdown-item m-0" onclick="window.DPR_Globals.SettingsDialogViewModel.switchTheme('high-contrast')"
+                    title="Switch to high contrast theme (use with Dark Reader)">
+                    High contrast (Dark Reader)
+                  </button>
+                </div>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-light m-0 mr-1 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                <div class="dropdown-menu">
+                  <button type="button" class="btn btn-sm btn-light dropdown-item m-0"
+                    title="Install for offline use (Keyboard shortcut: I)" data-bind="disable: installationOngoing" onclick="window.DPR_Globals.InstallationViewModel.showInstallationDialog()">
+                    <i class="fa fa-download" aria-hidden="true"></i> Install...
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light dropdown-item m-0" data-toggle="modal" data-target="#settings-dialog-root"
+                    title="Launch preferences (Keyboard shortcut: %)">
+                    <i class="fa fa-gear" aria-hidden="true"></i> Settings...
+                  </button>
+                </div>
+              </div>
+              <button id="context-menu-top-level-open-sidebar" class="btn btn-sm btn-light m-0" role="button" onclick="DPR_Chrome.toggleDPRSidebar()"
+                title="Toggle sidebar (Keyboard shortcut: & or `)">
+                <i id="context-menu-launcher-icon" class="fa fa-bars"></i>
+              </button>
+            </div>
+            <div id="instProgressDiv" class="card-header" data-bind="visible: installationOngoing">
+              <span>Installation Progress</span>
+              <div id="installationProgress">
+                <div id="installationBar" data-bind="html: installationBar, style: { width: installationBarWidth() }"></div>
+              </div>
+            </div>
+            <div class="card-body p-2">
+              <ul id="navTabs" class="nav nav-tabs">
+                <li class="nav-item">
+                  <a id="navigationTab" data-toggle="tab" class="nav-link px-2 active" href="">Navigation</a>
+                </li>
+                <li class="nav-item">
+                  <a id="searchTab" data-toggle="tab" class="nav-link px-2" href="">Search</a>
+                </li>
+                <li class="nav-item">
+                  <a id="dictionaryTab" data-toggle="tab" class="nav-link px-2" href="">Tools</a>
+                </li>
+              </ul>
+              <div id="navigationTabPane" class="featureTabContent">
+              </div>
+              <div id="searchTabPane" class="featureTabContent">
+              </div>
+              <div id="dictionaryTabPane" class="featureTabContent">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="main-panel-splitter" data-bind="visible: sidebarVisible()" ondblclick="DPR_Chrome.toggleDPRSidebar()"></div>
+        <div id="main-content">
+          <div id="context-menu-top-level" data-bind="visible: navigationFeatureVisible() || searchFeatureVisible() || dictionaryFeatureVisible()">
+            <button id="context-menu-top-level-open-sidebar" class="btn btn-sm btn-light m-0" role="button" onclick="DPR_Chrome.toggleDPRSidebar()" title="Toggle sidebar (Keyboard shortcut: & or `)">
+              <i id="context-menu-launcher-icon" class="fa fa-bars"></i>
+            </button>
+          </div>
+          <div id="context-menu" data-bind="visible: navigationFeatureVisible()">
+            <a id="context-menu-handle" class="m-0" role="button">
+              <i id="context-menu-launcher-icon" class="fa fa-chevron-down"></i>
+            </a>
+            <div id="context-menu-main">
+              <div class="context-menu-main-row" id="context-menu-main-row1">
+                <div class="context-menu-main-row-group">
+                  <!--ko let: { cmd: commands.gotoPrevCmd() }-->
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: cmd.visible, enable: cmd.canExecute, click: cmd.execute.bind($data), attr: { title: cmd.title }">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                  </button>
+                  <!--/ko-->
+                  <!--ko let: { cmd: commands.gotoIndexCmd() }-->
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: cmd.visible, enable: cmd.canExecute, click: cmd.execute.bind($data), attr: { title: cmd.title }">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                  </button>
+                  <!--/ko-->
+                  <!--ko let: { cmd: commands.gotoNextCmd() }-->
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: cmd.visible, enable: cmd.canExecute, click: cmd.execute.bind($data), attr: { title: cmd.title }">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                  <!--/ko-->
+                </div>
+
+                <!--ko let: { gotoRelmCmd: commands.gotoRelmCmd(), gotoRelaCmd: commands.gotoRelaCmd(), gotoReltCmd: commands.gotoReltCmd() }-->
+                <div class="context-menu-main-row-group" data-bind="visible: gotoRelmCmd.visible || gotoRelaCmd.visible || gotoReltCmd.visible">
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: gotoRelmCmd.visible, enable: gotoRelmCmd.canExecute, click: gotoRelmCmd.execute.bind($data), attr: { title: gotoRelmCmd.title }">m</button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: gotoRelaCmd.visible, enable: gotoRelaCmd.canExecute, click: gotoRelaCmd.execute.bind($data), attr: { title: gotoRelaCmd.title }">a</button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: gotoReltCmd.visible, enable: gotoReltCmd.canExecute, click: gotoReltCmd.execute.bind($data), attr: { title: gotoReltCmd.title }">t</button>
+                </div>
+                <!--/ko-->
+
+                <!--ko let: { gotoMyanmarCmd: commands.gotoMyanmarCmd(), gotoThaiCmd: commands.gotoThaiCmd() }-->
+                <div class="context-menu-main-row-group" data-bind="visible: gotoMyanmarCmd.visible || gotoThaiCmd.visible">
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: gotoMyanmarCmd.visible, enable: gotoMyanmarCmd.canExecute, click: gotoMyanmarCmd.execute.bind($data), attr: { title: gotoMyanmarCmd.title }">M</button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: gotoThaiCmd.visible, enable: gotoThaiCmd.canExecute, click: gotoThaiCmd.execute.bind($data), attr: { title: gotoThaiCmd.title }">T</button>
+                </div>
+                <!--/ko-->
+              </div>
+              <div class="context-menu-main-row" id="context-menu-main-row2">
+                <div class="context-menu-main-row-group">
+                  <!--ko let: { cmd: commands.sendToConverter() }-->
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: cmd.visible, enable: cmd.canExecute, click: cmd.execute.bind($data), attr: { title: cmd.title }">
+                    <i class="fa fa-language" aria-hidden="true"></i>
+                  </button>
+                  <!--/ko-->
+                  <!--ko let: { cmd: commands.sendToTextPad() }-->
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: cmd.visible, enable: cmd.canExecute, click: cmd.execute.bind($data), attr: { title: cmd.title }">
+                    <i class="fa fa-share-square-o" aria-hidden="true"></i>
+                  </button>
+                  <!--/ko-->
+                  <!--ko let: { cmd: commands.saveToDesktop() }-->
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: cmd.visible, enable: false, click: cmd.execute.bind($data), attr: { title: cmd.title }">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                  </button>
+                  <!--/ko-->
+                </div>
+
+                <!--ko let: { copyPlaceToSidebar: commands.copyPlaceToSidebar(), copyPermalinkCmd: commands.copyPermalinkCmd() }-->
+                <div class="context-menu-main-row-group" data-bind="visible: copyPlaceToSidebar.visible || copyPermalinkCmd.visible">
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: copyPlaceToSidebar.visible, enable: copyPlaceToSidebar.canExecute, click: copyPlaceToSidebar.execute(), attr: { title: copyPlaceToSidebar.title }">
+                    <i class="fa fa-exchange" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: copyPermalinkCmd.visible, enable: copyPermalinkCmd.canExecute, click: copyPermalinkCmd.execute.bind($data), attr: { title: copyPermalinkCmd.title }">
+                    <i class="fa fa-link" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <!--/ko-->
+
+                <!--ko let: { cmd: commands.searchInBook() }-->
+                <div class="context-menu-main-row-group" data-bind="visible: cmd.visible">
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: cmd.visible, enable: cmd.canExecute, click: cmd.execute.bind($data), attr: { title: cmd.title }">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <!--/ko-->
+
+                <!--ko let: { cmd: commands.bookmarkSection() }-->
+                <div class="context-menu-main-row-group" data-bind="visible: cmd.visible">
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: cmd.visible, enable: cmd.canExecute, click: cmd.execute.bind($data), attr: { title: cmd.title }">
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <!--/ko-->
+
+                <!--ko let: { translate0: commands.translate0(), translate1: commands.translate1(), translate2: commands.translate2(), translate3: commands.translate3(), translate4: commands.translate4(), translate5: commands.translate5(), translate6: commands.translate6(), translate7: commands.translate7(), translate8: commands.translate8(), translate9: commands.translate9(), translate10: commands.translate10() }-->
+                <div class="context-menu-main-row-group" data-bind="visible: translate0.visible || translate1.visible || translate2.visible || translate3.visible || translate4.visible || translate5.visible || translate6.visible || translate7.visible || translate8.visible || translate9.visible || translate10.visible">
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: translate0.visible, enable: translate0.canExecute, click: translate0.execute(), attr: { title: translate0.title }">
+                    <img class="context-menu-command-icon" data-bind="attr: { src: translate0.icon }"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: translate1.visible, enable: translate1.canExecute, click: translate1.execute(), attr: { title: translate1.title }">
+                    <img class="context-menu-command-icon" data-bind="attr: { src: translate1.icon }"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: translate2.visible, enable: translate2.canExecute, click: translate2.execute(), attr: { title: translate2.title }">
+                    <img class="context-menu-command-icon" data-bind="attr: { src: translate2.icon }"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: translate3.visible, enable: translate3.canExecute, click: translate3.execute(), attr: { title: translate3.title }">
+                    <img class="context-menu-command-icon" data-bind="attr: { src: translate3.icon }"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: translate4.visible, enable: translate4.canExecute, click: translate4.execute(), attr: { title: translate4.title }">
+                    <img class="context-menu-command-icon" data-bind="attr: { src: translate3.icon }"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: translate5.visible, enable: translate5.canExecute, click: translate5.execute(), attr: { title: translate5.title }">
+                    <img class="context-menu-command-icon" data-bind="attr: { src: translate3.icon }"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: translate6.visible, enable: translate6.canExecute, click: translate6.execute(), attr: { title: translate6.title }">
+                    <img class="context-menu-command-icon" data-bind="attr: { src: translate3.icon }"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: translate7.visible, enable: translate7.canExecute, click: translate7.execute(), attr: { title: translate7.title }">
+                    <img class="context-menu-command-icon" data-bind="attr: { src: translate3.icon }"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: translate8.visible, enable: translate8.canExecute, click: translate8.execute(), attr: { title: translate8.title }">
+                    <img class="context-menu-command-icon" data-bind="attr: { src: translate3.icon }"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: translate9.visible, enable: translate9.canExecute, click: translate9.execute(), attr: { title: translate9.title }">
+                    <img class="context-menu-command-icon" data-bind="attr: { src: translate3.icon }"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-light" data-bind="visible: translate10.visible, enable: translate10.canExecute, click: translate10.execute(), attr: { title: translate10.title }">
+                    <img class="context-menu-command-icon" data-bind="attr: { src: translate3.icon }"></i>
+                  </button>
+                </div>
+                <!--/ko-->
+              </div>
+            </div>
+          </div>
+
+          <div id="main-content-panel">
+            <div id="search-header" class="chromeback" data-bind="visible: searchFeatureVisible">
+              <div id="search-header-context-commands" class="ml-5"></div>
+              <span id="search-header-title" class="ml-3"></span>
+              <div id="search-header-contents"></div>
+            </div>
+            <div id="main-pane">
+              <div id="main-pane-container" data-bind="visible: mainFeaturesVisible" data-nextsectionid="0">
+              </div>
+              <div id="main-content-landing-page" data-bind="visible: landingFeatureVisible">
+              </div>
+            </div>
+
+            <div id="main-content-panel-splitter" ondblclick="DPR1_chrome_mod.closeBottomFrame()"></div>
+
+            <div id="main-bottom-pane">
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer id="main-footer">
+        <ul>
+          <li><a href="https://pali.sirimangalo.org/" target="_blank" rel="noreferrer">Home</a></li>
+          <li class="main-footer-help">|</li>
+          <li class="main-footer-help">Press '?' for help</li>
+        </ul>
+      </footer>
+    </div>
+    <div id="settings-dialog">
+    </div>
+    <div id="quicklink-dialog">
+    </div>
+    <div id="paliquote-dialog">
+    </div>
+    <div id="bookmark-dialog">
+    </div>
+    <div id="installation-dialog">
+    </div>
+    <div class="modal fade show" id="helpDialog" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="font-size: smaller;">
+          <div class="modal-header p-2">
+            <h6 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-info-circle fx-2x" aria-hidden="true"></i>&nbsp;Keyboard Shortcuts</h6>
+          </div>
+          <div class="modal-body">
+            <div>The following is a current list of all shortcut keys available to the DPR. <strong>Note</strong>: These keys will not function if the cursor is located in an input field.</div>
+            <br>
+            <table>
+              <tr><td>v</td><td>&nbsp;Go home, show Buddha Vacana</td></tr>
+              <tr><td>1,2...5</td><td>&nbsp;Bring up bottom pane tabs</td></tr>
+              <tr><td>i</td><td>&nbsp;Display index</td></tr>
+              <tr><td>I</td><td>&nbsp;Install DPR offline app</td></tr>
+              <tr><td>p</td><td>&nbsp;Display previous section</td></tr>
+              <tr><td>n</td><td>&nbsp;Display next section</td></tr>
+              <tr><td>c</td><td>&nbsp;Copy permalink to clipboard</td></tr>
+              <tr><td>m</td><td>&nbsp;Switch to section in Mūla (side by side)</td></tr>
+              <tr><td>a</td><td>&nbsp;Switch to section in Aṭṭhakathā (side by side)</td></tr>
+              <tr><td>t</td><td>&nbsp;Switch to section in Ṭīkā (side by side)</td></tr>
+              <tr><td>M</td><td>&nbsp;Switch to section in Mūla (same pane)</td></tr>
+              <tr><td>A</td><td>&nbsp;Switch to section in Aṭṭhakathā (same pane)</td></tr>
+              <tr><td>T</td><td>&nbsp;Switch to section in Ṭīkā (same pane)</td></tr>
+              <tr><td>q</td><td>&nbsp;Enter quick reference (DN, MN, SN, & AN only)</td></tr>
+              <tr><td>s</td><td>&nbsp;Send selected text to convertor</td></tr>
+              <tr><td>e</td><td>&nbsp;Send selected text to textpad</td></tr>
+              <tr><td>E</td><td>&nbsp;Append selected text to textpad</td></tr>
+              <!-- <tr><td>,</td><td>&nbsp;Display previous PED or DPPN entry</td></tr>
+              <tr><td>.</td><td>&nbsp;Display next PED or DPPN entry</td></tr> -->
+              <tr><td>%</td><td>&nbsp;Display DPR settings</td></tr>
+              <tr><td>R</td><td>&nbsp;Reset all DPR settings</td></tr>
+              <tr><td>*</td><td>&nbsp;Display Pali quote</td></tr>
+              <tr><td>` or &amp;</td><td>&nbsp;Toggle sidebar</td></tr>
+              <!-- <tr><td>b</td><td>&nbsp;Save bookmark</td></tr> -->
+              <!-- <tr><td>#</td><td>&nbsp;Launch new quizz</td></tr> -->
+              <tr><td>h</td><td>&nbsp;Open help</td></tr>
+              <tr><td>@</td><td>&nbsp;Launch feedback form</td></tr>
+              <tr><td>?</td><td>&nbsp;Show this list of shortcuts</td></tr>
+            </table>
+            </div>
+          <div class="modal-footer p-2">
+            <button type="button" class="btn btn-primary btn-sm mb-0" title="Apply changes and close..." data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.module = { }
+    </script>
+    <script type="module" src="/_dprhtml/js/entry.js"></script>
+    <script type="module">
+      window.getFuncList = () => JSON.stringify(
+        Object.keys(window)
+          .sort()
+          .filter(k => !(whitelist.includes(k) || initObjList.includes(k)))
+          .map(name => ({ name, declLine1: window[name].toString().split('\n')[0].trim() })))
+    </script>
+  </body>
+</html>

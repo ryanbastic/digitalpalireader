@@ -1,0 +1,152 @@
+<div id="navigationTabContent">
+  <div class="card chromeback mb-2">
+    <div class="card-header" style="line-height: 1.35rem;">
+      Quick Link
+      <button id="quicklinks-info" type="button" class="btn btn-sm btn-light mb-0 p-0 float-right">
+        <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>
+      </button>
+      <div id="quicklinks-info-popover-content" style="display: none">
+        Use this box to quickly navigate to a specific sutta, section, etc..  Quick links are of two forms, as follows:<br><br>
+        1. 'DN1.1', 'MN1', etc., comprised of the first letter of the nikaya (D,M,S,A, or K), then an N, then the first
+        reference number, then a period, then the second reference number.  The N is now optional, so D1.1 also works. Use DN-a or DN-t for commentary or sub-commentary.<br><br>
+        2. For the first fifteen books in the Khuddaka Nikaya, the following syntax is also recognized: 'dhp1', 'it1', etc.,
+        comprised of the shorthand name for that book, followed by the reference number.  The shorthand names for the books are,
+        in order:<br>'khp','dhp','ud','it','snp','vv','pv','th','thi','apa','api','bv','cp','ja'<br><br>
+        Note, for the Jataka (ja), this syntax represents the jataka number, so 'ja547' will open the last jataka in book 15
+        (Jat. 2), whereas 'ja520' will open the last jataka in book 14 (Jat. 1).'<br><br>
+        Dhammapada verses are also recognized, using 'dhpv' followed by the verse number, e.g.: 'dhpv1', 'dhpv423', etc. Use dhpv-a for commentary.<br><br>
+        Capitalization is not necessary.
+      </div>
+    </div>
+    <div class="card-body p-2">
+      <div class="form-row">
+        <div class="form-group col mb-1">
+          <div class="navigation-hierarchy-layout">
+            <input id="nav-quicklinks" class="form-control" placeholder="e.g. mn 10.2"
+              onkeydown="DPRSend.sendQuickLinkOnEnterKey(event, DPRSend.eventSend(event));"></input>
+            <button id="nav-quicklinks-button" type="button" class="btn btn-light m-0 p-1" title="Open quick link (Click to open in primary section; Ctrl+Click to open in new tab; Shift+Click to open side by side)" onmouseup="DPRSend.sendQuickLink(DPRSend.eventSend(event));">
+              &rArr;
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card chromeback mb-2">
+    <div class="card-header" style="line-height: 1.35rem;">
+      Navigate Book Hierarchy
+      <button id="navigate-book-hierarchy-info" type="button" class="btn btn-sm btn-light mb-0 p-0 float-right">
+        <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>
+      </button>
+      <div id="navigate-book-hierarchy-info-popover-content" style="display: none">
+        Choose a Set, book, M/A/T, hierarchy and click the ⇒ or ≡ button to see the contents.
+      </div>
+    </div>
+    <div class="card-body p-2">
+      <div class="form-row mb-2">
+        <div class="form-group col-md-6 mb-1 localized" script="ro" id="nav-set-div">
+          <label class="small-bold-font" for="nav-set">Set</label>
+          <select class="custom-select force-show-scrollbar-on-macos" size="5" id="nav-set" data-bind="options: navset, optionsText: 'label', optionsValue: 'value', value: set, valueAllowUnset: true"></select>
+        </div>
+        <div class="form-group col-md-6 mb-1" id="nav-book-div">
+          <label class="small-bold-font" for="nav-book">Book</label>
+          <select class="custom-select force-show-scrollbar-on-macos" size="5" id="nav-book" data-bind="options: navBook, optionsText: 'label', optionsValue: 'value', value: book, valueAllowUnset: true"></select>
+        </div>
+      </div>
+
+      <div class="form-row mb-2">
+        <div id="mat-button-group" class="form-group col mb-1 d-flex justify-content-center">
+          <input type="radio" name="hier_val" class="hierbutton" id="hier-m" autocomplete="off" value="m" data-bind="checked: MAT">
+          <label class="" for="hier-m" title="Switch to Mūla (canon)">M</label>
+          <div class="mat-button-group-seperator"></div>
+          <input type="radio" name="hier_val" class="hierbutton" id="hier-a" autocomplete="off" value="a" data-bind="checked: MAT">
+          <label class="" for="hier-a" title="Switch to Aṭṭhakathā (commentary)">A</label>
+          <div class="mat-button-group-seperator"></div>
+          <input type="radio" name="hier_val" class="hierbutton" id="hier-t" autocomplete="off" value="t" data-bind="checked: MAT">
+          <label class="" for="hier-t" title="Switch to Ṭīkā (sub-commentary)">T</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col mb-1">
+          <label class="small-bold-font">Hierarchy</label>
+          <div id="navigation-hierarchy" class="navigation-hierarchy-layout localized" script="ro">
+            <button id="nav-title" type="button" class="btn btn-light m-0" title="View index for this book (Click to open in primary section; Ctrl+Click to open in new tab; Shift+Click to open side by side)" onmouseup="DPRSend.importXMLindex(DPR_Chrome.getPrimarySectionId(), DPRSend.eventSend(event));"
+              data-bind="text: navTitle"
+            >
+            </button>
+            <button id="nav-title-button" type="button" class="btn btn-light m-0 p-1" title="Combine all sub-sections (Click to open in primary section; Ctrl+Click to open in new tab; Shift+Click to open side by side)" onmouseup="DPRSend.importXML(false,null,null,null,DPRSend.eventSend(event),null,1)">
+              ≡
+            </button>
+
+            <!--ko let: { visible: navMetaVisible, info: navMetaInfo() || {} }-->
+            <select id="nav-meta" class="custom-select navselect" data-bind="visible: visible, options: navMeta, optionsText: 'label', optionsValue: 'value', value: meta, valueAllowUnset: true">
+            </select>
+            <button id="nav-meta-button" type="button" class="btn btn-light m-0 p-1" data-bind="visible: visible, text: info.text, attr: { title: info.title, onmouseup: info.onmouseup }"></button>
+            <!--/ko-->
+
+            <!--ko let: { visible: navVolumeVisible, info: navVolumeInfo() || {} }-->
+            <select id="nav-volume" class="custom-select navselect" data-bind="visible: visible, options: navVolume, optionsText: 'label', optionsValue: 'value', value: volume, valueAllowUnset: true">
+            </select>
+            <button id="nav-volume-button" type="button" class="btn btn-light m-0 p-1" data-bind="visible: visible, text: info.text, attr: { title: info.title, onmouseup: info.onmouseup }"></button>
+            <!--/ko-->
+
+            <!--ko let: { visible: navVaggaVisible, info: navVaggaInfo() || {} }-->
+            <select id="nav-vagga" class="custom-select navselect" data-bind="visible: visible, options: navVagga, optionsText: 'label', optionsValue: 'value', value: vagga, valueAllowUnset: true">
+            </select>
+            <button id="nav-vagga-button" type="button" class="btn btn-light m-0 p-1" data-bind="visible: visible, text: info.text, attr: { title: info.title, onmouseup: info.onmouseup }"></button>
+            <!--/ko-->
+
+            <!--ko let: { visible: navSuttaVisible, info: navSuttaInfo() || {} }-->
+            <select id="nav-sutta" class="custom-select navselect" data-bind="visible: visible, options: navSutta, optionsText: 'label', optionsValue: 'value', value: sutta, valueAllowUnset: true">
+            </select>
+            <button id="nav-sutta-button" type="button" class="btn btn-light m-0 p-1" data-bind="visible: visible, text: info.text, attr: { title: info.title, onmouseup: info.onmouseup }"></button>
+            <!--/ko-->
+
+            <!--ko let: { visible: navSectionVisible, info: navSectionInfo() || {} }-->
+            <select id="nav-section" class="custom-select navselect" data-bind="visible: visible, options: navSection, optionsText: 'label', optionsValue: 'value', value: section, valueAllowUnset: true">
+            </select>
+            <button id="nav-section-button" type="button" class="btn btn-light m-0 p-1" data-bind="visible: visible, text: info.text, attr: { title: info.title, onmouseup: info.onmouseup }"></button>
+            <!--/ko-->
+          </div>
+        </div>
+      </div>
+      <div class="form-row" data-bind="visible: isStorageSupportedByBrowser">
+        <div class="form-group col mb-1">
+          <label class="small-bold-font"></label>
+          <div id="navigation-history-bookmarks" class="navigation-hierarchy-layout">
+
+            <!--ko let: { info: historyInfo() || {} }-->
+            <select id="nav-history" class="custom-select navselect"
+              data-bind="options: navHistoryArray,
+                optionsText: function(item) {
+                  return item.indexOf('@') === -1 ? item : item.substring(0, item.indexOf('@'));
+                },
+                value: selectedHistoryItem,
+                event: {change: sendSelectedHistoryItem}">
+            </select>
+            <button id="nav-history-button" type="button" class="btn btn-light m-0 p-1"
+              data-bind="text: info.text, attr: { title: info.title, onmouseup: info.onmouseup }">
+            </button>
+            <!--/ko-->
+
+            <!--ko let: { info: bookmarksInfo() || {} }-->
+            <select id="nav-history" class="custom-select navselect"
+              data-bind="options: bookmarksArray,
+                optionsText: function(item) {
+                  return item.indexOf('@') === -1 ? item : item.substring(0, item.indexOf('@'));
+                },
+                value: selectedBookmarksItem,
+                event: {change: sendSelectedBookmarksItem}">
+            </select>
+            <button id="nav-bookmarks-button" type="button" class="btn btn-light m-0 p-1"
+              data-bind="text: info.text, attr: { title: info.title, onmouseup: info.onmouseup }">
+            </button>
+            <!--/ko-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

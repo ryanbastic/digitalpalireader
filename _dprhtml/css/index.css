@@ -1,0 +1,260 @@
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #ffd;
+}
+
+#main-window {
+	top: 0px;
+	bottom: 0px;
+	left: 28px;
+	right: 0px;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	width: 100%;
+}
+
+.contextMenuSbOpen {
+	position: relative;
+	left: 45px;
+	background-color: white;
+}
+.contextMenuSbClosed {
+	position: absolute;
+	top: 13px;
+	right: 135px;
+	background-color: white;
+	z-index: 1;
+}
+
+.feedback-button-wrapper {
+	position: absolute;
+	top: 1px;
+	right: 1em;
+	width: auto;
+	text-align: center;
+	z-index: 1;
+}
+.feedback-button {
+	height: 4em;
+	width: 8em;
+	font-size: 14px;
+	border-radius: 10%;
+	border: 0 none;
+	background: #72ab59;
+	color: #fff;
+	cursor: pointer;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+	transform: scale(1);
+	transition: all 200ms ease;
+}
+#feedbackFormLink {
+	color: rgba(252, 252, 252, 0.945);
+}
+.feedback-button:hover,
+.feedback-button:focus,
+.feedback-button:active {
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+	outline: 0;
+}
+
+#closeSbButton {
+	position: absolute;
+	right: 16px;
+}
+
+#nav-set,
+#nav-book {
+	height: 7rem;
+}
+
+#nav-hier-div > .btn {
+	min-width: 4rem;
+}
+
+#top-frame {
+	width: 100%;
+}
+
+#anf {
+	position: relative;
+	width: 100%;
+	height: auto;
+	z-index: 3;
+}
+
+#anfright {
+	width: 70%;
+	max-width: 70%;
+	padding-right: 20px;
+}
+
+#odif {
+	position: relative;
+	width: 100%;
+	overflow: auto;
+}
+
+#dif {
+	padding: 0px;
+}
+
+.featureTabContent {
+	margin-top: 15px;
+}
+
+.btn {
+	margin-bottom: 15px;
+}
+
+.navbutton {
+	width: 32px;
+}
+
+@media (max-width: 576px) {
+	.modal-dialog.modal-dialog-slideout {
+		width: 80%;
+	}
+}
+.modal-dialog-slideout {
+	min-height: 100%;
+	margin: 0 auto 0 0;
+	background: #fff;
+}
+.modal.fade .modal-dialog.modal-dialog-slideout {
+	-webkit-transform: translate(-100%, 0);
+	transform: translate(-100%, 0);
+}
+.modal.fade.show .modal-dialog.modal-dialog-slideout {
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
+	flex-flow: column;
+}
+.modal-dialog-slideout .modal-content {
+	border: 0;
+}
+
+.bottom-container {
+	display: flex;
+	text-align: center;
+}
+
+.bottom-item {
+	flex: 1 1 auto;
+	vertical-align: middle;
+}
+
+#input.bottom-item {
+	height: 70px;
+	width: 60%;
+	display: block;
+	margin: auto;
+}
+
+.bottom-center {
+	text-align: center;
+	display: block;
+	margin: auto;
+	width: 90%;
+}
+
+#translation {
+	margin-left: 20%;
+}
+
+@media (max-width: 576px) {
+	#translation {
+		margin: auto;
+		width: 90%;
+	}
+}
+
+textarea.bottom-item {
+	margin-top: 15px;
+	height: 200px;
+	min-width: 120px;
+}
+
+.cv-btn-group {
+	margin: 2px;
+	width: 120px;
+	background-color: rgb(238, 238, 238);
+	border: none;
+	font-size: smaller;
+	text-align: center;
+}
+
+.popover {
+	max-width: 50%;
+}
+
+.intro-space {
+	position: relative;
+	padding-top: 12%;
+	color: lightgrey;
+	text-align: center;
+	/* TODO
+   *  these 54 pixels come from trying to guess the correct height visually, in reality this should be the difference
+   *  from the hamburger button height and the bottom panel and its controls (the #main-content-panel-splitter), however
+   *  all of those elements' CSS is scattered.
+   */
+	height: calc(100% - 54px);
+	overflow-y: auto;
+}
+
+.intro-message {
+	position: relative;
+	padding-top: 50px;
+	color: #111;
+}
+
+.intro-message-huge {
+	font-size: xx-large;
+}
+
+.intro-message-tiny {
+	font-size: large;
+}
+
+.intro-message-green {
+	color: green;
+	font-weight: bold;
+}
+
+.small-bold-font {
+	font-size: small;
+	font-weight: bold;
+}
+
+/* CHEVRON ROTATION CODE*/
+.rotate {
+	-moz-transition: all .3s linear;
+	-webkit-transition: all .3s linear;
+	transition: all .3s linear;
+}
+
+.rotate.down {
+	-moz-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+.force-show-scrollbar-on-macos::-webkit-scrollbar {
+	-webkit-appearance: none;
+}
+
+.force-show-scrollbar-on-macos::-webkit-scrollbar:vertical {
+	width: 11px;
+}
+
+.force-show-scrollbar-on-macos::-webkit-scrollbar:horizontal {
+	height: 11px;
+}
+
+.force-show-scrollbar-on-macos::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	border: 2px solid white; /* should match background, can't be transparent */
+	background-color: rgba(0, 0, 0, 0.5);
+}

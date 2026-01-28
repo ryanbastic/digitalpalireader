@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "pnpm vite",
+    "build": "pnpm vite build",
+    "lint": "pnpm biome check .",
+    "test": "pnpm vitest"
+  },
+  "dependencies": {
+    "bootstrap": "4.4.1",
+    "font-awesome": "4.7.0",
+    "jquery": "3.4.1",
+    "jquery-resizable-dom": "0.35.0",
+    "knockout": "3.5.0",
+    "luxon": "1.27.0",
+    "popper.js": "1.16.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "jsdom": "25.0.1",
+    "vite": "6.0.3",
+    "vitest": "2.1.8"
+  }
+}

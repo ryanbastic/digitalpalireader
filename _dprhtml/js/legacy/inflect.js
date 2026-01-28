@@ -1,0 +1,5297 @@
+//ilectGroup#InflectInfo = InflectInfoDesc,NounMascSubGroup,NounNeutSubGroup,NounFemSubGroup
+
+DPR_G.iI = [];
+DPR_G.iN = [];
+DPR_G.iV = [];
+DPR_G.iNI = [];
+DPR_G.iVI = [];
+
+DPR_G.iI["I#adv"] = ["Adverb", "", "", ""];
+DPR_G.iI["I#conj"] = ["Conjunction", "", "", ""];
+DPR_G.iI["I#indeterm"] = [
+	"Indeterminate (cannot confirm it exists)",
+	"",
+	"",
+	"",
+];
+DPR_G.iI["I#interj"] = ["Interjection", "", "", ""];
+DPR_G.iI["I#phrase"] = ["Phrase", "", "", ""];
+DPR_G.iI["I#prefix"] = ["Prefix", "", "", ""];
+DPR_G.iI["I#prep"] = ["Preposition", "", "", ""];
+DPR_G.iI["I#ref"] = ["Referral", "", "", ""];
+DPR_G.iI["N#adj.a"] = ['Adjective, "a" declension', "A1", "B1", "C1"];
+DPR_G.iI["N#adj.ī"] = ['Adjective, "ī/in" declension', "F1", "E1", "H1"];
+DPR_G.iI["N#adj.ū"] = ['Adjective, "ū" declension', "L1", "N1", "M1"];
+DPR_G.iI["N#adj.aīa"] = ["Adjective, multiple declens.", "A1", "B1", "G3"];
+DPR_G.iI["N#adj.i"] = ['Adjective, "i" declension', "D1", "E1", "G2"];
+DPR_G.iI["N#adj.n"] = ["Adjective, numeral declens.", "I1", "I2", "I3"];
+DPR_G.iI["N#adj.t"] = ["Adj., pres. participle decl.", "V1", "W1", "X1"];
+DPR_G.iI["N#adj.te"] = ["Adj., pres. participle decl.", "V2", "W2", "X2"];
+DPR_G.iI["N#adj.to"] = ["Adj., pres. participle decl.", "V3", "W3", "X3"];
+DPR_G.iI["N#adj.u"] = ['Adjective, "u" declension', "J1", "K1", "O1"];
+DPR_G.iI["N#adj.v"] = ["Adjective, vant/mant decl.", "S1", "U1", "T1"];
+DPR_G.iI["N#adj.x"] = ["Adjective, irregular declens.", "--", "--", "--"];
+DPR_G.iI["N#adj.y"] = ["Adj., indeterminate decl.", "--", "--", "--"];
+DPR_G.iI["N#f.ā"] = ['Feminine noun, "ā" declens.', "", "", "C1"];
+DPR_G.iI["N#f.ī"] = ['Feminine noun, "ī" decl.', "", "", "G3"];
+DPR_G.iI["N#f.ū"] = ['Feminine noun, "ū" decl.', "", "", "O2"];
+DPR_G.iI["N#f.i"] = ['Feminine noun, "i" decl.', "", "", "G2"];
+DPR_G.iI["N#f.p"] = ["Fem. noun, pitar/mātar decl.", "", "", "Q2"];
+DPR_G.iI["N#f.u"] = ['Feminine noun, "u" decl.', "", "", "O1"];
+DPR_G.iI["N#indeterm"] = [
+	"Indeterminate (cannot confirm it exists)",
+	"",
+	"",
+	"",
+];
+DPR_G.iI["N#m.a"] = ['Masculine noun, "a" decl.', "A1", "", ""];
+DPR_G.iI["N#m.ī"] = ['Masculine noun, "ī" decl.', "F1", "", ""];
+DPR_G.iI["N#m.ū"] = ['Masculine noun, "ū" decl.', "L1", "", ""];
+DPR_G.iI["N#m.i"] = ['Masculine noun, "i" decl.', "D1", "", ""];
+DPR_G.iI["N#m.p"] = ["Masc. noun, pitar/mātar decl.", "Q1", "", ""];
+DPR_G.iI["N#m.r"] = ["Masc. noun, agent (ar) decl.", "P1", "", ""];
+DPR_G.iI["N#m.s"] = ["Masc. noun, as (mano) decl.", "R1", "", ""];
+DPR_G.iI["N#m.t"] = ["Masc noun, pres. part. decl.", "V1", "", ""];
+DPR_G.iI["N#m.te"] = ["Masc noun, pres. part. decl.", "V2", "", ""];
+DPR_G.iI["N#m.to"] = ["Masc noun, pres. part. decl.", "V3", "", ""];
+DPR_G.iI["N#m.u"] = ['Masculine noun, "u" decl.', "J1", "", ""];
+DPR_G.iI["N#m.v"] = ["Masc. noun, vant/mant decl.", "S1", "", ""];
+DPR_G.iI["N#m.x"] = ["Masc. noun, irregular decl.", "--", "--", "--"];
+DPR_G.iI["N#nt.a"] = ['Neuter noun, "a" declens.', "", "B1", ""];
+DPR_G.iI["N#nt.i"] = ['Neuter noun, "i" declension', "", "E1", ""];
+DPR_G.iI["N#nt.s"] = ["Neut. noun, as (mano) decl.", "", "R2", ""];
+DPR_G.iI["N#nt.u"] = ['Neuter noun, "u" declension', "", "K1", ""];
+DPR_G.iI["N#nt.x"] = ["Neut. noun, irregular decl.", "--", "--", "--"];
+DPR_G.iI["N#pro"] = ["Pronoun", "Z1", "Z3", "Z2"];
+DPR_G.iI["N#pro.a"] = ['Pronoun, "a" declension', "A1", "B1", "C1"];
+DPR_G.iI["N#pro.x"] = ["Pronoun, irregular decl.", "--", "--", "--"];
+DPR_G.iI["P#ac.fpp"] = ["Fut. passive part., active", "A1", "B1", "C1"];
+DPR_G.iI["P#ac.pp"] = ["Past participle, active", "F1", "E1", "H1"];
+DPR_G.iI["P#ac.prp.na"] = ["Present participle, active", "A1", "B1", "C1"];
+DPR_G.iI["P#ac.prp.nt"] = ["Present participle, active", "V1", "W1", "X1"];
+DPR_G.iI["P#ac.prp.nte"] = ["Present participle, active", "V2", "W2", "X2"];
+DPR_G.iI["P#ac.prp.nto"] = ["Present participle, active", "V3", "W3", "X3"];
+DPR_G.iI["P#ac.ger"] = ["Gerund, active", "", "", ""];
+DPR_G.iI["P#ca.ger"] = ["Gerund, causative", "", "", ""];
+DPR_G.iI["P#pa.ger"] = ["Gerund, passive", "", "", ""];
+DPR_G.iI["P#ca.fpp"] = ["Fut. passive part., causitive", "A1", "B1", "C1"];
+DPR_G.iI["P#ca.pp"] = ["Past participle, causitive", "A1", "B1", "C1"];
+DPR_G.iI["P#ca.prp.na"] = ["Present participle, causitive", "A1", "B1", "C1"];
+DPR_G.iI["P#ca.prp.nte"] = ["Present participle, causitive", "V2", "W2", "X2"];
+DPR_G.iI["P#cp.prp.na"] = ["Pres. part., caus. passive", "A1", "B1", "C1"];
+DPR_G.iI["P#indeterm"] = [
+	"Indeterminate (cannot confirm it exists)",
+	"",
+	"",
+	"",
+];
+DPR_G.iI["P#md.prp.na"] = ["Pres. part., middle voice", "A1", "B1", "C1"];
+DPR_G.iI["P#md.prp.nt"] = ["Pres. part., middle voice", "V1", "W1", "X1"];
+DPR_G.iI["P#md.prp.nte"] = ["Pres. part., middle voice", "V2", "W2", "X2"];
+DPR_G.iI["P#md.prp.nto"] = ["Pres. part., middle voice", "V3", "W3", "X3"];
+DPR_G.iI["P#pa.fpp"] = ["Fut. passive part., passive", "A1", "B1", "C1"];
+DPR_G.iI["P#pa.pp"] = ["Past participle, passive", "A1", "B1", "C1"];
+DPR_G.iI["P#pa.prp.na"] = ["Present participle, passive", "A1", "B1", "C1"];
+DPR_G.iI["P#pa.prp.nt"] = ["Present participle, passive", "V1", "W1", "X1"];
+DPR_G.iI["P#pa.prp.nte"] = ["Present participle, passive", "V2", "W2", "X2"];
+DPR_G.iI["P#pa.prp.nto"] = ["Present participle, passive", "V3", "W3", "X3"];
+DPR_G.iI["V#ac.cond"] = ["Active conditional", "", "", ""];
+DPR_G.iI["V#ac.fut"] = ["Active future", "", "", ""];
+DPR_G.iI["V#ac.opt"] = ["Active optative", "", "", ""];
+DPR_G.iI["V#ac.past.āsi"] = ["Active aorist, ending with āsi", "", "", ""];
+DPR_G.iI["V#ac.past.esi"] = ["Active aorist, ending with esi", "", "", ""];
+DPR_G.iI["V#ac.past.i"] = ['Active aorist, ending with "i"', "", "", ""];
+DPR_G.iI["V#ac.past.x"] = ["Active aorist, irregular", "", "", ""];
+DPR_G.iI["V#ac.pres.a_"] = ["Active present, 1st conjugation", "", "", ""];
+DPR_G.iI["V#ac.pres.a_ā"] = [
+	"Active pres., 1st conj., stems end in ā",
+	"",
+	"",
+	"",
+];
+DPR_G.iI["V#ac.pres.a_e"] = [
+	"Active pres., 1st conj., stems end in e",
+	"",
+	"",
+	"",
+];
+DPR_G.iI["V#ac.pres.a_o"] = [
+	"Active pres., 1st conj., stems end in o",
+	"",
+	"",
+	"",
+];
+DPR_G.iI["V#ac.pres.ah"] = [
+	'Active pres., 1st conj., impv with "hi"',
+	"",
+	"",
+	"",
+];
+DPR_G.iI["V#ac.pres.ahe"] = [
+	"Active pres., 1st conj, e stems, hi impv",
+	"",
+	"",
+	"",
+];
+DPR_G.iI["V#ac.pres.e_"] = ["Active present, 7th conjugation", "", "", ""];
+DPR_G.iI["V#ac.pres.ey"] = [
+	'Active pres., 7th conj., normally "aya"',
+	"",
+	"",
+	"",
+];
+DPR_G.iI["V#ac.pres.ma"] = ["Active present, 2nd conjugation", "", "", ""];
+DPR_G.iI["V#ac.pres.mh"] = [
+	'Active present, 2nd conj, impv in "hi"',
+	"",
+	"",
+	"",
+];
+DPR_G.iI["V#ac.pres.nā"] = ["Active present, 5th conjugation", "", "", ""];
+DPR_G.iI["V#ac.pres.o_"] = ["Active present, 6th conjugation", "", "", ""];
+DPR_G.iI["V#ac.pres.x_"] = [
+	"Active present, irregular conjugation",
+	"",
+	"",
+	"",
+];
+DPR_G.iI["V#ac.pres.x_ā"] = [
+	"Active present, irregular conj, ā stems",
+	"",
+	"",
+	"",
+];
+DPR_G.iI["V#ac.pres.yh"] = [
+	'Active present, 3rd conj, impv in "hi"',
+	"",
+	"",
+	"",
+];
+DPR_G.iI["V#ca.past.esi"] = ['Causative past, ending in "esi"', "", "", ""];
+DPR_G.iI["V#ca.pres"] = ["Causative present", "", "", ""];
+DPR_G.iI["V#cp.pres"] = ["Causative-passive present", "", "", ""];
+DPR_G.iI["V#indeterm"] = ["Indeterminate conjugation", "", "", ""];
+DPR_G.iI["V#md.pres"] = ["Middle voice present", "", "", ""];
+DPR_G.iI["V#pa.past.i"] = ['Passive past, endings in "i"', "", "", ""];
+DPR_G.iI["V#pa.pres"] = ["Passive present", "", "", ""];
+
+// InflectNounGroup,Number,Case = Inflection);
+DPR_G.iN["A1"] = [];
+DPR_G.iN["A1"][0] = [];
+DPR_G.iN["A1"][0]["nom"] = ["o"];
+DPR_G.iN["A1"][0]["voc"] = ["a"];
+DPR_G.iN["A1"][0]["acc"] = ["aṃ"];
+DPR_G.iN["A1"][0]["ins"] = ["ena"];
+DPR_G.iN["A1"][0]["dat"] = ["āya", "assa"];
+DPR_G.iN["A1"][0]["abl"] = ["ā", "asmā", "amhā", "(ato)"];
+DPR_G.iN["A1"][0]["gen"] = ["assa"];
+DPR_G.iN["A1"][0]["loc"] = ["e", "asmiṃ"];
+DPR_G.iN["A1"][1] = [];
+DPR_G.iN["A1"][1]["nom"] = ["ā"];
+DPR_G.iN["A1"][1]["voc"] = ["ā"];
+DPR_G.iN["A1"][1]["acc"] = ["e"];
+DPR_G.iN["A1"][1]["ins"] = ["ehi"];
+DPR_G.iN["A1"][1]["dat"] = ["ānaṃ"];
+DPR_G.iN["A1"][1]["abl"] = ["ehi"];
+DPR_G.iN["A1"][1]["gen"] = ["ānaṃ"];
+DPR_G.iN["A1"][1]["loc"] = ["esu"];
+DPR_G.iN["B1"] = [];
+DPR_G.iN["B1"][0] = [];
+DPR_G.iN["B1"][0]["nom"] = ["aṃ"];
+DPR_G.iN["B1"][0]["acc"] = ["aṃ"];
+DPR_G.iN["B1"][0]["ins"] = ["ena"];
+DPR_G.iN["B1"][0]["dat"] = ["āya", "assa"];
+DPR_G.iN["B1"][0]["abl"] = ["ā", "asmā", "amhā", "(ato)"];
+DPR_G.iN["B1"][0]["gen"] = ["assa"];
+DPR_G.iN["B1"][0]["loc"] = ["e", "asmiṃ"];
+DPR_G.iN["B1"][1] = [];
+DPR_G.iN["B1"][1]["nom"] = ["āni"];
+DPR_G.iN["B1"][1]["acc"] = ["āni"];
+DPR_G.iN["B1"][1]["ins"] = ["ehi"];
+DPR_G.iN["B1"][1]["dat"] = ["ānaṃ"];
+DPR_G.iN["B1"][1]["abl"] = ["ehi"];
+DPR_G.iN["B1"][1]["gen"] = ["ānaṃ"];
+DPR_G.iN["B1"][1]["loc"] = ["esu"];
+DPR_G.iN["C1"] = [];
+DPR_G.iN["C1"][0] = [];
+DPR_G.iN["C1"][0]["nom"] = ["ā"];
+DPR_G.iN["C1"][0]["voc"] = ["e"];
+DPR_G.iN["C1"][0]["acc"] = ["aṃ"];
+DPR_G.iN["C1"][0]["ins"] = ["āya"];
+DPR_G.iN["C1"][0]["dat"] = ["āya"];
+DPR_G.iN["C1"][0]["abl"] = ["āya"];
+DPR_G.iN["C1"][0]["gen"] = ["āya"];
+DPR_G.iN["C1"][0]["loc"] = ["āya", "āyaṃ"];
+DPR_G.iN["C1"][1] = [];
+DPR_G.iN["C1"][1]["nom"] = ["āyo", "(ā)"];
+DPR_G.iN["C1"][1]["voc"] = ["āyo", "(ā)"];
+DPR_G.iN["C1"][1]["acc"] = ["āyo", "(ā)"];
+DPR_G.iN["C1"][1]["ins"] = ["āhi"];
+DPR_G.iN["C1"][1]["dat"] = ["ānaṃ"];
+DPR_G.iN["C1"][1]["abl"] = ["āhi"];
+DPR_G.iN["C1"][1]["gen"] = ["ānaṃ"];
+DPR_G.iN["C1"][1]["loc"] = ["āsu"];
+DPR_G.iN["D1"] = [];
+DPR_G.iN["D1"][0] = [];
+DPR_G.iN["D1"][0]["nom"] = ["i"];
+DPR_G.iN["D1"][0]["voc"] = ["i"];
+DPR_G.iN["D1"][0]["acc"] = ["iṃ"];
+DPR_G.iN["D1"][0]["ins"] = ["inā"];
+DPR_G.iN["D1"][0]["dat"] = ["ino"];
+DPR_G.iN["D1"][0]["abl"] = ["inā", "ito", "ismā", "imhā"];
+DPR_G.iN["D1"][0]["gen"] = ["ino", "issa"];
+DPR_G.iN["D1"][0]["loc"] = ["ismiṃ", "imhi"];
+DPR_G.iN["D1"][1] = [];
+DPR_G.iN["D1"][1]["nom"] = ["ayo", "ī"];
+DPR_G.iN["D1"][1]["voc"] = ["ayo", "ī"];
+DPR_G.iN["D1"][1]["acc"] = ["ayo", "ī"];
+DPR_G.iN["D1"][1]["ins"] = ["ihi", "īhi"];
+DPR_G.iN["D1"][1]["dat"] = ["inaṃ", "īnaṃ"];
+DPR_G.iN["D1"][1]["abl"] = ["ihi", "īhi"];
+DPR_G.iN["D1"][1]["gen"] = ["inaṃ", "īnaṃ"];
+DPR_G.iN["D1"][1]["loc"] = ["isu", "īsu"];
+DPR_G.iN["D2"] = [];
+DPR_G.iN["D2"][0] = [];
+DPR_G.iN["D2"][0]["nom"] = ["i"];
+DPR_G.iN["D2"][0]["voc"] = ["i"];
+DPR_G.iN["D2"][0]["acc"] = ["iṃ"];
+DPR_G.iN["D2"][0]["ins"] = ["inā"];
+DPR_G.iN["D2"][0]["dat"] = ["ino"];
+DPR_G.iN["D2"][0]["abl"] = ["inā", "ito", "ismā", "imhā"];
+DPR_G.iN["D2"][0]["gen"] = ["ino", "issa"];
+DPR_G.iN["D2"][0]["loc"] = ["ismiṃ", "imhi"];
+DPR_G.iN["D2"][1] = [];
+DPR_G.iN["D2"][1]["nom"] = ["ayo", "ī"];
+DPR_G.iN["D2"][1]["voc"] = ["ayo", "ī"];
+DPR_G.iN["D2"][1]["acc"] = ["ayo", "ī"];
+DPR_G.iN["D2"][1]["ins"] = ["ihi", "īhi"];
+DPR_G.iN["D2"][1]["dat"] = ["inaṃ", "īnaṃ"];
+DPR_G.iN["D2"][1]["abl"] = ["ihi", "īhi"];
+DPR_G.iN["D2"][1]["gen"] = ["inaṃ", "īnaṃ"];
+DPR_G.iN["D2"][1]["loc"] = ["isu", "īsu"];
+DPR_G.iN["E1"] = [];
+DPR_G.iN["E1"][0] = [];
+DPR_G.iN["E1"][0]["nom"] = ["i", "iṃ"];
+DPR_G.iN["E1"][0]["voc"] = ["i", "iṃ"];
+DPR_G.iN["E1"][0]["acc"] = ["i", "iṃ"];
+DPR_G.iN["E1"][0]["ins"] = ["inā"];
+DPR_G.iN["E1"][0]["dat"] = ["ino"];
+DPR_G.iN["E1"][0]["abl"] = ["inā", "ito", "ismā", "imhā"];
+DPR_G.iN["E1"][0]["gen"] = ["ino", "issa"];
+DPR_G.iN["E1"][0]["loc"] = ["ismiṃ", "imhi"];
+DPR_G.iN["E1"][1] = [];
+DPR_G.iN["E1"][1]["nom"] = ["īni", "ī"];
+DPR_G.iN["E1"][1]["voc"] = ["īni", "ī"];
+DPR_G.iN["E1"][1]["acc"] = ["īni", "ī"];
+DPR_G.iN["E1"][1]["ins"] = ["ihi", "īhi"];
+DPR_G.iN["E1"][1]["dat"] = ["inaṃ", "īnaṃ"];
+DPR_G.iN["E1"][1]["abl"] = ["ihi", "īhi"];
+DPR_G.iN["E1"][1]["gen"] = ["inaṃ", "īnaṃ"];
+DPR_G.iN["E1"][1]["loc"] = ["isu", "īsu"];
+DPR_G.iN["E2"] = [];
+DPR_G.iN["E2"][0] = [];
+DPR_G.iN["E2"][0]["nom"] = ["i", "iṃ"];
+DPR_G.iN["E2"][0]["voc"] = ["i", "iṃ"];
+DPR_G.iN["E2"][0]["acc"] = ["i", "iṃ"];
+DPR_G.iN["E2"][0]["ins"] = ["inā"];
+DPR_G.iN["E2"][0]["dat"] = ["ino"];
+DPR_G.iN["E2"][0]["abl"] = ["inā", "ito", "ismā", "imhā"];
+DPR_G.iN["E2"][0]["gen"] = ["ino", "issa"];
+DPR_G.iN["E2"][0]["loc"] = ["ismiṃ", "imhi"];
+DPR_G.iN["E2"][1] = [];
+DPR_G.iN["E2"][1]["nom"] = ["īni", "ī"];
+DPR_G.iN["E2"][1]["voc"] = ["īni", "ī"];
+DPR_G.iN["E2"][1]["acc"] = ["īni", "ī"];
+DPR_G.iN["E2"][1]["ins"] = ["ihi", "īhi"];
+DPR_G.iN["E2"][1]["dat"] = ["inaṃ", "īnaṃ"];
+DPR_G.iN["E2"][1]["abl"] = ["ihi", "īhi"];
+DPR_G.iN["E2"][1]["gen"] = ["inaṃ", "īnaṃ"];
+DPR_G.iN["E2"][1]["loc"] = ["isu", "īsu"];
+DPR_G.iN["E3"] = [];
+DPR_G.iN["E3"][0] = [];
+DPR_G.iN["E3"][0]["nom"] = ["i", "iṃ"];
+DPR_G.iN["E3"][0]["acc"] = ["i", "iṃ"];
+DPR_G.iN["E3"][0]["ins"] = ["inā"];
+DPR_G.iN["E3"][0]["dat"] = ["ino"];
+DPR_G.iN["E3"][0]["abl"] = ["inā", "ito", "ismā", "imhā"];
+DPR_G.iN["E3"][0]["gen"] = ["ino", "issa"];
+DPR_G.iN["E3"][0]["loc"] = ["ismiṃ", "imhi"];
+DPR_G.iN["E3"][1] = [];
+DPR_G.iN["E3"][1]["nom"] = ["īni", "ī"];
+DPR_G.iN["E3"][1]["acc"] = ["īni", "ī"];
+DPR_G.iN["E3"][1]["ins"] = ["ihi", "īhi"];
+DPR_G.iN["E3"][1]["dat"] = ["inaṃ", "īnaṃ"];
+DPR_G.iN["E3"][1]["abl"] = ["ihi", "īhi"];
+DPR_G.iN["E3"][1]["gen"] = ["inaṃ", "īnaṃ"];
+DPR_G.iN["E3"][1]["loc"] = ["isu", "īsu"];
+DPR_G.iN["F1"] = [];
+DPR_G.iN["F1"][0] = [];
+DPR_G.iN["F1"][0]["nom"] = ["ī"];
+DPR_G.iN["F1"][0]["acc"] = ["inaṃ"];
+DPR_G.iN["F1"][0]["ins"] = ["inā"];
+DPR_G.iN["F1"][0]["dat"] = ["ino"];
+DPR_G.iN["F1"][0]["abl"] = ["inā", "ismā", "imhā"];
+DPR_G.iN["F1"][0]["gen"] = ["ino"];
+DPR_G.iN["F1"][0]["loc"] = ["ini", "ismiṃ", "imhi"];
+DPR_G.iN["F1"][1] = [];
+DPR_G.iN["F1"][1]["nom"] = ["ino"];
+DPR_G.iN["F1"][1]["acc"] = ["ino"];
+DPR_G.iN["F1"][1]["ins"] = ["ihi", "īhi"];
+DPR_G.iN["F1"][1]["dat"] = ["inaṃ", "īnaṃ"];
+DPR_G.iN["F1"][1]["abl"] = ["ihi", "īhi"];
+DPR_G.iN["F1"][1]["gen"] = ["inaṃ", "īnaṃ"];
+DPR_G.iN["F1"][1]["loc"] = ["isu", "īsu"];
+DPR_G.iN["G1"] = [];
+DPR_G.iN["G1"][0] = [];
+DPR_G.iN["G1"][0]["nom"] = ["ī", "i"];
+DPR_G.iN["G1"][0]["voc"] = ["i"];
+DPR_G.iN["G1"][0]["acc"] = ["iṃ"];
+DPR_G.iN["G1"][0]["ins"] = ["iyā"];
+DPR_G.iN["G1"][0]["dat"] = ["iyā"];
+DPR_G.iN["G1"][0]["abl"] = ["iyā"];
+DPR_G.iN["G1"][0]["gen"] = ["iyā"];
+DPR_G.iN["G1"][0]["loc"] = ["iyā", "iyaṃ"];
+DPR_G.iN["G1"][1] = [];
+DPR_G.iN["G1"][1]["nom"] = ["iyo"];
+DPR_G.iN["G1"][1]["voc"] = ["iyo"];
+DPR_G.iN["G1"][1]["acc"] = ["iyo"];
+DPR_G.iN["G1"][1]["ins"] = ["īhi"];
+DPR_G.iN["G1"][1]["dat"] = ["īnaṃ"];
+DPR_G.iN["G1"][1]["abl"] = ["īhi"];
+DPR_G.iN["G1"][1]["gen"] = ["īnaṃ"];
+DPR_G.iN["G1"][1]["loc"] = ["īsu"];
+DPR_G.iN["G2"] = [];
+DPR_G.iN["G2"][0] = [];
+DPR_G.iN["G2"][0]["nom"] = ["i"];
+DPR_G.iN["G2"][0]["voc"] = ["i"];
+DPR_G.iN["G2"][0]["acc"] = ["iṃ"];
+DPR_G.iN["G2"][0]["ins"] = ["iyā"];
+DPR_G.iN["G2"][0]["dat"] = ["iyā"];
+DPR_G.iN["G2"][0]["abl"] = ["iyā"];
+DPR_G.iN["G2"][0]["gen"] = ["iyā"];
+DPR_G.iN["G2"][0]["loc"] = ["iyā", "iyaṃ"];
+DPR_G.iN["G2"][1] = [];
+DPR_G.iN["G2"][1]["nom"] = ["iyo"];
+DPR_G.iN["G2"][1]["voc"] = ["iyo"];
+DPR_G.iN["G2"][1]["acc"] = ["iyo"];
+DPR_G.iN["G2"][1]["ins"] = ["īhi"];
+DPR_G.iN["G2"][1]["dat"] = ["īnaṃ"];
+DPR_G.iN["G2"][1]["abl"] = ["īhi"];
+DPR_G.iN["G2"][1]["gen"] = ["īnaṃ"];
+DPR_G.iN["G2"][1]["loc"] = ["īsu"];
+DPR_G.iN["G3"] = [];
+DPR_G.iN["G3"][0] = [];
+DPR_G.iN["G3"][0]["nom"] = ["ī"];
+DPR_G.iN["G3"][0]["voc"] = ["i"];
+DPR_G.iN["G3"][0]["acc"] = ["iṃ"];
+DPR_G.iN["G3"][0]["ins"] = ["iyā"];
+DPR_G.iN["G3"][0]["dat"] = ["iyā"];
+DPR_G.iN["G3"][0]["abl"] = ["iyā"];
+DPR_G.iN["G3"][0]["gen"] = ["iyā"];
+DPR_G.iN["G3"][0]["loc"] = ["iyā", "iyaṃ"];
+DPR_G.iN["G3"][1] = [];
+DPR_G.iN["G3"][1]["nom"] = ["iyo"];
+DPR_G.iN["G3"][1]["voc"] = ["iyo"];
+DPR_G.iN["G3"][1]["acc"] = ["iyo"];
+DPR_G.iN["G3"][1]["ins"] = ["īhi"];
+DPR_G.iN["G3"][1]["dat"] = ["īnaṃ"];
+DPR_G.iN["G3"][1]["abl"] = ["īhi"];
+DPR_G.iN["G3"][1]["gen"] = ["īnaṃ"];
+DPR_G.iN["G3"][1]["loc"] = ["īsu"];
+DPR_G.iN["H1"] = [];
+DPR_G.iN["H1"][0] = [];
+DPR_G.iN["H1"][0]["nom"] = ["inī"];
+DPR_G.iN["H1"][0]["acc"] = ["iniṃ"];
+DPR_G.iN["H1"][0]["ins"] = ["iniyā"];
+DPR_G.iN["H1"][0]["dat"] = ["iniyā"];
+DPR_G.iN["H1"][0]["abl"] = ["iniyā"];
+DPR_G.iN["H1"][0]["gen"] = ["iniyā"];
+DPR_G.iN["H1"][0]["loc"] = ["iniyā", "iniyaṃ"];
+DPR_G.iN["H1"][1] = [];
+DPR_G.iN["H1"][1]["nom"] = ["iniyo"];
+DPR_G.iN["H1"][1]["acc"] = ["iniyo"];
+DPR_G.iN["H1"][1]["ins"] = ["inīhi"];
+DPR_G.iN["H1"][1]["dat"] = ["inīnaṃ"];
+DPR_G.iN["H1"][1]["abl"] = ["inīhi"];
+DPR_G.iN["H1"][1]["gen"] = ["inīnaṃ"];
+DPR_G.iN["H1"][1]["loc"] = ["inīsu"];
+DPR_G.iN["I1"] = [];
+DPR_G.iN["I1"][1] = [];
+DPR_G.iN["I1"][1]["nom"] = ["a"];
+DPR_G.iN["I1"][1]["acc"] = ["a"];
+DPR_G.iN["I1"][1]["ins"] = ["ahi"];
+DPR_G.iN["I1"][1]["dat"] = ["annaṃ"];
+DPR_G.iN["I1"][1]["abl"] = ["ahi"];
+DPR_G.iN["I1"][1]["gen"] = ["annaṃ"];
+DPR_G.iN["I1"][1]["loc"] = ["asu"];
+DPR_G.iN["I2"] = [];
+DPR_G.iN["I2"][1] = [];
+DPR_G.iN["I2"][1]["nom"] = ["a"];
+DPR_G.iN["I2"][1]["acc"] = ["a"];
+DPR_G.iN["I2"][1]["ins"] = ["ahi"];
+DPR_G.iN["I2"][1]["dat"] = ["annaṃ"];
+DPR_G.iN["I2"][1]["abl"] = ["ahi"];
+DPR_G.iN["I2"][1]["gen"] = ["annaṃ"];
+DPR_G.iN["I2"][1]["loc"] = ["asu"];
+DPR_G.iN["I3"] = [];
+DPR_G.iN["I3"][1] = [];
+DPR_G.iN["I3"][1]["nom"] = ["a"];
+DPR_G.iN["I3"][1]["acc"] = ["a"];
+DPR_G.iN["I3"][1]["ins"] = ["ahi"];
+DPR_G.iN["I3"][1]["dat"] = ["annaṃ"];
+DPR_G.iN["I3"][1]["abl"] = ["ahi"];
+DPR_G.iN["I3"][1]["gen"] = ["annaṃ"];
+DPR_G.iN["I3"][1]["loc"] = ["asu"];
+DPR_G.iN["J1"] = [];
+DPR_G.iN["J1"][0] = [];
+DPR_G.iN["J1"][0]["nom"] = ["u"];
+DPR_G.iN["J1"][0]["voc"] = ["u"];
+DPR_G.iN["J1"][0]["acc"] = ["uṃ"];
+DPR_G.iN["J1"][0]["ins"] = ["unā"];
+DPR_G.iN["J1"][0]["dat"] = ["uno"];
+DPR_G.iN["J1"][0]["abl"] = ["unā"];
+DPR_G.iN["J1"][0]["gen"] = ["uno", "ussa"];
+DPR_G.iN["J1"][0]["loc"] = ["usmiṃ"];
+DPR_G.iN["J1"][1] = [];
+DPR_G.iN["J1"][1]["nom"] = ["avo", "ū"];
+DPR_G.iN["J1"][1]["voc"] = ["avo", "ū"];
+DPR_G.iN["J1"][1]["acc"] = ["avo", "ū"];
+DPR_G.iN["J1"][1]["ins"] = ["ūhi"];
+DPR_G.iN["J1"][1]["dat"] = ["ūnaṃ"];
+DPR_G.iN["J1"][1]["abl"] = ["ūhi"];
+DPR_G.iN["J1"][1]["gen"] = ["ūnaṃ", "unnaṃ"];
+DPR_G.iN["J1"][1]["loc"] = ["ūsu"];
+DPR_G.iN["K1"] = [];
+DPR_G.iN["K1"][0] = [];
+DPR_G.iN["K1"][0]["nom"] = ["u", "uṃ"];
+DPR_G.iN["K1"][0]["acc"] = ["u", "uṃ"];
+DPR_G.iN["K1"][0]["ins"] = ["unā"];
+DPR_G.iN["K1"][0]["dat"] = ["uno"];
+DPR_G.iN["K1"][0]["abl"] = ["unā"];
+DPR_G.iN["K1"][0]["gen"] = ["uno", "ussa"];
+DPR_G.iN["K1"][0]["loc"] = ["usmiṃ"];
+DPR_G.iN["K1"][1] = [];
+DPR_G.iN["K1"][1]["nom"] = ["ūni"];
+DPR_G.iN["K1"][1]["acc"] = ["ūni"];
+DPR_G.iN["K1"][1]["ins"] = ["ūhi"];
+DPR_G.iN["K1"][1]["dat"] = ["ūnaṃ"];
+DPR_G.iN["K1"][1]["abl"] = ["ūhi"];
+DPR_G.iN["K1"][1]["gen"] = ["ūnaṃ", "unnaṃ"];
+DPR_G.iN["K1"][1]["loc"] = ["ūsu"];
+DPR_G.iN["L1"] = [];
+DPR_G.iN["L1"][0] = [];
+DPR_G.iN["L1"][0]["nom"] = ["ū"];
+DPR_G.iN["L1"][0]["acc"] = ["uṃ"];
+DPR_G.iN["L1"][0]["ins"] = ["unā"];
+DPR_G.iN["L1"][0]["dat"] = ["uno"];
+DPR_G.iN["L1"][0]["abl"] = ["unā"];
+DPR_G.iN["L1"][0]["gen"] = ["uno", "ussa"];
+DPR_G.iN["L1"][0]["loc"] = ["usmiṃ"];
+DPR_G.iN["L1"][1] = [];
+DPR_G.iN["L1"][1]["nom"] = ["ū", "uno", "ūno"];
+DPR_G.iN["L1"][1]["acc"] = ["ū", "uno", "ūno"];
+DPR_G.iN["L1"][1]["ins"] = ["ūhi"];
+DPR_G.iN["L1"][1]["dat"] = ["ūnaṃ"];
+DPR_G.iN["L1"][1]["abl"] = ["ūhi"];
+DPR_G.iN["L1"][1]["gen"] = ["ūnaṃ", "unnaṃ"];
+DPR_G.iN["L1"][1]["loc"] = ["ūsu"];
+DPR_G.iN["M1"] = [];
+DPR_G.iN["M1"][0] = [];
+DPR_G.iN["M1"][0]["nom"] = ["unī"];
+DPR_G.iN["M1"][0]["voc"] = ["unī"];
+DPR_G.iN["M1"][0]["acc"] = ["uniṃ"];
+DPR_G.iN["M1"][0]["ins"] = ["uniyā"];
+DPR_G.iN["M1"][0]["dat"] = ["uniyā"];
+DPR_G.iN["M1"][0]["abl"] = ["uniyā"];
+DPR_G.iN["M1"][0]["gen"] = ["uniyā"];
+DPR_G.iN["M1"][0]["loc"] = ["uniyā", "uniyaṃ"];
+DPR_G.iN["M1"][1] = [];
+DPR_G.iN["M1"][1]["nom"] = ["unī", "uniyo"];
+DPR_G.iN["M1"][1]["voc"] = ["unī", "uniyo"];
+DPR_G.iN["M1"][1]["acc"] = ["unī", "uniyo"];
+DPR_G.iN["M1"][1]["ins"] = ["unīhi"];
+DPR_G.iN["M1"][1]["dat"] = ["unīnaṃ"];
+DPR_G.iN["M1"][1]["abl"] = ["unīhi"];
+DPR_G.iN["M1"][1]["gen"] = ["unīnaṃ"];
+DPR_G.iN["M1"][1]["loc"] = ["unīsu"];
+DPR_G.iN["N1"] = [];
+DPR_G.iN["N1"][0] = [];
+DPR_G.iN["N1"][0]["nom"] = ["uṃ"];
+DPR_G.iN["N1"][0]["voc"] = ["ū"];
+DPR_G.iN["N1"][0]["acc"] = ["uṃ"];
+DPR_G.iN["N1"][0]["ins"] = ["unā"];
+DPR_G.iN["N1"][0]["dat"] = ["uno"];
+DPR_G.iN["N1"][0]["abl"] = ["unā"];
+DPR_G.iN["N1"][0]["gen"] = ["uno", "ussa"];
+DPR_G.iN["N1"][0]["loc"] = ["usmiṃ"];
+DPR_G.iN["N1"][1] = [];
+DPR_G.iN["N1"][1]["nom"] = ["ūni", "ū"];
+DPR_G.iN["N1"][1]["voc"] = ["ūni", "ū"];
+DPR_G.iN["N1"][1]["acc"] = ["ūni", "ū"];
+DPR_G.iN["N1"][1]["ins"] = ["ūhi"];
+DPR_G.iN["N1"][1]["dat"] = ["ūnaṃ"];
+DPR_G.iN["N1"][1]["abl"] = ["ūhi"];
+DPR_G.iN["N1"][1]["gen"] = ["ūnaṃ", "unnaṃ"];
+DPR_G.iN["N1"][1]["loc"] = ["ūsu"];
+DPR_G.iN["O1"] = [];
+DPR_G.iN["O1"][0] = [];
+DPR_G.iN["O1"][0]["nom"] = ["u"];
+DPR_G.iN["O1"][0]["voc"] = ["u"];
+DPR_G.iN["O1"][0]["acc"] = ["uṃ"];
+DPR_G.iN["O1"][0]["ins"] = ["uyā"];
+DPR_G.iN["O1"][0]["dat"] = ["uyā"];
+DPR_G.iN["O1"][0]["abl"] = ["uyā"];
+DPR_G.iN["O1"][0]["gen"] = ["uyā"];
+DPR_G.iN["O1"][0]["loc"] = ["uyā"];
+DPR_G.iN["O1"][1] = [];
+DPR_G.iN["O1"][1]["nom"] = ["uyo"];
+DPR_G.iN["O1"][1]["voc"] = ["uyo"];
+DPR_G.iN["O1"][1]["acc"] = ["uyo"];
+DPR_G.iN["O1"][1]["ins"] = ["ūhi"];
+DPR_G.iN["O1"][1]["dat"] = ["ūnaṃ"];
+DPR_G.iN["O1"][1]["abl"] = ["ūhi"];
+DPR_G.iN["O1"][1]["gen"] = ["ūnaṃ"];
+DPR_G.iN["O1"][1]["loc"] = ["usu"];
+DPR_G.iN["O2"] = [];
+DPR_G.iN["O2"][0] = [];
+DPR_G.iN["O2"][0]["nom"] = ["ū"];
+DPR_G.iN["O2"][0]["voc"] = ["u"];
+DPR_G.iN["O2"][0]["acc"] = ["uṃ"];
+DPR_G.iN["O2"][0]["ins"] = ["uyā"];
+DPR_G.iN["O2"][0]["dat"] = ["uyā"];
+DPR_G.iN["O2"][0]["abl"] = ["uyā"];
+DPR_G.iN["O2"][0]["gen"] = ["uyā"];
+DPR_G.iN["O2"][0]["loc"] = ["uyā"];
+DPR_G.iN["O2"][1] = [];
+DPR_G.iN["O2"][1]["nom"] = ["uyo"];
+DPR_G.iN["O2"][1]["voc"] = ["uyo"];
+DPR_G.iN["O2"][1]["acc"] = ["uyo"];
+DPR_G.iN["O2"][1]["ins"] = ["ūhi"];
+DPR_G.iN["O2"][1]["dat"] = ["ūnaṃ"];
+DPR_G.iN["O2"][1]["abl"] = ["ūhi"];
+DPR_G.iN["O2"][1]["gen"] = ["ūnaṃ"];
+DPR_G.iN["O2"][1]["loc"] = ["usu"];
+DPR_G.iN["P1"] = [];
+DPR_G.iN["P1"][0] = [];
+DPR_G.iN["P1"][0]["nom"] = ["ā"];
+DPR_G.iN["P1"][0]["voc"] = ["e"];
+DPR_G.iN["P1"][0]["acc"] = ["āraṃ"];
+DPR_G.iN["P1"][0]["ins"] = ["ārā"];
+DPR_G.iN["P1"][0]["dat"] = ["u"];
+DPR_G.iN["P1"][0]["abl"] = ["ārā"];
+DPR_G.iN["P1"][0]["gen"] = ["u", "(uno)"];
+DPR_G.iN["P1"][0]["loc"] = ["ari"];
+DPR_G.iN["P1"][1] = [];
+DPR_G.iN["P1"][1]["nom"] = ["āro"];
+DPR_G.iN["P1"][1]["voc"] = ["āro"];
+DPR_G.iN["P1"][1]["acc"] = ["āro"];
+DPR_G.iN["P1"][1]["ins"] = ["ūhi"];
+DPR_G.iN["P1"][1]["dat"] = ["ūnaṃ"];
+DPR_G.iN["P1"][1]["abl"] = ["ūhi"];
+DPR_G.iN["P1"][1]["gen"] = ["ūnaṃ", "ārānaṃ"];
+DPR_G.iN["P1"][1]["loc"] = ["ūsu"];
+DPR_G.iN["Q1"] = [];
+DPR_G.iN["Q1"][0] = [];
+DPR_G.iN["Q1"][0]["nom"] = ["ā"];
+DPR_G.iN["Q1"][0]["voc"] = ["a", "ā"];
+DPR_G.iN["Q1"][0]["acc"] = ["araṃ"];
+DPR_G.iN["Q1"][0]["ins"] = ["arā"];
+DPR_G.iN["Q1"][0]["dat"] = ["u"];
+DPR_G.iN["Q1"][0]["abl"] = ["arā"];
+DPR_G.iN["Q1"][0]["gen"] = ["u", "(uno)"];
+DPR_G.iN["Q1"][0]["loc"] = ["ari"];
+DPR_G.iN["Q1"][1] = [];
+DPR_G.iN["Q1"][1]["nom"] = ["aro"];
+DPR_G.iN["Q1"][1]["voc"] = ["aro", "ā"];
+DPR_G.iN["Q1"][1]["acc"] = ["aro"];
+DPR_G.iN["Q1"][1]["ins"] = ["ūhi"];
+DPR_G.iN["Q1"][1]["dat"] = ["unnaṃ"];
+DPR_G.iN["Q1"][1]["abl"] = ["ūhi"];
+DPR_G.iN["Q1"][1]["gen"] = ["unnaṃ", "(ūnaṃ)"];
+DPR_G.iN["Q1"][1]["loc"] = ["ūsu"];
+DPR_G.iN["Q2"] = [];
+DPR_G.iN["Q2"][0] = [];
+DPR_G.iN["Q2"][0]["nom"] = ["ā"];
+DPR_G.iN["Q2"][0]["voc"] = ["a", "ā"];
+DPR_G.iN["Q2"][0]["acc"] = ["araṃ"];
+DPR_G.iN["Q2"][0]["ins"] = ["arā"];
+DPR_G.iN["Q2"][0]["dat"] = ["u"];
+DPR_G.iN["Q2"][0]["abl"] = ["arā"];
+DPR_G.iN["Q2"][0]["gen"] = ["u", "(uno)"];
+DPR_G.iN["Q2"][0]["loc"] = ["ari"];
+DPR_G.iN["Q2"][1] = [];
+DPR_G.iN["Q2"][1]["nom"] = ["aro"];
+DPR_G.iN["Q2"][1]["voc"] = ["aro", "ā"];
+DPR_G.iN["Q2"][1]["acc"] = ["aro"];
+DPR_G.iN["Q2"][1]["ins"] = ["ūhi"];
+DPR_G.iN["Q2"][1]["dat"] = ["unnaṃ"];
+DPR_G.iN["Q2"][1]["abl"] = ["ūhi"];
+DPR_G.iN["Q2"][1]["gen"] = ["unnaṃ", "(ūnaṃ)"];
+DPR_G.iN["Q2"][1]["loc"] = ["ūsu"];
+DPR_G.iN["R1"] = [];
+DPR_G.iN["R1"][0] = [];
+DPR_G.iN["R1"][0]["nom"] = ["o"];
+DPR_G.iN["R1"][0]["voc"] = ["o"];
+DPR_G.iN["R1"][0]["acc"] = ["o"];
+DPR_G.iN["R1"][0]["ins"] = ["asā"];
+DPR_G.iN["R1"][0]["dat"] = ["aso"];
+DPR_G.iN["R1"][0]["abl"] = ["asā"];
+DPR_G.iN["R1"][0]["gen"] = ["aso"];
+DPR_G.iN["R1"][0]["loc"] = ["asi"];
+DPR_G.iN["R2"] = [];
+DPR_G.iN["R2"][0] = [];
+DPR_G.iN["R2"][0]["nom"] = ["aṃ"];
+DPR_G.iN["R2"][0]["voc"] = ["aṃ"];
+DPR_G.iN["R2"][0]["acc"] = ["aṃ"];
+DPR_G.iN["R2"][0]["ins"] = ["asā"];
+DPR_G.iN["R2"][0]["dat"] = ["aso"];
+DPR_G.iN["R2"][0]["abl"] = ["asā"];
+DPR_G.iN["R2"][0]["gen"] = ["aso"];
+DPR_G.iN["R2"][0]["loc"] = ["asi"];
+DPR_G.iN["S1"] = [];
+DPR_G.iN["S1"][0] = [];
+DPR_G.iN["S1"][0]["nom"] = ["ā"];
+DPR_G.iN["S1"][0]["voc"] = ["ā", "a"];
+DPR_G.iN["S1"][0]["acc"] = ["antaṃ"];
+DPR_G.iN["S1"][0]["ins"] = ["atā"];
+DPR_G.iN["S1"][0]["dat"] = ["ato"];
+DPR_G.iN["S1"][0]["abl"] = ["atā"];
+DPR_G.iN["S1"][0]["gen"] = ["ato"];
+DPR_G.iN["S1"][0]["loc"] = ["ati"];
+DPR_G.iN["S1"][1] = [];
+DPR_G.iN["S1"][1]["nom"] = ["anto", "antā"];
+DPR_G.iN["S1"][1]["voc"] = ["anto"];
+DPR_G.iN["S1"][1]["acc"] = ["anto", "ante"];
+DPR_G.iN["S1"][1]["ins"] = ["antehi"];
+DPR_G.iN["S1"][1]["dat"] = ["antānam"];
+DPR_G.iN["S1"][1]["abl"] = ["antehi"];
+DPR_G.iN["S1"][1]["gen"] = ["antānam"];
+DPR_G.iN["S1"][1]["loc"] = ["antesu"];
+DPR_G.iN["T1"] = [];
+DPR_G.iN["T1"][0] = [];
+DPR_G.iN["T1"][0]["nom"] = ["atī"];
+DPR_G.iN["T1"][0]["voc"] = ["atī"];
+DPR_G.iN["T1"][0]["acc"] = ["atiṃ"];
+DPR_G.iN["T1"][0]["ins"] = ["atiyā"];
+DPR_G.iN["T1"][0]["dat"] = ["atiyā"];
+DPR_G.iN["T1"][0]["abl"] = ["atiyā"];
+DPR_G.iN["T1"][0]["gen"] = ["atiyā"];
+DPR_G.iN["T1"][0]["loc"] = ["atiyā", "atiyaṃ"];
+DPR_G.iN["T1"][1] = [];
+DPR_G.iN["T1"][1]["nom"] = ["atiyo"];
+DPR_G.iN["T1"][1]["voc"] = ["atiyo"];
+DPR_G.iN["T1"][1]["acc"] = ["atiyo"];
+DPR_G.iN["T1"][1]["ins"] = ["atīhi"];
+DPR_G.iN["T1"][1]["dat"] = ["atīnaṃ"];
+DPR_G.iN["T1"][1]["abl"] = ["atīhi"];
+DPR_G.iN["T1"][1]["gen"] = ["atīnaṃ"];
+DPR_G.iN["T1"][1]["loc"] = ["atīsu"];
+DPR_G.iN["U1"] = [];
+DPR_G.iN["U1"][0] = [];
+DPR_G.iN["U1"][0]["nom"] = ["aṃ", "antaṃ"];
+DPR_G.iN["U1"][0]["voc"] = ["a", "aṃ"];
+DPR_G.iN["U1"][0]["acc"] = ["aṃ", "antaṃ"];
+DPR_G.iN["U1"][0]["ins"] = ["atā"];
+DPR_G.iN["U1"][0]["dat"] = ["ato"];
+DPR_G.iN["U1"][0]["abl"] = ["atā"];
+DPR_G.iN["U1"][0]["gen"] = ["ato"];
+DPR_G.iN["U1"][0]["loc"] = ["ati"];
+DPR_G.iN["U1"][1] = [];
+DPR_G.iN["U1"][1]["nom"] = ["antāni"];
+DPR_G.iN["U1"][1]["voc"] = ["antāni"];
+DPR_G.iN["U1"][1]["acc"] = ["antāni"];
+DPR_G.iN["U1"][1]["ins"] = ["antehi"];
+DPR_G.iN["U1"][1]["dat"] = ["antānam"];
+DPR_G.iN["U1"][1]["abl"] = ["antehi"];
+DPR_G.iN["U1"][1]["gen"] = ["antānam"];
+DPR_G.iN["U1"][1]["loc"] = ["antesu"];
+DPR_G.iN["V1"] = [];
+DPR_G.iN["V1"][0] = [];
+DPR_G.iN["V1"][0]["nom"] = ["aṃ", "anto"];
+DPR_G.iN["V1"][0]["acc"] = ["antaṃ"];
+DPR_G.iN["V1"][0]["ins"] = ["atā", "(antena)"];
+DPR_G.iN["V1"][0]["dat"] = ["ato"];
+DPR_G.iN["V1"][0]["abl"] = ["atā"];
+DPR_G.iN["V1"][0]["gen"] = ["ato", "(antassa)"];
+DPR_G.iN["V1"][0]["loc"] = ["ati", "(ante)"];
+DPR_G.iN["V1"][1] = [];
+DPR_G.iN["V1"][1]["nom"] = ["antā"];
+DPR_G.iN["V1"][1]["acc"] = ["ante"];
+DPR_G.iN["V1"][1]["ins"] = ["antehi"];
+DPR_G.iN["V1"][1]["dat"] = ["ataṃ"];
+DPR_G.iN["V1"][1]["abl"] = ["antehi"];
+DPR_G.iN["V1"][1]["gen"] = ["ataṃ"];
+DPR_G.iN["V1"][1]["loc"] = ["antesu"];
+DPR_G.iN["W1"] = [];
+DPR_G.iN["W1"][0] = [];
+DPR_G.iN["W1"][0]["nom"] = ["aṃ", "antaṃ"];
+DPR_G.iN["W1"][0]["acc"] = ["antaṃ"];
+DPR_G.iN["W1"][0]["ins"] = ["atā", "(antena)"];
+DPR_G.iN["W1"][0]["dat"] = ["ato"];
+DPR_G.iN["W1"][0]["abl"] = ["atā"];
+DPR_G.iN["W1"][0]["gen"] = ["ato", "(antassa)"];
+DPR_G.iN["W1"][0]["loc"] = ["ati", "(ante)"];
+DPR_G.iN["W1"][1] = [];
+DPR_G.iN["W1"][1]["nom"] = ["antāni"];
+DPR_G.iN["W1"][1]["acc"] = ["antāni"];
+DPR_G.iN["W1"][1]["ins"] = ["antehi"];
+DPR_G.iN["W1"][1]["dat"] = ["ataṃ"];
+DPR_G.iN["W1"][1]["abl"] = ["antehi"];
+DPR_G.iN["W1"][1]["gen"] = ["ataṃ"];
+DPR_G.iN["W1"][1]["loc"] = ["antesu"];
+DPR_G.iN["X1"] = [];
+DPR_G.iN["X1"][0] = [];
+DPR_G.iN["X1"][0]["nom"] = ["atī"];
+DPR_G.iN["X1"][0]["acc"] = ["atiṃ"];
+DPR_G.iN["X1"][0]["ins"] = ["atiyā"];
+DPR_G.iN["X1"][0]["dat"] = ["atiyā"];
+DPR_G.iN["X1"][0]["abl"] = ["atiyā"];
+DPR_G.iN["X1"][0]["gen"] = ["atiyā"];
+DPR_G.iN["X1"][0]["loc"] = ["atiyā", "atiyaṃ"];
+DPR_G.iN["X1"][1] = [];
+DPR_G.iN["X1"][1]["nom"] = ["atiyo"];
+DPR_G.iN["X1"][1]["acc"] = ["atiyo"];
+DPR_G.iN["X1"][1]["ins"] = ["atīhi"];
+DPR_G.iN["X1"][1]["dat"] = ["atīnaṃ"];
+DPR_G.iN["X1"][1]["abl"] = ["atīhi"];
+DPR_G.iN["X1"][1]["gen"] = ["atīnaṃ"];
+DPR_G.iN["X1"][1]["loc"] = ["atīsu"];
+DPR_G.iN["Z1"] = [];
+DPR_G.iN["Z1"][0] = [];
+DPR_G.iN["Z1"][0]["nom"] = ["o"];
+DPR_G.iN["Z1"][0]["voc"] = ["a"];
+DPR_G.iN["Z1"][0]["acc"] = ["aṃ"];
+DPR_G.iN["Z1"][0]["ins"] = ["ena"];
+DPR_G.iN["Z1"][0]["dat"] = ["assa"];
+DPR_G.iN["Z1"][0]["abl"] = ["asmā", "amhā"];
+DPR_G.iN["Z1"][0]["gen"] = ["assa"];
+DPR_G.iN["Z1"][0]["loc"] = ["amhi", "asmiṃ", "amhi"];
+DPR_G.iN["Z1"][1] = [];
+DPR_G.iN["Z1"][1]["nom"] = ["e"];
+DPR_G.iN["Z1"][1]["voc"] = ["ā"];
+DPR_G.iN["Z1"][1]["acc"] = ["e"];
+DPR_G.iN["Z1"][1]["ins"] = ["ehi"];
+DPR_G.iN["Z1"][1]["dat"] = ["esaṃ"];
+DPR_G.iN["Z1"][1]["abl"] = ["ehi"];
+DPR_G.iN["Z1"][1]["gen"] = ["esaṃ"];
+DPR_G.iN["Z1"][1]["loc"] = ["esu"];
+DPR_G.iN["Z2"] = [];
+DPR_G.iN["Z2"][0] = [];
+DPR_G.iN["Z2"][0]["nom"] = ["ā"];
+DPR_G.iN["Z2"][0]["voc"] = ["e"];
+DPR_G.iN["Z2"][0]["acc"] = ["aṃ"];
+DPR_G.iN["Z2"][0]["ins"] = ["āya"];
+DPR_G.iN["Z2"][0]["dat"] = ["assā"];
+DPR_G.iN["Z2"][0]["abl"] = ["āya"];
+DPR_G.iN["Z2"][0]["gen"] = ["assā"];
+DPR_G.iN["Z2"][0]["loc"] = ["āyaṃ", "āya", "assaṃ"];
+DPR_G.iN["Z2"][1] = [];
+DPR_G.iN["Z2"][1]["nom"] = ["ā"];
+DPR_G.iN["Z2"][1]["voc"] = ["ā"];
+DPR_G.iN["Z2"][1]["acc"] = ["ā", "(ā)"];
+DPR_G.iN["Z2"][1]["ins"] = ["āhi"];
+DPR_G.iN["Z2"][1]["dat"] = ["āsaṃ"];
+DPR_G.iN["Z2"][1]["abl"] = ["āhi"];
+DPR_G.iN["Z2"][1]["gen"] = ["āsaṃ"];
+DPR_G.iN["Z2"][1]["loc"] = ["āsu"];
+DPR_G.iN["Z3"] = [];
+DPR_G.iN["Z3"][0] = [];
+DPR_G.iN["Z3"][0]["nom"] = ["aṃ"];
+DPR_G.iN["Z3"][0]["acc"] = ["aṃ"];
+DPR_G.iN["Z3"][0]["ins"] = ["ena"];
+DPR_G.iN["Z3"][0]["dat"] = ["assa"];
+DPR_G.iN["Z3"][0]["abl"] = ["asmā", "amhā"];
+DPR_G.iN["Z3"][0]["gen"] = ["assa"];
+DPR_G.iN["Z3"][0]["loc"] = ["amhi", "asmiṃ", "amhi"];
+DPR_G.iN["Z3"][1] = [];
+DPR_G.iN["Z3"][1]["nom"] = ["āni"];
+DPR_G.iN["Z3"][1]["acc"] = ["āni"];
+DPR_G.iN["Z3"][1]["ins"] = ["ehi"];
+DPR_G.iN["Z3"][1]["dat"] = ["esaṃ"];
+DPR_G.iN["Z3"][1]["abl"] = ["ehi"];
+DPR_G.iN["Z3"][1]["gen"] = ["esaṃ"];
+DPR_G.iN["Z3"][1]["loc"] = ["esu"];
+DPR_G.iN["V2"] = [];
+DPR_G.iN["V2"][0] = [];
+DPR_G.iN["V2"][0]["nom"] = ["ento"];
+DPR_G.iN["V2"][0]["acc"] = ["entaṃ"];
+DPR_G.iN["V2"][0]["ins"] = ["etā", "(entena)"];
+DPR_G.iN["V2"][0]["dat"] = ["eto"];
+DPR_G.iN["V2"][0]["abl"] = ["etā"];
+DPR_G.iN["V2"][0]["gen"] = ["eto", "(entassa)"];
+DPR_G.iN["V2"][0]["loc"] = ["eti", "(ente)"];
+DPR_G.iN["V2"][1] = [];
+DPR_G.iN["V2"][1]["nom"] = ["entā"];
+DPR_G.iN["V2"][1]["acc"] = ["ente"];
+DPR_G.iN["V2"][1]["ins"] = ["entehi"];
+DPR_G.iN["V2"][1]["dat"] = ["etaṃ"];
+DPR_G.iN["V2"][1]["abl"] = ["entehi"];
+DPR_G.iN["V2"][1]["gen"] = ["etaṃ"];
+DPR_G.iN["V2"][1]["loc"] = ["entesu"];
+DPR_G.iN["W2"] = [];
+DPR_G.iN["W2"][0] = [];
+DPR_G.iN["W2"][0]["nom"] = ["entaṃ"];
+DPR_G.iN["W2"][0]["acc"] = ["entaṃ"];
+DPR_G.iN["W2"][0]["ins"] = ["etā", "(entena)"];
+DPR_G.iN["W2"][0]["dat"] = ["eto"];
+DPR_G.iN["W2"][0]["abl"] = ["etā"];
+DPR_G.iN["W2"][0]["gen"] = ["eto", "(entassa)"];
+DPR_G.iN["W2"][0]["loc"] = ["eti", "(ente)"];
+DPR_G.iN["W2"][1] = [];
+DPR_G.iN["W2"][1]["nom"] = ["entāni"];
+DPR_G.iN["W2"][1]["acc"] = ["entāni"];
+DPR_G.iN["W2"][1]["ins"] = ["entehi"];
+DPR_G.iN["W2"][1]["dat"] = ["etaṃ"];
+DPR_G.iN["W2"][1]["abl"] = ["entehi"];
+DPR_G.iN["W2"][1]["gen"] = ["etaṃ"];
+DPR_G.iN["W2"][1]["loc"] = ["entesu"];
+DPR_G.iN["V3"] = [];
+DPR_G.iN["V3"][0] = [];
+DPR_G.iN["V3"][0]["nom"] = ["aṃ", "onto"];
+DPR_G.iN["V3"][0]["acc"] = ["ontaṃ"];
+DPR_G.iN["V3"][0]["ins"] = ["otā", "(ontena)"];
+DPR_G.iN["V3"][0]["dat"] = ["oto"];
+DPR_G.iN["V3"][0]["abl"] = ["otā"];
+DPR_G.iN["V3"][0]["gen"] = ["oto", "(ontassa)"];
+DPR_G.iN["V3"][0]["loc"] = ["oti", "(onte)"];
+DPR_G.iN["V3"][1] = [];
+DPR_G.iN["V3"][1]["nom"] = ["ontā"];
+DPR_G.iN["V3"][1]["acc"] = ["onte"];
+DPR_G.iN["V3"][1]["ins"] = ["ontehi"];
+DPR_G.iN["V3"][1]["dat"] = ["otaṃ"];
+DPR_G.iN["V3"][1]["abl"] = ["ontehi"];
+DPR_G.iN["V3"][1]["gen"] = ["otaṃ"];
+DPR_G.iN["V3"][1]["loc"] = ["ontesu"];
+DPR_G.iN["W3"] = [];
+DPR_G.iN["W3"][0] = [];
+DPR_G.iN["W3"][0]["nom"] = ["aṃ", "ontaṃ"];
+DPR_G.iN["W3"][0]["acc"] = ["ontaṃ"];
+DPR_G.iN["W3"][0]["ins"] = ["otā", "(ontena)"];
+DPR_G.iN["W3"][0]["dat"] = ["oto"];
+DPR_G.iN["W3"][0]["abl"] = ["otā"];
+DPR_G.iN["W3"][0]["gen"] = ["oto", "(ontassa)"];
+DPR_G.iN["W3"][0]["loc"] = ["oti", "(onte)"];
+DPR_G.iN["W3"][1] = [];
+DPR_G.iN["W3"][1]["nom"] = ["ontāni"];
+DPR_G.iN["W3"][1]["acc"] = ["ontāni"];
+DPR_G.iN["W3"][1]["ins"] = ["ontehi"];
+DPR_G.iN["W3"][1]["dat"] = ["otaṃ"];
+DPR_G.iN["W3"][1]["abl"] = ["ontehi"];
+DPR_G.iN["W3"][1]["gen"] = ["otaṃ"];
+DPR_G.iN["W3"][1]["loc"] = ["ontesu"];
+DPR_G.iN["X2"] = [];
+DPR_G.iN["X2"][0] = [];
+DPR_G.iN["X2"][0]["nom"] = ["etī"];
+DPR_G.iN["X2"][0]["acc"] = ["etiṃ"];
+DPR_G.iN["X2"][0]["ins"] = ["etiyā"];
+DPR_G.iN["X2"][0]["dat"] = ["etiyā"];
+DPR_G.iN["X2"][0]["abl"] = ["etiyā"];
+DPR_G.iN["X2"][0]["gen"] = ["etiyā"];
+DPR_G.iN["X2"][0]["loc"] = ["etiyā", "etiyaṃ"];
+DPR_G.iN["X2"][1] = [];
+DPR_G.iN["X2"][1]["nom"] = ["etiyo"];
+DPR_G.iN["X2"][1]["acc"] = ["etiyo"];
+DPR_G.iN["X2"][1]["ins"] = ["etīhi"];
+DPR_G.iN["X2"][1]["dat"] = ["etīnaṃ"];
+DPR_G.iN["X2"][1]["abl"] = ["etīhi"];
+DPR_G.iN["X2"][1]["gen"] = ["etīnaṃ"];
+DPR_G.iN["X2"][1]["loc"] = ["etīsu"];
+DPR_G.iN["X3"] = [];
+DPR_G.iN["X3"][0] = [];
+DPR_G.iN["X3"][0]["nom"] = ["otī"];
+DPR_G.iN["X3"][0]["acc"] = ["otiṃ"];
+DPR_G.iN["X3"][0]["ins"] = ["otiyā"];
+DPR_G.iN["X3"][0]["dat"] = ["otiyā"];
+DPR_G.iN["X3"][0]["abl"] = ["otiyā"];
+DPR_G.iN["X3"][0]["gen"] = ["otiyā"];
+DPR_G.iN["X3"][0]["loc"] = ["otiyā", "otiyaṃ"];
+DPR_G.iN["X3"][1] = [];
+DPR_G.iN["X3"][1]["nom"] = ["otiyo"];
+DPR_G.iN["X3"][1]["acc"] = ["otiyo"];
+DPR_G.iN["X3"][1]["ins"] = ["otīhi"];
+DPR_G.iN["X3"][1]["dat"] = ["otīnaṃ"];
+DPR_G.iN["X3"][1]["abl"] = ["otīhi"];
+DPR_G.iN["X3"][1]["gen"] = ["otīnaṃ"];
+DPR_G.iN["X3"][1]["loc"] = ["otīsu"];
+
+//VerbInflectInfo,PersonCode,PersonNumb = Inflection
+
+DPR_G.iV["ac.impv.a_"] = [];
+DPR_G.iV["ac.impv.a_"]["3rd"] = [];
+DPR_G.iV["ac.impv.a_"]["3rd"][0] = ["atu"];
+DPR_G.iV["ac.impv.a_"]["3rd"][1] = ["antu"];
+DPR_G.iV["ac.impv.a_"]["2nd"] = [];
+DPR_G.iV["ac.impv.a_"]["2nd"][0] = ["a"];
+DPR_G.iV["ac.impv.a_"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.impv.a_"]["1st"] = [];
+DPR_G.iV["ac.impv.a_"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.impv.a_"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.impv.a_ā"] = [];
+DPR_G.iV["ac.impv.a_ā"]["3rd"] = [];
+DPR_G.iV["ac.impv.a_ā"]["3rd"][0] = ["ātu"];
+DPR_G.iV["ac.impv.a_ā"]["3rd"][1] = ["antu"];
+DPR_G.iV["ac.impv.a_ā"]["2nd"] = [];
+DPR_G.iV["ac.impv.a_ā"]["2nd"][0] = ["āhi"];
+DPR_G.iV["ac.impv.a_ā"]["2nd"][1] = ["ātha"];
+DPR_G.iV["ac.pres.a_"] = [];
+DPR_G.iV["ac.pres.a_"]["3rd"] = [];
+DPR_G.iV["ac.pres.a_"]["3rd"][0] = ["ati"];
+DPR_G.iV["ac.pres.a_"]["3rd"][1] = ["anti"];
+DPR_G.iV["ac.pres.a_"]["2nd"] = [];
+DPR_G.iV["ac.pres.a_"]["2nd"][0] = ["asi"];
+DPR_G.iV["ac.pres.a_"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.pres.a_"]["1st"] = [];
+DPR_G.iV["ac.pres.a_"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.pres.a_"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.pres.a_ā"] = [];
+DPR_G.iV["ac.pres.a_ā"]["3rd"] = [];
+DPR_G.iV["ac.pres.a_ā"]["3rd"][0] = ["āti"];
+DPR_G.iV["ac.pres.a_ā"]["3rd"][1] = ["anti"];
+DPR_G.iV["ac.pres.a_ā"]["2nd"] = [];
+DPR_G.iV["ac.pres.a_ā"]["2nd"][0] = ["āsi"];
+DPR_G.iV["ac.pres.a_ā"]["2nd"][1] = ["ātha"];
+DPR_G.iV["ac.pres.a_ā"]["1st"] = [];
+DPR_G.iV["ac.pres.a_ā"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.pres.a_ā"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.pres.a_e"] = [];
+DPR_G.iV["ac.pres.a_e"]["3rd"] = [];
+DPR_G.iV["ac.pres.a_e"]["3rd"][0] = ["eti"];
+DPR_G.iV["ac.pres.a_e"]["3rd"][1] = ["enti"];
+DPR_G.iV["ac.pres.a_e"]["2nd"] = [];
+DPR_G.iV["ac.pres.a_e"]["2nd"][0] = ["esi"];
+DPR_G.iV["ac.pres.a_e"]["2nd"][1] = ["etha"];
+DPR_G.iV["ac.pres.a_e"]["1st"] = [];
+DPR_G.iV["ac.pres.a_e"]["1st"][0] = ["emi"];
+DPR_G.iV["ac.pres.a_e"]["1st"][1] = ["ema"];
+DPR_G.iV["ac.pres.ah"] = [];
+DPR_G.iV["ac.pres.ah"]["3rd"] = [];
+DPR_G.iV["ac.pres.ah"]["3rd"][0] = ["ati"];
+DPR_G.iV["ac.pres.ah"]["3rd"][1] = ["anti"];
+DPR_G.iV["ac.pres.ah"]["2nd"] = [];
+DPR_G.iV["ac.pres.ah"]["2nd"][0] = ["asi"];
+DPR_G.iV["ac.pres.ah"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.pres.ah"]["1st"] = [];
+DPR_G.iV["ac.pres.ah"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.pres.ah"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.pres.e_"] = [];
+DPR_G.iV["ac.pres.e_"]["3rd"] = [];
+DPR_G.iV["ac.pres.e_"]["3rd"][0] = ["eti"];
+DPR_G.iV["ac.pres.e_"]["3rd"][1] = ["enti"];
+DPR_G.iV["ac.pres.e_"]["2nd"] = [];
+DPR_G.iV["ac.pres.e_"]["2nd"][0] = ["esi"];
+DPR_G.iV["ac.pres.e_"]["2nd"][1] = ["etha"];
+DPR_G.iV["ac.pres.e_"]["1st"] = [];
+DPR_G.iV["ac.pres.e_"]["1st"][0] = ["emi"];
+DPR_G.iV["ac.pres.e_"]["1st"][1] = ["ema"];
+DPR_G.iV["ac.pres.ey"] = [];
+DPR_G.iV["ac.pres.ey"]["3rd"] = [];
+DPR_G.iV["ac.pres.ey"]["3rd"][0] = ["ati"];
+DPR_G.iV["ac.pres.ey"]["3rd"][1] = ["anti"];
+DPR_G.iV["ac.pres.ey"]["2nd"] = [];
+DPR_G.iV["ac.pres.ey"]["2nd"][0] = ["asi"];
+DPR_G.iV["ac.pres.ey"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.pres.ey"]["1st"] = [];
+DPR_G.iV["ac.pres.ey"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.pres.ey"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.pres.ma"] = [];
+DPR_G.iV["ac.pres.ma"]["3rd"] = [];
+DPR_G.iV["ac.pres.ma"]["3rd"][0] = ["ati"];
+DPR_G.iV["ac.pres.ma"]["3rd"][1] = ["anti"];
+DPR_G.iV["ac.pres.ma"]["2nd"] = [];
+DPR_G.iV["ac.pres.ma"]["2nd"][0] = ["asi"];
+DPR_G.iV["ac.pres.ma"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.pres.ma"]["1st"] = [];
+DPR_G.iV["ac.pres.ma"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.pres.ma"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.pres.mh"] = [];
+DPR_G.iV["ac.pres.mh"]["3rd"] = [];
+DPR_G.iV["ac.pres.mh"]["3rd"][0] = ["ati"];
+DPR_G.iV["ac.pres.mh"]["3rd"][1] = ["anti"];
+DPR_G.iV["ac.pres.mh"]["2nd"] = [];
+DPR_G.iV["ac.pres.mh"]["2nd"][0] = ["asi"];
+DPR_G.iV["ac.pres.mh"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.pres.mh"]["1st"] = [];
+DPR_G.iV["ac.pres.mh"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.pres.mh"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.pres.nā"] = [];
+DPR_G.iV["ac.pres.nā"]["3rd"] = [];
+DPR_G.iV["ac.pres.nā"]["3rd"][0] = ["āti"];
+DPR_G.iV["ac.pres.nā"]["3rd"][1] = ["anti"];
+DPR_G.iV["ac.pres.nā"]["2nd"] = [];
+DPR_G.iV["ac.pres.nā"]["2nd"][0] = ["āsi"];
+DPR_G.iV["ac.pres.nā"]["2nd"][1] = ["ātha"];
+DPR_G.iV["ac.pres.nā"]["1st"] = [];
+DPR_G.iV["ac.pres.nā"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.pres.nā"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.pres.o_"] = [];
+DPR_G.iV["ac.pres.o_"]["3rd"] = [];
+DPR_G.iV["ac.pres.o_"]["3rd"][0] = ["oti"];
+DPR_G.iV["ac.pres.o_"]["3rd"][1] = ["onti"];
+DPR_G.iV["ac.pres.o_"]["2nd"] = [];
+DPR_G.iV["ac.pres.o_"]["2nd"][0] = ["osi"];
+DPR_G.iV["ac.pres.o_"]["2nd"][1] = ["otha"];
+DPR_G.iV["ac.pres.o_"]["1st"] = [];
+DPR_G.iV["ac.pres.o_"]["1st"][0] = ["omi"];
+DPR_G.iV["ac.pres.o_"]["1st"][1] = ["oma"];
+DPR_G.iV["ac.pres.yh"] = [];
+DPR_G.iV["ac.pres.yh"]["3rd"] = [];
+DPR_G.iV["ac.pres.yh"]["3rd"][0] = ["ati"];
+DPR_G.iV["ac.pres.yh"]["3rd"][1] = ["anti"];
+DPR_G.iV["ac.pres.yh"]["2nd"] = [];
+DPR_G.iV["ac.pres.yh"]["2nd"][0] = ["asi"];
+DPR_G.iV["ac.pres.yh"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.pres.yh"]["1st"] = [];
+DPR_G.iV["ac.pres.yh"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.pres.yh"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.past.āsi"] = [];
+DPR_G.iV["ac.past.āsi"]["3rd"] = [];
+DPR_G.iV["ac.past.āsi"]["3rd"][0] = ["āsi"];
+DPR_G.iV["ac.past.āsi"]["3rd"][1] = ["aṃsu"];
+DPR_G.iV["ac.past.āsi"]["2nd"] = [];
+DPR_G.iV["ac.past.āsi"]["2nd"][0] = ["āsi"];
+DPR_G.iV["ac.past.āsi"]["2nd"][1] = ["attha"];
+DPR_G.iV["ac.past.āsi"]["1st"] = [];
+DPR_G.iV["ac.past.āsi"]["1st"][0] = ["āsiṃ"];
+DPR_G.iV["ac.past.āsi"]["1st"][1] = ["amha", "amhā"];
+DPR_G.iV["ac.past.esi"] = [];
+DPR_G.iV["ac.past.esi"]["3rd"] = [];
+DPR_G.iV["ac.past.esi"]["3rd"][0] = ["esi"];
+DPR_G.iV["ac.past.esi"]["3rd"][1] = ["esuṃ"];
+DPR_G.iV["ac.past.esi"]["2nd"] = [];
+DPR_G.iV["ac.past.esi"]["2nd"][0] = ["esi"];
+DPR_G.iV["ac.past.esi"]["2nd"][1] = ["ittha"];
+DPR_G.iV["ac.past.esi"]["1st"] = [];
+DPR_G.iV["ac.past.esi"]["1st"][0] = ["esiṃ"];
+DPR_G.iV["ac.past.esi"]["1st"][1] = ["imha"];
+DPR_G.iV["ac.past.i"] = [];
+DPR_G.iV["ac.past.i"]["3rd"] = [];
+DPR_G.iV["ac.past.i"]["3rd"][0] = ["i"];
+DPR_G.iV["ac.past.i"]["3rd"][1] = ["iṃsu"];
+DPR_G.iV["ac.past.i"]["2nd"] = [];
+DPR_G.iV["ac.past.i"]["2nd"][0] = ["i"];
+DPR_G.iV["ac.past.i"]["2nd"][1] = ["ittha"];
+DPR_G.iV["ac.past.i"]["1st"] = [];
+DPR_G.iV["ac.past.i"]["1st"][0] = ["iṃ"];
+DPR_G.iV["ac.past.i"]["1st"][1] = ["imhā", "imha"];
+DPR_G.iV["ac.fut"] = [];
+DPR_G.iV["ac.fut"]["3rd"] = [];
+DPR_G.iV["ac.fut"]["3rd"][0] = ["ati"];
+DPR_G.iV["ac.fut"]["3rd"][1] = ["anti"];
+DPR_G.iV["ac.fut"]["2nd"] = [];
+DPR_G.iV["ac.fut"]["2nd"][0] = ["asi"];
+DPR_G.iV["ac.fut"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.fut"]["1st"] = [];
+DPR_G.iV["ac.fut"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.fut"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.opt"] = [];
+DPR_G.iV["ac.opt"]["3rd"] = [];
+DPR_G.iV["ac.opt"]["3rd"][0] = ["a"];
+DPR_G.iV["ac.opt"]["3rd"][1] = ["uṃ"];
+DPR_G.iV["ac.opt"]["2nd"] = [];
+DPR_G.iV["ac.opt"]["2nd"][0] = ["āsi"];
+DPR_G.iV["ac.opt"]["2nd"][1] = ["ātha"];
+DPR_G.iV["ac.opt"]["1st"] = [];
+DPR_G.iV["ac.opt"]["1st"][0] = ["aṃ", "(āmi)"];
+DPR_G.iV["ac.opt"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.cond"] = [];
+DPR_G.iV["ac.cond"]["3rd"] = [];
+DPR_G.iV["ac.cond"]["3rd"][0] = ["a", "ā"];
+DPR_G.iV["ac.cond"]["3rd"][1] = ["aṃsu"];
+DPR_G.iV["ac.cond"]["2nd"] = [];
+DPR_G.iV["ac.cond"]["2nd"][0] = ["a"];
+DPR_G.iV["ac.cond"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.cond"]["1st"] = [];
+DPR_G.iV["ac.cond"]["1st"][0] = ["aṃ"];
+DPR_G.iV["ac.cond"]["1st"][1] = ["āma"];
+DPR_G.iV["pa.pres"] = [];
+DPR_G.iV["pa.pres"]["3rd"] = [];
+DPR_G.iV["pa.pres"]["3rd"][0] = ["ati"];
+DPR_G.iV["pa.pres"]["3rd"][1] = ["anti"];
+DPR_G.iV["pa.pres"]["2nd"] = [];
+DPR_G.iV["pa.pres"]["2nd"][0] = ["asi"];
+DPR_G.iV["pa.pres"]["2nd"][1] = ["atha"];
+DPR_G.iV["pa.pres"]["1st"] = [];
+DPR_G.iV["pa.pres"]["1st"][0] = ["āmi"];
+DPR_G.iV["pa.pres"]["1st"][1] = ["āma"];
+DPR_G.iV["pa.past.i"] = [];
+DPR_G.iV["pa.past.i"]["3rd"] = [];
+DPR_G.iV["pa.past.i"]["3rd"][0] = ["i"];
+DPR_G.iV["pa.past.i"]["3rd"][1] = ["iṃsu"];
+DPR_G.iV["pa.past.i"]["2nd"] = [];
+DPR_G.iV["pa.past.i"]["2nd"][0] = ["i"];
+DPR_G.iV["pa.past.i"]["2nd"][1] = ["ittha"];
+DPR_G.iV["pa.past.i"]["1st"] = [];
+DPR_G.iV["pa.past.i"]["1st"][0] = ["iṃ"];
+DPR_G.iV["pa.past.i"]["1st"][1] = ["imhā", "imha"];
+DPR_G.iV["ca.pres"] = [];
+DPR_G.iV["ca.pres"]["3rd"] = [];
+DPR_G.iV["ca.pres"]["3rd"][0] = ["eti"];
+DPR_G.iV["ca.pres"]["3rd"][1] = ["enti"];
+DPR_G.iV["ca.pres"]["2nd"] = [];
+DPR_G.iV["ca.pres"]["2nd"][0] = ["esi"];
+DPR_G.iV["ca.pres"]["2nd"][1] = ["etha"];
+DPR_G.iV["ca.pres"]["1st"] = [];
+DPR_G.iV["ca.pres"]["1st"][0] = ["emi"];
+DPR_G.iV["ca.pres"]["1st"][1] = ["ema"];
+DPR_G.iV["ca.past.esi"] = [];
+DPR_G.iV["ca.past.esi"]["3rd"] = [];
+DPR_G.iV["ca.past.esi"]["3rd"][0] = ["esi"];
+DPR_G.iV["ca.past.esi"]["3rd"][1] = ["esuṃ"];
+DPR_G.iV["ca.past.esi"]["2nd"] = [];
+DPR_G.iV["ca.past.esi"]["2nd"][0] = ["esi"];
+DPR_G.iV["ca.past.esi"]["2nd"][1] = ["ittha"];
+DPR_G.iV["ca.past.esi"]["1st"] = [];
+DPR_G.iV["ca.past.esi"]["1st"][0] = ["esiṃ"];
+DPR_G.iV["ca.past.esi"]["1st"][1] = ["imha"];
+DPR_G.iV["cp.pres"] = [];
+DPR_G.iV["cp.pres"]["3rd"] = [];
+DPR_G.iV["cp.pres"]["3rd"][0] = ["ati"];
+DPR_G.iV["cp.pres"]["3rd"][1] = ["anti"];
+DPR_G.iV["cp.pres"]["2nd"] = [];
+DPR_G.iV["cp.pres"]["2nd"][0] = ["asi"];
+DPR_G.iV["cp.pres"]["2nd"][1] = ["atha"];
+DPR_G.iV["cp.pres"]["1st"] = [];
+DPR_G.iV["cp.pres"]["1st"][0] = ["āmi"];
+DPR_G.iV["cp.pres"]["1st"][1] = ["āma"];
+DPR_G.iV["cp.past.i"] = [];
+DPR_G.iV["cp.past.i"]["3rd"] = [];
+DPR_G.iV["cp.past.i"]["3rd"][0] = ["i"];
+DPR_G.iV["cp.past.i"]["3rd"][1] = ["iṃsu"];
+DPR_G.iV["cp.past.i"]["2nd"] = [];
+DPR_G.iV["cp.past.i"]["2nd"][0] = ["i"];
+DPR_G.iV["cp.past.i"]["2nd"][1] = ["ittha"];
+DPR_G.iV["cp.past.i"]["1st"] = [];
+DPR_G.iV["cp.past.i"]["1st"][0] = ["iṃ"];
+DPR_G.iV["cp.past.i"]["1st"][1] = ["imhā", "imha"];
+DPR_G.iV["ac.impv.a_ā"] = [];
+DPR_G.iV["ac.impv.a_ā"]["1st"] = [];
+DPR_G.iV["ac.impv.a_ā"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.impv.a_ā"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.impv.a_e"] = [];
+DPR_G.iV["ac.impv.a_e"]["3rd"] = [];
+DPR_G.iV["ac.impv.a_e"]["3rd"][0] = ["etu"];
+DPR_G.iV["ac.impv.a_e"]["3rd"][1] = ["entu"];
+DPR_G.iV["ac.impv.a_e"]["2nd"] = [];
+DPR_G.iV["ac.impv.a_e"]["2nd"][0] = ["ehi"];
+DPR_G.iV["ac.impv.a_e"]["2nd"][1] = ["etha"];
+DPR_G.iV["ac.impv.a_e"]["1st"] = [];
+DPR_G.iV["ac.impv.a_e"]["1st"][0] = ["emi"];
+DPR_G.iV["ac.impv.a_e"]["1st"][1] = ["ema"];
+DPR_G.iV["ac.impv.ah"] = [];
+DPR_G.iV["ac.impv.ah"]["3rd"] = [];
+DPR_G.iV["ac.impv.ah"]["3rd"][0] = ["atu"];
+DPR_G.iV["ac.impv.ah"]["3rd"][1] = ["antu"];
+DPR_G.iV["ac.impv.ah"]["2nd"] = [];
+DPR_G.iV["ac.impv.ah"]["2nd"][0] = ["āhi"];
+DPR_G.iV["ac.impv.ah"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.impv.ah"]["1st"] = [];
+DPR_G.iV["ac.impv.ah"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.impv.ah"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.impv.e_"] = [];
+DPR_G.iV["ac.impv.e_"]["3rd"] = [];
+DPR_G.iV["ac.impv.e_"]["3rd"][0] = ["etu"];
+DPR_G.iV["ac.impv.e_"]["3rd"][1] = ["entu"];
+DPR_G.iV["ac.impv.e_"]["2nd"] = [];
+DPR_G.iV["ac.impv.e_"]["2nd"][0] = ["ehi"];
+DPR_G.iV["ac.impv.e_"]["2nd"][1] = ["etha"];
+DPR_G.iV["ac.impv.e_"]["1st"] = [];
+DPR_G.iV["ac.impv.e_"]["1st"][0] = ["emi"];
+DPR_G.iV["ac.impv.e_"]["1st"][1] = ["ema"];
+DPR_G.iV["ac.impv.ey"] = [];
+DPR_G.iV["ac.impv.ey"]["3rd"] = [];
+DPR_G.iV["ac.impv.ey"]["3rd"][0] = ["atu"];
+DPR_G.iV["ac.impv.ey"]["3rd"][1] = ["antu"];
+DPR_G.iV["ac.impv.ey"]["2nd"] = [];
+DPR_G.iV["ac.impv.ey"]["2nd"][0] = ["āhi"];
+DPR_G.iV["ac.impv.ey"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.impv.ey"]["1st"] = [];
+DPR_G.iV["ac.impv.ey"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.impv.ey"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.impv.ma"] = [];
+DPR_G.iV["ac.impv.ma"]["3rd"] = [];
+DPR_G.iV["ac.impv.ma"]["3rd"][0] = ["atu"];
+DPR_G.iV["ac.impv.ma"]["3rd"][1] = ["antu"];
+DPR_G.iV["ac.impv.ma"]["2nd"] = [];
+DPR_G.iV["ac.impv.ma"]["2nd"][0] = ["a"];
+DPR_G.iV["ac.impv.ma"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.impv.ma"]["1st"] = [];
+DPR_G.iV["ac.impv.ma"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.impv.ma"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.impv.mh"] = [];
+DPR_G.iV["ac.impv.mh"]["3rd"] = [];
+DPR_G.iV["ac.impv.mh"]["3rd"][0] = ["atu"];
+DPR_G.iV["ac.impv.mh"]["3rd"][1] = ["antu"];
+DPR_G.iV["ac.impv.mh"]["2nd"] = [];
+DPR_G.iV["ac.impv.mh"]["2nd"][0] = ["āhi"];
+DPR_G.iV["ac.impv.mh"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.impv.mh"]["1st"] = [];
+DPR_G.iV["ac.impv.mh"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.impv.mh"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.impv.nā"] = [];
+DPR_G.iV["ac.impv.nā"]["3rd"] = [];
+DPR_G.iV["ac.impv.nā"]["3rd"][0] = ["ātu"];
+DPR_G.iV["ac.impv.nā"]["3rd"][1] = ["antu"];
+DPR_G.iV["ac.impv.nā"]["2nd"] = [];
+DPR_G.iV["ac.impv.nā"]["2nd"][0] = ["āhi"];
+DPR_G.iV["ac.impv.nā"]["2nd"][1] = ["ātha"];
+DPR_G.iV["ac.impv.nā"]["1st"] = [];
+DPR_G.iV["ac.impv.nā"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.impv.nā"]["1st"][1] = ["āma"];
+DPR_G.iV["ac.impv.o_"] = [];
+DPR_G.iV["ac.impv.o_"]["3rd"] = [];
+DPR_G.iV["ac.impv.o_"]["3rd"][0] = ["otu"];
+DPR_G.iV["ac.impv.o_"]["3rd"][1] = ["ontu"];
+DPR_G.iV["ac.impv.o_"]["2nd"] = [];
+DPR_G.iV["ac.impv.o_"]["2nd"][0] = ["ohi"];
+DPR_G.iV["ac.impv.o_"]["2nd"][1] = ["otha"];
+DPR_G.iV["ac.impv.o_"]["1st"] = [];
+DPR_G.iV["ac.impv.o_"]["1st"][0] = ["omi"];
+DPR_G.iV["ac.impv.o_"]["1st"][1] = ["oma"];
+DPR_G.iV["ac.impv.yh"] = [];
+DPR_G.iV["ac.impv.yh"]["3rd"] = [];
+DPR_G.iV["ac.impv.yh"]["3rd"][0] = ["atu"];
+DPR_G.iV["ac.impv.yh"]["3rd"][1] = ["antu"];
+DPR_G.iV["ac.impv.yh"]["2nd"] = [];
+DPR_G.iV["ac.impv.yh"]["2nd"][0] = ["āhi"];
+DPR_G.iV["ac.impv.yh"]["2nd"][1] = ["atha"];
+DPR_G.iV["ac.impv.yh"]["1st"] = [];
+DPR_G.iV["ac.impv.yh"]["1st"][0] = ["āmi"];
+DPR_G.iV["ac.impv.yh"]["1st"][1] = ["āma"];
+DPR_G.iV["pa.impv"] = [];
+DPR_G.iV["pa.impv"]["3rd"] = [];
+DPR_G.iV["pa.impv"]["3rd"][0] = ["atu"];
+DPR_G.iV["pa.impv"]["3rd"][1] = ["antu"];
+DPR_G.iV["pa.impv"]["2nd"] = [];
+DPR_G.iV["pa.impv"]["2nd"][0] = ["āhi"];
+DPR_G.iV["pa.impv"]["2nd"][1] = ["atha"];
+DPR_G.iV["pa.impv"]["1st"] = [];
+DPR_G.iV["pa.impv"]["1st"][0] = ["āmi"];
+DPR_G.iV["pa.impv"]["1st"][1] = ["āma"];
+DPR_G.iV["ca.impv"] = [];
+DPR_G.iV["ca.impv"]["3rd"] = [];
+DPR_G.iV["ca.impv"]["3rd"][0] = ["etu"];
+DPR_G.iV["ca.impv"]["3rd"][1] = ["entu"];
+DPR_G.iV["ca.impv"]["2nd"] = [];
+DPR_G.iV["ca.impv"]["2nd"][0] = ["ehi"];
+DPR_G.iV["ca.impv"]["2nd"][1] = ["etha"];
+DPR_G.iV["ca.impv"]["1st"] = [];
+DPR_G.iV["ca.impv"]["1st"][0] = ["emi"];
+DPR_G.iV["ca.impv"]["1st"][1] = ["ema"];
+DPR_G.iV["cp.impv"] = [];
+DPR_G.iV["cp.impv"]["3rd"] = [];
+DPR_G.iV["cp.impv"]["3rd"][0] = ["atu"];
+DPR_G.iV["cp.impv"]["3rd"][1] = ["antu"];
+DPR_G.iV["cp.impv"]["2nd"] = [];
+DPR_G.iV["cp.impv"]["2nd"][0] = ["āhi"];
+DPR_G.iV["cp.impv"]["2nd"][1] = ["atha"];
+DPR_G.iV["cp.impv"]["1st"] = [];
+DPR_G.iV["cp.impv"]["1st"][0] = ["āmi"];
+DPR_G.iV["cp.impv"]["1st"][1] = ["āma"];
+DPR_G.iV["pa.fut"] = [];
+DPR_G.iV["pa.fut"]["3rd"] = [];
+DPR_G.iV["pa.fut"]["3rd"][0] = ["ati"];
+DPR_G.iV["pa.fut"]["3rd"][1] = ["anti"];
+DPR_G.iV["pa.fut"]["2nd"] = [];
+DPR_G.iV["pa.fut"]["2nd"][0] = ["asi"];
+DPR_G.iV["pa.fut"]["2nd"][1] = ["atha"];
+DPR_G.iV["pa.fut"]["1st"] = [];
+DPR_G.iV["pa.fut"]["1st"][0] = ["āmi"];
+DPR_G.iV["pa.fut"]["1st"][1] = ["āma"];
+DPR_G.iV["pa.opt"] = [];
+DPR_G.iV["pa.opt"]["3rd"] = [];
+DPR_G.iV["pa.opt"]["3rd"][0] = ["a"];
+DPR_G.iV["pa.opt"]["3rd"][1] = ["uṃ"];
+DPR_G.iV["pa.opt"]["2nd"] = [];
+DPR_G.iV["pa.opt"]["2nd"][0] = ["āsi"];
+DPR_G.iV["pa.opt"]["2nd"][1] = ["ātha"];
+DPR_G.iV["pa.opt"]["1st"] = [];
+DPR_G.iV["pa.opt"]["1st"][0] = ["aṃ", "(āmi)"];
+DPR_G.iV["pa.opt"]["1st"][1] = ["āma"];
+DPR_G.iV["cp.fut"] = [];
+DPR_G.iV["cp.fut"]["3rd"] = [];
+DPR_G.iV["cp.fut"]["3rd"][0] = ["ati"];
+DPR_G.iV["cp.fut"]["3rd"][1] = ["anti"];
+DPR_G.iV["cp.fut"]["2nd"] = [];
+DPR_G.iV["cp.fut"]["2nd"][0] = ["asi"];
+DPR_G.iV["cp.fut"]["2nd"][1] = ["atha"];
+DPR_G.iV["cp.fut"]["1st"] = [];
+DPR_G.iV["cp.fut"]["1st"][0] = ["āmi"];
+DPR_G.iV["cp.fut"]["1st"][1] = ["āma"];
+DPR_G.iV["cp.opt"] = [];
+DPR_G.iV["cp.opt"]["3rd"] = [];
+DPR_G.iV["cp.opt"]["3rd"][0] = ["a"];
+DPR_G.iV["cp.opt"]["3rd"][1] = ["uṃ"];
+DPR_G.iV["cp.opt"]["2nd"] = [];
+DPR_G.iV["cp.opt"]["2nd"][0] = ["āsi"];
+DPR_G.iV["cp.opt"]["2nd"][1] = ["ātha"];
+DPR_G.iV["cp.opt"]["1st"] = [];
+DPR_G.iV["cp.opt"]["1st"][0] = ["aṃ", "(āmi)"];
+DPR_G.iV["cp.opt"]["1st"][1] = ["āma"];
+DPR_G.iV["ca.fut"] = [];
+DPR_G.iV["ca.fut"]["3rd"] = [];
+DPR_G.iV["ca.fut"]["3rd"][0] = ["ati"];
+DPR_G.iV["ca.fut"]["3rd"][1] = ["anti"];
+DPR_G.iV["ca.fut"]["2nd"] = [];
+DPR_G.iV["ca.fut"]["2nd"][0] = ["asi"];
+DPR_G.iV["ca.fut"]["2nd"][1] = ["atha"];
+DPR_G.iV["ca.fut"]["1st"] = [];
+DPR_G.iV["ca.fut"]["1st"][0] = ["āmi"];
+DPR_G.iV["ca.fut"]["1st"][1] = ["āma"];
+DPR_G.iV["ca.opt"] = [];
+DPR_G.iV["ca.opt"]["3rd"] = [];
+DPR_G.iV["ca.opt"]["3rd"][0] = ["a"];
+DPR_G.iV["ca.opt"]["3rd"][1] = ["uṃ"];
+DPR_G.iV["ca.opt"]["2nd"] = [];
+DPR_G.iV["ca.opt"]["2nd"][0] = ["āsi"];
+DPR_G.iV["ca.opt"]["2nd"][1] = ["ātha"];
+DPR_G.iV["ca.opt"]["1st"] = [];
+DPR_G.iV["ca.opt"]["1st"][0] = ["aṃ", "(āmi)"];
+DPR_G.iV["ca.opt"]["1st"][1] = ["āma"];
+DPR_G.iV["md.pres.a_"] = [];
+DPR_G.iV["md.pres.a_"]["3rd"] = [];
+DPR_G.iV["md.pres.a_"]["3rd"][0] = ["ate"];
+DPR_G.iV["md.pres.a_"]["3rd"][1] = ["ante"];
+DPR_G.iV["md.pres.a_"]["2nd"] = [];
+DPR_G.iV["md.pres.a_"]["2nd"][0] = ["ase"];
+DPR_G.iV["md.pres.a_"]["2nd"][1] = ["avhe"];
+DPR_G.iV["md.pres.a_"]["1st"] = [];
+DPR_G.iV["md.pres.a_"]["1st"][0] = ["e"];
+DPR_G.iV["md.pres.a_"]["1st"][1] = ["āmhe", "āmhase"];
+DPR_G.iV["md.pres.a_e"] = [];
+DPR_G.iV["md.pres.a_e"]["3rd"] = [];
+DPR_G.iV["md.pres.a_e"]["3rd"][0] = ["ayate"];
+DPR_G.iV["md.pres.a_e"]["3rd"][1] = ["ayante"];
+DPR_G.iV["md.pres.a_e"]["2nd"] = [];
+DPR_G.iV["md.pres.a_e"]["2nd"][0] = ["ayase"];
+DPR_G.iV["md.pres.a_e"]["2nd"][1] = ["ayavhe"];
+DPR_G.iV["md.pres.a_e"]["1st"] = [];
+DPR_G.iV["md.pres.a_e"]["1st"][0] = ["aye"];
+DPR_G.iV["md.pres.a_e"]["1st"][1] = ["ayāmhe", "ayāmhase"];
+DPR_G.iV["md.pres.e_"] = [];
+DPR_G.iV["md.pres.e_"]["3rd"] = [];
+DPR_G.iV["md.pres.e_"]["3rd"][0] = ["ayate"];
+DPR_G.iV["md.pres.e_"]["3rd"][1] = ["ayante"];
+DPR_G.iV["md.pres.e_"]["2nd"] = [];
+DPR_G.iV["md.pres.e_"]["2nd"][0] = ["ayase"];
+DPR_G.iV["md.pres.e_"]["2nd"][1] = ["ayavhe"];
+DPR_G.iV["md.pres.e_"]["1st"] = [];
+DPR_G.iV["md.pres.e_"]["1st"][0] = ["aye"];
+DPR_G.iV["md.pres.e_"]["1st"][1] = ["ayāmhe", "ayāmhase"];
+DPR_G.iV["md.pres.ey"] = [];
+DPR_G.iV["md.pres.ey"]["3rd"] = [];
+DPR_G.iV["md.pres.ey"]["3rd"][0] = ["ate"];
+DPR_G.iV["md.pres.ey"]["3rd"][1] = ["ante"];
+DPR_G.iV["md.pres.ey"]["2nd"] = [];
+DPR_G.iV["md.pres.ey"]["2nd"][0] = ["ase"];
+DPR_G.iV["md.pres.ey"]["2nd"][1] = ["avhe"];
+DPR_G.iV["md.pres.ey"]["1st"] = [];
+DPR_G.iV["md.pres.ey"]["1st"][0] = ["e"];
+DPR_G.iV["md.pres.ey"]["1st"][1] = ["āmhe", "āmhase"];
+DPR_G.iV["md.pres.ma"] = [];
+DPR_G.iV["md.pres.ma"]["3rd"] = [];
+DPR_G.iV["md.pres.ma"]["3rd"][0] = ["ate"];
+DPR_G.iV["md.pres.ma"]["3rd"][1] = ["ante"];
+DPR_G.iV["md.pres.ma"]["2nd"] = [];
+DPR_G.iV["md.pres.ma"]["2nd"][0] = ["ase"];
+DPR_G.iV["md.pres.ma"]["2nd"][1] = ["avhe"];
+DPR_G.iV["md.pres.ma"]["1st"] = [];
+DPR_G.iV["md.pres.ma"]["1st"][0] = ["e"];
+DPR_G.iV["md.pres.ma"]["1st"][1] = ["āmhe", "āmhase"];
+DPR_G.iV["md.pres.nā"] = [];
+DPR_G.iV["md.pres.nā"]["3rd"] = [];
+DPR_G.iV["md.pres.nā"]["3rd"][0] = ["āte"];
+DPR_G.iV["md.pres.nā"]["3rd"][1] = ["ante"];
+DPR_G.iV["md.pres.nā"]["2nd"] = [];
+DPR_G.iV["md.pres.nā"]["2nd"][0] = ["āse"];
+DPR_G.iV["md.pres.nā"]["2nd"][1] = ["āvhe"];
+DPR_G.iV["md.pres.nā"]["1st"] = [];
+DPR_G.iV["md.pres.nā"]["1st"][0] = ["e"];
+DPR_G.iV["md.pres.nā"]["1st"][1] = ["āmhe", "āmhase"];
+DPR_G.iV["md.pres.yh"] = [];
+DPR_G.iV["md.pres.yh"]["3rd"] = [];
+DPR_G.iV["md.pres.yh"]["3rd"][0] = ["ate"];
+DPR_G.iV["md.pres.yh"]["3rd"][1] = ["ante"];
+DPR_G.iV["md.pres.yh"]["2nd"] = [];
+DPR_G.iV["md.pres.yh"]["2nd"][0] = ["ase"];
+DPR_G.iV["md.pres.yh"]["2nd"][1] = ["avhe"];
+DPR_G.iV["md.pres.yh"]["1st"] = [];
+DPR_G.iV["md.pres.yh"]["1st"][0] = ["e"];
+DPR_G.iV["md.pres.yh"]["1st"][1] = ["āmhe", "āmhase"];
+DPR_G.iV["md.impv.a_"] = [];
+DPR_G.iV["md.impv.a_"]["3rd"] = [];
+DPR_G.iV["md.impv.a_"]["3rd"][0] = ["ataṃ"];
+DPR_G.iV["md.impv.a_"]["3rd"][1] = ["antaṃ"];
+DPR_G.iV["md.impv.a_"]["2nd"] = [];
+DPR_G.iV["md.impv.a_"]["2nd"][0] = ["assu"];
+DPR_G.iV["md.impv.a_"]["2nd"][1] = ["avho"];
+DPR_G.iV["md.impv.a_"]["1st"] = [];
+DPR_G.iV["md.impv.a_"]["1st"][0] = ["e"];
+DPR_G.iV["md.impv.a_"]["1st"][1] = ["āmase"];
+DPR_G.iV["md.impv.a_e"] = [];
+DPR_G.iV["md.impv.a_e"]["3rd"] = [];
+DPR_G.iV["md.impv.a_e"]["3rd"][0] = ["ayataṃ"];
+DPR_G.iV["md.impv.a_e"]["3rd"][1] = ["ayantaṃ"];
+DPR_G.iV["md.impv.a_e"]["2nd"] = [];
+DPR_G.iV["md.impv.a_e"]["2nd"][0] = ["ayassu"];
+DPR_G.iV["md.impv.a_e"]["2nd"][1] = ["ayavho"];
+DPR_G.iV["md.impv.a_e"]["1st"] = [];
+DPR_G.iV["md.impv.a_e"]["1st"][0] = ["aye"];
+DPR_G.iV["md.impv.a_e"]["1st"][1] = ["ayāmase"];
+DPR_G.iV["md.impv.e_"] = [];
+DPR_G.iV["md.impv.e_"]["3rd"] = [];
+DPR_G.iV["md.impv.e_"]["3rd"][0] = ["ayataṃ"];
+DPR_G.iV["md.impv.e_"]["3rd"][1] = ["ayantaṃ"];
+DPR_G.iV["md.impv.e_"]["2nd"] = [];
+DPR_G.iV["md.impv.e_"]["2nd"][0] = ["ayassu"];
+DPR_G.iV["md.impv.e_"]["2nd"][1] = ["ayavho"];
+DPR_G.iV["md.impv.e_"]["1st"] = [];
+DPR_G.iV["md.impv.e_"]["1st"][0] = ["aye"];
+DPR_G.iV["md.impv.e_"]["1st"][1] = ["ayāmase"];
+DPR_G.iV["md.impv.ey"] = [];
+DPR_G.iV["md.impv.ey"]["3rd"] = [];
+DPR_G.iV["md.impv.ey"]["3rd"][0] = ["ataṃ"];
+DPR_G.iV["md.impv.ey"]["3rd"][1] = ["antaṃ"];
+DPR_G.iV["md.impv.ey"]["2nd"] = [];
+DPR_G.iV["md.impv.ey"]["2nd"][0] = ["assu"];
+DPR_G.iV["md.impv.ey"]["2nd"][1] = ["avho"];
+DPR_G.iV["md.impv.ey"]["1st"] = [];
+DPR_G.iV["md.impv.ey"]["1st"][0] = ["e"];
+DPR_G.iV["md.impv.ey"]["1st"][1] = ["āmase"];
+DPR_G.iV["md.impv.ma"] = [];
+DPR_G.iV["md.impv.ma"]["3rd"] = [];
+DPR_G.iV["md.impv.ma"]["3rd"][0] = ["ataṃ"];
+DPR_G.iV["md.impv.ma"]["3rd"][1] = ["antaṃ"];
+DPR_G.iV["md.impv.ma"]["2nd"] = [];
+DPR_G.iV["md.impv.ma"]["2nd"][0] = ["assu"];
+DPR_G.iV["md.impv.ma"]["2nd"][1] = ["avho"];
+DPR_G.iV["md.impv.ma"]["1st"] = [];
+DPR_G.iV["md.impv.ma"]["1st"][0] = ["e"];
+DPR_G.iV["md.impv.ma"]["1st"][1] = ["āmase"];
+DPR_G.iV["md.impv.nā"] = [];
+DPR_G.iV["md.impv.nā"]["3rd"] = [];
+DPR_G.iV["md.impv.nā"]["3rd"][0] = ["ātaṃ"];
+DPR_G.iV["md.impv.nā"]["3rd"][1] = ["antaṃ"];
+DPR_G.iV["md.impv.nā"]["2nd"] = [];
+DPR_G.iV["md.impv.nā"]["2nd"][0] = ["āssu"];
+DPR_G.iV["md.impv.nā"]["2nd"][1] = ["āvho"];
+DPR_G.iV["md.impv.nā"]["1st"] = [];
+DPR_G.iV["md.impv.nā"]["1st"][0] = ["e"];
+DPR_G.iV["md.impv.nā"]["1st"][1] = ["āmase"];
+DPR_G.iV["md.impv.yh"] = [];
+DPR_G.iV["md.impv.yh"]["3rd"] = [];
+DPR_G.iV["md.impv.yh"]["3rd"][0] = ["ataṃ"];
+DPR_G.iV["md.impv.yh"]["3rd"][1] = ["antaṃ"];
+DPR_G.iV["md.impv.yh"]["2nd"] = [];
+DPR_G.iV["md.impv.yh"]["2nd"][0] = ["assu"];
+DPR_G.iV["md.impv.yh"]["2nd"][1] = ["avho"];
+DPR_G.iV["md.impv.yh"]["1st"] = [];
+DPR_G.iV["md.impv.yh"]["1st"][0] = ["e"];
+DPR_G.iV["md.impv.yh"]["1st"][1] = ["āmase"];
+DPR_G.iV["md.opt.a_"] = [];
+DPR_G.iV["md.opt.a_"]["3rd"] = [];
+DPR_G.iV["md.opt.a_"]["3rd"][0] = ["etha"];
+DPR_G.iV["md.opt.a_"]["3rd"][1] = ["eraṃ"];
+DPR_G.iV["md.opt.a_"]["2nd"] = [];
+DPR_G.iV["md.opt.a_"]["2nd"][0] = ["etho"];
+DPR_G.iV["md.opt.a_"]["2nd"][1] = ["eyyavho"];
+DPR_G.iV["md.opt.a_"]["1st"] = [];
+DPR_G.iV["md.opt.a_"]["1st"][0] = ["eyyaṃ"];
+DPR_G.iV["md.opt.a_"]["1st"][1] = ["eyyāmase", "āmase"];
+DPR_G.iV["md.opt.a_e"] = [];
+DPR_G.iV["md.opt.a_e"]["3rd"] = [];
+DPR_G.iV["md.opt.a_e"]["3rd"][0] = ["ayetha"];
+DPR_G.iV["md.opt.a_e"]["3rd"][1] = ["ayeraṃ"];
+DPR_G.iV["md.opt.a_e"]["2nd"] = [];
+DPR_G.iV["md.opt.a_e"]["2nd"][0] = ["etho"];
+DPR_G.iV["md.opt.a_e"]["2nd"][1] = ["eyyavho"];
+DPR_G.iV["md.opt.a_e"]["1st"] = [];
+DPR_G.iV["md.opt.a_e"]["1st"][0] = ["eyyaṃ"];
+DPR_G.iV["md.opt.a_e"]["1st"][1] = ["eyyāmase"];
+DPR_G.iV["md.opt.e_"] = [];
+DPR_G.iV["md.opt.e_"]["3rd"] = [];
+DPR_G.iV["md.opt.e_"]["3rd"][0] = ["ayetha"];
+DPR_G.iV["md.opt.e_"]["3rd"][1] = ["ayeraṃ"];
+DPR_G.iV["md.opt.e_"]["2nd"] = [];
+DPR_G.iV["md.opt.e_"]["2nd"][0] = ["etho"];
+DPR_G.iV["md.opt.e_"]["2nd"][1] = ["eyyavho"];
+DPR_G.iV["md.opt.e_"]["1st"] = [];
+DPR_G.iV["md.opt.e_"]["1st"][0] = ["eyyaṃ"];
+DPR_G.iV["md.opt.e_"]["1st"][1] = ["eyyāmase"];
+DPR_G.iV["md.opt.ey"] = [];
+DPR_G.iV["md.opt.ey"]["3rd"] = [];
+DPR_G.iV["md.opt.ey"]["3rd"][0] = ["etha"];
+DPR_G.iV["md.opt.ey"]["3rd"][1] = ["eraṃ"];
+DPR_G.iV["md.opt.ey"]["2nd"] = [];
+DPR_G.iV["md.opt.ey"]["2nd"][0] = ["etho"];
+DPR_G.iV["md.opt.ey"]["2nd"][1] = ["eyyavho"];
+DPR_G.iV["md.opt.ey"]["1st"] = [];
+DPR_G.iV["md.opt.ey"]["1st"][0] = ["eyyaṃ"];
+DPR_G.iV["md.opt.ey"]["1st"][1] = ["eyyāmase"];
+DPR_G.iV["md.opt.ma"] = [];
+DPR_G.iV["md.opt.ma"]["3rd"] = [];
+DPR_G.iV["md.opt.ma"]["3rd"][0] = ["etha"];
+DPR_G.iV["md.opt.ma"]["3rd"][1] = ["eraṃ"];
+DPR_G.iV["md.opt.ma"]["2nd"] = [];
+DPR_G.iV["md.opt.ma"]["2nd"][0] = ["etho"];
+DPR_G.iV["md.opt.ma"]["2nd"][1] = ["eyyavho"];
+DPR_G.iV["md.opt.ma"]["1st"] = [];
+DPR_G.iV["md.opt.ma"]["1st"][0] = ["eyyaṃ"];
+DPR_G.iV["md.opt.ma"]["1st"][1] = ["eyyāmase"];
+DPR_G.iV["md.opt.nā"] = [];
+DPR_G.iV["md.opt.nā"]["3rd"] = [];
+DPR_G.iV["md.opt.nā"]["3rd"][0] = ["etha"];
+DPR_G.iV["md.opt.nā"]["3rd"][1] = ["eraṃ"];
+DPR_G.iV["md.opt.nā"]["2nd"] = [];
+DPR_G.iV["md.opt.nā"]["2nd"][0] = ["etho"];
+DPR_G.iV["md.opt.nā"]["2nd"][1] = ["eyyavho"];
+DPR_G.iV["md.opt.nā"]["1st"] = [];
+DPR_G.iV["md.opt.nā"]["1st"][0] = ["eyyaṃ"];
+DPR_G.iV["md.opt.nā"]["1st"][1] = ["eyyāmase"];
+DPR_G.iV["md.opt.yh"] = [];
+DPR_G.iV["md.opt.yh"]["3rd"] = [];
+DPR_G.iV["md.opt.yh"]["3rd"][0] = ["etha"];
+DPR_G.iV["md.opt.yh"]["3rd"][1] = ["eraṃ"];
+DPR_G.iV["md.opt.yh"]["2nd"] = [];
+DPR_G.iV["md.opt.yh"]["2nd"][0] = ["etho"];
+DPR_G.iV["md.opt.yh"]["2nd"][1] = ["eyyavho"];
+DPR_G.iV["md.opt.yh"]["1st"] = [];
+DPR_G.iV["md.opt.yh"]["1st"][0] = ["eyyaṃ"];
+DPR_G.iV["md.opt.yh"]["1st"][1] = ["eyyāmase"];
+
+DPR_G.iVI["abhijānāti"] = [];
+DPR_G.iVI["abhijānāti"]["abhijānāti"] = [];
+DPR_G.iVI["abhijānāti"]["abhijānāti"]["65535"] = [];
+DPR_G.iVI["abhijānāti"]["abhijānāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["abhijānāti"]["abhijānāti"]["65535"]["3rd"]["0"] = ["abhijānāti"];
+DPR_G.iVI["abhijānāti"]["abhijānāti"]["65535"]["3rd"]["1"] = ["abhijānanti"];
+DPR_G.iVI["abhijānāti"]["abhijānāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["abhijānāti"]["abhijānāti"]["65535"]["2nd"]["0"] = ["abhijānāsi"];
+DPR_G.iVI["abhijānāti"]["abhijānāti"]["65535"]["2nd"]["1"] = ["abhijānātha"];
+DPR_G.iVI["abhijānāti"]["abhijānāti"]["65535"]["1st"] = [];
+DPR_G.iVI["abhijānāti"]["abhijānāti"]["65535"]["1st"]["0"] = ["abhijānāmi"];
+DPR_G.iVI["abhijānāti"]["abhijānāti"]["65535"]["1st"]["1"] = ["abhijānāma"];
+DPR_G.iVI["abhijānāti"]["def"] = [];
+DPR_G.iVI["abhijānāti"]["def"]["1"] = [];
+//iVI['abhijānāti']['def']['1']['3rd'] = [];
+//iVI['abhijānāti']['def']['1']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["abhijānāti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["abhijānāti"]["def"]["1"]["2nd"]["0"] = ["abhijānāhi"];
+DPR_G.iVI["abhijānāti"]["def"]["3"] = [];
+DPR_G.iVI["abhijānāti"]["def"]["3"]["3rd"] = [];
+DPR_G.iVI["abhijānāti"]["def"]["3"]["3rd"]["0"] = ["abhijānissati"];
+DPR_G.iVI["abhijānāti"]["def"]["3"]["3rd"]["1"] = ["abhijānissanti"];
+DPR_G.iVI["abhijānāti"]["def"]["3"]["2nd"] = [];
+DPR_G.iVI["abhijānāti"]["def"]["3"]["2nd"]["0"] = ["abhijānissasi"];
+DPR_G.iVI["abhijānāti"]["def"]["3"]["2nd"]["1"] = ["abhijānissatha"];
+DPR_G.iVI["abhijānāti"]["def"]["3"]["1st"] = [];
+DPR_G.iVI["abhijānāti"]["def"]["3"]["1st"]["0"] = ["abhijānissāmi"];
+DPR_G.iVI["abhijānāti"]["def"]["3"]["1st"]["1"] = ["abhijānissāma"];
+DPR_G.iVI["abhijānāti"]["def"]["4"] = [];
+DPR_G.iVI["abhijānāti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["abhijānāti"]["def"]["4"]["3rd"]["0"] = ["abhijāneyya", "abhijaññā"];
+DPR_G.iVI["abhisaṅkharoti"] = [];
+DPR_G.iVI["abhisaṅkharoti"]["abhisaṅkharoti"] = [];
+DPR_G.iVI["abhisaṅkharoti"]["abhisaṅkharoti"]["65535"] = [];
+DPR_G.iVI["abhisaṅkharoti"]["abhisaṅkharoti"]["65535"]["3rd"] = [];
+DPR_G.iVI["abhisaṅkharoti"]["abhisaṅkharoti"]["65535"]["3rd"]["0"] = [
+	"abhisaṅkharoti",
+];
+DPR_G.iVI["abhisaṅkharoti"]["abhisaṅkharoti"]["65535"]["3rd"]["1"] = [
+	"abhisaṅkharonti",
+];
+DPR_G.iVI["abhisaṅkharoti"]["def"] = [];
+DPR_G.iVI["abhisaṅkharoti"]["def"]["4"] = [];
+DPR_G.iVI["abhisaṅkharoti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["abhisaṅkharoti"]["def"]["4"]["3rd"]["0"] = ["abhisaṅkhareyya"];
+DPR_G.iVI["abhisaṅkharoti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["abhisaṅkharoti"]["def"]["4"]["1st"]["0"] = ["abhisaṅkhareyyaṃ"];
+DPR_G.iVI["acchati"] = [];
+DPR_G.iVI["acchati"]["acchati"] = [];
+DPR_G.iVI["acchati"]["acchati"]["65535"] = [];
+DPR_G.iVI["acchati"]["acchati"]["65535"]["3rd"] = [];
+DPR_G.iVI["acchati"]["acchati"]["65535"]["3rd"]["0"] = ["acchati"];
+DPR_G.iVI["acchati"]["acchati"]["65535"]["3rd"]["1"] = ["acchanti", "acchenti"];
+DPR_G.iVI["acchati"]["acchati"]["65535"]["2nd"] = [];
+DPR_G.iVI["acchati"]["acchati"]["65535"]["2nd"]["0"] = ["acchasi"];
+DPR_G.iVI["acchati"]["acchati"]["65535"]["1st"] = [];
+DPR_G.iVI["acchati"]["acchati"]["65535"]["1st"]["0"] = ["acchāmi"];
+DPR_G.iVI["acchati"]["def"] = [];
+DPR_G.iVI["acchati"]["def"]["1"] = [];
+DPR_G.iVI["acchati"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["acchati"]["def"]["1"]["3rd"]["0"] = ["acchatu"];
+DPR_G.iVI["acchati"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["acchati"]["def"]["1"]["2nd"]["0"] = ["accha"];
+DPR_G.iVI["acchati"]["def"]["4"] = [];
+DPR_G.iVI["acchati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["acchati"]["def"]["4"]["3rd"]["0"] = ["accheyya"];
+DPR_G.iVI["acchati"]["def"]["13"] = [];
+DPR_G.iVI["acchati"]["def"]["13"]["3rd"] = [];
+DPR_G.iVI["acchati"]["def"]["13"]["3rd"]["0"] = ["acchataṃ"];
+DPR_G.iVI["acchati"]["def"]["13"]["2nd"] = [];
+DPR_G.iVI["acchati"]["def"]["13"]["2nd"]["0"] = ["acchassu"];
+DPR_G.iVI["ādadāti"] = [];
+DPR_G.iVI["ādadāti"]["ādadāti"] = [];
+DPR_G.iVI["ādadāti"]["ādadāti"]["65535"] = [];
+DPR_G.iVI["ādadāti"]["ādadāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["ādadāti"]["ādadāti"]["65535"]["3rd"]["0"] = ["ādadāti"];
+DPR_G.iVI["addasa"] = [];
+DPR_G.iVI["addasa"]["addasa"] = [];
+DPR_G.iVI["addasa"]["addasa"]["65535"] = [];
+DPR_G.iVI["addasa"]["addasa"]["65535"]["3rd"] = [];
+DPR_G.iVI["addasa"]["addasa"]["65535"]["3rd"]["0"] = ["addasa"];
+DPR_G.iVI["addasā"] = [];
+DPR_G.iVI["addasā"]["addasā"] = [];
+DPR_G.iVI["addasā"]["addasā"]["65535"] = [];
+DPR_G.iVI["addasā"]["addasā"]["65535"]["3rd"] = [];
+DPR_G.iVI["addasā"]["addasā"]["65535"]["3rd"]["0"] = ["addasā"];
+DPR_G.iVI["addasā"]["addasā"]["65535"]["3rd"]["1"] = ["addasaṃsu"];
+DPR_G.iVI["addasā"]["addasā"]["65535"]["2nd"] = [];
+DPR_G.iVI["addasā"]["addasā"]["65535"]["2nd"]["0"] = ["addasā"];
+DPR_G.iVI["addasā"]["addasā"]["65535"]["2nd"]["1"] = ["addasatha"];
+DPR_G.iVI["addasā"]["addasā"]["65535"]["1st"] = [];
+DPR_G.iVI["addasā"]["addasā"]["65535"]["1st"]["0"] = ["addasaṃ", "addakkhiṃ"];
+DPR_G.iVI["addasā"]["addasā"]["65535"]["1st"]["1"] = ["addasāma"];
+DPR_G.iVI["adhiṭṭhāti"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhahati"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhahati"]["65535"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhahati"]["65535"]["3rd"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhahati"]["65535"]["3rd"]["0"] = ["adhiṭṭhahati"];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhahati"]["65535"]["3rd"]["1"] = [
+	"adhiṭṭhahanti",
+];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhāti"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhāti"]["65535"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhāti"]["65535"]["3rd"]["0"] = [
+	"adhiṭṭhāti",
+	"adhitiṭṭhati",
+	"adhiṭṭheti",
+];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhāti"]["65535"]["3rd"]["1"] = ["adhiṭṭhenti"];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhāti"]["65535"]["2nd"]["0"] = ["adhitiṭṭhasi"];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhāti"]["65535"]["1st"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhāti"]["65535"]["1st"]["0"] = ["adhiṭṭhāmi"];
+DPR_G.iVI["adhiṭṭhāti"]["adhiṭṭhāti"]["65535"]["1st"]["1"] = ["adhiṭṭhema"];
+DPR_G.iVI["adhiṭṭhāti"]["def"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["def"]["1"] = [];
+//iVI['adhiṭṭhāti']['def']['1']['3rd'] = [];
+//iVI['adhiṭṭhāti']['def']['1']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["adhiṭṭhāti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["def"]["1"]["2nd"]["0"] = ["adhiṭṭhāhi", "adhiṭṭhehi"];
+DPR_G.iVI["adhiṭṭhāti"]["def"]["4"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["def"]["4"]["3rd"]["0"] = [
+	"adhiṭṭhaheyya",
+	"adhiṭṭheyya",
+];
+DPR_G.iVI["adhiṭṭhāti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["adhiṭṭhāti"]["def"]["4"]["2nd"]["0"] = ["adhiṭṭhaheyyāsi"];
+DPR_G.iVI["adhiseti"] = [];
+DPR_G.iVI["adhiseti"]["adhiseti"] = [];
+DPR_G.iVI["adhiseti"]["adhiseti"]["65535"] = [];
+DPR_G.iVI["adhiseti"]["adhiseti"]["65535"]["3rd"] = [];
+DPR_G.iVI["adhiseti"]["adhiseti"]["65535"]["3rd"]["0"] = [
+	"adhiseti",
+	"adhisayati",
+];
+DPR_G.iVI["adhiseti"]["def"] = [];
+DPR_G.iVI["adhiseti"]["def"]["4"] = [];
+DPR_G.iVI["adhiseti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["adhiseti"]["def"]["4"]["3rd"]["0"] = ["adhisayeyya"];
+DPR_G.iVI["ādisati"] = [];
+DPR_G.iVI["ādisati"]["ādisati"] = [];
+DPR_G.iVI["ādisati"]["ādisati"]["65535"] = [];
+DPR_G.iVI["ādisati"]["ādisati"]["65535"]["3rd"] = [];
+DPR_G.iVI["ādisati"]["ādisati"]["65535"]["3rd"]["0"] = ["ādisati"];
+DPR_G.iVI["ādisati"]["ādisati"]["65535"]["3rd"]["1"] = ["ādisanti"];
+DPR_G.iVI["ādisati"]["def"] = [];
+DPR_G.iVI["ādisati"]["def"]["4"] = [];
+DPR_G.iVI["ādisati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["ādisati"]["def"]["4"]["3rd"]["0"] = ["ādiseyya", "ādise"];
+DPR_G.iVI["ādisati"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["ādisati"]["def"]["4"]["2nd"]["0"] = ["ādiseyyāsi"];
+DPR_G.iVI["ādiyati"] = [];
+DPR_G.iVI["ādiyati"]["ādiyati"] = [];
+DPR_G.iVI["ādiyati"]["ādiyati"]["65535"] = [];
+DPR_G.iVI["ādiyati"]["ādiyati"]["65535"]["3rd"] = [];
+DPR_G.iVI["ādiyati"]["ādiyati"]["65535"]["3rd"]["0"] = [
+	"ādiyati",
+	"ādeti",
+	"ādatte",
+];
+DPR_G.iVI["ādiyati"]["ādiyati"]["65535"]["3rd"]["1"] = ["ādiyanti", "ādenti"];
+DPR_G.iVI["ādiyati"]["ādiyati"]["65535"]["2nd"] = [];
+DPR_G.iVI["ādiyati"]["ādiyati"]["65535"]["2nd"]["0"] = ["ādiyasi"];
+DPR_G.iVI["ādiyati"]["ādiyati"]["65535"]["2nd"]["1"] = ["ādiyatha", "ādetha"];
+DPR_G.iVI["ādiyati"]["ādiyati"]["65535"]["1st"] = [];
+DPR_G.iVI["ādiyati"]["ādiyati"]["65535"]["1st"]["0"] = ["ādiyāmi"];
+DPR_G.iVI["ādiyati"]["ādiyati"]["65535"]["1st"]["1"] = ["ādiyāma"];
+DPR_G.iVI["ādiyati"]["def"] = [];
+DPR_G.iVI["ādiyati"]["def"]["1"] = [];
+DPR_G.iVI["ādiyati"]["def"]["1"]["3rd"] = [];
+//iVI['ādiyati']['def']['1']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["ādiyati"]["def"]["1"]["3rd"]["1"] = ["ādiyantu"];
+DPR_G.iVI["ādiyati"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["ādiyati"]["def"]["1"]["2nd"]["0"] = ["ādiya"];
+DPR_G.iVI["ādiyati"]["def"]["3"] = [];
+DPR_G.iVI["ādiyati"]["def"]["3"]["3rd"] = [];
+DPR_G.iVI["ādiyati"]["def"]["3"]["3rd"]["0"] = ["ādiyissati"];
+DPR_G.iVI["ādiyati"]["def"]["3"]["3rd"]["1"] = ["ādiyissanti"];
+DPR_G.iVI["ādiyati"]["def"]["3"]["2nd"] = [];
+DPR_G.iVI["ādiyati"]["def"]["3"]["2nd"]["0"] = ["ādiyissasi"];
+DPR_G.iVI["ādiyati"]["def"]["3"]["2nd"]["1"] = ["ādiyissatha"];
+DPR_G.iVI["ādiyati"]["def"]["3"]["1st"] = [];
+DPR_G.iVI["ādiyati"]["def"]["3"]["1st"]["0"] = ["ādiyissāmi"];
+DPR_G.iVI["ādiyati"]["def"]["3"]["1st"]["1"] = ["ādiyissāma"];
+DPR_G.iVI["ādiyati"]["def"]["4"] = [];
+DPR_G.iVI["ādiyati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["ādiyati"]["def"]["4"]["3rd"]["0"] = ["ādiyeyya"];
+DPR_G.iVI["ādiyati"]["def"]["4"]["3rd"]["1"] = ["ādiyeyyuṃ"];
+DPR_G.iVI["ādiyati"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["ādiyati"]["def"]["4"]["2nd"]["0"] = ["ādiyeyyāsi"];
+DPR_G.iVI["ādiyati"]["def"]["4"]["2nd"]["1"] = ["ādiyeyyātha"];
+DPR_G.iVI["ādiyati"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["ādiyati"]["def"]["4"]["1st"]["0"] = ["ādiyeyyaṃ"];
+DPR_G.iVI["ādiyati"]["def"]["4"]["1st"]["1"] = ["ādiyeyyāma"];
+DPR_G.iVI["āhari"] = [];
+DPR_G.iVI["āhari"]["āhari"] = [];
+DPR_G.iVI["āhari"]["āhari"]["65535"] = [];
+DPR_G.iVI["āhari"]["āhari"]["65535"]["3rd"] = [];
+DPR_G.iVI["āhari"]["āhari"]["65535"]["3rd"]["0"] = [
+	"āhāsi",
+	"āhari",
+	"āharesi",
+];
+DPR_G.iVI["āhari"]["āhari"]["65535"]["3rd"]["1"] = ["āhariṃsu", "āhaṃsu"];
+DPR_G.iVI["āhari"]["āhari"]["65535"]["1st"] = [];
+DPR_G.iVI["āhari"]["āhari"]["65535"]["1st"]["0"] = ["āhariṃ"];
+DPR_G.iVI["āhari"]["āhari"]["65535"]["1st"]["1"] = ["āharāma", "āharimha"];
+DPR_G.iVI["ahosi"] = [];
+DPR_G.iVI["ahosi"]["ahosi"] = [];
+DPR_G.iVI["ahosi"]["ahosi"]["65535"] = [];
+DPR_G.iVI["ahosi"]["ahosi"]["65535"]["3rd"] = [];
+DPR_G.iVI["ahosi"]["ahosi"]["65535"]["3rd"]["0"] = ["ahosi"];
+DPR_G.iVI["ahosi"]["ahosi"]["65535"]["3rd"]["1"] = ["ahesuṃ"];
+DPR_G.iVI["ahosi"]["ahosi"]["65535"]["2nd"] = [];
+DPR_G.iVI["ahosi"]["ahosi"]["65535"]["2nd"]["0"] = ["ahosi"];
+DPR_G.iVI["ahosi"]["ahosi"]["65535"]["2nd"]["1"] = ["ahuvattha"];
+DPR_G.iVI["ahosi"]["ahosi"]["65535"]["1st"] = [];
+DPR_G.iVI["ahosi"]["ahosi"]["65535"]["1st"]["0"] = ["ahosiṃ"];
+DPR_G.iVI["ahosi"]["ahosi"]["65535"]["1st"]["1"] = ["ahumha"];
+DPR_G.iVI["ājānāti"] = [];
+DPR_G.iVI["ājānāti"]["ājānāti"] = [];
+DPR_G.iVI["ājānāti"]["ājānāti"]["65535"] = [];
+DPR_G.iVI["ājānāti"]["ājānāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["ājānāti"]["ājānāti"]["65535"]["3rd"]["0"] = ["ājānāti", "aññāti"];
+DPR_G.iVI["ājānāti"]["ājānāti"]["65535"]["3rd"]["1"] = ["ājānanti"];
+DPR_G.iVI["ājānāti"]["ājānāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["ājānāti"]["ājānāti"]["65535"]["2nd"]["0"] = ["ājānāsi"];
+DPR_G.iVI["ājānāti"]["ājānāti"]["65535"]["2nd"]["1"] = ["ājānātha"];
+DPR_G.iVI["ājānāti"]["ājānāti"]["65535"]["1st"] = [];
+DPR_G.iVI["ājānāti"]["ājānāti"]["65535"]["1st"]["0"] = ["ājānāmi"];
+DPR_G.iVI["ājānāti"]["ājānāti"]["65535"]["1st"]["1"] = ["ājānāma"];
+DPR_G.iVI["ājānāti"]["def"] = [];
+DPR_G.iVI["ājānāti"]["def"]["1"] = [];
+//iVI['ājānāti']['def']['1']['3rd'] = [];
+//iVI['ājānāti']['def']['1']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["ājānāti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["ājānāti"]["def"]["1"]["2nd"]["0"] = ["ājānāhi"];
+DPR_G.iVI["ājānāti"]["def"]["4"] = [];
+DPR_G.iVI["ājānāti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["ājānāti"]["def"]["4"]["3rd"]["0"] = ["ājāneyya"];
+DPR_G.iVI["ājānāti"]["def"]["4"]["3rd"]["1"] = ["ājāneyyuṃ"];
+DPR_G.iVI["ājānāti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["ājānāti"]["def"]["4"]["2nd"]["0"] = ["ājāneyyāsi"];
+DPR_G.iVI["ājānāti"]["def"]["4"]["2nd"]["1"] = ["ājāneyyātha"];
+DPR_G.iVI["ājānāti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["ājānāti"]["def"]["4"]["1st"]["0"] = ["ājāneyyaṃ"];
+DPR_G.iVI["ājānāti"]["def"]["4"]["1st"]["1"] = ["ājāneyyāma"];
+DPR_G.iVI["ajjhagā"] = [];
+DPR_G.iVI["ajjhagā"]["ajjhagā"] = [];
+DPR_G.iVI["ajjhagā"]["ajjhagā"]["65535"] = [];
+DPR_G.iVI["ajjhagā"]["ajjhagā"]["65535"]["3rd"] = [];
+DPR_G.iVI["ajjhagā"]["ajjhagā"]["65535"]["3rd"]["0"] = ["ajjhagā"];
+DPR_G.iVI["ajjhagā"]["ajjhagā"]["65535"]["3rd"]["1"] = [
+	"ajjhagu",
+	"ajjhagū",
+	"ajjhaguṃ",
+	"ajjhagaṃsu",
+];
+DPR_G.iVI["ajjhagā"]["ajjhagā"]["65535"]["2nd"] = [];
+DPR_G.iVI["ajjhagā"]["ajjhagā"]["65535"]["2nd"]["0"] = ["ajjhagā"];
+DPR_G.iVI["ajjhagā"]["ajjhagā"]["65535"]["1st"] = [];
+DPR_G.iVI["ajjhagā"]["ajjhagā"]["65535"]["1st"]["0"] = [
+	"adhigaṃ",
+	"ajjhagaṃ",
+	"ajjhagā",
+];
+DPR_G.iVI["ajjhagamā"] = [];
+DPR_G.iVI["ajjhagamā"]["ajjhagamā"] = [];
+DPR_G.iVI["ajjhagamā"]["ajjhagamā"]["65535"] = [];
+DPR_G.iVI["ajjhagamā"]["ajjhagamā"]["65535"]["3rd"] = [];
+DPR_G.iVI["ajjhagamā"]["ajjhagamā"]["65535"]["3rd"]["0"] = [
+	"ajjhagamā",
+	"ajjhagacchi",
+	"ajjhagañchi",
+	"adhigacchi",
+	"adhigañchi",
+];
+DPR_G.iVI["ajjhagamā"]["ajjhagamā"]["65535"]["3rd"]["1"] = [
+	"ajjhagamaṃsu",
+	"ajjhagamuṃ",
+	"ajjhagaṃsu",
+	"adhigamiṃsu",
+	"adhigacchiṃsu",
+];
+DPR_G.iVI["ajjhagamā"]["ajjhagamā"]["65535"]["2nd"] = [];
+DPR_G.iVI["ajjhagamā"]["ajjhagamā"]["65535"]["2nd"]["0"] = [
+	"ajjhagamā",
+	"ajjhagamāsi",
+];
+DPR_G.iVI["ajjhagamā"]["ajjhagamā"]["65535"]["1st"] = [];
+DPR_G.iVI["ajjhagamā"]["ajjhagamā"]["65535"]["1st"]["0"] = [
+	"ajjhagamaṃ",
+	"ajjhagamiṃ",
+	"adhigamiṃ",
+	"adhigacchiṃ",
+	"adhigacchissaṃ",
+];
+DPR_G.iVI["ajjhagamā"]["ajjhagamā"]["65535"]["1st"]["1"] = ["ajjhagamāmase"];
+DPR_G.iVI["āneti"] = [];
+DPR_G.iVI["āneti"]["ānayati"] = [];
+DPR_G.iVI["āneti"]["ānayati"]["65535"] = [];
+DPR_G.iVI["āneti"]["ānayati"]["65535"]["3rd"] = [];
+DPR_G.iVI["āneti"]["ānayati"]["65535"]["3rd"]["0"] = ["ānayati"];
+DPR_G.iVI["āneti"]["ānayati"]["65535"]["1st"] = [];
+DPR_G.iVI["āneti"]["ānayati"]["65535"]["1st"]["0"] = ["ānayāmi"];
+DPR_G.iVI["āneti"]["āneti"] = [];
+DPR_G.iVI["āneti"]["āneti"]["65535"] = [];
+DPR_G.iVI["āneti"]["āneti"]["65535"]["3rd"] = [];
+DPR_G.iVI["āneti"]["āneti"]["65535"]["3rd"]["0"] = ["āneti"];
+DPR_G.iVI["āneti"]["āneti"]["65535"]["3rd"]["1"] = ["ānenti"];
+DPR_G.iVI["āneti"]["āneti"]["65535"]["2nd"] = [];
+DPR_G.iVI["āneti"]["āneti"]["65535"]["2nd"]["0"] = ["ānesi"];
+DPR_G.iVI["āneti"]["āneti"]["65535"]["2nd"]["1"] = ["ānetha"];
+DPR_G.iVI["āneti"]["āneti"]["65535"]["1st"] = [];
+DPR_G.iVI["āneti"]["āneti"]["65535"]["1st"]["0"] = ["ānemi"];
+DPR_G.iVI["āneti"]["āneti"]["65535"]["1st"]["1"] = ["ānema"];
+DPR_G.iVI["āneti"]["def"] = [];
+DPR_G.iVI["āneti"]["def"]["1"] = [];
+//iVI['āneti']['def']['1']['3rd'] = [];
+//iVI['āneti']['def']['1']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["āneti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["āneti"]["def"]["1"]["2nd"]["0"] = ["ānehi"];
+DPR_G.iVI["āneti"]["def"]["4"] = [];
+DPR_G.iVI["āneti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["āneti"]["def"]["4"]["3rd"]["0"] = ["āneyya"];
+DPR_G.iVI["āneti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["āneti"]["def"]["4"]["2nd"]["1"] = ["āneyyātha"];
+DPR_G.iVI["āneti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["āneti"]["def"]["4"]["1st"]["1"] = ["āneyyāma"];
+DPR_G.iVI["antaradhāyati"] = [];
+DPR_G.iVI["antaradhāyati"]["antaradhāyati"] = [];
+DPR_G.iVI["antaradhāyati"]["antaradhāyati"]["65535"] = [];
+DPR_G.iVI["antaradhāyati"]["antaradhāyati"]["65535"]["3rd"] = [];
+DPR_G.iVI["antaradhāyati"]["antaradhāyati"]["65535"]["3rd"]["0"] = [
+	"antaradhāyati",
+];
+DPR_G.iVI["antaradhāyati"]["antaradhāyati"]["65535"]["3rd"]["1"] = [
+	"antaradhāyanti",
+];
+DPR_G.iVI["antaradhāyati"]["antaradhāyati"]["65535"]["2nd"] = [];
+DPR_G.iVI["antaradhāyati"]["antaradhāyati"]["65535"]["2nd"]["0"] = [
+	"antaradhāyasi",
+];
+DPR_G.iVI["antaradhāyati"]["antaradhāyati"]["65535"]["2nd"]["1"] = [
+	"antaradhāyatha",
+];
+DPR_G.iVI["antaradhāyati"]["antaradhāyati"]["65535"]["1st"] = [];
+DPR_G.iVI["antaradhāyati"]["antaradhāyati"]["65535"]["1st"]["0"] = [
+	"antaradhāyāmi",
+];
+DPR_G.iVI["antaradhāyati"]["antaradhāyati"]["65535"]["1st"]["1"] = [
+	"antaradhāyāma",
+];
+DPR_G.iVI["antaradhāyati"]["def"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["1"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["1"]["3rd"]["0"] = ["antaradhāyatu"];
+DPR_G.iVI["antaradhāyati"]["def"]["1"]["3rd"]["1"] = ["antaradhāyantu"];
+DPR_G.iVI["antaradhāyati"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["1"]["2nd"]["0"] = ["antaradhāyāhi"];
+DPR_G.iVI["antaradhāyati"]["def"]["1"]["2nd"]["1"] = ["antaradhāyatha"];
+DPR_G.iVI["antaradhāyati"]["def"]["1"]["1st"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["1"]["1st"]["0"] = ["antaradhāyāmi"];
+DPR_G.iVI["antaradhāyati"]["def"]["1"]["1st"]["1"] = ["antaradhāyāma"];
+DPR_G.iVI["antaradhāyati"]["def"]["3"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["3"]["3rd"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["3"]["3rd"]["0"] = ["antaradhāyissati"];
+DPR_G.iVI["antaradhāyati"]["def"]["3"]["3rd"]["1"] = ["antaradhāyissanti"];
+DPR_G.iVI["antaradhāyati"]["def"]["3"]["2nd"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["3"]["2nd"]["0"] = ["antaradhāyissasi"];
+DPR_G.iVI["antaradhāyati"]["def"]["3"]["2nd"]["1"] = ["antaradhāyissatha"];
+DPR_G.iVI["antaradhāyati"]["def"]["3"]["1st"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["3"]["1st"]["0"] = ["antaradhāyissāmi"];
+DPR_G.iVI["antaradhāyati"]["def"]["3"]["1st"]["1"] = ["antaradhāyissāma"];
+DPR_G.iVI["antaradhāyati"]["def"]["4"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["4"]["3rd"]["0"] = ["antaradhāyeyya"];
+DPR_G.iVI["antaradhāyati"]["def"]["12"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["12"]["3rd"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["12"]["3rd"]["0"] = ["antaradhāyatha"];
+DPR_G.iVI["antaradhāyati"]["def"]["13"] = [];
+//iVI['antaradhāyati']['def']['13']['3rd'] = [];
+//iVI['antaradhāyati']['def']['13']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["antaradhāyati"]["def"]["13"]["2nd"] = [];
+DPR_G.iVI["antaradhāyati"]["def"]["13"]["2nd"]["0"] = ["antaradhāyassu"];
+DPR_G.iVI["anubhoti"] = [];
+DPR_G.iVI["anubhoti"]["anubhoti"] = [];
+DPR_G.iVI["anubhoti"]["anubhoti"]["65535"] = [];
+DPR_G.iVI["anubhoti"]["anubhoti"]["65535"]["3rd"] = [];
+DPR_G.iVI["anubhoti"]["anubhoti"]["65535"]["3rd"]["0"] = ["anubhoti"];
+DPR_G.iVI["anubhoti"]["anubhoti"]["65535"]["3rd"]["1"] = ["anubhonti"];
+DPR_G.iVI["anubhoti"]["anubhoti"]["65535"]["2nd"] = [];
+DPR_G.iVI["anubhoti"]["anubhoti"]["65535"]["2nd"]["0"] = ["anubhosi"];
+DPR_G.iVI["anubhoti"]["anubhoti"]["65535"]["2nd"]["1"] = ["anubhotha"];
+DPR_G.iVI["anubhoti"]["anubhoti"]["65535"]["1st"] = [];
+DPR_G.iVI["anubhoti"]["anubhoti"]["65535"]["1st"]["0"] = ["anubhomi"];
+DPR_G.iVI["anubhoti"]["anubhoti"]["65535"]["1st"]["1"] = ["anubhoma"];
+DPR_G.iVI["anubhoti"]["def"] = [];
+DPR_G.iVI["anubhoti"]["def"]["1"] = [];
+DPR_G.iVI["anubhoti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["anubhoti"]["def"]["1"]["3rd"]["0"] = ["anubhotu"];
+DPR_G.iVI["anubhoti"]["def"]["1"]["3rd"]["1"] = ["anubhontu"];
+DPR_G.iVI["anubhoti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["anubhoti"]["def"]["1"]["2nd"]["0"] = ["anubhohi"];
+DPR_G.iVI["anudadāti"] = [];
+DPR_G.iVI["anudadāti"]["anudadāti"] = [];
+DPR_G.iVI["anudadāti"]["anudadāti"]["65535"] = [];
+DPR_G.iVI["anudadāti"]["anudadāti"]["65535"]["3rd"] = [];
+//iVI['anudadāti']['anudadāti']['65535']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["anukaroti"] = [];
+DPR_G.iVI["anukaroti"]["anukaroti"] = [];
+DPR_G.iVI["anukaroti"]["anukaroti"]["65535"] = [];
+DPR_G.iVI["anukaroti"]["anukaroti"]["65535"]["3rd"] = [];
+DPR_G.iVI["anukaroti"]["anukaroti"]["65535"]["3rd"]["0"] = ["anukaroti"];
+DPR_G.iVI["anukaroti"]["anukaroti"]["65535"]["3rd"]["1"] = [
+	"anukaronti",
+	"anukubbanti",
+];
+DPR_G.iVI["anukaroti"]["anukaroti"]["65535"]["1st"] = [];
+DPR_G.iVI["anukaroti"]["anukaroti"]["65535"]["1st"]["0"] = ["anukaromi"];
+DPR_G.iVI["anukaroti"]["def"] = [];
+DPR_G.iVI["anukaroti"]["def"]["1"] = [];
+DPR_G.iVI["anukaroti"]["def"]["1"]["3rd"] = [];
+//iVI['anukaroti']['def']['1']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["anukaroti"]["def"]["1"]["3rd"]["1"] = ["anukarontu"];
+DPR_G.iVI["anuppadeti"] = [];
+DPR_G.iVI["anuppadeti"]["anuppadeti"] = [];
+DPR_G.iVI["anuppadeti"]["anuppadeti"]["65535"] = [];
+DPR_G.iVI["anuppadeti"]["anuppadeti"]["65535"]["3rd"] = [];
+DPR_G.iVI["anuppadeti"]["anuppadeti"]["65535"]["3rd"]["0"] = [
+	"anuppadeti",
+	"anupadeti",
+];
+DPR_G.iVI["anuppadeti"]["anuppadeti"]["65535"]["2nd"] = [];
+DPR_G.iVI["anuppadeti"]["anuppadeti"]["65535"]["2nd"]["0"] = ["anuppadesi"];
+DPR_G.iVI["anuppadeti"]["anuppadeti"]["65535"]["1st"] = [];
+DPR_G.iVI["anuppadeti"]["anuppadeti"]["65535"]["1st"]["0"] = ["anuppademi"];
+DPR_G.iVI["anuppadeti"]["def"] = [];
+DPR_G.iVI["anuppadeti"]["def"]["1"] = [];
+DPR_G.iVI["anuppadeti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["anuppadeti"]["def"]["1"]["3rd"]["0"] = ["anuppadetu"];
+DPR_G.iVI["anuppadeti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["anuppadeti"]["def"]["1"]["2nd"]["0"] = ["anuppadehi"];
+DPR_G.iVI["anuppadeti"]["def"]["4"] = [];
+DPR_G.iVI["anuppadeti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["anuppadeti"]["def"]["4"]["3rd"]["0"] = ["anupadajjeyya"];
+DPR_G.iVI["anuppadeti"]["def"]["4"]["3rd"]["1"] = [
+	"anuppadajjuṃ",
+	"anuppadajjeyyuṃ",
+];
+DPR_G.iVI["anuppadeti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["anuppadeti"]["def"]["4"]["2nd"]["0"] = [
+	"anuppadajjeyyāsi",
+	"anupadajjeyyāsi",
+	"anuppadeyyāsi",
+];
+DPR_G.iVI["anuppadeti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["anuppadeti"]["def"]["4"]["1st"]["1"] = ["anupadajjeyyāmā"];
+DPR_G.iVI["anuseti"] = [];
+DPR_G.iVI["anuseti"]["anuseti"] = [];
+DPR_G.iVI["anuseti"]["anuseti"]["65535"] = [];
+DPR_G.iVI["anuseti"]["anuseti"]["65535"]["3rd"] = [];
+DPR_G.iVI["anuseti"]["anuseti"]["65535"]["3rd"]["0"] = ["anuseti"];
+DPR_G.iVI["anuseti"]["anuseti"]["65535"]["3rd"]["1"] = ["anusenti"];
+DPR_G.iVI["anvagā"] = [];
+DPR_G.iVI["anvagā"]["anvagā"] = [];
+DPR_G.iVI["anvagā"]["anvagā"]["65535"] = [];
+DPR_G.iVI["anvagā"]["anvagā"]["65535"]["3rd"] = [];
+DPR_G.iVI["anvagā"]["anvagā"]["65535"]["3rd"]["0"] = [
+	"anvagā",
+	"anvagaṃ",
+	"anvagū",
+];
+DPR_G.iVI["anvagā"]["anvagā"]["65535"]["3rd"]["1"] = ["anvagū"];
+DPR_G.iVI["anvagā"]["anvagā"]["65535"]["1st"] = [];
+DPR_G.iVI["anvagā"]["anvagā"]["65535"]["1st"]["0"] = [
+	"anvagaṃ",
+	"annagā",
+	"anvagū",
+];
+DPR_G.iVI["ārabhati"] = [];
+DPR_G.iVI["ārabhati"]["ārabhati"] = [];
+DPR_G.iVI["ārabhati"]["ārabhati"]["65535"] = [];
+DPR_G.iVI["ārabhati"]["ārabhati"]["65535"]["3rd"] = [];
+DPR_G.iVI["ārabhati"]["ārabhati"]["65535"]["3rd"]["0"] = [
+	"ārabhati",
+	"ārambhati",
+	"ārabbhati",
+];
+DPR_G.iVI["ārabhati"]["ārabhati"]["65535"]["3rd"]["1"] = ["ārabhanti"];
+DPR_G.iVI["ārabhati"]["ārabhati"]["65535"]["2nd"] = [];
+DPR_G.iVI["ārabhati"]["ārabhati"]["65535"]["2nd"]["1"] = ["ārabhatha"];
+DPR_G.iVI["ārabhati"]["ārabhati"]["65535"]["1st"] = [];
+DPR_G.iVI["ārabhati"]["ārabhati"]["65535"]["1st"]["0"] = ["ārabhāmi"];
+DPR_G.iVI["ārabhati"]["def"] = [];
+DPR_G.iVI["ārabhati"]["def"]["12"] = [];
+DPR_G.iVI["ārabhati"]["def"]["12"]["3rd"] = [];
+DPR_G.iVI["ārabhati"]["def"]["12"]["3rd"]["0"] = ["ārabhate"];
+DPR_G.iVI["ārabhati"]["def"]["13"] = [];
+DPR_G.iVI["ārabhati"]["def"]["13"]["3rd"] = [];
+//iVI['ārabhati']['def']['13']['3rd']['0'] = ['<no 3rd sing forms>'];
+DPR_G.iVI["ārabhati"]["def"]["13"]["2nd"] = [];
+DPR_G.iVI["ārabhati"]["def"]["13"]["2nd"]["1"] = ["ārabhavho"];
+DPR_G.iVI["āsi"] = [];
+DPR_G.iVI["āsi"]["āsi"] = [];
+DPR_G.iVI["āsi"]["āsi"]["65535"] = [];
+DPR_G.iVI["āsi"]["āsi"]["65535"]["3rd"] = [];
+DPR_G.iVI["āsi"]["āsi"]["65535"]["3rd"]["0"] = ["āsi"];
+DPR_G.iVI["āsi"]["āsi"]["65535"]["3rd"]["1"] = [
+	"āsuṃ",
+	"āsu",
+	"āsiṃsu",
+	"āsisuṃ",
+];
+DPR_G.iVI["āsi"]["āsi"]["65535"]["2nd"] = [];
+DPR_G.iVI["āsi"]["āsi"]["65535"]["2nd"]["0"] = ["āsi"];
+DPR_G.iVI["āsi"]["āsi"]["65535"]["1st"] = [];
+DPR_G.iVI["āsi"]["āsi"]["65535"]["1st"]["0"] = ["āsiṃ"];
+DPR_G.iVI["āsi"]["āsi"]["65535"]["1st"]["1"] = ["āsimhā"];
+DPR_G.iVI["assa"] = [];
+DPR_G.iVI["assa"]["assa"] = [];
+DPR_G.iVI["assa"]["assa"]["65535"] = [];
+DPR_G.iVI["assa"]["assa"]["65535"]["3rd"] = [];
+DPR_G.iVI["assa"]["assa"]["65535"]["3rd"]["0"] = ["siyā", "assa", "assu"];
+DPR_G.iVI["assa"]["assa"]["65535"]["3rd"]["1"] = ["siyuṃ", "siyaṃsu", "assuṃ"];
+DPR_G.iVI["assa"]["assa"]["65535"]["2nd"] = [];
+DPR_G.iVI["assa"]["assa"]["65535"]["2nd"]["0"] = [
+	"siyā",
+	"assa",
+	"assasi",
+	"assu",
+];
+DPR_G.iVI["assa"]["assa"]["65535"]["2nd"]["1"] = ["assatha"];
+DPR_G.iVI["assa"]["assa"]["65535"]["1st"] = [];
+DPR_G.iVI["assa"]["assa"]["65535"]["1st"]["0"] = ["siyaṃ", "siyā", "assaṃ"];
+DPR_G.iVI["assa"]["assa"]["65535"]["1st"]["1"] = ["assāma"];
+DPR_G.iVI["assosi"] = [];
+DPR_G.iVI["assosi"]["assosi"] = [];
+DPR_G.iVI["assosi"]["assosi"]["65535"] = [];
+DPR_G.iVI["assosi"]["assosi"]["65535"]["3rd"] = [];
+DPR_G.iVI["assosi"]["assosi"]["65535"]["3rd"]["0"] = ["assosi"];
+DPR_G.iVI["assosi"]["assosi"]["65535"]["3rd"]["1"] = ["assosuṃ"];
+DPR_G.iVI["assosi"]["assosi"]["65535"]["2nd"] = [];
+DPR_G.iVI["assosi"]["assosi"]["65535"]["2nd"]["0"] = ["assosi"];
+DPR_G.iVI["assosi"]["assosi"]["65535"]["2nd"]["1"] = ["assuttha"];
+DPR_G.iVI["assosi"]["assosi"]["65535"]["1st"] = [];
+DPR_G.iVI["assosi"]["assosi"]["65535"]["1st"]["0"] = ["assosiṃ"];
+DPR_G.iVI["assosi"]["assosi"]["65535"]["1st"]["1"] = ["assumha"];
+DPR_G.iVI["atibhoti"] = [];
+DPR_G.iVI["atibhoti"]["atibhoti"] = [];
+DPR_G.iVI["atibhoti"]["atibhoti"]["65535"] = [];
+DPR_G.iVI["atibhoti"]["atibhoti"]["65535"]["3rd"] = [];
+DPR_G.iVI["atibhoti"]["atibhoti"]["65535"]["3rd"]["0"] = ["atibhoti"];
+DPR_G.iVI["atibhoti"]["atibhoti"]["65535"]["3rd"]["1"] = ["atibhonti"];
+DPR_G.iVI["atibhoti"]["atibhoti"]["65535"]["1st"] = [];
+DPR_G.iVI["atibhoti"]["atibhoti"]["65535"]["1st"]["0"] = ["atibhomi"];
+DPR_G.iVI["atigacchati"] = [];
+DPR_G.iVI["atigacchati"]["accagā"] = [];
+DPR_G.iVI["atigacchati"]["accagā"]["65535"] = [];
+DPR_G.iVI["atigacchati"]["accagā"]["65535"]["3rd"] = [];
+DPR_G.iVI["atigacchati"]["accagā"]["65535"]["3rd"]["0"] = ["accagā", "atigā"];
+DPR_G.iVI["atigacchati"]["accagā"]["65535"]["3rd"]["1"] = ["accaguṃ", "accagū"];
+DPR_G.iVI["atigacchati"]["accagamā"] = [];
+DPR_G.iVI["atigacchati"]["accagamā"]["65535"] = [];
+DPR_G.iVI["atigacchati"]["accagamā"]["65535"]["3rd"] = [];
+DPR_G.iVI["atigacchati"]["accagamā"]["65535"]["3rd"]["0"] = ["accagamā"];
+DPR_G.iVI["atthi"] = [];
+DPR_G.iVI["atthi"]["def"] = [];
+DPR_G.iVI["atthi"]["def"]["65535"] = [];
+DPR_G.iVI["atthi"]["def"]["65535"]["3rd"] = [];
+DPR_G.iVI["atthi"]["def"]["65535"]["3rd"]["0"] = ["atthi"];
+DPR_G.iVI["atthi"]["def"]["65535"]["3rd"]["1"] = ["santi"];
+DPR_G.iVI["atthi"]["def"]["65535"]["2nd"] = [];
+DPR_G.iVI["atthi"]["def"]["65535"]["2nd"]["0"] = ["asi", "si"];
+DPR_G.iVI["atthi"]["def"]["65535"]["2nd"]["1"] = ["attha"];
+DPR_G.iVI["atthi"]["def"]["65535"]["1st"] = [];
+DPR_G.iVI["atthi"]["def"]["65535"]["1st"]["0"] = ["asmi", "smi", "amhi", "mhi"];
+DPR_G.iVI["atthi"]["def"]["65535"]["1st"]["1"] = [
+	"asma",
+	"asmā",
+	"amha",
+	"smase",
+];
+DPR_G.iVI["atthi"]["def"]["1"] = [];
+DPR_G.iVI["atthi"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["atthi"]["def"]["1"]["3rd"]["0"] = ["atthu"];
+DPR_G.iVI["atthi"]["def"]["12"] = [];
+DPR_G.iVI["atthi"]["def"]["12"]["3rd"] = [];
+//iVI['atthi']['def']['12']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["atthi"]["def"]["12"]["1st"] = [];
+DPR_G.iVI["atthi"]["def"]["12"]["1st"]["1"] = ["amhāse", "amhase", "amhā"];
+DPR_G.iVI["atthi"]["assa"] = [];
+DPR_G.iVI["atthi"]["assa"]["4"] = [];
+DPR_G.iVI["atthi"]["assa"]["4"]["3rd"] = [];
+DPR_G.iVI["atthi"]["assa"]["4"]["3rd"]["0"] = ["siyā", "assa", "assu"];
+DPR_G.iVI["atthi"]["assa"]["4"]["3rd"]["1"] = ["siyuṃ", "siyaṃsu", "assuṃ"];
+DPR_G.iVI["atthi"]["assa"]["4"]["2nd"] = [];
+DPR_G.iVI["atthi"]["assa"]["4"]["2nd"]["0"] = [
+	"siyā",
+	"assa",
+	"assasi",
+	"assu",
+];
+DPR_G.iVI["atthi"]["assa"]["4"]["2nd"]["1"] = ["assatha"];
+DPR_G.iVI["atthi"]["assa"]["4"]["1st"] = [];
+DPR_G.iVI["atthi"]["assa"]["4"]["1st"]["0"] = ["siyaṃ", "siyā", "assaṃ"];
+DPR_G.iVI["atthi"]["assa"]["4"]["1st"]["1"] = ["assāma"];
+DPR_G.iVI["avoca"] = [];
+DPR_G.iVI["avoca"]["avoca"] = [];
+DPR_G.iVI["avoca"]["avoca"]["65535"] = [];
+DPR_G.iVI["avoca"]["avoca"]["65535"]["3rd"] = [];
+DPR_G.iVI["avoca"]["avoca"]["65535"]["3rd"]["0"] = ["avoca"];
+DPR_G.iVI["avoca"]["avoca"]["65535"]["3rd"]["1"] = ["avocuṃ"];
+DPR_G.iVI["avoca"]["avoca"]["65535"]["2nd"] = [];
+DPR_G.iVI["avoca"]["avoca"]["65535"]["2nd"]["0"] = ["avoca", "(avaca)"];
+DPR_G.iVI["avoca"]["avoca"]["65535"]["2nd"]["1"] = ["avocuttha", "(avacuttha)"];
+DPR_G.iVI["avoca"]["avoca"]["65535"]["1st"] = [];
+DPR_G.iVI["avoca"]["avoca"]["65535"]["1st"]["0"] = ["avocaṃ"];
+DPR_G.iVI["avoca"]["avoca"]["65535"]["1st"]["1"] = ["avocumha", "(avocumhā)"];
+DPR_G.iVI["brūti"] = [];
+DPR_G.iVI["brūti"]["brūti"] = [];
+DPR_G.iVI["brūti"]["brūti"]["65535"] = [];
+DPR_G.iVI["brūti"]["brūti"]["65535"]["3rd"] = [];
+DPR_G.iVI["brūti"]["brūti"]["65535"]["3rd"]["0"] = ["brūti"];
+DPR_G.iVI["brūti"]["brūti"]["65535"]["2nd"] = [];
+DPR_G.iVI["brūti"]["brūti"]["65535"]["2nd"]["0"] = ["brūsi"];
+DPR_G.iVI["brūti"]["brūti"]["65535"]["2nd"]["1"] = ["brūtha"];
+DPR_G.iVI["brūti"]["brūti"]["65535"]["1st"] = [];
+DPR_G.iVI["brūti"]["brūti"]["65535"]["1st"]["0"] = ["brūmi"];
+DPR_G.iVI["brūti"]["def"] = [];
+DPR_G.iVI["brūti"]["def"]["1"] = [];
+DPR_G.iVI["brūti"]["def"]["1"]["3rd"] = [];
+//iVI['brūti']['def']['1']['3rd']['0'] = ['<no 3rd sng form>'];
+DPR_G.iVI["brūti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["brūti"]["def"]["1"]["2nd"]["0"] = ["brūhi"];
+DPR_G.iVI["cinteti"] = [];
+DPR_G.iVI["cinteti"]["cetayati"] = [];
+DPR_G.iVI["cinteti"]["cetayati"]["65535"] = [];
+DPR_G.iVI["cinteti"]["cetayati"]["65535"]["3rd"] = [];
+DPR_G.iVI["cinteti"]["cetayati"]["65535"]["3rd"]["0"] = ["cetayati"];
+DPR_G.iVI["cinteti"]["cetayati"]["65535"]["3rd"]["1"] = ["cetayanti"];
+DPR_G.iVI["cinteti"]["cetayati"]["65535"]["2nd"] = [];
+DPR_G.iVI["cinteti"]["cetayati"]["65535"]["2nd"]["0"] = ["cetayasi"];
+DPR_G.iVI["cinteti"]["cetayati"]["65535"]["2nd"]["1"] = ["cetayatha"];
+DPR_G.iVI["cinteti"]["cetayati"]["65535"]["1st"] = [];
+DPR_G.iVI["cinteti"]["cetayati"]["65535"]["1st"]["0"] = ["cetayāmi"];
+DPR_G.iVI["cinteti"]["cetayati"]["65535"]["1st"]["1"] = ["cetayāma"];
+DPR_G.iVI["cinteti"]["ceteti"] = [];
+DPR_G.iVI["cinteti"]["ceteti"]["65535"] = [];
+DPR_G.iVI["cinteti"]["ceteti"]["65535"]["3rd"] = [];
+DPR_G.iVI["cinteti"]["ceteti"]["65535"]["3rd"]["0"] = ["ceteti"];
+DPR_G.iVI["cinteti"]["ceteti"]["65535"]["3rd"]["1"] = ["cetenti"];
+DPR_G.iVI["cinteti"]["ceteti"]["65535"]["2nd"] = [];
+DPR_G.iVI["cinteti"]["ceteti"]["65535"]["2nd"]["0"] = ["cetesi"];
+DPR_G.iVI["cinteti"]["ceteti"]["65535"]["2nd"]["1"] = ["cetetha"];
+DPR_G.iVI["cinteti"]["ceteti"]["65535"]["1st"] = [];
+DPR_G.iVI["cinteti"]["ceteti"]["65535"]["1st"]["0"] = ["cetemi"];
+DPR_G.iVI["cinteti"]["ceteti"]["65535"]["1st"]["1"] = ["cetema"];
+DPR_G.iVI["cinteti"]["def"] = [];
+DPR_G.iVI["cinteti"]["def"]["4"] = [];
+DPR_G.iVI["cinteti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["cinteti"]["def"]["4"]["3rd"]["0"] = ["cinteyya", "cetaye"];
+DPR_G.iVI["cinteti"]["def"]["4"]["3rd"]["1"] = ["cinteyyuṃ"];
+DPR_G.iVI["cinteti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["cinteti"]["def"]["4"]["2nd"]["0"] = ["cinteyyāsi"];
+DPR_G.iVI["cinteti"]["def"]["4"]["2nd"]["1"] = ["cinteyyātha"];
+DPR_G.iVI["cinteti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["cinteti"]["def"]["4"]["1st"]["0"] = ["cinteyyaṃ", "(cinteyyāmi)"];
+DPR_G.iVI["cinteti"]["def"]["4"]["1st"]["1"] = ["cinteyyāma"];
+DPR_G.iVI["cinteti"]["cintesi"] = [];
+DPR_G.iVI["cinteti"]["cintesi"]["65535"] = [];
+DPR_G.iVI["cinteti"]["cintesi"]["65535"]["3rd"] = [];
+DPR_G.iVI["cinteti"]["cintesi"]["65535"]["3rd"]["0"] = ["cintesi"];
+DPR_G.iVI["cinteti"]["cintesi"]["65535"]["3rd"]["1"] = [
+	"cintesuṃ",
+	"acintayuṃ",
+];
+DPR_G.iVI["cinteti"]["cintesi"]["65535"]["2nd"] = [];
+DPR_G.iVI["cinteti"]["cintesi"]["65535"]["2nd"]["0"] = ["cintesi"];
+DPR_G.iVI["cinteti"]["cintesi"]["65535"]["2nd"]["1"] = ["cintittha"];
+DPR_G.iVI["cinteti"]["cintesi"]["65535"]["1st"] = [];
+DPR_G.iVI["cinteti"]["cintesi"]["65535"]["1st"]["0"] = ["cintesiṃ"];
+DPR_G.iVI["cinteti"]["cintesi"]["65535"]["1st"]["1"] = ["cintimha"];
+DPR_G.iVI["dadāti"] = [];
+DPR_G.iVI["dadāti"]["adā"] = [];
+DPR_G.iVI["dadāti"]["adā"]["65535"] = [];
+DPR_G.iVI["dadāti"]["adā"]["65535"]["3rd"] = [];
+DPR_G.iVI["dadāti"]["adā"]["65535"]["3rd"]["0"] = ["adā"];
+DPR_G.iVI["dadāti"]["adā"]["65535"]["2nd"] = [];
+DPR_G.iVI["dadāti"]["adā"]["65535"]["2nd"]["0"] = ["ado"];
+DPR_G.iVI["dadāti"]["adā"]["65535"]["2nd"]["1"] = ["adattha", "dattha"];
+DPR_G.iVI["dadāti"]["adā"]["65535"]["1st"] = [];
+DPR_G.iVI["dadāti"]["adā"]["65535"]["1st"]["1"] = ["adamha"];
+DPR_G.iVI["dadāti"]["adadi"] = [];
+DPR_G.iVI["dadāti"]["adadi"]["65535"] = [];
+DPR_G.iVI["dadāti"]["adadi"]["65535"]["3rd"] = [];
+//iVI['dadāti']['adadi']['65535']['3rd']['0'] = ['<no 3rd sng form>'];
+DPR_G.iVI["dadāti"]["adadi"]["65535"]["1st"] = [];
+DPR_G.iVI["dadāti"]["adadi"]["65535"]["1st"]["0"] = ["adadaṃ"];
+DPR_G.iVI["dadāti"]["dadāti"] = [];
+DPR_G.iVI["dadāti"]["dadāti"]["65535"] = [];
+DPR_G.iVI["dadāti"]["dadāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["dadāti"]["dadāti"]["65535"]["3rd"]["0"] = ["dadāti"];
+DPR_G.iVI["dadāti"]["dadāti"]["65535"]["3rd"]["1"] = ["dadanti"];
+DPR_G.iVI["dadāti"]["dadāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["dadāti"]["dadāti"]["65535"]["2nd"]["0"] = ["dadāsi"];
+DPR_G.iVI["dadāti"]["dadāti"]["65535"]["2nd"]["1"] = ["dadātha"];
+DPR_G.iVI["dadāti"]["dadāti"]["65535"]["1st"] = [];
+DPR_G.iVI["dadāti"]["dadāti"]["65535"]["1st"]["0"] = ["dadāmi"];
+DPR_G.iVI["dadāti"]["dadāti"]["65535"]["1st"]["1"] = ["dadāma"];
+DPR_G.iVI["dadāti"]["deti"] = [];
+DPR_G.iVI["dadāti"]["deti"]["65535"] = [];
+DPR_G.iVI["dadāti"]["deti"]["65535"]["3rd"] = [];
+DPR_G.iVI["dadāti"]["deti"]["65535"]["3rd"]["0"] = ["deti"];
+DPR_G.iVI["dadāti"]["deti"]["65535"]["3rd"]["1"] = ["denti"];
+DPR_G.iVI["dadāti"]["deti"]["65535"]["2nd"] = [];
+DPR_G.iVI["dadāti"]["deti"]["65535"]["2nd"]["0"] = ["desi"];
+DPR_G.iVI["dadāti"]["deti"]["65535"]["2nd"]["1"] = ["detha"];
+DPR_G.iVI["dadāti"]["deti"]["65535"]["1st"] = [];
+DPR_G.iVI["dadāti"]["deti"]["65535"]["1st"]["0"] = ["demi", "dammi"];
+DPR_G.iVI["dadāti"]["deti"]["65535"]["1st"]["1"] = ["dema"];
+DPR_G.iVI["dadāti"]["def"] = [];
+DPR_G.iVI["dadāti"]["def"]["1"] = [];
+DPR_G.iVI["dadāti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["dadāti"]["def"]["1"]["3rd"]["0"] = ["detu"];
+DPR_G.iVI["dadāti"]["def"]["1"]["3rd"]["1"] = ["dentu"];
+DPR_G.iVI["dadāti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["dadāti"]["def"]["1"]["2nd"]["0"] = ["dehi", "dadāhi"];
+DPR_G.iVI["dadāti"]["def"]["1"]["2nd"]["1"] = ["detha"];
+DPR_G.iVI["dadāti"]["def"]["1"]["1st"] = [];
+DPR_G.iVI["dadāti"]["def"]["1"]["1st"]["0"] = ["demi"];
+DPR_G.iVI["dadāti"]["def"]["1"]["1st"]["1"] = ["dema"];
+DPR_G.iVI["dadāti"]["def"]["4"] = [];
+DPR_G.iVI["dadāti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["dadāti"]["def"]["4"]["3rd"]["0"] = [
+	"dadeyya",
+	"dade",
+	"dajjā",
+	"dajjeyya",
+];
+DPR_G.iVI["dadāti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["dadāti"]["def"]["4"]["2nd"]["0"] = ["dadeyyāsi"];
+DPR_G.iVI["dadāti"]["def"]["4"]["2nd"]["1"] = ["dajjeyyātha"];
+DPR_G.iVI["dadāti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["dadāti"]["def"]["4"]["1st"]["0"] = ["dadeyyaṃ", "dajjaṃ"];
+DPR_G.iVI["dakkhati"] = [];
+DPR_G.iVI["dakkhati"]["dakkhati"] = [];
+DPR_G.iVI["dakkhati"]["dakkhati"]["65535"] = [];
+DPR_G.iVI["dakkhati"]["dakkhati"]["65535"]["3rd"] = [];
+DPR_G.iVI["dakkhati"]["dakkhati"]["65535"]["3rd"]["0"] = [
+	"dakkhati",
+	"dakkhiti",
+];
+DPR_G.iVI["dakkhati"]["dakkhati"]["65535"]["3rd"]["1"] = [
+	"dakkhanti",
+	"dakkhinti",
+];
+DPR_G.iVI["dakkhati"]["dakkhati"]["65535"]["2nd"] = [];
+DPR_G.iVI["dakkhati"]["dakkhati"]["65535"]["2nd"]["0"] = ["dakkhasi"];
+DPR_G.iVI["dakkhati"]["dakkhati"]["65535"]["2nd"]["1"] = ["dakkhatha"];
+DPR_G.iVI["dakkhati"]["dakkhati"]["65535"]["1st"] = [];
+DPR_G.iVI["dakkhati"]["dakkhati"]["65535"]["1st"]["0"] = ["dakkhāmi"];
+DPR_G.iVI["dakkhati"]["dakkhati"]["65535"]["1st"]["1"] = ["dakkhāma"];
+DPR_G.iVI["dakkhati"]["def"] = [];
+DPR_G.iVI["dakkhati"]["def"]["1"] = [];
+DPR_G.iVI["dakkhati"]["def"]["1"]["3rd"] = [];
+//iVI['dakkhati']['def']['1']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["dakkhati"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["dakkhati"]["def"]["1"]["2nd"]["0"] = ["dakkha"];
+DPR_G.iVI["essati"] = [];
+DPR_G.iVI["essati"]["essati"] = [];
+DPR_G.iVI["essati"]["essati"]["65535"] = [];
+DPR_G.iVI["essati"]["essati"]["65535"]["3rd"] = [];
+DPR_G.iVI["essati"]["essati"]["65535"]["3rd"]["0"] = [
+	"essati",
+	"issati",
+	"ehiti",
+];
+DPR_G.iVI["essati"]["essati"]["65535"]["3rd"]["1"] = [
+	"essanti",
+	"issanti",
+	"ehinti",
+];
+DPR_G.iVI["essati"]["essati"]["65535"]["2nd"] = [];
+DPR_G.iVI["essati"]["essati"]["65535"]["2nd"]["0"] = ["essasi", "ehisi"];
+DPR_G.iVI["essati"]["essati"]["65535"]["1st"] = [];
+DPR_G.iVI["essati"]["essati"]["65535"]["1st"]["0"] = ["essāmi", "essaṃ"];
+DPR_G.iVI["eti"] = [];
+DPR_G.iVI["eti"]["eti"] = [];
+DPR_G.iVI["eti"]["eti"]["65535"] = [];
+DPR_G.iVI["eti"]["eti"]["65535"]["3rd"] = [];
+DPR_G.iVI["eti"]["eti"]["65535"]["3rd"]["0"] = ["eti", "ayati", "iti"];
+DPR_G.iVI["eti"]["eti"]["65535"]["3rd"]["1"] = ["enti"];
+DPR_G.iVI["eti"]["eti"]["65535"]["2nd"] = [];
+DPR_G.iVI["eti"]["eti"]["65535"]["2nd"]["0"] = ["esi"];
+DPR_G.iVI["eti"]["eti"]["65535"]["2nd"]["1"] = ["etha"];
+DPR_G.iVI["eti"]["eti"]["65535"]["1st"] = [];
+DPR_G.iVI["eti"]["eti"]["65535"]["1st"]["0"] = ["emi"];
+DPR_G.iVI["eti"]["eti"]["65535"]["1st"]["1"] = ["ayāma"];
+DPR_G.iVI["eti"]["def"] = [];
+DPR_G.iVI["eti"]["def"]["1"] = [];
+DPR_G.iVI["eti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["eti"]["def"]["1"]["3rd"]["0"] = ["etu"];
+DPR_G.iVI["eti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["eti"]["def"]["1"]["2nd"]["0"] = ["ehi", "aya"];
+DPR_G.iVI["eti"]["def"]["1"]["2nd"]["1"] = ["etha"];
+DPR_G.iVI["eti"]["def"]["4"] = [];
+DPR_G.iVI["eti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["eti"]["def"]["4"]["3rd"]["0"] = ["eyya"];
+DPR_G.iVI["eti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["eti"]["def"]["4"]["2nd"]["0"] = ["eyyāsi"];
+DPR_G.iVI["gacchi"] = [];
+DPR_G.iVI["gacchi"]["gacchi"] = [];
+DPR_G.iVI["gacchi"]["gacchi"]["65535"] = [];
+DPR_G.iVI["gacchi"]["gacchi"]["65535"]["3rd"] = [];
+DPR_G.iVI["gacchi"]["gacchi"]["65535"]["3rd"]["0"] = [
+	"agamāsi",
+	"gacchi",
+	"agacchi",
+	"agañchi",
+	"agamā",
+	"gami",
+	"agā",
+];
+DPR_G.iVI["gacchi"]["gacchi"]["65535"]["3rd"]["1"] = [
+	"gacchiṃsu",
+	"agamuṃ",
+	"agamaṃsu",
+	"agamiṃsu",
+	"agū",
+];
+DPR_G.iVI["gacchi"]["gacchi"]["65535"]["2nd"] = [];
+DPR_G.iVI["gacchi"]["gacchi"]["65535"]["2nd"]["0"] = ["agamā"];
+DPR_G.iVI["gacchi"]["gacchi"]["65535"]["2nd"]["1"] = [
+	"agacchittha",
+	"(agamittha)",
+];
+DPR_G.iVI["gacchi"]["gacchi"]["65535"]["1st"] = [];
+DPR_G.iVI["gacchi"]["gacchi"]["65535"]["1st"]["0"] = [
+	"gacchiṃ",
+	"agacchiṃ",
+	"agañchiṃ",
+	"agamāsiṃ",
+];
+DPR_G.iVI["gacchi"]["gacchi"]["65535"]["1st"]["1"] = ["agamiṃhase", "agamamhā"];
+DPR_G.iVI["hanati"] = [];
+DPR_G.iVI["hanati"]["hanti"] = [];
+DPR_G.iVI["hanati"]["hanti"]["65535"] = [];
+DPR_G.iVI["hanati"]["hanti"]["65535"]["3rd"] = [];
+DPR_G.iVI["hanati"]["hanti"]["65535"]["3rd"]["0"] = ["hanti"];
+DPR_G.iVI["hanati"]["hanati"] = [];
+DPR_G.iVI["hanati"]["hanati"]["65535"] = [];
+DPR_G.iVI["hanati"]["hanati"]["65535"]["3rd"] = [];
+DPR_G.iVI["hanati"]["hanati"]["65535"]["3rd"]["0"] = ["hanati", "hanāti"];
+DPR_G.iVI["hanati"]["hanati"]["65535"]["3rd"]["1"] = ["hananti"];
+DPR_G.iVI["hanati"]["hanati"]["65535"]["2nd"] = [];
+DPR_G.iVI["hanati"]["hanati"]["65535"]["2nd"]["0"] = ["hanāsi"];
+DPR_G.iVI["hanati"]["hanati"]["65535"]["2nd"]["1"] = ["hanatha"];
+DPR_G.iVI["hanati"]["hanati"]["65535"]["1st"] = [];
+DPR_G.iVI["hanati"]["hanati"]["65535"]["1st"]["0"] = ["hanāmi"];
+DPR_G.iVI["hanati"]["hanati"]["65535"]["1st"]["1"] = ["hanāma"];
+DPR_G.iVI["hanati"]["def"] = [];
+DPR_G.iVI["hanati"]["def"]["1"] = [];
+DPR_G.iVI["hanati"]["def"]["1"]["3rd"] = [];
+//iVI['hanati']['def']['1']['3rd']['0'] = ['<no 3rd sng form>'];
+DPR_G.iVI["hanati"]["def"]["1"]["3rd"]["1"] = ["hanantu"];
+DPR_G.iVI["hanati"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["hanati"]["def"]["1"]["2nd"]["0"] = ["hana"];
+DPR_G.iVI["hanati"]["def"]["4"] = [];
+DPR_G.iVI["hanati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["hanati"]["def"]["4"]["3rd"]["0"] = ["haneyya", "hane"];
+DPR_G.iVI["hanati"]["def"]["4"]["3rd"]["1"] = ["haneyyuṃ"];
+DPR_G.iVI["hanati"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["hanati"]["def"]["4"]["1st"]["0"] = ["haneyyaṃ"];
+DPR_G.iVI["hanati"]["def"]["13"] = [];
+DPR_G.iVI["hanati"]["def"]["13"]["3rd"] = [];
+DPR_G.iVI["hanati"]["def"]["13"]["3rd"]["0"] = ["hanataṃ"];
+DPR_G.iVI["hanati"]["def"]["13"]["2nd"] = [];
+DPR_G.iVI["hanati"]["def"]["13"]["2nd"]["0"] = ["hanassu"];
+DPR_G.iVI["hoti"] = [];
+DPR_G.iVI["hoti"]["hehiti"] = [];
+DPR_G.iVI["hoti"]["hehiti"]["65535"] = [];
+DPR_G.iVI["hoti"]["hehiti"]["65535"]["3rd"] = [];
+DPR_G.iVI["hoti"]["hehiti"]["65535"]["3rd"]["0"] = [
+	"hessati",
+	"hehiti",
+	"hohiti",
+];
+DPR_G.iVI["hoti"]["hehiti"]["65535"]["3rd"]["1"] = ["hessanti"];
+DPR_G.iVI["hoti"]["hehiti"]["65535"]["2nd"] = [];
+DPR_G.iVI["hoti"]["hehiti"]["65535"]["2nd"]["0"] = [
+	"hohisi",
+	"hessasi",
+	"hehisi",
+];
+DPR_G.iVI["hoti"]["hehiti"]["65535"]["2nd"]["1"] = ["hessatha"];
+DPR_G.iVI["hoti"]["hehiti"]["65535"]["1st"] = [];
+DPR_G.iVI["hoti"]["hehiti"]["65535"]["1st"]["0"] = ["hessāmi", "hessaṃ"];
+DPR_G.iVI["hoti"]["hehiti"]["65535"]["1st"]["1"] = ["hessāma"];
+DPR_G.iVI["hoti"]["hoti"] = [];
+DPR_G.iVI["hoti"]["hoti"]["65535"] = [];
+DPR_G.iVI["hoti"]["hoti"]["65535"]["3rd"] = [];
+DPR_G.iVI["hoti"]["hoti"]["65535"]["3rd"]["0"] = ["hoti"];
+DPR_G.iVI["hoti"]["hoti"]["65535"]["3rd"]["1"] = ["honti"];
+DPR_G.iVI["hoti"]["hoti"]["65535"]["2nd"] = [];
+DPR_G.iVI["hoti"]["hoti"]["65535"]["2nd"]["0"] = ["hosi"];
+DPR_G.iVI["hoti"]["hoti"]["65535"]["2nd"]["1"] = ["hotha"];
+DPR_G.iVI["hoti"]["hoti"]["65535"]["1st"] = [];
+DPR_G.iVI["hoti"]["hoti"]["65535"]["1st"]["0"] = ["homi"];
+DPR_G.iVI["hoti"]["hoti"]["65535"]["1st"]["1"] = ["homa"];
+DPR_G.iVI["hoti"]["def"] = [];
+DPR_G.iVI["hoti"]["def"]["1"] = [];
+DPR_G.iVI["hoti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["hoti"]["def"]["1"]["3rd"]["0"] = ["hotu"];
+DPR_G.iVI["hoti"]["def"]["1"]["3rd"]["1"] = ["hontu"];
+DPR_G.iVI["hoti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["hoti"]["def"]["1"]["2nd"]["0"] = ["hohi"];
+DPR_G.iVI["hoti"]["def"]["1"]["2nd"]["1"] = ["hotha"];
+DPR_G.iVI["hoti"]["def"]["1"]["1st"] = [];
+DPR_G.iVI["hoti"]["def"]["1"]["1st"]["0"] = ["homi"];
+DPR_G.iVI["hoti"]["def"]["1"]["1st"]["1"] = ["homa"];
+DPR_G.iVI["hoti"]["huveyya"] = [];
+DPR_G.iVI["hoti"]["huveyya"]["65535"] = [];
+DPR_G.iVI["hoti"]["huveyya"]["65535"]["3rd"] = [];
+DPR_G.iVI["hoti"]["huveyya"]["65535"]["3rd"]["0"] = ["hupeyya"];
+DPR_G.iVI["jānāti"] = [];
+DPR_G.iVI["jānāti"]["jaññā"] = [];
+DPR_G.iVI["jānāti"]["jaññā"]["65535"] = [];
+DPR_G.iVI["jānāti"]["jaññā"]["65535"]["3rd"] = [];
+DPR_G.iVI["jānāti"]["jaññā"]["65535"]["3rd"]["0"] = ["jāneyya", "jaññā"];
+DPR_G.iVI["jānāti"]["jaññā"]["65535"]["3rd"]["1"] = ["jāneyyuṃ"];
+DPR_G.iVI["jānāti"]["jaññā"]["65535"]["2nd"] = [];
+DPR_G.iVI["jānāti"]["jaññā"]["65535"]["2nd"]["0"] = ["jāneyyāsi"];
+DPR_G.iVI["jānāti"]["jaññā"]["65535"]["2nd"]["1"] = ["jāneyyātha"];
+DPR_G.iVI["jānāti"]["jaññā"]["65535"]["1st"] = [];
+DPR_G.iVI["jānāti"]["jaññā"]["65535"]["1st"]["0"] = ["jāneyyaṃ", "jāneyyāmi"];
+DPR_G.iVI["jānāti"]["jaññā"]["65535"]["1st"]["1"] = [
+	"jāneyyāma",
+	"jāniyāma",
+	"jānemu",
+];
+DPR_G.iVI["jānāti"]["jānāti"] = [];
+DPR_G.iVI["jānāti"]["jānāti"]["65535"] = [];
+DPR_G.iVI["jānāti"]["jānāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["jānāti"]["jānāti"]["65535"]["3rd"]["0"] = ["jānāti"];
+DPR_G.iVI["jānāti"]["jānāti"]["65535"]["3rd"]["1"] = ["jānanti"];
+DPR_G.iVI["jānāti"]["jānāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["jānāti"]["jānāti"]["65535"]["2nd"]["0"] = ["jānāsi"];
+DPR_G.iVI["jānāti"]["jānāti"]["65535"]["2nd"]["1"] = ["jānātha"];
+DPR_G.iVI["jānāti"]["jānāti"]["65535"]["1st"] = [];
+DPR_G.iVI["jānāti"]["jānāti"]["65535"]["1st"]["0"] = ["jānāmi"];
+DPR_G.iVI["jānāti"]["jānāti"]["65535"]["1st"]["1"] = ["jānāma"];
+DPR_G.iVI["jānāti"]["def"] = [];
+DPR_G.iVI["jānāti"]["def"]["1"] = [];
+DPR_G.iVI["jānāti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["jānāti"]["def"]["1"]["3rd"]["0"] = ["jānātu"];
+DPR_G.iVI["jānāti"]["def"]["1"]["3rd"]["1"] = ["jānantu"];
+DPR_G.iVI["jānāti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["jānāti"]["def"]["1"]["2nd"]["0"] = ["jānāhi"];
+DPR_G.iVI["jānāti"]["def"]["1"]["2nd"]["1"] = ["jānātha"];
+DPR_G.iVI["jānāti"]["def"]["1"]["1st"] = [];
+DPR_G.iVI["jānāti"]["def"]["1"]["1st"]["0"] = ["jānāmi"];
+DPR_G.iVI["jānāti"]["def"]["1"]["1st"]["1"] = ["jānāma"];
+DPR_G.iVI["jayati"] = [];
+DPR_G.iVI["jayati"]["jayati"] = [];
+DPR_G.iVI["jayati"]["jayati"]["65535"] = [];
+DPR_G.iVI["jayati"]["jayati"]["65535"]["3rd"] = [];
+DPR_G.iVI["jayati"]["jayati"]["65535"]["3rd"]["0"] = ["jayati"];
+DPR_G.iVI["jayati"]["jayati"]["65535"]["3rd"]["1"] = ["jayanti"];
+DPR_G.iVI["jayati"]["jayati"]["65535"]["2nd"] = [];
+DPR_G.iVI["jayati"]["jayati"]["65535"]["2nd"]["0"] = ["jayasi"];
+DPR_G.iVI["jayati"]["jayati"]["65535"]["2nd"]["1"] = ["jayatha"];
+DPR_G.iVI["jayati"]["jayati"]["65535"]["1st"] = [];
+DPR_G.iVI["jayati"]["jayati"]["65535"]["1st"]["0"] = ["jayāmi"];
+DPR_G.iVI["jayati"]["jayati"]["65535"]["1st"]["1"] = ["jayāma"];
+DPR_G.iVI["jayati"]["jeti"] = [];
+DPR_G.iVI["jayati"]["jeti"]["65535"] = [];
+DPR_G.iVI["jayati"]["jeti"]["65535"]["3rd"] = [];
+DPR_G.iVI["jayati"]["jeti"]["65535"]["3rd"]["0"] = ["jeti"];
+DPR_G.iVI["jayati"]["jeti"]["65535"]["3rd"]["1"] = ["jenti"];
+DPR_G.iVI["jayati"]["jeti"]["65535"]["2nd"] = [];
+DPR_G.iVI["jayati"]["jeti"]["65535"]["2nd"]["0"] = ["jesi"];
+DPR_G.iVI["jayati"]["jeti"]["65535"]["2nd"]["1"] = ["jetha"];
+DPR_G.iVI["jayati"]["jeti"]["65535"]["1st"] = [];
+DPR_G.iVI["jayati"]["jeti"]["65535"]["1st"]["0"] = ["jemi"];
+DPR_G.iVI["jayati"]["jeti"]["65535"]["1st"]["1"] = ["jema"];
+DPR_G.iVI["jayati"]["jināti"] = [];
+DPR_G.iVI["jayati"]["jināti"]["65535"] = [];
+DPR_G.iVI["jayati"]["jināti"]["65535"]["3rd"] = [];
+DPR_G.iVI["jayati"]["jināti"]["65535"]["3rd"]["0"] = ["jināti"];
+DPR_G.iVI["jayati"]["jināti"]["65535"]["3rd"]["1"] = ["jinanti"];
+DPR_G.iVI["jayati"]["jināti"]["65535"]["2nd"] = [];
+DPR_G.iVI["jayati"]["jināti"]["65535"]["2nd"]["0"] = ["jināsi"];
+DPR_G.iVI["jayati"]["jināti"]["65535"]["2nd"]["1"] = ["jinātha"];
+DPR_G.iVI["jayati"]["jināti"]["65535"]["1st"] = [];
+DPR_G.iVI["jayati"]["jināti"]["65535"]["1st"]["0"] = ["jināmi"];
+DPR_G.iVI["jayati"]["jināti"]["65535"]["1st"]["1"] = ["jināma"];
+DPR_G.iVI["jayati"]["def"] = [];
+DPR_G.iVI["jayati"]["def"]["4"] = [];
+DPR_G.iVI["jayati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["jayati"]["def"]["4"]["3rd"]["0"] = ["jeyya", "jine"];
+DPR_G.iVI["jayati"]["def"]["4"]["3rd"]["1"] = ["jineyyuṃ"];
+DPR_G.iVI["karoti"] = [];
+DPR_G.iVI["karoti"]["akā"] = [];
+DPR_G.iVI["karoti"]["akā"]["65535"] = [];
+DPR_G.iVI["karoti"]["akā"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["akā"]["65535"]["3rd"]["0"] = ["akā"];
+DPR_G.iVI["karoti"]["akā"]["65535"]["3rd"]["1"] = ["akaṃsu"];
+DPR_G.iVI["karoti"]["akā"]["65535"]["2nd"] = [];
+DPR_G.iVI["karoti"]["akā"]["65535"]["2nd"]["0"] = ["akā"];
+DPR_G.iVI["karoti"]["akā"]["65535"]["2nd"]["1"] = ["akattha"];
+DPR_G.iVI["karoti"]["akā"]["65535"]["1st"] = [];
+DPR_G.iVI["karoti"]["akā"]["65535"]["1st"]["0"] = ["akaṃ"];
+DPR_G.iVI["karoti"]["akā"]["65535"]["1st"]["1"] = ["akamha"];
+DPR_G.iVI["karoti"]["akari"] = [];
+DPR_G.iVI["karoti"]["akari"]["65535"] = [];
+DPR_G.iVI["karoti"]["akari"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["akari"]["65535"]["3rd"]["0"] = [
+	"akaraṃ",
+	"akarā",
+	"akari",
+	"akarī",
+	"akarittha",
+];
+DPR_G.iVI["karoti"]["akari"]["65535"]["3rd"]["1"] = ["akaruṃ", "akariṃsu"];
+DPR_G.iVI["karoti"]["akari"]["65535"]["2nd"] = [];
+DPR_G.iVI["karoti"]["akari"]["65535"]["2nd"]["0"] = [
+	"akara",
+	"akarā",
+	"akari",
+	"akarī",
+];
+DPR_G.iVI["karoti"]["akari"]["65535"]["2nd"]["1"] = ["(akarittha)"];
+DPR_G.iVI["karoti"]["akari"]["65535"]["1st"] = [];
+DPR_G.iVI["karoti"]["akari"]["65535"]["1st"]["0"] = ["akaraṃ", "akariṃ"];
+DPR_G.iVI["karoti"]["akari"]["65535"]["1st"]["1"] = [
+	"akarāma",
+	"akaramha",
+	"akarimha",
+];
+DPR_G.iVI["karoti"]["akāsi"] = [];
+DPR_G.iVI["karoti"]["akāsi"]["65535"] = [];
+DPR_G.iVI["karoti"]["akāsi"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["akāsi"]["65535"]["3rd"]["0"] = ["akāsi"];
+DPR_G.iVI["karoti"]["akāsi"]["65535"]["2nd"] = [];
+DPR_G.iVI["karoti"]["akāsi"]["65535"]["2nd"]["0"] = ["akāsi"];
+DPR_G.iVI["karoti"]["akāsi"]["65535"]["1st"] = [];
+DPR_G.iVI["karoti"]["akāsi"]["65535"]["1st"]["0"] = ["akāsiṃ", "kāhāsiṃ"];
+DPR_G.iVI["karoti"]["akāsi"]["65535"]["1st"]["1"] = ["akāsimha"];
+DPR_G.iVI["karoti"]["kārāpesi"] = [];
+DPR_G.iVI["karoti"]["kārāpesi"]["65535"] = [];
+DPR_G.iVI["karoti"]["kārāpesi"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["kārāpesi"]["65535"]["3rd"]["0"] = ["kārāpesi"];
+DPR_G.iVI["karoti"]["kārāpesi"]["65535"]["3rd"]["1"] = [
+	"kārāpesuṃ",
+	"kārāpayiṃsu",
+];
+DPR_G.iVI["karoti"]["kārāpesi"]["65535"]["1st"] = [];
+DPR_G.iVI["karoti"]["kārāpesi"]["65535"]["1st"]["0"] = [
+	"kārāpesiṃ",
+	"kārapesiṃ",
+	"kārapesi",
+	"kārāpayiṃ",
+];
+DPR_G.iVI["karoti"]["kārāpeti"] = [];
+DPR_G.iVI["karoti"]["kārāpeti"]["65535"] = [];
+DPR_G.iVI["karoti"]["kārāpeti"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["kārāpeti"]["65535"]["3rd"]["0"] = [
+	"kārāpeti",
+	"kārāpayati",
+];
+DPR_G.iVI["karoti"]["kārāpeti"]["65535"]["3rd"]["1"] = ["kārāpenti"];
+DPR_G.iVI["karoti"]["kārāpeti"]["65535"]["2nd"] = [];
+DPR_G.iVI["karoti"]["kārāpeti"]["65535"]["2nd"]["1"] = ["kārāpetha"];
+DPR_G.iVI["karoti"]["kārāpiyati"] = [];
+DPR_G.iVI["karoti"]["kārāpiyati"]["65535"] = [];
+DPR_G.iVI["karoti"]["kārāpiyati"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["kārāpiyati"]["65535"]["3rd"]["0"] = ["kārāpiyati"];
+DPR_G.iVI["karoti"]["karīyati"] = [];
+DPR_G.iVI["karoti"]["karīyati"]["65535"] = [];
+DPR_G.iVI["karoti"]["karīyati"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["karīyati"]["65535"]["3rd"]["0"] = [
+	"kariyati",
+	"karīyati",
+	"karīyate",
+	"kariyyati",
+	"kariyyate",
+	"kayirati",
+	"kīrati",
+	"kayyati",
+	"kayyate",
+];
+DPR_G.iVI["karoti"]["karīyati"]["65535"]["3rd"]["1"] = [
+	"karīyanti",
+	"kayiranti",
+	"kīranti",
+	"(kariyanti)",
+];
+DPR_G.iVI["karoti"]["karīyi"] = [];
+DPR_G.iVI["karoti"]["karīyi"]["65535"] = [];
+DPR_G.iVI["karoti"]["karīyi"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["karīyi"]["65535"]["3rd"]["0"] = ["karīyi"];
+DPR_G.iVI["karoti"]["kāresi"] = [];
+DPR_G.iVI["karoti"]["kāresi"]["65535"] = [];
+DPR_G.iVI["karoti"]["kāresi"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["kāresi"]["65535"]["3rd"]["0"] = [
+	"akāresi",
+	"kāresi",
+	"akārayi",
+	"kārayi",
+];
+DPR_G.iVI["karoti"]["kāresi"]["65535"]["3rd"]["1"] = [
+	"kāresuṃ",
+	"kārayiṃsu",
+	"akārayuṃ",
+	"kārayuṃ",
+];
+DPR_G.iVI["karoti"]["kāresi"]["65535"]["2nd"] = [];
+DPR_G.iVI["karoti"]["kāresi"]["65535"]["2nd"]["0"] = ["kāresi", "kārayesi"];
+DPR_G.iVI["karoti"]["kāresi"]["65535"]["1st"] = [];
+DPR_G.iVI["karoti"]["kāresi"]["65535"]["1st"]["0"] = [
+	"kāresiṃ",
+	"akārayiṃ",
+	"kārayiṃ",
+	"kārayesiṃ",
+	"akārayi",
+	"kārayi",
+];
+DPR_G.iVI["karoti"]["kāreti"] = [];
+DPR_G.iVI["karoti"]["kāreti"]["65535"] = [];
+DPR_G.iVI["karoti"]["kāreti"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["kāreti"]["65535"]["3rd"]["0"] = [
+	"kāreti",
+	"kārayati",
+	"kārayate",
+];
+DPR_G.iVI["karoti"]["kāreti"]["65535"]["3rd"]["1"] = ["kārenti"];
+DPR_G.iVI["karoti"]["kāreti"]["65535"]["2nd"] = [];
+DPR_G.iVI["karoti"]["kāreti"]["65535"]["2nd"]["1"] = ["kāretha"];
+DPR_G.iVI["karoti"]["kāreti"]["65535"]["1st"] = [];
+DPR_G.iVI["karoti"]["kāreti"]["65535"]["1st"]["0"] = ["kāremi", "kārayāmi"];
+DPR_G.iVI["karoti"]["kari"] = [];
+DPR_G.iVI["karoti"]["kari"]["65535"] = [];
+DPR_G.iVI["karoti"]["kari"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["kari"]["65535"]["3rd"]["0"] = ["karī"];
+DPR_G.iVI["karoti"]["kari"]["65535"]["3rd"]["1"] = ["kariṃsu", "karuṃ"];
+DPR_G.iVI["karoti"]["kari"]["65535"]["2nd"] = [];
+DPR_G.iVI["karoti"]["kari"]["65535"]["2nd"]["0"] = ["karī", "kari"];
+DPR_G.iVI["karoti"]["kari"]["65535"]["2nd"]["1"] = ["karittha"];
+DPR_G.iVI["karoti"]["kari"]["65535"]["1st"] = [];
+DPR_G.iVI["karoti"]["kari"]["65535"]["1st"]["0"] = ["kariṃ"];
+DPR_G.iVI["karoti"]["kari"]["65535"]["1st"]["1"] = ["karimha", "karimhā"];
+DPR_G.iVI["karoti"]["karissati"] = [];
+DPR_G.iVI["karoti"]["karissati"]["65535"] = [];
+DPR_G.iVI["karoti"]["karissati"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["karissati"]["65535"]["3rd"]["0"] = [
+	"karissati",
+	"kāhati",
+	"kāhiti",
+	"kāsati",
+];
+DPR_G.iVI["karoti"]["karissati"]["65535"]["3rd"]["1"] = [
+	"karissanti",
+	"kāhanti",
+	"kāhinti",
+	"karissare",
+];
+DPR_G.iVI["karoti"]["karissati"]["65535"]["2nd"] = [];
+DPR_G.iVI["karoti"]["karissati"]["65535"]["2nd"]["0"] = [
+	"karissasi",
+	"kāhasi",
+	"kāhisi",
+];
+DPR_G.iVI["karoti"]["karissati"]["65535"]["2nd"]["1"] = [
+	"karissatha",
+	"kāhatha",
+];
+DPR_G.iVI["karoti"]["karissati"]["65535"]["1st"] = [];
+DPR_G.iVI["karoti"]["karissati"]["65535"]["1st"]["0"] = [
+	"karissāmi",
+	"kāhāmi",
+	"karissaṃ",
+	"kassāmi",
+	"kassaṃ",
+	"kāsaṃ",
+];
+DPR_G.iVI["karoti"]["karissati"]["65535"]["1st"]["1"] = [
+	"karissāma",
+	"kāhāma",
+	"kassāma",
+];
+DPR_G.iVI["karoti"]["karoti"] = [];
+DPR_G.iVI["karoti"]["karoti"]["65535"] = [];
+DPR_G.iVI["karoti"]["karoti"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["karoti"]["65535"]["3rd"]["0"] = ["karoti", "kayirati"];
+DPR_G.iVI["karoti"]["karoti"]["65535"]["3rd"]["1"] = ["karonti"];
+DPR_G.iVI["karoti"]["karoti"]["65535"]["2nd"] = [];
+DPR_G.iVI["karoti"]["karoti"]["65535"]["2nd"]["0"] = ["karosi"];
+DPR_G.iVI["karoti"]["karoti"]["65535"]["2nd"]["1"] = ["karotha"];
+DPR_G.iVI["karoti"]["karoti"]["65535"]["1st"] = [];
+DPR_G.iVI["karoti"]["karoti"]["65535"]["1st"]["0"] = ["karomi", "kummi"];
+DPR_G.iVI["karoti"]["karoti"]["65535"]["1st"]["1"] = ["karoma"];
+DPR_G.iVI["karoti"]["kayirā"] = [];
+DPR_G.iVI["karoti"]["kayirā"]["65535"] = [];
+DPR_G.iVI["karoti"]["kayirā"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["kayirā"]["65535"]["3rd"]["0"] = [
+	"kareyya",
+	"kare",
+	"kariyā",
+	"kuriyā",
+	"kuyirā",
+	"kayirātha",
+	"kayirā",
+	"(kayira)",
+];
+DPR_G.iVI["karoti"]["kayirā"]["65535"]["3rd"]["1"] = [
+	"kareyyuṃ",
+	"kare",
+	"kayiruṃ",
+];
+DPR_G.iVI["karoti"]["kayirā"]["65535"]["2nd"] = [];
+DPR_G.iVI["karoti"]["kayirā"]["65535"]["2nd"]["0"] = [
+	"kareyyāsi",
+	"kare",
+	"kayirāsi",
+	"kayirā",
+];
+DPR_G.iVI["karoti"]["kayirā"]["65535"]["2nd"]["1"] = [
+	"kareyyātha",
+	"kayirātha",
+];
+DPR_G.iVI["karoti"]["kayirā"]["65535"]["1st"] = [];
+DPR_G.iVI["karoti"]["kayirā"]["65535"]["1st"]["0"] = [
+	"kareyyaṃ",
+	"kare",
+	"kareyyāmi",
+];
+DPR_G.iVI["karoti"]["kayirā"]["65535"]["1st"]["1"] = ["kareyyāma"];
+DPR_G.iVI["karoti"]["kubbati"] = [];
+DPR_G.iVI["karoti"]["kubbati"]["65535"] = [];
+DPR_G.iVI["karoti"]["kubbati"]["65535"]["3rd"] = [];
+DPR_G.iVI["karoti"]["kubbati"]["65535"]["3rd"]["0"] = ["kubbati", "kurute"];
+DPR_G.iVI["karoti"]["kubbati"]["65535"]["3rd"]["1"] = ["kubbanti"];
+DPR_G.iVI["karoti"]["def"] = [];
+DPR_G.iVI["karoti"]["def"]["1"] = [];
+DPR_G.iVI["karoti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["karoti"]["def"]["1"]["3rd"]["0"] = ["karotu", "kurutu"];
+DPR_G.iVI["karoti"]["def"]["1"]["3rd"]["1"] = ["karontu"];
+DPR_G.iVI["karoti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["karoti"]["def"]["1"]["2nd"]["0"] = ["karohi", "kuru"];
+DPR_G.iVI["karoti"]["def"]["1"]["2nd"]["1"] = ["karotha"];
+DPR_G.iVI["karoti"]["def"]["1"]["1st"] = [];
+DPR_G.iVI["karoti"]["def"]["1"]["1st"]["0"] = ["karomi"];
+DPR_G.iVI["karoti"]["def"]["1"]["1st"]["1"] = ["karoma"];
+DPR_G.iVI["karoti"]["def"]["7"] = [];
+DPR_G.iVI["karoti"]["def"]["7"]["3rd"] = [];
+DPR_G.iVI["karoti"]["def"]["7"]["3rd"]["0"] = ["kariyatu", "kayiratu"];
+DPR_G.iVI["karoti"]["def"]["13"] = [];
+DPR_G.iVI["karoti"]["def"]["13"]["3rd"] = [];
+DPR_G.iVI["karoti"]["def"]["13"]["3rd"]["0"] = ["kurutaṃ"];
+DPR_G.iVI["karoti"]["def"]["13"]["2nd"] = [];
+DPR_G.iVI["karoti"]["def"]["13"]["2nd"]["0"] = ["karassu"];
+DPR_G.iVI["karoti"]["def"]["13"]["2nd"]["1"] = ["kuruvho"];
+DPR_G.iVI["karoti"]["def"]["13"]["1st"] = [];
+DPR_G.iVI["karoti"]["def"]["13"]["1st"]["1"] = ["karomase"];
+DPR_G.iVI["karoti"]["def"]["16"] = [];
+DPR_G.iVI["karoti"]["def"]["16"]["3rd"] = [];
+DPR_G.iVI["karoti"]["def"]["16"]["3rd"]["0"] = ["kubbetha", "kubbaye"];
+DPR_G.iVI["karoti"]["def"]["19"] = [];
+DPR_G.iVI["karoti"]["def"]["19"]["3rd"] = [];
+DPR_G.iVI["karoti"]["def"]["19"]["3rd"]["0"] = ["kāretu"];
+DPR_G.iVI["karoti"]["def"]["19"]["2nd"] = [];
+DPR_G.iVI["karoti"]["def"]["19"]["2nd"]["0"] = ["kārehi", "kārāpehi"];
+DPR_G.iVI["karoti"]["def"]["22"] = [];
+DPR_G.iVI["karoti"]["def"]["22"]["3rd"] = [];
+DPR_G.iVI["karoti"]["def"]["22"]["3rd"]["0"] = [
+	"kāreya",
+	"kāreyya",
+	"kārayeyya",
+	"kārāpeyya",
+];
+DPR_G.iVI["karoti"]["def"]["22"]["3rd"]["1"] = ["kāreyyuṃ"];
+DPR_G.iVI["karoti"]["def"]["22"]["2nd"] = [];
+DPR_G.iVI["karoti"]["def"]["22"]["2nd"]["0"] = ["kārāpeyyāsi"];
+DPR_G.iVI["karoti"]["def"]["22"]["2nd"]["1"] = ["kārāpeyyātha"];
+DPR_G.iVI["karoti"]["def"]["22"]["1st"] = [];
+DPR_G.iVI["karoti"]["def"]["22"]["1st"]["0"] = ["kāreya", "kārāpeyyaṃ"];
+DPR_G.iVI["karoti"]["def"]["22"]["1st"]["1"] = ["kāreyyāma"];
+DPR_G.iVI["labhati"] = [];
+DPR_G.iVI["labhati"]["labhati"] = [];
+DPR_G.iVI["labhati"]["labhati"]["65535"] = [];
+DPR_G.iVI["labhati"]["labhati"]["65535"]["3rd"] = [];
+DPR_G.iVI["labhati"]["labhati"]["65535"]["3rd"]["0"] = ["labhati"];
+DPR_G.iVI["labhati"]["labhati"]["65535"]["3rd"]["1"] = ["labhanti"];
+DPR_G.iVI["labhati"]["labhati"]["65535"]["2nd"] = [];
+DPR_G.iVI["labhati"]["labhati"]["65535"]["2nd"]["0"] = ["labhasi"];
+DPR_G.iVI["labhati"]["labhati"]["65535"]["2nd"]["1"] = ["labhatha"];
+DPR_G.iVI["labhati"]["labhati"]["65535"]["1st"] = [];
+DPR_G.iVI["labhati"]["labhati"]["65535"]["1st"]["0"] = ["labhāmi"];
+DPR_G.iVI["labhati"]["labhati"]["65535"]["1st"]["1"] = ["labhāma"];
+DPR_G.iVI["labhati"]["def"] = [];
+DPR_G.iVI["labhati"]["def"]["1"] = [];
+DPR_G.iVI["labhati"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["labhati"]["def"]["1"]["3rd"]["0"] = ["labhatu"];
+DPR_G.iVI["labhati"]["def"]["1"]["3rd"]["1"] = ["labhantu"];
+DPR_G.iVI["labhati"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["labhati"]["def"]["1"]["2nd"]["0"] = ["labha"];
+DPR_G.iVI["labhati"]["def"]["1"]["2nd"]["1"] = ["labhatha"];
+DPR_G.iVI["labhati"]["def"]["1"]["1st"] = [];
+DPR_G.iVI["labhati"]["def"]["1"]["1st"]["0"] = ["labhāmi"];
+DPR_G.iVI["labhati"]["def"]["1"]["1st"]["1"] = ["labhāma"];
+DPR_G.iVI["labhati"]["def"]["4"] = [];
+DPR_G.iVI["labhati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["labhati"]["def"]["4"]["3rd"]["0"] = ["labheyya", "labhe"];
+DPR_G.iVI["labhati"]["def"]["4"]["3rd"]["1"] = ["labheyyuṃ"];
+DPR_G.iVI["labhati"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["labhati"]["def"]["4"]["2nd"]["0"] = ["labheyyāsi"];
+DPR_G.iVI["labhati"]["def"]["4"]["2nd"]["1"] = ["labheyyātha"];
+DPR_G.iVI["labhati"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["labhati"]["def"]["4"]["1st"]["0"] = ["labheyyaṃ"];
+DPR_G.iVI["labhati"]["def"]["4"]["1st"]["1"] = ["labheyyāma"];
+DPR_G.iVI["labhati"]["def"]["12"] = [];
+DPR_G.iVI["labhati"]["def"]["12"]["3rd"] = [];
+DPR_G.iVI["labhati"]["def"]["12"]["3rd"]["0"] = ["labhate"];
+DPR_G.iVI["labhati"]["def"]["12"]["3rd"]["1"] = ["labhare"];
+DPR_G.iVI["labhati"]["def"]["12"]["2nd"] = [];
+DPR_G.iVI["labhati"]["def"]["12"]["2nd"]["0"] = ["labhase"];
+DPR_G.iVI["labhati"]["def"]["12"]["1st"] = [];
+DPR_G.iVI["labhati"]["def"]["12"]["1st"]["0"] = ["labhe"];
+DPR_G.iVI["labhati"]["def"]["13"] = [];
+DPR_G.iVI["labhati"]["def"]["13"]["3rd"] = [];
+DPR_G.iVI["labhati"]["def"]["13"]["3rd"]["0"] = ["labhataṃ"];
+DPR_G.iVI["labhati"]["def"]["13"]["2nd"] = [];
+DPR_G.iVI["labhati"]["def"]["13"]["2nd"]["0"] = ["labhassu"];
+DPR_G.iVI["labhati"]["def"]["13"]["1st"] = [];
+DPR_G.iVI["labhati"]["def"]["13"]["1st"]["1"] = ["labhāmase", "labhāmhase"];
+DPR_G.iVI["labhati"]["def"]["16"] = [];
+DPR_G.iVI["labhati"]["def"]["16"]["3rd"] = [];
+DPR_G.iVI["labhati"]["def"]["16"]["3rd"]["0"] = ["labhetha"];
+DPR_G.iVI["labhati"]["def"]["16"]["2nd"] = [];
+DPR_G.iVI["labhati"]["def"]["16"]["2nd"]["0"] = ["labhetho"];
+DPR_G.iVI["labhi"] = [];
+DPR_G.iVI["labhi"]["labhi"] = [];
+DPR_G.iVI["labhi"]["labhi"]["65535"] = [];
+DPR_G.iVI["labhi"]["labhi"]["65535"]["3rd"] = [];
+DPR_G.iVI["labhi"]["labhi"]["65535"]["3rd"]["0"] = [
+	"alattha",
+	"labhi",
+	"alabhi",
+	"alabbhittha",
+];
+DPR_G.iVI["labhi"]["labhi"]["65535"]["3rd"]["1"] = [
+	"alatthuṃ",
+	"alabhiṃsu",
+	"labhiṃsu",
+	"alatthaṃsu",
+];
+DPR_G.iVI["labhi"]["labhi"]["65535"]["2nd"] = [];
+DPR_G.iVI["labhi"]["labhi"]["65535"]["2nd"]["0"] = ["alattha"];
+DPR_G.iVI["labhi"]["labhi"]["65535"]["2nd"]["1"] = ["labhittha"];
+DPR_G.iVI["labhi"]["labhi"]["65535"]["1st"] = [];
+DPR_G.iVI["labhi"]["labhi"]["65535"]["1st"]["0"] = [
+	"alatthaṃ",
+	"alabhiṃ",
+	"labhiṃ",
+	"alabhitthaṃ",
+];
+DPR_G.iVI["labhi"]["labhi"]["65535"]["1st"]["1"] = ["labhimhā", "alatthamha"];
+DPR_G.iVI["paccanubhoti"] = [];
+DPR_G.iVI["paccanubhoti"]["paccanubhoti"] = [];
+DPR_G.iVI["paccanubhoti"]["paccanubhoti"]["65535"] = [];
+DPR_G.iVI["paccanubhoti"]["paccanubhoti"]["65535"]["3rd"] = [];
+DPR_G.iVI["paccanubhoti"]["paccanubhoti"]["65535"]["3rd"]["0"] = [
+	"paccanubhoti",
+];
+DPR_G.iVI["paccanubhoti"]["paccanubhoti"]["65535"]["3rd"]["1"] = [
+	"paccanubhonti",
+];
+DPR_G.iVI["paccanubhoti"]["paccanubhoti"]["65535"]["2nd"] = [];
+DPR_G.iVI["paccanubhoti"]["paccanubhoti"]["65535"]["2nd"]["0"] = [
+	"paccanubhosi",
+];
+DPR_G.iVI["paccanubhoti"]["paccanubhoti"]["65535"]["2nd"]["1"] = [
+	"paccanubhotha",
+];
+DPR_G.iVI["paccanubhoti"]["paccanubhoti"]["65535"]["1st"] = [];
+DPR_G.iVI["paccanubhoti"]["paccanubhoti"]["65535"]["1st"]["0"] = [
+	"paccanubhomi",
+];
+DPR_G.iVI["paccanubhoti"]["paccanubhoti"]["65535"]["1st"]["1"] = [
+	"paccanubhoma",
+];
+DPR_G.iVI["paccuṭṭhāti"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["paccuṭṭhāti"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["paccuṭṭhāti"]["65535"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["paccuṭṭhāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["paccuṭṭhāti"]["65535"]["3rd"]["0"] = ["paccuṭṭhāti"];
+DPR_G.iVI["paccuṭṭhāti"]["paccuṭṭhāti"]["65535"]["3rd"]["1"] = ["paccuṭṭhanti"];
+DPR_G.iVI["paccuṭṭhāti"]["paccuṭṭhāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["paccuṭṭhāti"]["65535"]["2nd"]["0"] = ["paccuṭṭhāsi"];
+DPR_G.iVI["paccuṭṭhāti"]["paccuṭṭhāti"]["65535"]["2nd"]["1"] = ["paccuṭṭhātha"];
+DPR_G.iVI["paccuṭṭhāti"]["paccuṭṭhāti"]["65535"]["1st"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["paccuṭṭhāti"]["65535"]["1st"]["0"] = ["paccuṭṭhāmi"];
+DPR_G.iVI["paccuṭṭhāti"]["paccuṭṭhāti"]["65535"]["1st"]["1"] = ["paccuṭṭhāma"];
+DPR_G.iVI["paccuṭṭhāti"]["def"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["1"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["1"]["3rd"]["0"] = ["paccuṭṭhātu"];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["1"]["3rd"]["1"] = ["paccuṭṭhantu"];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["1"]["2nd"]["0"] = ["paccuṭṭhāhi"];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["1"]["2nd"]["1"] = ["paccuṭṭhātha"];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["1"]["1st"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["1"]["1st"]["0"] = ["paccuṭṭhāmi"];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["1"]["1st"]["1"] = ["paccuṭṭhāma"];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["4"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["4"]["3rd"]["0"] = ["paccuṭṭheyya"];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["4"]["3rd"]["1"] = ["paccuṭṭheyyuṃ"];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["4"]["2nd"]["0"] = ["paccuṭṭheyyāsi"];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["4"]["2nd"]["1"] = ["paccuṭṭheyyātha"];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["4"]["1st"]["0"] = [
+	"paccuṭṭheyyaṃ",
+	"paccuṭṭheyyāmi",
+];
+DPR_G.iVI["paccuṭṭhāti"]["def"]["4"]["1st"]["1"] = ["paccuṭṭheyyāma"];
+DPR_G.iVI["paccupaṭṭhāti"] = [];
+DPR_G.iVI["paccupaṭṭhāti"]["paccupaṭṭhāti"] = [];
+DPR_G.iVI["paccupaṭṭhāti"]["paccupaṭṭhāti"]["65535"] = [];
+DPR_G.iVI["paccupaṭṭhāti"]["paccupaṭṭhāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["paccupaṭṭhāti"]["paccupaṭṭhāti"]["65535"]["3rd"]["0"] = [
+	"paccupaṭṭhāti",
+];
+DPR_G.iVI["paccupaṭṭhāti"]["paccupaṭṭhāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["paccupaṭṭhāti"]["paccupaṭṭhāti"]["65535"]["2nd"]["0"] = [
+	"paccupaṭṭhāsi",
+];
+DPR_G.iVI["pahoti"] = [];
+DPR_G.iVI["pahoti"]["pahoti"] = [];
+DPR_G.iVI["pahoti"]["pahoti"]["65535"] = [];
+DPR_G.iVI["pahoti"]["pahoti"]["65535"]["3rd"] = [];
+DPR_G.iVI["pahoti"]["pahoti"]["65535"]["3rd"]["0"] = ["pahoti"];
+DPR_G.iVI["pahoti"]["pahoti"]["65535"]["3rd"]["1"] = ["pahonti"];
+DPR_G.iVI["pahoti"]["pahoti"]["65535"]["2nd"] = [];
+DPR_G.iVI["pahoti"]["pahoti"]["65535"]["2nd"]["0"] = ["pahosi"];
+DPR_G.iVI["pahoti"]["pahoti"]["65535"]["2nd"]["1"] = ["pahotha"];
+DPR_G.iVI["pahoti"]["pahoti"]["65535"]["1st"] = [];
+DPR_G.iVI["pahoti"]["pahoti"]["65535"]["1st"]["0"] = ["pahomi"];
+DPR_G.iVI["pahoti"]["pahoti"]["65535"]["1st"]["1"] = ["pahoma"];
+DPR_G.iVI["pakkamati"] = [];
+DPR_G.iVI["pakkamati"]["pakkāmi"] = [];
+DPR_G.iVI["pakkamati"]["pakkāmi"]["65535"] = [];
+DPR_G.iVI["pakkamati"]["pakkāmi"]["65535"]["3rd"] = [];
+DPR_G.iVI["pakkamati"]["pakkāmi"]["65535"]["3rd"]["0"] = ["pakkāmi"];
+DPR_G.iVI["pakkamati"]["pakkāmi"]["65535"]["3rd"]["1"] = [
+	"pakkamuṃ",
+	"pakkamiṃsu",
+];
+DPR_G.iVI["paṭikaroti"] = [];
+DPR_G.iVI["paṭikaroti"]["paṭikaroti"] = [];
+DPR_G.iVI["paṭikaroti"]["paṭikaroti"]["65535"] = [];
+DPR_G.iVI["paṭikaroti"]["paṭikaroti"]["65535"]["3rd"] = [];
+DPR_G.iVI["paṭikaroti"]["paṭikaroti"]["65535"]["3rd"]["0"] = ["paṭikaroti"];
+DPR_G.iVI["paṭikaroti"]["paṭikaroti"]["65535"]["3rd"]["1"] = ["paṭikaronti"];
+DPR_G.iVI["paṭikaroti"]["paṭikaroti"]["65535"]["2nd"] = [];
+DPR_G.iVI["paṭikaroti"]["paṭikaroti"]["65535"]["2nd"]["0"] = ["paṭikarosi"];
+DPR_G.iVI["paṭikaroti"]["paṭikaroti"]["65535"]["2nd"]["1"] = ["paṭikarotha"];
+DPR_G.iVI["paṭikaroti"]["paṭikaroti"]["65535"]["1st"] = [];
+DPR_G.iVI["paṭikaroti"]["paṭikaroti"]["65535"]["1st"]["0"] = ["paṭikaromi"];
+DPR_G.iVI["paṭikaroti"]["paṭikaroti"]["65535"]["1st"]["1"] = ["paṭikaroma"];
+DPR_G.iVI["paṭikaroti"]["def"] = [];
+DPR_G.iVI["paṭikaroti"]["def"]["1"] = [];
+DPR_G.iVI["paṭikaroti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["paṭikaroti"]["def"]["1"]["3rd"]["0"] = ["paṭikarotu"];
+DPR_G.iVI["paṭikaroti"]["def"]["1"]["3rd"]["1"] = ["paṭikarontu"];
+DPR_G.iVI["paṭikaroti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["paṭikaroti"]["def"]["1"]["2nd"]["0"] = ["paṭikarohi"];
+DPR_G.iVI["paṭikaroti"]["def"]["1"]["2nd"]["1"] = ["paṭikarotha"];
+DPR_G.iVI["paṭikaroti"]["def"]["1"]["1st"] = [];
+DPR_G.iVI["paṭikaroti"]["def"]["1"]["1st"]["0"] = ["paṭikaromi"];
+DPR_G.iVI["paṭikaroti"]["def"]["1"]["1st"]["1"] = ["paṭikaroma"];
+DPR_G.iVI["paṭikaroti"]["def"]["4"] = [];
+DPR_G.iVI["paṭikaroti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["paṭikaroti"]["def"]["4"]["3rd"]["0"] = ["paṭikareyya"];
+DPR_G.iVI["paṭikaroti"]["def"]["4"]["3rd"]["1"] = ["paṭikareyyuṃ"];
+DPR_G.iVI["paṭikaroti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["paṭikaroti"]["def"]["4"]["2nd"]["0"] = ["paṭikareyyāsi"];
+DPR_G.iVI["paṭikaroti"]["def"]["4"]["2nd"]["1"] = ["paṭikareyyātha"];
+DPR_G.iVI["paṭikaroti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["paṭikaroti"]["def"]["4"]["1st"]["0"] = ["paṭikareyyaṃ"];
+DPR_G.iVI["paṭikaroti"]["def"]["4"]["1st"]["1"] = ["paṭikareyyāma"];
+DPR_G.iVI["paṭissuṇāti"] = [];
+DPR_G.iVI["paṭissuṇāti"]["paccassosi"] = [];
+DPR_G.iVI["paṭissuṇāti"]["paccassosi"]["65535"] = [];
+DPR_G.iVI["paṭissuṇāti"]["paccassosi"]["65535"]["3rd"] = [];
+DPR_G.iVI["paṭissuṇāti"]["paccassosi"]["65535"]["3rd"]["0"] = ["paccassosi"];
+DPR_G.iVI["paṭissuṇāti"]["paccassosi"]["65535"]["3rd"]["1"] = ["paccassosuṃ"];
+DPR_G.iVI["paṭissuṇāti"]["paccassosi"]["65535"]["2nd"] = [];
+DPR_G.iVI["paṭissuṇāti"]["paccassosi"]["65535"]["2nd"]["0"] = ["paccassosi"];
+DPR_G.iVI["paṭissuṇāti"]["paccassosi"]["65535"]["2nd"]["1"] = ["paccassuttha"];
+DPR_G.iVI["paṭissuṇāti"]["paccassosi"]["65535"]["1st"] = [];
+DPR_G.iVI["paṭissuṇāti"]["paccassosi"]["65535"]["1st"]["0"] = ["paccassosiṃ"];
+DPR_G.iVI["paṭissuṇāti"]["paccassosi"]["65535"]["1st"]["1"] = ["paccassumha"];
+DPR_G.iVI["pappoti"] = [];
+DPR_G.iVI["pappoti"]["pappoti"] = [];
+DPR_G.iVI["pappoti"]["pappoti"]["65535"] = [];
+DPR_G.iVI["pappoti"]["pappoti"]["65535"]["3rd"] = [];
+DPR_G.iVI["pappoti"]["pappoti"]["65535"]["3rd"]["0"] = ["pappoti"];
+DPR_G.iVI["pappoti"]["pappoti"]["65535"]["3rd"]["1"] = ["papponti"];
+DPR_G.iVI["pappoti"]["pappoti"]["65535"]["2nd"] = [];
+DPR_G.iVI["pappoti"]["pappoti"]["65535"]["2nd"]["0"] = ["papposi"];
+DPR_G.iVI["pappoti"]["pappoti"]["65535"]["2nd"]["1"] = ["pappotha"];
+DPR_G.iVI["pappoti"]["pappoti"]["65535"]["1st"] = [];
+DPR_G.iVI["pappoti"]["pappoti"]["65535"]["1st"]["0"] = ["pappomi"];
+DPR_G.iVI["pappoti"]["pappoti"]["65535"]["1st"]["1"] = ["pappoma"];
+DPR_G.iVI["pappoti"]["def"] = [];
+DPR_G.iVI["pappoti"]["def"]["1"] = [];
+DPR_G.iVI["pappoti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["pappoti"]["def"]["1"]["3rd"]["0"] = ["pappotu"];
+DPR_G.iVI["pappoti"]["def"]["1"]["3rd"]["1"] = ["pappontu"];
+DPR_G.iVI["pappoti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["pappoti"]["def"]["1"]["2nd"]["0"] = ["pappohi"];
+DPR_G.iVI["pappoti"]["def"]["1"]["2nd"]["1"] = ["pappotha"];
+DPR_G.iVI["pappoti"]["def"]["1"]["1st"] = [];
+DPR_G.iVI["pappoti"]["def"]["1"]["1st"]["0"] = ["pappomi"];
+DPR_G.iVI["pappoti"]["def"]["1"]["1st"]["1"] = ["pappoma"];
+DPR_G.iVI["pappoti"]["def"]["4"] = [];
+DPR_G.iVI["pappoti"]["def"]["4"]["3rd"] = [];
+//iVI['pappoti']['def']['4']['3rd']['0'] = ['<no 3rd sng form>'];
+DPR_G.iVI["pappoti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["pappoti"]["def"]["4"]["1st"]["1"] = ["pappomu"];
+DPR_G.iVI["pāpuṇāti"] = [];
+DPR_G.iVI["pāpuṇāti"]["pāpuṇāti"] = [];
+DPR_G.iVI["pāpuṇāti"]["pāpuṇāti"]["65535"] = [];
+DPR_G.iVI["pāpuṇāti"]["pāpuṇāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["pāpuṇāti"]["pāpuṇāti"]["65535"]["3rd"]["0"] = ["pāpuṇāti"];
+DPR_G.iVI["pāpuṇāti"]["pāpuṇāti"]["65535"]["3rd"]["1"] = ["pāpuṇanti"];
+DPR_G.iVI["pāpuṇāti"]["pāpuṇāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["pāpuṇāti"]["pāpuṇāti"]["65535"]["2nd"]["0"] = ["pāpuṇāsi"];
+DPR_G.iVI["pāpuṇāti"]["pāpuṇāti"]["65535"]["2nd"]["1"] = ["pāpuṇātha"];
+DPR_G.iVI["pāpuṇāti"]["pāpuṇāti"]["65535"]["1st"] = [];
+DPR_G.iVI["pāpuṇāti"]["pāpuṇāti"]["65535"]["1st"]["0"] = ["pāpuṇāmi"];
+DPR_G.iVI["pāpuṇāti"]["pāpuṇāti"]["65535"]["1st"]["1"] = ["pāpuṇāma"];
+DPR_G.iVI["pāpuṇāti"]["def"] = [];
+DPR_G.iVI["pāpuṇāti"]["def"]["4"] = [];
+DPR_G.iVI["pāpuṇāti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["pāpuṇāti"]["def"]["4"]["3rd"]["0"] = ["pāpuṇeyya", "pāpuṇe"];
+DPR_G.iVI["pāpuṇāti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["pāpuṇāti"]["def"]["4"]["1st"]["1"] = ["pāpuṇeyyāma"];
+DPR_G.iVI["pariyādāti"] = [];
+DPR_G.iVI["pariyādāti"]["pariyādāti"] = [];
+DPR_G.iVI["pariyādāti"]["pariyādāti"]["65535"] = [];
+DPR_G.iVI["pariyādāti"]["pariyādāti"]["65535"]["3rd"] = [];
+//iVI['pariyādāti']['pariyādāti']['65535']['3rd']['0'] = ['<no active forms>'];
+DPR_G.iVI["patiṭṭhahati"] = [];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhahati"] = [];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhahati"]["65535"] = [];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhahati"]["65535"]["3rd"] = [];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhahati"]["65535"]["3rd"]["0"] = [
+	"patiṭṭhahati",
+];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhahati"]["65535"]["3rd"]["1"] = [
+	"patiṭṭhahanti",
+];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhahati"]["65535"]["2nd"] = [];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhahati"]["65535"]["2nd"]["0"] = [
+	"patiṭṭhahasi",
+];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhahati"]["65535"]["2nd"]["1"] = [
+	"patiṭṭhahatha",
+];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhahati"]["65535"]["1st"] = [];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhahati"]["65535"]["1st"]["0"] = [
+	"patiṭṭhahāmi",
+];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhahati"]["65535"]["1st"]["1"] = [
+	"patiṭṭhahāma",
+];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhāti"] = [];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhāti"]["65535"] = [];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhāti"]["65535"]["3rd"]["0"] = ["patiṭṭhāti"];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhāti"]["65535"]["3rd"]["1"] = ["patiṭṭhanti"];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhāti"]["65535"]["2nd"]["0"] = ["patiṭṭhāsi"];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhāti"]["65535"]["2nd"]["1"] = ["patiṭṭhātha"];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhāti"]["65535"]["1st"] = [];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhāti"]["65535"]["1st"]["0"] = ["patiṭṭhahāmi"];
+DPR_G.iVI["patiṭṭhahati"]["patiṭṭhāti"]["65535"]["1st"]["1"] = ["patiṭṭhahāma"];
+DPR_G.iVI["patiṭṭhahati"]["def"] = [];
+DPR_G.iVI["patiṭṭhahati"]["def"]["1"] = [];
+DPR_G.iVI["patiṭṭhahati"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["patiṭṭhahati"]["def"]["1"]["3rd"]["0"] = ["patiṭṭhātu"];
+DPR_G.iVI["patiṭṭhahati"]["def"]["1"]["3rd"]["1"] = ["patiṭṭhantu"];
+DPR_G.iVI["patiṭṭhahati"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["patiṭṭhahati"]["def"]["1"]["2nd"]["0"] = ["patiṭṭhāhi"];
+DPR_G.iVI["patiṭṭhahati"]["def"]["1"]["2nd"]["1"] = ["patiṭṭhātha"];
+DPR_G.iVI["patiṭṭhahati"]["def"]["1"]["1st"] = [];
+DPR_G.iVI["patiṭṭhahati"]["def"]["1"]["1st"]["0"] = ["patiṭṭhahāmi"];
+DPR_G.iVI["patiṭṭhahati"]["def"]["1"]["1st"]["1"] = ["patiṭṭhahāma"];
+DPR_G.iVI["patiṭṭhahati"]["def"]["4"] = [];
+DPR_G.iVI["patiṭṭhahati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["patiṭṭhahati"]["def"]["4"]["3rd"]["0"] = ["patiṭṭhaheyya"];
+DPR_G.iVI["patiṭṭhahati"]["def"]["4"]["3rd"]["1"] = ["patiṭṭhaheyyuṃ"];
+DPR_G.iVI["patiṭṭhahati"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["patiṭṭhahati"]["def"]["4"]["2nd"]["0"] = ["patiṭṭhaheyyāsi"];
+DPR_G.iVI["patiṭṭhahati"]["def"]["4"]["2nd"]["1"] = ["patiṭṭhaheyyātha"];
+DPR_G.iVI["patiṭṭhahati"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["patiṭṭhahati"]["def"]["4"]["1st"]["0"] = ["patiṭṭhaheyyaṃ"];
+DPR_G.iVI["patiṭṭhahati"]["def"]["4"]["1st"]["1"] = ["patiṭṭhaheyyāmi"];
+DPR_G.iVI["pātubhavati"] = [];
+DPR_G.iVI["pātubhavati"]["pāturahosi"] = [];
+DPR_G.iVI["pātubhavati"]["pāturahosi"]["65535"] = [];
+DPR_G.iVI["pātubhavati"]["pāturahosi"]["65535"]["3rd"] = [];
+DPR_G.iVI["pātubhavati"]["pāturahosi"]["65535"]["3rd"]["0"] = ["pāturahosi"];
+DPR_G.iVI["pātubhavati"]["pāturahosi"]["65535"]["3rd"]["1"] = [
+	"pāturahaṃsu",
+	"pāturahiṃsu",
+];
+DPR_G.iVI["pātubhavati"]["pāturahosi"]["65535"]["2nd"] = [];
+DPR_G.iVI["pātubhavati"]["pāturahosi"]["65535"]["2nd"]["0"] = ["pāturahosi"];
+DPR_G.iVI["pātubhavati"]["pāturahosi"]["65535"]["2nd"]["1"] = [
+	"pāturahuvattha",
+];
+DPR_G.iVI["pātubhavati"]["pāturahosi"]["65535"]["1st"] = [];
+DPR_G.iVI["pātubhavati"]["pāturahosi"]["65535"]["1st"]["0"] = ["pāturahosiṃ"];
+DPR_G.iVI["pātubhavati"]["pāturahosi"]["65535"]["1st"]["1"] = ["pāturahumha"];
+DPR_G.iVI["purakkharoti"] = [];
+DPR_G.iVI["purakkharoti"]["purakkharoti"] = [];
+DPR_G.iVI["purakkharoti"]["purakkharoti"]["65535"] = [];
+DPR_G.iVI["purakkharoti"]["purakkharoti"]["65535"]["3rd"] = [];
+//iVI['purakkharoti']['purakkharoti']['65535']['3rd']['0'] = ['<no present forms>'];
+DPR_G.iVI["sakkoti"] = [];
+DPR_G.iVI["sakkoti"]["sakkoti"] = [];
+DPR_G.iVI["sakkoti"]["sakkoti"]["65535"] = [];
+DPR_G.iVI["sakkoti"]["sakkoti"]["65535"]["3rd"] = [];
+DPR_G.iVI["sakkoti"]["sakkoti"]["65535"]["3rd"]["0"] = ["sakkoti"];
+DPR_G.iVI["sakkoti"]["sakkoti"]["65535"]["3rd"]["1"] = ["sakkonti"];
+DPR_G.iVI["sakkoti"]["sakkoti"]["65535"]["2nd"] = [];
+DPR_G.iVI["sakkoti"]["sakkoti"]["65535"]["2nd"]["0"] = ["sakkosi"];
+DPR_G.iVI["sakkoti"]["sakkoti"]["65535"]["2nd"]["1"] = ["sakkotha"];
+DPR_G.iVI["sakkoti"]["sakkoti"]["65535"]["1st"] = [];
+DPR_G.iVI["sakkoti"]["sakkoti"]["65535"]["1st"]["0"] = ["sakkomi"];
+DPR_G.iVI["sakkoti"]["sakkoti"]["65535"]["1st"]["1"] = ["sakkoma"];
+DPR_G.iVI["sakkoti"]["def"] = [];
+DPR_G.iVI["sakkoti"]["def"]["4"] = [];
+DPR_G.iVI["sakkoti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["sakkoti"]["def"]["4"]["3rd"]["0"] = ["sakkuṇeyya"];
+DPR_G.iVI["sakkoti"]["def"]["4"]["3rd"]["1"] = ["sakkuṇeyyuṃ"];
+DPR_G.iVI["sakkoti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["sakkoti"]["def"]["4"]["2nd"]["0"] = ["sakkuṇeyyāsi"];
+DPR_G.iVI["sakkoti"]["def"]["4"]["2nd"]["1"] = ["sakkuṇeyyātha"];
+DPR_G.iVI["sakkoti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["sakkoti"]["def"]["4"]["1st"]["0"] = ["sakkuṇeyyaṃ"];
+DPR_G.iVI["sakkoti"]["def"]["4"]["1st"]["1"] = ["sakkuṇeyyāma", "sakkuṇemu"];
+DPR_G.iVI["samādāti"] = [];
+DPR_G.iVI["samādāti"]["samādāti"] = [];
+DPR_G.iVI["samādāti"]["samādāti"]["65535"] = [];
+DPR_G.iVI["samādāti"]["samādāti"]["65535"]["3rd"] = [];
+//iVI['samādāti']['samādāti']['65535']['3rd']['0'] = ['<no active forms>'];
+DPR_G.iVI["sambhoti"] = [];
+DPR_G.iVI["sambhoti"]["sambhoti"] = [];
+DPR_G.iVI["sambhoti"]["sambhoti"]["65535"] = [];
+DPR_G.iVI["sambhoti"]["sambhoti"]["65535"]["3rd"] = [];
+DPR_G.iVI["sambhoti"]["sambhoti"]["65535"]["3rd"]["0"] = ["sambhoti"];
+DPR_G.iVI["sambhoti"]["sambhoti"]["65535"]["3rd"]["1"] = ["sambhonti"];
+DPR_G.iVI["samudeti"] = [];
+DPR_G.iVI["samudeti"]["samudeti"] = [];
+DPR_G.iVI["samudeti"]["samudeti"]["65535"] = [];
+DPR_G.iVI["samudeti"]["samudeti"]["65535"]["3rd"] = [];
+DPR_G.iVI["samudeti"]["samudeti"]["65535"]["3rd"]["0"] = [
+	"samudeti",
+	"samudayati",
+];
+DPR_G.iVI["santiṭṭhati"] = [];
+DPR_G.iVI["santiṭṭhati"]["santiṭṭhati"] = [];
+DPR_G.iVI["santiṭṭhati"]["santiṭṭhati"]["65535"] = [];
+DPR_G.iVI["santiṭṭhati"]["santiṭṭhati"]["65535"]["3rd"] = [];
+DPR_G.iVI["santiṭṭhati"]["santiṭṭhati"]["65535"]["3rd"]["0"] = ["santiṭṭhati"];
+DPR_G.iVI["santiṭṭhati"]["santiṭṭhati"]["65535"]["3rd"]["1"] = ["santiṭṭhanti"];
+DPR_G.iVI["santiṭṭhati"]["santiṭṭhati"]["65535"]["2nd"] = [];
+DPR_G.iVI["santiṭṭhati"]["santiṭṭhati"]["65535"]["2nd"]["0"] = ["santiṭṭhasi"];
+DPR_G.iVI["santiṭṭhati"]["santiṭṭhati"]["65535"]["2nd"]["1"] = ["santiṭṭhatha"];
+DPR_G.iVI["santiṭṭhati"]["santiṭṭhati"]["65535"]["1st"] = [];
+DPR_G.iVI["santiṭṭhati"]["santiṭṭhati"]["65535"]["1st"]["0"] = ["santiṭṭhāmi"];
+DPR_G.iVI["santiṭṭhati"]["santiṭṭhati"]["65535"]["1st"]["1"] = ["santiṭṭhāma"];
+DPR_G.iVI["santiṭṭhati"]["saṇṭhāti"] = [];
+DPR_G.iVI["santiṭṭhati"]["saṇṭhāti"]["65535"] = [];
+DPR_G.iVI["santiṭṭhati"]["saṇṭhāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["santiṭṭhati"]["saṇṭhāti"]["65535"]["3rd"]["0"] = [
+	"saṇṭhāti",
+	"saṇṭhahati",
+];
+DPR_G.iVI["santiṭṭhati"]["saṇṭhāti"]["65535"]["3rd"]["1"] = [
+	"saṇṭhanti",
+	"saṇṭhahanti",
+];
+DPR_G.iVI["santiṭṭhati"]["saṇṭhāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["santiṭṭhati"]["saṇṭhāti"]["65535"]["2nd"]["0"] = [
+	"saṇṭhāsi",
+	"saṇṭhahasi",
+];
+DPR_G.iVI["santiṭṭhati"]["saṇṭhāti"]["65535"]["2nd"]["1"] = [
+	"saṇṭhātha",
+	"saṇṭhahatha",
+];
+DPR_G.iVI["santiṭṭhati"]["saṇṭhāti"]["65535"]["1st"] = [];
+DPR_G.iVI["santiṭṭhati"]["saṇṭhāti"]["65535"]["1st"]["0"] = [
+	"saṇṭhāmi",
+	"saṇṭhahāmi",
+];
+DPR_G.iVI["santiṭṭhati"]["saṇṭhāti"]["65535"]["1st"]["1"] = [
+	"saṇṭhāma",
+	"saṇṭhahāma",
+];
+DPR_G.iVI["santiṭṭhati"]["def"] = [];
+DPR_G.iVI["santiṭṭhati"]["def"]["4"] = [];
+DPR_G.iVI["santiṭṭhati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["santiṭṭhati"]["def"]["4"]["3rd"]["0"] = ["saṇṭhaheyya"];
+DPR_G.iVI["seti"] = [];
+DPR_G.iVI["seti"]["sayati"] = [];
+DPR_G.iVI["seti"]["sayati"]["65535"] = [];
+DPR_G.iVI["seti"]["sayati"]["65535"]["3rd"] = [];
+DPR_G.iVI["seti"]["sayati"]["65535"]["3rd"]["0"] = ["sayati"];
+DPR_G.iVI["seti"]["sayati"]["65535"]["3rd"]["1"] = ["sayanti"];
+DPR_G.iVI["seti"]["sayati"]["65535"]["2nd"] = [];
+DPR_G.iVI["seti"]["sayati"]["65535"]["2nd"]["0"] = ["sayasi"];
+DPR_G.iVI["seti"]["sayati"]["65535"]["2nd"]["1"] = ["sayatha"];
+DPR_G.iVI["seti"]["sayati"]["65535"]["1st"] = [];
+DPR_G.iVI["seti"]["sayati"]["65535"]["1st"]["0"] = ["sayāmi"];
+DPR_G.iVI["seti"]["sayati"]["65535"]["1st"]["1"] = ["sayāma"];
+DPR_G.iVI["seti"]["seti"] = [];
+DPR_G.iVI["seti"]["seti"]["65535"] = [];
+DPR_G.iVI["seti"]["seti"]["65535"]["3rd"] = [];
+DPR_G.iVI["seti"]["seti"]["65535"]["3rd"]["0"] = ["seti"];
+DPR_G.iVI["seti"]["seti"]["65535"]["3rd"]["1"] = ["senti"];
+DPR_G.iVI["seti"]["seti"]["65535"]["2nd"] = [];
+DPR_G.iVI["seti"]["seti"]["65535"]["2nd"]["0"] = ["sesi"];
+DPR_G.iVI["seti"]["seti"]["65535"]["2nd"]["1"] = ["setha"];
+DPR_G.iVI["seti"]["seti"]["65535"]["1st"] = [];
+DPR_G.iVI["seti"]["seti"]["65535"]["1st"]["0"] = ["semi"];
+DPR_G.iVI["seti"]["seti"]["65535"]["1st"]["1"] = ["sema"];
+DPR_G.iVI["seti"]["def"] = [];
+DPR_G.iVI["seti"]["def"]["1"] = [];
+DPR_G.iVI["seti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["seti"]["def"]["1"]["3rd"]["0"] = ["sayatu"];
+DPR_G.iVI["seti"]["def"]["4"] = [];
+DPR_G.iVI["seti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["seti"]["def"]["4"]["3rd"]["0"] = ["sayeyya", "saye"];
+DPR_G.iVI["seti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["seti"]["def"]["4"]["2nd"]["1"] = ["sayeyyātha"];
+DPR_G.iVI["suṇāti"] = [];
+DPR_G.iVI["suṇāti"]["suṇāti"] = [];
+DPR_G.iVI["suṇāti"]["suṇāti"]["65535"] = [];
+DPR_G.iVI["suṇāti"]["suṇāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["suṇāti"]["suṇāti"]["65535"]["3rd"]["0"] = ["suṇāti", "suṇoti"];
+DPR_G.iVI["suṇāti"]["suṇāti"]["65535"]["3rd"]["1"] = ["suṇanti"];
+DPR_G.iVI["suṇāti"]["suṇāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["suṇāti"]["suṇāti"]["65535"]["2nd"]["0"] = ["suṇāsi", "suṇosi"];
+DPR_G.iVI["suṇāti"]["suṇāti"]["65535"]["2nd"]["1"] = ["suṇātha", "suṇotha"];
+DPR_G.iVI["suṇāti"]["suṇāti"]["65535"]["1st"] = [];
+DPR_G.iVI["suṇāti"]["suṇāti"]["65535"]["1st"]["0"] = ["suṇāmi", "suṇomi"];
+DPR_G.iVI["suṇāti"]["suṇāti"]["65535"]["1st"]["1"] = ["suṇoma", "suṇāma"];
+DPR_G.iVI["suṇāti"]["def"] = [];
+DPR_G.iVI["suṇāti"]["def"]["1"] = [];
+DPR_G.iVI["suṇāti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["suṇāti"]["def"]["1"]["3rd"]["0"] = ["suṇātu"];
+DPR_G.iVI["suṇāti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["suṇāti"]["def"]["1"]["2nd"]["0"] = ["suṇohi", "suṇāhi"];
+DPR_G.iVI["suṇāti"]["def"]["4"] = [];
+DPR_G.iVI["suṇāti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["suṇāti"]["def"]["4"]["3rd"]["0"] = ["suṇeyya"];
+DPR_G.iVI["suṇāti"]["def"]["4"]["3rd"]["1"] = ["suṇeyyuṃ"];
+DPR_G.iVI["suṇāti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["suṇāti"]["def"]["4"]["2nd"]["1"] = ["suṇeyyātha"];
+DPR_G.iVI["suṇāti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["suṇāti"]["def"]["4"]["1st"]["0"] = ["suṇeyyaṃ"];
+DPR_G.iVI["suṇāti"]["def"]["4"]["1st"]["1"] = ["suṇeyyāma"];
+DPR_G.iVI["tiṭṭhati"] = [];
+DPR_G.iVI["tiṭṭhati"]["tiṭṭhati"] = [];
+DPR_G.iVI["tiṭṭhati"]["tiṭṭhati"]["65535"] = [];
+DPR_G.iVI["tiṭṭhati"]["tiṭṭhati"]["65535"]["3rd"] = [];
+DPR_G.iVI["tiṭṭhati"]["tiṭṭhati"]["65535"]["3rd"]["0"] = ["tiṭṭhati"];
+DPR_G.iVI["tiṭṭhati"]["tiṭṭhati"]["65535"]["3rd"]["1"] = ["tiṭṭhanti"];
+DPR_G.iVI["tiṭṭhati"]["tiṭṭhati"]["65535"]["2nd"] = [];
+DPR_G.iVI["tiṭṭhati"]["tiṭṭhati"]["65535"]["2nd"]["0"] = ["tiṭṭhasi"];
+DPR_G.iVI["tiṭṭhati"]["tiṭṭhati"]["65535"]["2nd"]["1"] = ["tiṭṭhatha"];
+DPR_G.iVI["tiṭṭhati"]["tiṭṭhati"]["65535"]["1st"] = [];
+DPR_G.iVI["tiṭṭhati"]["tiṭṭhati"]["65535"]["1st"]["0"] = ["tiṭṭhāmi"];
+DPR_G.iVI["tiṭṭhati"]["tiṭṭhati"]["65535"]["1st"]["1"] = ["tiṭṭhāma"];
+DPR_G.iVI["tiṭṭhati"]["def"] = [];
+DPR_G.iVI["tiṭṭhati"]["def"]["1"] = [];
+DPR_G.iVI["tiṭṭhati"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["tiṭṭhati"]["def"]["1"]["3rd"]["0"] = ["tiṭṭhatu"];
+DPR_G.iVI["tiṭṭhati"]["def"]["1"]["3rd"]["1"] = ["tiṭṭhantu"];
+DPR_G.iVI["tiṭṭhati"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["tiṭṭhati"]["def"]["1"]["2nd"]["0"] = ["tiṭṭha"];
+DPR_G.iVI["tiṭṭhati"]["def"]["1"]["2nd"]["1"] = ["tiṭṭhatha"];
+DPR_G.iVI["tiṭṭhati"]["def"]["1"]["1st"] = [];
+DPR_G.iVI["tiṭṭhati"]["def"]["1"]["1st"]["0"] = ["tiṭṭhāmi"];
+DPR_G.iVI["tiṭṭhati"]["def"]["1"]["1st"]["1"] = ["tiṭṭhāma"];
+DPR_G.iVI["tiṭṭhati"]["def"]["4"] = [];
+DPR_G.iVI["tiṭṭhati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["tiṭṭhati"]["def"]["4"]["3rd"]["0"] = ["tiṭṭhe", "tiṭṭheyya"];
+DPR_G.iVI["tiṭṭhati"]["def"]["4"]["3rd"]["1"] = ["tiṭṭheyyuṃ"];
+DPR_G.iVI["tiṭṭhati"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["tiṭṭhati"]["def"]["4"]["2nd"]["0"] = ["tiṭṭheyyāsi"];
+DPR_G.iVI["tiṭṭhati"]["def"]["4"]["2nd"]["1"] = ["tiṭṭheyyātha"];
+DPR_G.iVI["tiṭṭhati"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["tiṭṭhati"]["def"]["4"]["1st"]["0"] = ["tiṭṭheyyaṃ", "tiṭṭheyyāmi"];
+DPR_G.iVI["tiṭṭhati"]["def"]["4"]["1st"]["1"] = ["tiṭṭheyyāma"];
+DPR_G.iVI["udayati"] = [];
+DPR_G.iVI["udayati"]["udayati"] = [];
+DPR_G.iVI["udayati"]["udayati"]["65535"] = [];
+DPR_G.iVI["udayati"]["udayati"]["65535"]["3rd"] = [];
+DPR_G.iVI["udayati"]["udayati"]["65535"]["3rd"]["0"] = ["udayati"];
+DPR_G.iVI["udayati"]["udayati"]["65535"]["3rd"]["1"] = ["udayanti"];
+DPR_G.iVI["udeti"] = [];
+DPR_G.iVI["udeti"]["udeti"] = [];
+DPR_G.iVI["udeti"]["udeti"]["65535"] = [];
+DPR_G.iVI["udeti"]["udeti"]["65535"]["3rd"] = [];
+DPR_G.iVI["udeti"]["udeti"]["65535"]["3rd"]["0"] = ["udeti"];
+DPR_G.iVI["udeti"]["udeti"]["65535"]["3rd"]["1"] = ["udenti"];
+DPR_G.iVI["upaccagā"] = [];
+DPR_G.iVI["upaccagā"]["upaccagā"] = [];
+DPR_G.iVI["upaccagā"]["upaccagā"]["65535"] = [];
+DPR_G.iVI["upaccagā"]["upaccagā"]["65535"]["3rd"] = [];
+DPR_G.iVI["upaccagā"]["upaccagā"]["65535"]["3rd"]["0"] = ["upaccagā"];
+DPR_G.iVI["upaccagā"]["upaccagā"]["65535"]["3rd"]["1"] = [
+	"upaccaguṃ",
+	"upaccagu",
+	"upaccagū",
+];
+DPR_G.iVI["upaccagā"]["upaccagā"]["65535"]["1st"] = [];
+DPR_G.iVI["upaccagā"]["upaccagā"]["65535"]["1st"]["0"] = ["upaccagaṃ"];
+DPR_G.iVI["upāgāmi"] = [];
+DPR_G.iVI["upāgāmi"]["upāgāmi"] = [];
+DPR_G.iVI["upāgāmi"]["upāgāmi"]["65535"] = [];
+DPR_G.iVI["upāgāmi"]["upāgāmi"]["65535"]["3rd"] = [];
+DPR_G.iVI["upāgāmi"]["upāgāmi"]["65535"]["3rd"]["0"] = [
+	"upāgamāsi",
+	"upāgāmi",
+	"upāgacchi",
+	"upāgañchi",
+	"upagacchi",
+	"upagañchi",
+];
+DPR_G.iVI["upāgāmi"]["upāgāmi"]["65535"]["3rd"]["1"] = [
+	"upāgamuṃ",
+	"upāgamiṃsu",
+	"upagamiṃsu",
+	"upāgañchuṃ",
+	"upagacchuṃ",
+	"upagañchuṃ",
+	"upagacchiṃsu",
+	"(upagacchu)",
+	"(upagañchu)",
+];
+DPR_G.iVI["upāgāmi"]["upāgāmi"]["65535"]["1st"] = [];
+DPR_G.iVI["upāgāmi"]["upāgāmi"]["65535"]["1st"]["0"] = [
+	"upāgamaṃ",
+	"upagamaṃ",
+	"upāgamiṃ",
+	"upagamiṃ",
+	"upāgacchiṃ",
+	"upāgañchiṃ",
+	"upagacchiṃ",
+	"upagañchiṃ",
+];
+DPR_G.iVI["upāgāmi"]["def"] = [];
+DPR_G.iVI["upāgāmi"]["def"]["14"] = [];
+DPR_G.iVI["upāgāmi"]["def"]["14"]["3rd"] = [];
+DPR_G.iVI["upāgāmi"]["def"]["14"]["3rd"]["0"] = ["upagacchittha"];
+DPR_G.iVI["upaṭṭhahati"] = [];
+DPR_G.iVI["upaṭṭhahati"]["upaṭṭhahati"] = [];
+DPR_G.iVI["upaṭṭhahati"]["upaṭṭhahati"]["65535"] = [];
+DPR_G.iVI["upaṭṭhahati"]["upaṭṭhahati"]["65535"]["3rd"] = [];
+DPR_G.iVI["upaṭṭhahati"]["upaṭṭhahati"]["65535"]["3rd"]["0"] = [
+	"upaṭṭhahati",
+	"(upaṭṭhaheti)",
+];
+DPR_G.iVI["upaṭṭhahati"]["upaṭṭhahati"]["65535"]["3rd"]["1"] = ["upaṭṭhahanti"];
+DPR_G.iVI["upaṭṭhahati"]["upaṭṭhahati"]["65535"]["2nd"] = [];
+DPR_G.iVI["upaṭṭhahati"]["upaṭṭhahati"]["65535"]["2nd"]["1"] = ["upaṭṭhahatha"];
+DPR_G.iVI["upaṭṭhahati"]["upaṭṭhahati"]["65535"]["1st"] = [];
+DPR_G.iVI["upaṭṭhahati"]["upaṭṭhahati"]["65535"]["1st"]["0"] = [
+	"upaṭṭhahāmi",
+	"upaṭṭhahema",
+];
+DPR_G.iVI["upaṭṭhahati"]["def"] = [];
+DPR_G.iVI["upaṭṭhahati"]["def"]["1"] = [];
+DPR_G.iVI["upaṭṭhahati"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["upaṭṭhahati"]["def"]["1"]["3rd"]["0"] = ["upaṭṭhahatu"];
+DPR_G.iVI["upaṭṭhahati"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["upaṭṭhahati"]["def"]["1"]["2nd"]["0"] = ["upaṭṭhaha"];
+DPR_G.iVI["upaṭṭhahati"]["def"]["4"] = [];
+DPR_G.iVI["upaṭṭhahati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["upaṭṭhahati"]["def"]["4"]["3rd"]["0"] = ["upaṭṭhaheyya"];
+DPR_G.iVI["upaṭṭhahati"]["def"]["13"] = [];
+DPR_G.iVI["upaṭṭhahati"]["def"]["13"]["3rd"] = [];
+//iVI['upaṭṭhahati']['def']['13']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["upaṭṭhahati"]["def"]["13"]["2nd"] = [];
+DPR_G.iVI["upaṭṭhahati"]["def"]["13"]["2nd"]["0"] = ["upaṭṭhahassu"];
+DPR_G.iVI["upaṭṭhāti"] = [];
+DPR_G.iVI["upaṭṭhāti"]["upaṭṭhāti"] = [];
+DPR_G.iVI["upaṭṭhāti"]["upaṭṭhāti"]["65535"] = [];
+DPR_G.iVI["upaṭṭhāti"]["upaṭṭhāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["upaṭṭhāti"]["upaṭṭhāti"]["65535"]["3rd"]["0"] = [
+	"upaṭṭhāti",
+	"upaṭṭheti",
+];
+DPR_G.iVI["upaṭṭhāti"]["upaṭṭhāti"]["65535"]["3rd"]["1"] = [
+	"upaṭṭhanti",
+	"upaṭṭhenti",
+];
+DPR_G.iVI["upaṭṭhāti"]["upaṭṭhāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["upaṭṭhāti"]["upaṭṭhāti"]["65535"]["2nd"]["0"] = ["upaṭṭhesi"];
+DPR_G.iVI["upaṭṭhāti"]["def"] = [];
+DPR_G.iVI["upaṭṭhāti"]["def"]["1"] = [];
+DPR_G.iVI["upaṭṭhāti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["upaṭṭhāti"]["def"]["1"]["3rd"]["0"] = ["upaṭṭhātu"];
+DPR_G.iVI["upaṭṭhāti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["upaṭṭhāti"]["def"]["1"]["2nd"]["0"] = ["upaṭṭhāhi"];
+DPR_G.iVI["upaṭṭhāti"]["def"]["4"] = [];
+DPR_G.iVI["upaṭṭhāti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["upaṭṭhāti"]["def"]["4"]["3rd"]["0"] = ["upaṭṭheyya"];
+DPR_G.iVI["upātigacchati"] = [];
+DPR_G.iVI["upātigacchati"]["def"] = [];
+DPR_G.iVI["upātigacchati"]["def"]["0"] = [];
+DPR_G.iVI["upātigacchati"]["def"]["0"]["3rd"] = [];
+//iVI['upātigacchati']['def']['0']['3rd']['0'] = ['<no present forms>'];
+DPR_G.iVI["upatiṭṭhati"] = [];
+DPR_G.iVI["upatiṭṭhati"]["upatiṭṭhati"] = [];
+DPR_G.iVI["upatiṭṭhati"]["upatiṭṭhati"]["65535"] = [];
+DPR_G.iVI["upatiṭṭhati"]["upatiṭṭhati"]["65535"]["3rd"] = [];
+DPR_G.iVI["upatiṭṭhati"]["upatiṭṭhati"]["65535"]["3rd"]["0"] = ["upatiṭṭhati"];
+DPR_G.iVI["upatiṭṭhati"]["upatiṭṭhati"]["65535"]["3rd"]["1"] = ["upatiṭṭhanti"];
+DPR_G.iVI["upatiṭṭhati"]["upatiṭṭhati"]["65535"]["2nd"] = [];
+DPR_G.iVI["upatiṭṭhati"]["upatiṭṭhati"]["65535"]["2nd"]["1"] = ["upatiṭṭhatha"];
+DPR_G.iVI["upatiṭṭhati"]["upatiṭṭhati"]["65535"]["1st"] = [];
+DPR_G.iVI["upatiṭṭhati"]["upatiṭṭhati"]["65535"]["1st"]["1"] = ["upatiṭṭhāma"];
+DPR_G.iVI["upatiṭṭhati"]["def"] = [];
+DPR_G.iVI["upatiṭṭhati"]["def"]["1"] = [];
+DPR_G.iVI["upatiṭṭhati"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["upatiṭṭhati"]["def"]["1"]["3rd"]["0"] = ["upatiṭṭhatu"];
+DPR_G.iVI["upatiṭṭhati"]["def"]["4"] = [];
+DPR_G.iVI["upatiṭṭhati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["upatiṭṭhati"]["def"]["4"]["3rd"]["0"] = ["upatiṭṭheyya"];
+DPR_G.iVI["upatiṭṭhati"]["def"]["4"]["3rd"]["1"] = ["upatiṭṭheyyuṃ"];
+DPR_G.iVI["upatiṭṭhati"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["upatiṭṭhati"]["def"]["4"]["1st"]["0"] = ["upatiṭṭheyyaṃ"];
+DPR_G.iVI["vadati"] = [];
+DPR_G.iVI["vadati"]["vadati"] = [];
+DPR_G.iVI["vadati"]["vadati"]["65535"] = [];
+DPR_G.iVI["vadati"]["vadati"]["65535"]["3rd"] = [];
+DPR_G.iVI["vadati"]["vadati"]["65535"]["3rd"]["0"] = ["vadati"];
+DPR_G.iVI["vadati"]["vadati"]["65535"]["3rd"]["1"] = ["vadanti"];
+DPR_G.iVI["vadati"]["vadati"]["65535"]["2nd"] = [];
+DPR_G.iVI["vadati"]["vadati"]["65535"]["2nd"]["0"] = ["vadasi"];
+DPR_G.iVI["vadati"]["vadati"]["65535"]["2nd"]["1"] = ["vadatha"];
+DPR_G.iVI["vadati"]["vadati"]["65535"]["1st"] = [];
+DPR_G.iVI["vadati"]["vadati"]["65535"]["1st"]["0"] = ["vadāmi"];
+DPR_G.iVI["vadati"]["vadati"]["65535"]["1st"]["1"] = ["vadāma"];
+DPR_G.iVI["vadati"]["def"] = [];
+DPR_G.iVI["vadati"]["def"]["2"] = [];
+//iVI['vadati']['def']['2']['3rd'] = [];
+//iVI['vadati']['def']['2']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["vadati"]["def"]["2"]["2nd"] = [];
+DPR_G.iVI["vadati"]["def"]["2"]["2nd"]["0"] = ["vadehi"];
+DPR_G.iVI["vadati"]["def"]["16"] = [];
+//iVI['vadati']['def']['16']['3rd'] = [];
+//iVI['vadati']['def']['16']['3rd']['0'] = ['<no 3rd sing form>'];
+DPR_G.iVI["vadati"]["def"]["16"]["1st"] = [];
+DPR_G.iVI["vadati"]["def"]["16"]["1st"]["1"] = ["vademase"];
+DPR_G.iVI["vajjā"] = [];
+DPR_G.iVI["vajjā"]["vajjā"] = [];
+DPR_G.iVI["vajjā"]["vajjā"]["65535"] = [];
+DPR_G.iVI["vajjā"]["vajjā"]["65535"]["3rd"] = [];
+DPR_G.iVI["vajjā"]["vajjā"]["65535"]["3rd"]["0"] = ["vadeyya", "vajjā"];
+DPR_G.iVI["vajjā"]["vajjā"]["65535"]["3rd"]["1"] = ["vadeyyuṃ", "vajjuṃ"];
+DPR_G.iVI["vajjā"]["vajjā"]["65535"]["2nd"] = [];
+DPR_G.iVI["vajjā"]["vajjā"]["65535"]["2nd"]["0"] = [
+	"vadeyyāsi",
+	"vajjesi",
+	"vajjāsi",
+];
+DPR_G.iVI["vajjā"]["vajjā"]["65535"]["2nd"]["1"] = ["vadeyyātha"];
+DPR_G.iVI["vajjā"]["vajjā"]["65535"]["1st"] = [];
+DPR_G.iVI["vajjā"]["vajjā"]["65535"]["1st"]["0"] = [
+	"vade",
+	"vadeyyaṃ",
+	"(vadeyyāmi)",
+	"vajjaṃ",
+];
+DPR_G.iVI["vajjā"]["vajjā"]["65535"]["1st"]["1"] = ["vadeyyāma"];
+DPR_G.iVI["vandati"] = [];
+DPR_G.iVI["vandati"]["vandati"] = [];
+DPR_G.iVI["vandati"]["vandati"]["65535"] = [];
+DPR_G.iVI["vandati"]["vandati"]["65535"]["3rd"] = [];
+DPR_G.iVI["vandati"]["vandati"]["65535"]["3rd"]["0"] = ["vandati"];
+DPR_G.iVI["vandati"]["vandati"]["65535"]["3rd"]["1"] = ["vandanti"];
+DPR_G.iVI["vandati"]["vandati"]["65535"]["2nd"] = [];
+DPR_G.iVI["vandati"]["vandati"]["65535"]["2nd"]["0"] = ["vandasi"];
+DPR_G.iVI["vandati"]["vandati"]["65535"]["2nd"]["1"] = ["vandatha"];
+DPR_G.iVI["vandati"]["vandati"]["65535"]["1st"] = [];
+DPR_G.iVI["vandati"]["vandati"]["65535"]["1st"]["0"] = ["vandāmi"];
+DPR_G.iVI["vandati"]["vandati"]["65535"]["1st"]["1"] = ["vandāma"];
+DPR_G.iVI["vandati"]["def"] = [];
+DPR_G.iVI["vandati"]["def"]["1"] = [];
+DPR_G.iVI["vandati"]["def"]["1"]["3rd"] = [];
+//iVI['vandati']['def']['1']['3rd']['0'] = ['<no 3rd sing forms>'];
+DPR_G.iVI["vandati"]["def"]["1"]["3rd"]["1"] = ["vandantu"];
+DPR_G.iVI["vandati"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["vandati"]["def"]["1"]["2nd"]["0"] = ["vanda", "vandāhi"];
+DPR_G.iVI["vandati"]["def"]["4"] = [];
+DPR_G.iVI["vandati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["vandati"]["def"]["4"]["3rd"]["0"] = ["vandeyya"];
+DPR_G.iVI["vandati"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["vandati"]["def"]["4"]["2nd"]["0"] = ["vandeyyāsi"];
+DPR_G.iVI["vandati"]["def"]["12"] = [];
+DPR_G.iVI["vandati"]["def"]["12"]["3rd"] = [];
+DPR_G.iVI["vandati"]["def"]["12"]["3rd"]["0"] = ["vandate"];
+DPR_G.iVI["vandati"]["def"]["12"]["2nd"] = [];
+DPR_G.iVI["vandati"]["def"]["12"]["2nd"]["0"] = ["vandase"];
+DPR_G.iVI["vandati"]["def"]["12"]["1st"] = [];
+DPR_G.iVI["vandati"]["def"]["12"]["1st"]["0"] = ["vande"];
+DPR_G.iVI["viharati"] = [];
+DPR_G.iVI["viharati"]["vihāsi"] = [];
+DPR_G.iVI["viharati"]["vihāsi"]["65535"] = [];
+DPR_G.iVI["viharati"]["vihāsi"]["65535"]["3rd"] = [];
+DPR_G.iVI["viharati"]["vihāsi"]["65535"]["3rd"]["0"] = ["vihāsi"];
+DPR_G.iVI["viharati"]["vihāsi"]["65535"]["3rd"]["1"] = ["vihiṃsu", "vihaṃsu"];
+DPR_G.iVI["vijānāti"] = [];
+DPR_G.iVI["vijānāti"]["vijānāti"] = [];
+DPR_G.iVI["vijānāti"]["vijānāti"]["65535"] = [];
+DPR_G.iVI["vijānāti"]["vijānāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["vijānāti"]["vijānāti"]["65535"]["3rd"]["0"] = ["vijānāti"];
+DPR_G.iVI["vijānāti"]["vijānāti"]["65535"]["3rd"]["1"] = ["vijānanti"];
+DPR_G.iVI["vijānāti"]["vijānāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["vijānāti"]["vijānāti"]["65535"]["2nd"]["0"] = ["vijānāsi"];
+DPR_G.iVI["vijānāti"]["vijānāti"]["65535"]["2nd"]["1"] = ["vijānātha"];
+DPR_G.iVI["vijānāti"]["vijānāti"]["65535"]["1st"] = [];
+DPR_G.iVI["vijānāti"]["vijānāti"]["65535"]["1st"]["0"] = ["vijānāmi"];
+DPR_G.iVI["vijānāti"]["vijānāti"]["65535"]["1st"]["1"] = ["vijānāma"];
+DPR_G.iVI["vijānāti"]["def"] = [];
+DPR_G.iVI["vijānāti"]["def"]["1"] = [];
+DPR_G.iVI["vijānāti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["vijānāti"]["def"]["1"]["3rd"]["0"] = ["vijānātu"];
+DPR_G.iVI["vijānāti"]["def"]["1"]["3rd"]["1"] = ["vijānantu"];
+DPR_G.iVI["vijānāti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["vijānāti"]["def"]["1"]["2nd"]["0"] = ["vijāna", "vijānāhi"];
+DPR_G.iVI["vijānāti"]["def"]["1"]["2nd"]["1"] = ["vijānātha"];
+DPR_G.iVI["vijānāti"]["def"]["1"]["1st"] = [];
+DPR_G.iVI["vijānāti"]["def"]["1"]["1st"]["0"] = ["vijānāmi"];
+DPR_G.iVI["vijānāti"]["def"]["1"]["1st"]["1"] = ["vijānāma"];
+DPR_G.iVI["vijānāti"]["def"]["4"] = [];
+DPR_G.iVI["vijānāti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["vijānāti"]["def"]["4"]["3rd"]["0"] = ["vijāneyya", "vijaññā"];
+DPR_G.iVI["vijānāti"]["def"]["4"]["3rd"]["1"] = ["vijāneyyuṃ"];
+DPR_G.iVI["vijānāti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["vijānāti"]["def"]["4"]["2nd"]["0"] = ["vijāneyyāsi"];
+DPR_G.iVI["vijānāti"]["def"]["4"]["2nd"]["1"] = ["vijāneyyātha"];
+DPR_G.iVI["vijānāti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["vijānāti"]["def"]["4"]["1st"]["0"] = [
+	"vijāneyyaṃ",
+	"vijaññaṃ",
+	"vijāniyaṃ",
+];
+DPR_G.iVI["vijānāti"]["def"]["4"]["1st"]["1"] = ["vijāneyyāma"];
+DPR_G.iVI["vijānāti"]["def"]["13"] = [];
+DPR_G.iVI["vijānāti"]["def"]["13"]["3rd"] = [];
+DPR_G.iVI["vijānāti"]["def"]["13"]["3rd"]["0"] = ["vijānataṃ"];
+DPR_G.iVI["vineti"] = [];
+DPR_G.iVI["vineti"]["vineti"] = [];
+DPR_G.iVI["vineti"]["vineti"]["65535"] = [];
+DPR_G.iVI["vineti"]["vineti"]["65535"]["3rd"] = [];
+DPR_G.iVI["vineti"]["vineti"]["65535"]["3rd"]["0"] = ["vineti"];
+DPR_G.iVI["vineti"]["vineti"]["65535"]["3rd"]["1"] = ["vinenti"];
+DPR_G.iVI["vineti"]["vineti"]["65535"]["2nd"] = [];
+DPR_G.iVI["vineti"]["vineti"]["65535"]["2nd"]["0"] = ["vinesi"];
+DPR_G.iVI["vineti"]["vineti"]["65535"]["2nd"]["1"] = ["vinetha"];
+DPR_G.iVI["vineti"]["vineti"]["65535"]["1st"] = [];
+DPR_G.iVI["vineti"]["vineti"]["65535"]["1st"]["0"] = ["vinemi"];
+DPR_G.iVI["vineti"]["vineti"]["65535"]["1st"]["1"] = ["vinema"];
+DPR_G.iVI["vineti"]["def"] = [];
+DPR_G.iVI["vineti"]["def"]["1"] = [];
+DPR_G.iVI["vineti"]["def"]["1"]["3rd"] = [];
+DPR_G.iVI["vineti"]["def"]["1"]["3rd"]["0"] = ["vinetu"];
+DPR_G.iVI["vineti"]["def"]["1"]["2nd"] = [];
+DPR_G.iVI["vineti"]["def"]["1"]["2nd"]["0"] = ["vinaya"];
+DPR_G.iVI["vineti"]["def"]["4"] = [];
+DPR_G.iVI["vineti"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["vineti"]["def"]["4"]["3rd"]["0"] = ["vineyya"];
+DPR_G.iVI["vineti"]["def"]["4"]["3rd"]["1"] = ["vineyyuṃ"];
+DPR_G.iVI["vineti"]["def"]["4"]["2nd"] = [];
+DPR_G.iVI["vineti"]["def"]["4"]["2nd"]["0"] = ["vineyyāsi"];
+DPR_G.iVI["vineti"]["def"]["4"]["2nd"]["1"] = ["vineyyātha"];
+DPR_G.iVI["vineti"]["def"]["4"]["1st"] = [];
+DPR_G.iVI["vineti"]["def"]["4"]["1st"]["0"] = ["vineyyaṃ"];
+DPR_G.iVI["vineti"]["def"]["4"]["1st"]["1"] = ["vineyyāma"];
+DPR_G.iVI["vineti"]["def"]["13"] = [];
+//iVI['vineti']['def']['13']['3rd'] = [];
+//iVI['vineti']['def']['13']['3rd']['0'] = ['<no 3rd sng form>'];
+DPR_G.iVI["vineti"]["def"]["13"]["2nd"] = [];
+DPR_G.iVI["vineti"]["def"]["13"]["2nd"]["0"] = ["vinayassu"];
+DPR_G.iVI["vineti"]["def"]["16"] = [];
+DPR_G.iVI["vineti"]["def"]["16"]["3rd"] = [];
+DPR_G.iVI["vineti"]["def"]["16"]["3rd"]["0"] = ["vinayetha"];
+DPR_G.iVI["vuṭṭhahati"] = [];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhahati"] = [];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhahati"]["65535"] = [];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhahati"]["65535"]["3rd"] = [];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhahati"]["65535"]["3rd"]["0"] = ["vuṭṭhahati"];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhahati"]["65535"]["3rd"]["1"] = ["vuṭṭhahanti"];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhahati"]["65535"]["2nd"] = [];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhahati"]["65535"]["2nd"]["0"] = ["vuṭṭhahasi"];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhahati"]["65535"]["2nd"]["1"] = ["vuṭṭhahatha"];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhahati"]["65535"]["1st"] = [];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhahati"]["65535"]["1st"]["0"] = ["vuṭṭhahāmi"];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhahati"]["65535"]["1st"]["1"] = ["vuṭṭhahāma"];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhāti"] = [];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhāti"]["65535"] = [];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhāti"]["65535"]["3rd"] = [];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhāti"]["65535"]["3rd"]["0"] = ["vuṭṭhāti"];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhāti"]["65535"]["3rd"]["1"] = ["vuṭṭhanti"];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhāti"]["65535"]["2nd"] = [];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhāti"]["65535"]["2nd"]["0"] = ["vuṭṭhāsi"];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhāti"]["65535"]["2nd"]["1"] = ["vuṭṭhātha"];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhāti"]["65535"]["1st"] = [];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhāti"]["65535"]["1st"]["0"] = ["vuṭṭhāmi"];
+DPR_G.iVI["vuṭṭhahati"]["vuṭṭhāti"]["65535"]["1st"]["1"] = ["vuṭṭhāma"];
+DPR_G.iVI["vuṭṭhahati"]["def"] = [];
+DPR_G.iVI["vuṭṭhahati"]["def"]["3"] = [];
+DPR_G.iVI["vuṭṭhahati"]["def"]["3"]["3rd"] = [];
+DPR_G.iVI["vuṭṭhahati"]["def"]["3"]["3rd"]["0"] = ["vuṭṭhahissati"];
+DPR_G.iVI["vuṭṭhahati"]["def"]["3"]["3rd"]["1"] = ["vuṭṭhahissanti"];
+DPR_G.iVI["vuṭṭhahati"]["def"]["3"]["2nd"] = [];
+DPR_G.iVI["vuṭṭhahati"]["def"]["3"]["2nd"]["0"] = ["vuṭṭhahissasi"];
+DPR_G.iVI["vuṭṭhahati"]["def"]["3"]["2nd"]["1"] = ["vuṭṭhahissatha"];
+DPR_G.iVI["vuṭṭhahati"]["def"]["3"]["1st"] = [];
+DPR_G.iVI["vuṭṭhahati"]["def"]["3"]["1st"]["0"] = ["vuṭṭhahissāmi"];
+DPR_G.iVI["vuṭṭhahati"]["def"]["3"]["1st"]["1"] = ["vuṭṭhahissāma"];
+DPR_G.iVI["vuṭṭhahati"]["def"]["4"] = [];
+DPR_G.iVI["vuṭṭhahati"]["def"]["4"]["3rd"] = [];
+DPR_G.iVI["vuṭṭhahati"]["def"]["4"]["3rd"]["0"] = ["vuṭṭhaheyya"];
+DPR_G.iVI["vyantīhoti"] = [];
+DPR_G.iVI["vyantīhoti"]["vyantīhoti"] = [];
+DPR_G.iVI["vyantīhoti"]["vyantīhoti"]["65535"] = [];
+DPR_G.iVI["vyantīhoti"]["vyantīhoti"]["65535"]["3rd"] = [];
+DPR_G.iVI["vyantīhoti"]["vyantīhoti"]["65535"]["3rd"]["0"] = ["byantīhoti"];
+DPR_G.iVI["cinteti"] = [];
+DPR_G.iVI["cinteti"]["cinteti"] = [];
+DPR_G.iVI["cinteti"]["cinteti"]["65535"] = [];
+DPR_G.iVI["cinteti"]["cinteti"]["65535"]["3rd"] = [];
+DPR_G.iVI["cinteti"]["cinteti"]["65535"]["3rd"]["1"] = ["cintenti"];
+DPR_G.iVI["cinteti"]["cinteti"]["65535"]["2nd"] = [];
+DPR_G.iVI["cinteti"]["cinteti"]["65535"]["2nd"]["1"] = ["cintetha"];
+DPR_G.iVI["cinteti"]["cinteti"]["65535"]["3rd"] = [];
+DPR_G.iVI["cinteti"]["cinteti"]["65535"]["3rd"]["0"] = ["cinteti"];
+DPR_G.iVI["cinteti"]["cinteti"]["65535"]["2nd"] = [];
+DPR_G.iVI["cinteti"]["cinteti"]["65535"]["2nd"]["0"] = ["cintesi"];
+DPR_G.iVI["cinteti"]["cinteti"]["65535"]["1st"] = [];
+DPR_G.iVI["cinteti"]["cinteti"]["65535"]["1st"]["0"] = ["cintemi"];
+DPR_G.iVI["cinteti"]["cinteti"]["65535"]["1st"]["1"] = ["cintema"];
+DPR_G.iVI["hoti"] = [];
+DPR_G.iVI["hoti"]["huveyya"] = [];
+DPR_G.iVI["hoti"]["huveyya"]["65535"] = [];
+DPR_G.iVI["hoti"]["huveyya"]["65535"]["3rd"] = [];
+DPR_G.iVI["hoti"]["huveyya"]["65535"]["3rd"]["0"] = ["huveyya"];
+
+DPR_G.iNI["idaṃ"] = [];
+DPR_G.iNI["idaṃ"]["m"] = [];
+DPR_G.iNI["idaṃ"]["m"][0] = [];
+DPR_G.iNI["idaṃ"]["m"][0]["nom"] = ["ayaṃ"];
+DPR_G.iNI["idaṃ"]["m"][0]["acc"] = ["imaṃ"];
+DPR_G.iNI["idaṃ"]["m"][0]["ins"] = ["iminā"];
+DPR_G.iNI["idaṃ"]["m"][0]["dat"] = ["assa"];
+DPR_G.iNI["idaṃ"]["m"][0]["abl"] = ["imasmā", "imamhā"];
+DPR_G.iNI["idaṃ"]["m"][0]["gen"] = ["assa", "imassa"];
+DPR_G.iNI["idaṃ"]["m"][0]["loc"] = ["asmiṃ", "imasmiṃ"];
+DPR_G.iNI["idaṃ"]["m"][1] = [];
+DPR_G.iNI["idaṃ"]["m"][1]["nom"] = ["ime"];
+DPR_G.iNI["idaṃ"]["m"][1]["acc"] = ["ime"];
+DPR_G.iNI["idaṃ"]["m"][1]["ins"] = ["imehi"];
+DPR_G.iNI["idaṃ"]["m"][1]["dat"] = ["imesaṃ"];
+DPR_G.iNI["idaṃ"]["m"][1]["abl"] = ["imehi"];
+DPR_G.iNI["idaṃ"]["m"][1]["gen"] = ["imesaṃ"];
+DPR_G.iNI["idaṃ"]["m"][1]["loc"] = ["imesu"];
+DPR_G.iNI["idaṃ"]["nt"] = [];
+DPR_G.iNI["idaṃ"]["nt"][0] = [];
+DPR_G.iNI["idaṃ"]["nt"][0]["nom"] = ["idaṃ"];
+DPR_G.iNI["idaṃ"]["nt"][0]["acc"] = ["idaṃ"];
+DPR_G.iNI["idaṃ"]["nt"][0]["ins"] = ["iminā"];
+DPR_G.iNI["idaṃ"]["nt"][0]["dat"] = ["assa"];
+DPR_G.iNI["idaṃ"]["nt"][0]["abl"] = ["imasmā", "imamhā"];
+DPR_G.iNI["idaṃ"]["nt"][0]["gen"] = ["assa", "imassa"];
+DPR_G.iNI["idaṃ"]["nt"][0]["loc"] = ["asmiṃ", "imasmiṃ"];
+DPR_G.iNI["idaṃ"]["nt"][1] = [];
+DPR_G.iNI["idaṃ"]["nt"][1]["nom"] = ["imāni"];
+DPR_G.iNI["idaṃ"]["nt"][1]["acc"] = ["imāni"];
+DPR_G.iNI["idaṃ"]["nt"][1]["ins"] = ["imehi"];
+DPR_G.iNI["idaṃ"]["nt"][1]["dat"] = ["imesaṃ"];
+DPR_G.iNI["idaṃ"]["nt"][1]["abl"] = ["imehi"];
+DPR_G.iNI["idaṃ"]["nt"][1]["gen"] = ["imesaṃ"];
+DPR_G.iNI["idaṃ"]["nt"][1]["loc"] = ["imesu"];
+DPR_G.iNI["idaṃ"]["f"] = [];
+DPR_G.iNI["idaṃ"]["f"][0] = [];
+DPR_G.iNI["idaṃ"]["f"][0]["nom"] = ["ayaṃ"];
+DPR_G.iNI["idaṃ"]["f"][0]["acc"] = ["imaṃ"];
+DPR_G.iNI["idaṃ"]["f"][0]["ins"] = ["imāya"];
+DPR_G.iNI["idaṃ"]["f"][0]["dat"] = ["assā"];
+DPR_G.iNI["idaṃ"]["f"][0]["abl"] = ["imāya"];
+DPR_G.iNI["idaṃ"]["f"][0]["gen"] = ["assā", "imassā", "imissā"];
+DPR_G.iNI["idaṃ"]["f"][0]["loc"] = ["imāyam", "imāya"];
+DPR_G.iNI["idaṃ"]["f"][1] = [];
+DPR_G.iNI["idaṃ"]["f"][1]["nom"] = ["imā"];
+DPR_G.iNI["idaṃ"]["f"][1]["acc"] = ["imā"];
+DPR_G.iNI["idaṃ"]["f"][1]["ins"] = ["imāhi"];
+DPR_G.iNI["idaṃ"]["f"][1]["dat"] = ["imāsaṃ"];
+DPR_G.iNI["idaṃ"]["f"][1]["abl"] = ["imāhi"];
+DPR_G.iNI["idaṃ"]["f"][1]["gen"] = ["imāsaṃ"];
+DPR_G.iNI["idaṃ"]["f"][1]["loc"] = ["imāsu"];
+DPR_G.iNI["na"] = [];
+DPR_G.iNI["na"]["m"] = [];
+DPR_G.iNI["na"]["m"][0] = [];
+DPR_G.iNI["na"]["m"][0]["acc"] = ["naṃ"];
+DPR_G.iNI["na"]["m"][0]["ins"] = ["nena"];
+DPR_G.iNI["na"]["m"][0]["dat"] = ["nassa"];
+DPR_G.iNI["na"]["m"][0]["abl"] = ["nasmā", "namhā"];
+DPR_G.iNI["na"]["m"][0]["gen"] = ["nassa"];
+DPR_G.iNI["na"]["m"][0]["loc"] = ["nasmiṃ", "namhi"];
+DPR_G.iNI["na"]["m"][1] = [];
+DPR_G.iNI["na"]["m"][1]["acc"] = ["ne"];
+DPR_G.iNI["na"]["m"][1]["ins"] = ["nehi"];
+DPR_G.iNI["na"]["m"][1]["dat"] = ["nesaṃ"];
+DPR_G.iNI["na"]["m"][1]["abl"] = ["nehi"];
+DPR_G.iNI["na"]["m"][1]["gen"] = ["nesaṃ"];
+DPR_G.iNI["na"]["m"][1]["loc"] = ["nesu"];
+DPR_G.iNI["na"]["nt"] = [];
+DPR_G.iNI["na"]["nt"][0] = [];
+DPR_G.iNI["na"]["nt"][0]["acc"] = ["naṃ"];
+DPR_G.iNI["na"]["nt"][0]["ins"] = ["nena"];
+DPR_G.iNI["na"]["nt"][0]["dat"] = ["nassa"];
+DPR_G.iNI["na"]["nt"][0]["abl"] = ["nasmā", "namhā"];
+DPR_G.iNI["na"]["nt"][0]["gen"] = ["nassa"];
+DPR_G.iNI["na"]["nt"][0]["loc"] = ["nasmiṃ", "namhi"];
+DPR_G.iNI["na"]["nt"][1] = [];
+DPR_G.iNI["na"]["nt"][1]["acc"] = ["nāni"];
+DPR_G.iNI["na"]["nt"][1]["ins"] = ["nehi"];
+DPR_G.iNI["na"]["nt"][1]["dat"] = ["nesaṃ"];
+DPR_G.iNI["na"]["nt"][1]["abl"] = ["nehi"];
+DPR_G.iNI["na"]["nt"][1]["gen"] = ["nesaṃ"];
+DPR_G.iNI["na"]["nt"][1]["loc"] = ["nesu"];
+DPR_G.iNI["na"]["f"] = [];
+DPR_G.iNI["na"]["f"][0] = [];
+DPR_G.iNI["na"]["f"][0]["acc"] = ["naṃ"];
+DPR_G.iNI["na"]["f"][0]["ins"] = ["nāya"];
+DPR_G.iNI["na"]["f"][0]["dat"] = ["nassā"];
+DPR_G.iNI["na"]["f"][0]["abl"] = ["nāya"];
+DPR_G.iNI["na"]["f"][0]["gen"] = ["nassā"];
+DPR_G.iNI["na"]["f"][0]["loc"] = ["nāya", "nāyaṃ", "nassaṃ"];
+DPR_G.iNI["na"]["f"][1] = [];
+DPR_G.iNI["na"]["f"][1]["acc"] = ["nā"];
+DPR_G.iNI["na"]["f"][1]["ins"] = ["nāhi"];
+DPR_G.iNI["na"]["f"][1]["dat"] = ["nāsaṃ"];
+DPR_G.iNI["na"]["f"][1]["abl"] = ["nāhi"];
+DPR_G.iNI["na"]["f"][1]["gen"] = ["nāsaṃ"];
+DPR_G.iNI["na"]["f"][1]["loc"] = ["nāsu"];
+DPR_G.iNI["ahaṃ"] = [];
+DPR_G.iNI["ahaṃ"]["m"] = [];
+DPR_G.iNI["ahaṃ"]["m"][0] = [];
+DPR_G.iNI["ahaṃ"]["m"][0]["nom"] = ["ahaṃ"];
+DPR_G.iNI["ahaṃ"]["m"][0]["acc"] = ["maṃ"];
+DPR_G.iNI["ahaṃ"]["m"][0]["ins"] = ["mayā", "me"];
+DPR_G.iNI["ahaṃ"]["m"][0]["dat"] = ["mama", "me", "(mamaṃ)", "(mayhaṃ)"];
+DPR_G.iNI["ahaṃ"]["m"][0]["abl"] = ["mayā"];
+DPR_G.iNI["ahaṃ"]["m"][0]["gen"] = ["mama", "me", "(mamaṃ)", "(mayhaṃ)"];
+DPR_G.iNI["ahaṃ"]["m"][0]["loc"] = ["mayi"];
+DPR_G.iNI["ahaṃ"]["m"][1] = [];
+DPR_G.iNI["ahaṃ"]["m"][1]["nom"] = ["mayaṃ"];
+DPR_G.iNI["ahaṃ"]["m"][1]["acc"] = ["amhe", "no"];
+DPR_G.iNI["ahaṃ"]["m"][1]["ins"] = ["amhehi", "no"];
+DPR_G.iNI["ahaṃ"]["m"][1]["dat"] = ["amhākaṃ", "no", "(asmākam)"];
+DPR_G.iNI["ahaṃ"]["m"][1]["abl"] = ["amhehi"];
+DPR_G.iNI["ahaṃ"]["m"][1]["gen"] = ["amhākaṃ", "no", "(asmākam)"];
+DPR_G.iNI["ahaṃ"]["m"][1]["loc"] = ["amhesu"];
+DPR_G.iNI["ahaṃ"]["nt"] = [];
+DPR_G.iNI["ahaṃ"]["nt"][0] = [];
+DPR_G.iNI["ahaṃ"]["nt"][0]["nom"] = ["ahaṃ"];
+DPR_G.iNI["ahaṃ"]["nt"][0]["acc"] = ["maṃ"];
+DPR_G.iNI["ahaṃ"]["nt"][0]["ins"] = ["mayā", "me"];
+DPR_G.iNI["ahaṃ"]["nt"][0]["dat"] = ["mama", "me", "(mamaṃ)", "(mayhaṃ)"];
+DPR_G.iNI["ahaṃ"]["nt"][0]["abl"] = ["mayā"];
+DPR_G.iNI["ahaṃ"]["nt"][0]["gen"] = ["mama", "me", "(mamaṃ)", "(mayhaṃ)"];
+DPR_G.iNI["ahaṃ"]["nt"][0]["loc"] = ["mayi"];
+DPR_G.iNI["ahaṃ"]["nt"][1] = [];
+DPR_G.iNI["ahaṃ"]["nt"][1]["nom"] = ["mayaṃ"];
+DPR_G.iNI["ahaṃ"]["nt"][1]["acc"] = ["amhe", "no"];
+DPR_G.iNI["ahaṃ"]["nt"][1]["ins"] = ["amhehi", "no"];
+DPR_G.iNI["ahaṃ"]["nt"][1]["dat"] = ["amhākaṃ", "no", "(asmākam)"];
+DPR_G.iNI["ahaṃ"]["nt"][1]["abl"] = ["amhehi"];
+DPR_G.iNI["ahaṃ"]["nt"][1]["gen"] = ["amhākaṃ", "no", "(asmākam)"];
+DPR_G.iNI["ahaṃ"]["nt"][1]["loc"] = ["amhesu"];
+DPR_G.iNI["ahaṃ"]["f"] = [];
+DPR_G.iNI["ahaṃ"]["f"][0] = [];
+DPR_G.iNI["ahaṃ"]["f"][0]["nom"] = ["ahaṃ"];
+DPR_G.iNI["ahaṃ"]["f"][0]["acc"] = ["maṃ"];
+DPR_G.iNI["ahaṃ"]["f"][0]["ins"] = ["mayā", "me"];
+DPR_G.iNI["ahaṃ"]["f"][0]["dat"] = ["mama", "me", "(mamaṃ)", "(mayhaṃ)"];
+DPR_G.iNI["ahaṃ"]["f"][0]["abl"] = ["mayā"];
+DPR_G.iNI["ahaṃ"]["f"][0]["gen"] = ["mama", "me", "(mamaṃ)", "(mayhaṃ)"];
+DPR_G.iNI["ahaṃ"]["f"][0]["loc"] = ["mayi"];
+DPR_G.iNI["ahaṃ"]["f"][1] = [];
+DPR_G.iNI["ahaṃ"]["f"][1]["nom"] = ["mayaṃ"];
+DPR_G.iNI["ahaṃ"]["f"][1]["acc"] = ["amhe", "no"];
+DPR_G.iNI["ahaṃ"]["f"][1]["ins"] = ["amhehi", "no"];
+DPR_G.iNI["ahaṃ"]["f"][1]["dat"] = ["amhākaṃ", "no", "(asmākam)"];
+DPR_G.iNI["ahaṃ"]["f"][1]["abl"] = ["amhehi"];
+DPR_G.iNI["ahaṃ"]["f"][1]["gen"] = ["amhākaṃ", "no", "(asmākam)"];
+DPR_G.iNI["ahaṃ"]["f"][1]["loc"] = ["amhesu"];
+DPR_G.iNI["tumha"] = [];
+DPR_G.iNI["tumha"]["m"] = [];
+DPR_G.iNI["tumha"]["m"][0] = [];
+DPR_G.iNI["tumha"]["m"][0]["nom"] = ["tvaṃ"];
+DPR_G.iNI["tumha"]["m"][0]["acc"] = ["tvaṃ", "taṃ"];
+DPR_G.iNI["tumha"]["m"][0]["ins"] = ["tayā", "te"];
+DPR_G.iNI["tumha"]["m"][0]["dat"] = ["tava", "te"];
+DPR_G.iNI["tumha"]["m"][0]["abl"] = ["tayā"];
+DPR_G.iNI["tumha"]["m"][0]["gen"] = ["tava", "te"];
+DPR_G.iNI["tumha"]["m"][1] = [];
+DPR_G.iNI["tumha"]["m"][1]["nom"] = ["tumhe"];
+DPR_G.iNI["tumha"]["m"][1]["acc"] = ["tumhe", "vo"];
+DPR_G.iNI["tumha"]["m"][1]["ins"] = ["tumhehi", "vo"];
+DPR_G.iNI["tumha"]["m"][1]["dat"] = ["tumhākaṃ", "vo"];
+DPR_G.iNI["tumha"]["m"][1]["abl"] = ["tumhehi"];
+DPR_G.iNI["tumha"]["m"][1]["gen"] = ["tumhākaṃ", "vo", "(tumhaṃ)"];
+DPR_G.iNI["tumha"]["m"][1]["loc"] = ["tumhesu"];
+DPR_G.iNI["tumha"]["nt"] = [];
+DPR_G.iNI["tumha"]["nt"][0] = [];
+DPR_G.iNI["tumha"]["nt"][0]["nom"] = ["tvaṃ"];
+DPR_G.iNI["tumha"]["nt"][0]["acc"] = ["taṃ"];
+DPR_G.iNI["tumha"]["nt"][0]["ins"] = ["tayā", "te"];
+DPR_G.iNI["tumha"]["nt"][0]["dat"] = ["tava", "te"];
+DPR_G.iNI["tumha"]["nt"][0]["abl"] = ["tayā"];
+DPR_G.iNI["tumha"]["nt"][0]["gen"] = ["tava"];
+DPR_G.iNI["tumha"]["nt"][0]["loc"] = ["tayi"];
+DPR_G.iNI["tumha"]["nt"][1] = [];
+DPR_G.iNI["tumha"]["nt"][1]["nom"] = ["tumhe"];
+DPR_G.iNI["tumha"]["nt"][1]["acc"] = ["tumhe", "vo"];
+DPR_G.iNI["tumha"]["nt"][1]["ins"] = ["tumhehi", "vo"];
+DPR_G.iNI["tumha"]["nt"][1]["dat"] = ["tumhākaṃ", "(tumhaṃ)"];
+DPR_G.iNI["tumha"]["nt"][1]["abl"] = ["tumhehi"];
+DPR_G.iNI["tumha"]["nt"][1]["gen"] = ["tumhākaṃ", "vo", "(tumhaṃ)"];
+DPR_G.iNI["tumha"]["nt"][1]["loc"] = ["tumhesu"];
+DPR_G.iNI["tumha"]["f"] = [];
+DPR_G.iNI["tumha"]["f"][0] = [];
+DPR_G.iNI["tumha"]["f"][0]["nom"] = ["tvaṃ"];
+DPR_G.iNI["tumha"]["f"][0]["acc"] = ["tvaṃ"];
+DPR_G.iNI["tumha"]["f"][0]["ins"] = ["tayā", "te"];
+DPR_G.iNI["tumha"]["f"][0]["dat"] = ["tava", "te"];
+DPR_G.iNI["tumha"]["f"][0]["abl"] = ["tayā"];
+DPR_G.iNI["tumha"]["f"][0]["gen"] = ["tava", "te"];
+DPR_G.iNI["tumha"]["f"][1] = [];
+DPR_G.iNI["tumha"]["f"][1]["nom"] = ["tumhe"];
+DPR_G.iNI["tumha"]["f"][1]["acc"] = ["tumhe", "vo"];
+DPR_G.iNI["tumha"]["f"][1]["ins"] = ["tumhehi", "vo"];
+DPR_G.iNI["tumha"]["f"][1]["dat"] = ["tumhākaṃ", "vo"];
+DPR_G.iNI["tumha"]["f"][1]["abl"] = ["tumhehi"];
+DPR_G.iNI["tumha"]["f"][1]["gen"] = ["tumhākaṃ", "vo", "(tumhaṃ)"];
+DPR_G.iNI["tumha"]["f"][1]["loc"] = ["tumhesu"];
+DPR_G.iNI["amu"] = [];
+DPR_G.iNI["amu"]["m"] = [];
+DPR_G.iNI["amu"]["m"][0] = [];
+DPR_G.iNI["amu"]["m"][0]["nom"] = ["asu"];
+DPR_G.iNI["amu"]["m"][0]["acc"] = ["asu"];
+DPR_G.iNI["amu"]["m"][0]["ins"] = ["amunā"];
+DPR_G.iNI["amu"]["m"][0]["dat"] = ["amussa"];
+DPR_G.iNI["amu"]["m"][0]["abl"] = ["amumhā"];
+DPR_G.iNI["amu"]["m"][0]["gen"] = ["amussa"];
+DPR_G.iNI["amu"]["m"][0]["loc"] = ["amusmiṃ"];
+DPR_G.iNI["amu"]["m"][1] = [];
+DPR_G.iNI["amu"]["m"][1]["nom"] = ["amū"];
+DPR_G.iNI["amu"]["m"][1]["acc"] = ["amū"];
+DPR_G.iNI["amu"]["m"][1]["ins"] = ["amūhi"];
+DPR_G.iNI["amu"]["m"][1]["dat"] = ["amūsaṃ"];
+DPR_G.iNI["amu"]["m"][1]["abl"] = ["amūhi"];
+DPR_G.iNI["amu"]["m"][1]["gen"] = ["amūsaṃ"];
+DPR_G.iNI["amu"]["nt"] = [];
+DPR_G.iNI["amu"]["nt"][0] = [];
+DPR_G.iNI["amu"]["nt"][0]["nom"] = ["aduṃ"];
+DPR_G.iNI["amu"]["nt"][0]["acc"] = ["aduṃ"];
+DPR_G.iNI["amu"]["nt"][0]["ins"] = ["amunā"];
+DPR_G.iNI["amu"]["nt"][0]["dat"] = ["amussa"];
+DPR_G.iNI["amu"]["nt"][0]["abl"] = ["amumhā"];
+DPR_G.iNI["amu"]["nt"][0]["gen"] = ["amussa"];
+DPR_G.iNI["amu"]["nt"][0]["loc"] = ["amusmiṃ"];
+DPR_G.iNI["amu"]["nt"][1] = [];
+DPR_G.iNI["amu"]["nt"][1]["nom"] = ["amūni"];
+DPR_G.iNI["amu"]["nt"][1]["acc"] = ["amūni"];
+DPR_G.iNI["amu"]["nt"][1]["ins"] = ["amūhi"];
+DPR_G.iNI["amu"]["nt"][1]["dat"] = ["amūsaṃ"];
+DPR_G.iNI["amu"]["nt"][1]["abl"] = ["amūhi"];
+DPR_G.iNI["amu"]["nt"][1]["gen"] = ["amūsaṃ"];
+DPR_G.iNI["amu"]["f"] = [];
+DPR_G.iNI["amu"]["f"][0] = [];
+DPR_G.iNI["amu"]["f"][0]["nom"] = ["asu"];
+DPR_G.iNI["amu"]["f"][0]["acc"] = ["asu"];
+DPR_G.iNI["amu"]["f"][0]["dat"] = ["amussā"];
+DPR_G.iNI["amu"]["f"][0]["gen"] = ["amussā"];
+DPR_G.iNI["amu"]["f"][0]["loc"] = ["amussaṃ"];
+DPR_G.iNI["amu"]["f"][1] = [];
+DPR_G.iNI["amu"]["f"][1]["nom"] = ["amū"];
+DPR_G.iNI["amu"]["f"][1]["acc"] = ["amū"];
+DPR_G.iNI["amu"]["f"][1]["ins"] = ["amūhi"];
+DPR_G.iNI["amu"]["f"][1]["dat"] = ["amūsaṃ"];
+DPR_G.iNI["amu"]["f"][1]["abl"] = ["amūhi"];
+DPR_G.iNI["amu"]["f"][1]["gen"] = ["amūsaṃ"];
+DPR_G.iNI["ena"] = [];
+DPR_G.iNI["ena"]["m"] = [];
+DPR_G.iNI["ena"]["m"][0] = [];
+DPR_G.iNI["ena"]["m"][0]["acc"] = ["enaṃ"];
+DPR_G.iNI["mahārājā"] = [];
+DPR_G.iNI["mahārājā"]["m"] = [];
+DPR_G.iNI["mahārājā"]["m"][0] = [];
+DPR_G.iNI["mahārājā"]["m"][0]["nom"] = ["mahārājā"];
+DPR_G.iNI["mahārājā"]["m"][0]["voc"] = ["mahārāja"];
+DPR_G.iNI["mahārājā"]["m"][0]["acc"] = ["mahārājāṃ"];
+DPR_G.iNI["mahārājā"]["m"][0]["ins"] = ["mahārājena"];
+DPR_G.iNI["mahārājā"]["m"][0]["dat"] = ["mahārājassa"];
+DPR_G.iNI["mahārājā"]["m"][0]["abl"] = ["mahārājā"];
+DPR_G.iNI["mahārājā"]["m"][0]["gen"] = ["mahārājassa"];
+DPR_G.iNI["mahārājā"]["m"][0]["loc"] = ["mahārāje"];
+DPR_G.iNI["mahārājā"]["m"][1] = [];
+DPR_G.iNI["mahārājā"]["m"][1]["nom"] = ["mahārājā", "mahārājāno"];
+DPR_G.iNI["mahārājā"]["m"][1]["acc"] = ["mahārāje"];
+DPR_G.iNI["mahārājā"]["m"][1]["ins"] = ["mahārājehi"];
+DPR_G.iNI["mahārājā"]["m"][1]["dat"] = ["mahārājānaṃ"];
+DPR_G.iNI["mahārājā"]["m"][1]["abl"] = ["mahārājehi"];
+DPR_G.iNI["mahārājā"]["m"][1]["gen"] = ["mahārājānaṃ"];
+DPR_G.iNI["mahārājā"]["m"][1]["loc"] = ["mahārājesu"];
+DPR_G.iNI["candimā"] = [];
+DPR_G.iNI["candimā"]["m"] = [];
+DPR_G.iNI["candimā"]["m"][0] = [];
+DPR_G.iNI["candimā"]["m"][0]["nom"] = ["candimā"];
+DPR_G.iNI["eka"] = [];
+DPR_G.iNI["eka"]["m"] = [];
+DPR_G.iNI["eka"]["m"][0] = [];
+DPR_G.iNI["eka"]["m"][0]["nom"] = ["eko"];
+DPR_G.iNI["eka"]["m"][0]["acc"] = ["ekaṃ"];
+DPR_G.iNI["eka"]["m"][0]["ins"] = ["ekena"];
+DPR_G.iNI["eka"]["m"][0]["dat"] = ["ekassa"];
+DPR_G.iNI["eka"]["m"][0]["abl"] = ["ekasmā", "ekamhā"];
+DPR_G.iNI["eka"]["m"][0]["gen"] = ["ekassa"];
+DPR_G.iNI["eka"]["m"][0]["loc"] = ["ekasmiṃ", "ekamhi"];
+DPR_G.iNI["eka"]["m"][1] = [];
+DPR_G.iNI["eka"]["m"][1]["nom"] = ["eke"];
+DPR_G.iNI["eka"]["m"][1]["acc"] = ["eke"];
+DPR_G.iNI["eka"]["m"][1]["ins"] = ["ekehi"];
+DPR_G.iNI["eka"]["m"][1]["dat"] = ["ekesaṃ"];
+DPR_G.iNI["eka"]["m"][1]["abl"] = ["ekehi"];
+DPR_G.iNI["eka"]["m"][1]["gen"] = ["ekesaṃ"];
+DPR_G.iNI["eka"]["m"][1]["loc"] = ["ekesu"];
+DPR_G.iNI["eka"]["nt"] = [];
+DPR_G.iNI["eka"]["nt"][0] = [];
+DPR_G.iNI["eka"]["nt"][0]["nom"] = ["ekaṃ"];
+DPR_G.iNI["eka"]["nt"][0]["acc"] = ["ekaṃ"];
+DPR_G.iNI["eka"]["nt"][0]["ins"] = ["ekena"];
+DPR_G.iNI["eka"]["nt"][0]["dat"] = ["ekassa"];
+DPR_G.iNI["eka"]["nt"][0]["abl"] = ["ekasmā", "ekamhā"];
+DPR_G.iNI["ko ci"] = [];
+DPR_G.iNI["ko ci"]["m"] = [];
+DPR_G.iNI["ko ci"]["m"][0] = [];
+DPR_G.iNI["ko ci"]["m"][0]["nom"] = ["ko ci"];
+DPR_G.iNI["ko ci"]["m"][0]["acc"] = ["kañ ci"];
+DPR_G.iNI["ko ci"]["m"][0]["ins"] = ["kena ci"];
+DPR_G.iNI["ko ci"]["m"][0]["dat"] = ["kassa ci", "kissa ci"];
+DPR_G.iNI["ko ci"]["m"][0]["abl"] = ["kasmā ci", "kamhā ci"];
+DPR_G.iNI["ko ci"]["m"][0]["gen"] = ["kassa ci", "kissa ci"];
+DPR_G.iNI["ko ci"]["m"][0]["loc"] = ["kismiñ ci", "kimhi ci"];
+DPR_G.iNI["ko ci"]["m"][1] = [];
+DPR_G.iNI["ko ci"]["m"][1]["nom"] = ["ke ci"];
+DPR_G.iNI["ko ci"]["m"][1]["acc"] = ["ke ci"];
+DPR_G.iNI["ko ci"]["m"][1]["ins"] = ["kehi ci"];
+DPR_G.iNI["ko ci"]["m"][1]["dat"] = ["kesaṃ ci"];
+DPR_G.iNI["ko ci"]["m"][1]["abl"] = ["kehi ci"];
+DPR_G.iNI["ko ci"]["m"][1]["gen"] = ["kesaṃ ci"];
+DPR_G.iNI["ko ci"]["m"][1]["loc"] = ["kesu ci"];
+DPR_G.iNI["ko ci"]["nt"] = [];
+DPR_G.iNI["ko ci"]["nt"][0] = [];
+DPR_G.iNI["ko ci"]["nt"][0]["nom"] = ["kiñ ci"];
+DPR_G.iNI["ko ci"]["nt"][0]["acc"] = ["kiñ ci"];
+DPR_G.iNI["ko ci"]["nt"][0]["ins"] = ["kena ci"];
+DPR_G.iNI["ko ci"]["nt"][0]["dat"] = ["kassa ci", "kissa ci"];
+DPR_G.iNI["ko ci"]["nt"][0]["abl"] = ["kasmā ci", "kamhā ci"];
+DPR_G.iNI["ko ci"]["nt"][0]["gen"] = ["kassa ci", "kissa ci"];
+DPR_G.iNI["ko ci"]["nt"][0]["loc"] = ["kismiñ ci", "kimhi ci"];
+DPR_G.iNI["ko ci"]["nt"][1] = [];
+DPR_G.iNI["ko ci"]["nt"][1]["nom"] = ["kāni ci"];
+DPR_G.iNI["ko ci"]["nt"][1]["acc"] = ["kāni ci"];
+DPR_G.iNI["ko ci"]["nt"][1]["ins"] = ["kehi ci"];
+DPR_G.iNI["ko ci"]["nt"][1]["dat"] = ["kesañ ci"];
+DPR_G.iNI["ko ci"]["nt"][1]["abl"] = ["kehi ci"];
+DPR_G.iNI["ko ci"]["nt"][1]["gen"] = ["kesañ ci"];
+DPR_G.iNI["ko ci"]["nt"][1]["loc"] = ["kesu ci"];
+DPR_G.iNI["ko ci"]["f"] = [];
+DPR_G.iNI["ko ci"]["f"][0] = [];
+DPR_G.iNI["ko ci"]["f"][0]["nom"] = ["kā ci"];
+DPR_G.iNI["ko ci"]["f"][0]["acc"] = ["kaṃ ci"];
+DPR_G.iNI["ko ci"]["f"][0]["ins"] = ["kāya ci"];
+DPR_G.iNI["ko ci"]["f"][0]["dat"] = ["kassā ci"];
+DPR_G.iNI["ko ci"]["f"][0]["abl"] = ["kāya ci"];
+DPR_G.iNI["ko ci"]["f"][0]["gen"] = ["kassā ci"];
+DPR_G.iNI["ko ci"]["f"][0]["loc"] = ["kāya ci", "kāyañ ci", "kassañ ci"];
+DPR_G.iNI["ko ci"]["f"][1] = [];
+DPR_G.iNI["ko ci"]["f"][1]["nom"] = ["kā ci"];
+DPR_G.iNI["ko ci"]["f"][1]["acc"] = ["kā ci"];
+DPR_G.iNI["ko ci"]["f"][1]["ins"] = ["kāhi ci"];
+DPR_G.iNI["ko ci"]["f"][1]["dat"] = ["kāsañ ci"];
+DPR_G.iNI["ko ci"]["f"][1]["abl"] = ["kāhi ci"];
+DPR_G.iNI["ko ci"]["f"][1]["gen"] = ["kāsañ ci"];
+DPR_G.iNI["ko ci"]["f"][1]["loc"] = ["kāsu ci"];
+DPR_G.iNI["na kiñ ci"] = [];
+DPR_G.iNI["na kiñ ci"]["m"] = [];
+DPR_G.iNI["na kiñ ci"]["m"][0] = [];
+DPR_G.iNI["na kiñ ci"]["m"][0]["nom"] = ["na ko ci"];
+DPR_G.iNI["na kiñ ci"]["m"][0]["acc"] = ["na kaṃ ci"];
+DPR_G.iNI["eka"] = [];
+DPR_G.iNI["eka"]["nt"] = [];
+DPR_G.iNI["eka"]["nt"][0] = [];
+DPR_G.iNI["eka"]["nt"][0]["gen"] = ["ekassa"];
+DPR_G.iNI["eka"]["nt"][0]["loc"] = ["ekasmiṃ", "ekamhi"];
+DPR_G.iNI["eka"]["nt"][1] = [];
+DPR_G.iNI["eka"]["nt"][1]["nom"] = ["ekāni"];
+DPR_G.iNI["na kiñ ci"] = [];
+DPR_G.iNI["na kiñ ci"]["m"] = [];
+DPR_G.iNI["na kiñ ci"]["m"][0] = [];
+DPR_G.iNI["na kiñ ci"]["m"][0]["ins"] = ["na kena ci"];
+DPR_G.iNI["na kiñ ci"]["m"][0]["dat"] = ["na kassa ci", "na kissa ci"];
+DPR_G.iNI["na kiñ ci"]["m"][0]["abl"] = ["na kasmā ci", "na kamhā ci"];
+DPR_G.iNI["na kiñ ci"]["m"][0]["gen"] = ["na kassa ci", "na kissa ci"];
+DPR_G.iNI["na kiñ ci"]["m"][0]["loc"] = ["na kismiñ ci", "na kimhi ci"];
+DPR_G.iNI["na kiñ ci"]["m"][1] = [];
+DPR_G.iNI["na kiñ ci"]["m"][1]["nom"] = ["na ke ci"];
+DPR_G.iNI["na kiñ ci"]["m"][1]["acc"] = ["na ke ci"];
+DPR_G.iNI["na kiñ ci"]["m"][1]["ins"] = ["na kehi ci"];
+DPR_G.iNI["na kiñ ci"]["m"][1]["dat"] = ["na kesaṃ ci"];
+DPR_G.iNI["na kiñ ci"]["m"][1]["abl"] = ["na kehi ci"];
+DPR_G.iNI["na kiñ ci"]["m"][1]["gen"] = ["na kesaṃ ci"];
+DPR_G.iNI["na kiñ ci"]["m"][1]["loc"] = ["na kesu ci"];
+DPR_G.iNI["na kiñ ci"]["nt"] = [];
+DPR_G.iNI["na kiñ ci"]["nt"][0] = [];
+DPR_G.iNI["na kiñ ci"]["nt"][0]["nom"] = ["na kiñ ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][0]["acc"] = ["na kiñ ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][0]["ins"] = ["na kena ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][0]["dat"] = ["na kassa ci", "na kissa ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][0]["abl"] = ["na kasmā ci", "na kamhā ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][0]["gen"] = ["na kassa ci", "na kissa ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][0]["loc"] = ["na kismiñ ci", "na kimhi ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][1] = [];
+DPR_G.iNI["na kiñ ci"]["nt"][1]["nom"] = ["na kāni ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][1]["acc"] = ["na kāni ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][1]["ins"] = ["na kehi ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][1]["dat"] = ["na kesañ ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][1]["abl"] = ["na kehi ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][1]["gen"] = ["na kesañ ci"];
+DPR_G.iNI["na kiñ ci"]["nt"][1]["loc"] = ["na kesu ci"];
+DPR_G.iNI["na kiñ ci"]["f"] = [];
+DPR_G.iNI["na kiñ ci"]["f"][0] = [];
+DPR_G.iNI["na kiñ ci"]["f"][0]["nom"] = ["na kā ci"];
+DPR_G.iNI["na kiñ ci"]["f"][0]["acc"] = ["na kaṃ ci"];
+DPR_G.iNI["na kiñ ci"]["f"][0]["ins"] = ["na kāya ci"];
+DPR_G.iNI["na kiñ ci"]["f"][0]["dat"] = ["na kassā ci"];
+DPR_G.iNI["na kiñ ci"]["f"][0]["abl"] = ["na kāya ci"];
+DPR_G.iNI["na kiñ ci"]["f"][0]["gen"] = ["na kassā ci"];
+DPR_G.iNI["na kiñ ci"]["f"][0]["loc"] = [
+	"na kāya ci",
+	"na kāyañ ci",
+	"na kassañ ci",
+];
+DPR_G.iNI["na kiñ ci"]["f"][1] = [];
+DPR_G.iNI["na kiñ ci"]["f"][1]["nom"] = ["na kā ci"];
+DPR_G.iNI["na kiñ ci"]["f"][1]["acc"] = ["na kā ci"];
+DPR_G.iNI["na kiñ ci"]["f"][1]["ins"] = ["na kāhi ci"];
+DPR_G.iNI["na kiñ ci"]["f"][1]["dat"] = ["na kāsañ ci"];
+DPR_G.iNI["na kiñ ci"]["f"][1]["abl"] = ["na kāhi ci"];
+DPR_G.iNI["na kiñ ci"]["f"][1]["gen"] = ["na kāsañ ci"];
+DPR_G.iNI["na kiñ ci"]["f"][1]["loc"] = ["na kāsu ci"];
+DPR_G.iNI["ubha"] = [];
+DPR_G.iNI["ubha"]["m"] = [];
+DPR_G.iNI["ubha"]["m"][1] = [];
+DPR_G.iNI["ubha"]["m"][1]["nom"] = ["ubho"];
+DPR_G.iNI["ubha"]["m"][1]["acc"] = ["ubho"];
+DPR_G.iNI["ubha"]["m"][1]["ins"] = ["ubhohi"];
+DPR_G.iNI["ubha"]["m"][1]["dat"] = ["ubhinnaṃ"];
+DPR_G.iNI["ubha"]["m"][1]["abl"] = ["ubhohi"];
+DPR_G.iNI["ubha"]["m"][1]["gen"] = ["ubhinnaṃ"];
+DPR_G.iNI["ubha"]["m"][1]["loc"] = ["ubhosu"];
+DPR_G.iNI["ubha"]["nt"] = [];
+DPR_G.iNI["ubha"]["nt"][1] = [];
+DPR_G.iNI["ubha"]["nt"][1]["nom"] = ["ubho"];
+DPR_G.iNI["ubha"]["nt"][1]["acc"] = ["ubho"];
+DPR_G.iNI["ubha"]["nt"][1]["ins"] = ["ubhohi"];
+DPR_G.iNI["ubha"]["nt"][1]["dat"] = ["ubhinnaṃ"];
+DPR_G.iNI["ubha"]["nt"][1]["abl"] = ["ubhohi"];
+DPR_G.iNI["ubha"]["nt"][1]["gen"] = ["ubhinnaṃ"];
+DPR_G.iNI["ubha"]["nt"][1]["loc"] = ["ubhosu"];
+DPR_G.iNI["ubha"]["f"] = [];
+DPR_G.iNI["ubha"]["f"][1] = [];
+DPR_G.iNI["ubha"]["f"][1]["nom"] = ["ubho", "ubhayo"];
+DPR_G.iNI["ubha"]["f"][1]["acc"] = ["ubho"];
+DPR_G.iNI["ubha"]["f"][1]["ins"] = ["ubhohi"];
+DPR_G.iNI["ubha"]["f"][1]["dat"] = ["ubhinnaṃ"];
+DPR_G.iNI["ubha"]["f"][1]["abl"] = ["ubhohi"];
+DPR_G.iNI["ubha"]["f"][1]["gen"] = ["ubhinnaṃ"];
+DPR_G.iNI["ubha"]["f"][1]["loc"] = ["ubhosu"];
+DPR_G.iNI["yaṃ kiñ ci"] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["m"] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][0] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][0]["nom"] = ["yo ko ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][0]["acc"] = ["yaṃ kaṃ ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][0]["ins"] = ["yena kena ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][0]["dat"] = ["yassa kassa ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][0]["abl"] = ["yasmā kasmā ci", "yamhā kamhā ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][0]["gen"] = ["yassa kassa ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][0]["loc"] = ["yasmiṃ kismiñ ci", "yamhi kimhi ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][1] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][1]["nom"] = ["ye ke ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][1]["acc"] = ["ye ke ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][1]["ins"] = ["yehi kehi ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][1]["dat"] = ["yesaṃ kesaṃ ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][1]["abl"] = ["yehi kehi ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][1]["gen"] = ["yesaṃ kesaṃ ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["m"][1]["loc"] = ["yesu kesu ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][0] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][0]["nom"] = ["yaṃ kiñ ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][0]["acc"] = ["yaṃ kiñ ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][0]["ins"] = ["yena kena ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][0]["dat"] = ["yassa kassa ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][0]["abl"] = ["yasmā kasmā ci", "yamhā kamhā ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][0]["gen"] = ["yassa kassa ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][0]["loc"] = [
+	"yasmiṃ kismiñ ci",
+	"yamhi kimhi ci",
+];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][1] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][1]["nom"] = ["yāni kāni ci"];
+DPR_G.iNI["bhavanta"] = [];
+DPR_G.iNI["bhavanta"]["m"] = [];
+DPR_G.iNI["bhavanta"]["m"][1] = [];
+DPR_G.iNI["bhavanta"]["m"][1]["nom"] = ["bhavanto", "(bhonto)"];
+DPR_G.iNI["bhavanta"]["m"][1]["voc"] = ["bhonto"];
+DPR_G.iNI["bhavanta"]["m"][1]["acc"] = ["bhavante"];
+DPR_G.iNI["bhavanta"]["m"][1]["ins"] = ["bhavantehi"];
+DPR_G.iNI["bhavanta"]["m"][1]["dat"] = ["bhavataṃ"];
+DPR_G.iNI["bhavanta"]["m"][1]["abl"] = ["bhavantehi"];
+DPR_G.iNI["bhavanta"]["m"][1]["gen"] = ["bhavataṃ"];
+DPR_G.iNI["bhavanta"]["m"][1]["loc"] = ["bhavantesu"];
+DPR_G.iNI["bhavanta"]["f"] = [];
+DPR_G.iNI["bhavanta"]["f"][0] = [];
+DPR_G.iNI["bhavanta"]["f"][0]["nom"] = ["bhotī"];
+DPR_G.iNI["bhavanta"]["f"][0]["voc"] = ["bhoti"];
+DPR_G.iNI["bhavanta"]["f"][0]["acc"] = ["bhotiṃ"];
+DPR_G.iNI["bhavanta"]["f"][0]["ins"] = ["bhotiyā"];
+DPR_G.iNI["bhavanta"]["f"][0]["dat"] = ["bhotiyā"];
+DPR_G.iNI["bhavanta"]["f"][0]["abl"] = ["bhotiyā"];
+DPR_G.iNI["bhavanta"]["f"][0]["gen"] = ["bhotiyā"];
+DPR_G.iNI["bhavanta"]["f"][0]["loc"] = ["bhotiyā", "bhotiyaṃ"];
+DPR_G.iNI["bhavanta"]["f"][1] = [];
+DPR_G.iNI["bhavanta"]["f"][1]["nom"] = ["bhotiyo"];
+DPR_G.iNI["bhavanta"]["f"][1]["voc"] = ["bhotiyo"];
+DPR_G.iNI["bhavanta"]["f"][1]["acc"] = ["bhotiyo"];
+DPR_G.iNI["bhavanta"]["f"][1]["ins"] = ["bhotīhi"];
+DPR_G.iNI["bhavanta"]["f"][1]["dat"] = ["bhotīnaṃ"];
+DPR_G.iNI["bhavanta"]["f"][1]["abl"] = ["bhotīhi"];
+DPR_G.iNI["bhavanta"]["f"][1]["gen"] = ["bhotīnaṃ"];
+DPR_G.iNI["bhavanta"]["f"][1]["loc"] = ["bhotīsu"];
+DPR_G.iNI["atta"] = [];
+DPR_G.iNI["atta"]["m"] = [];
+DPR_G.iNI["atta"]["m"][0] = [];
+DPR_G.iNI["atta"]["m"][0]["nom"] = ["attā"];
+DPR_G.iNI["atta"]["m"][0]["voc"] = ["attā"];
+DPR_G.iNI["atta"]["m"][0]["acc"] = ["attānaṃ"];
+DPR_G.iNI["atta"]["m"][0]["ins"] = ["attanā"];
+DPR_G.iNI["atta"]["m"][0]["dat"] = ["attano"];
+DPR_G.iNI["atta"]["m"][0]["abl"] = ["attanā"];
+DPR_G.iNI["atta"]["m"][0]["gen"] = ["attano"];
+DPR_G.iNI["atta"]["m"][0]["loc"] = ["attani"];
+DPR_G.iNI["atta"]["m"][1] = [];
+DPR_G.iNI["atta"]["m"][1]["nom"] = ["attāno"];
+DPR_G.iNI["atta"]["m"][1]["voc"] = ["attāno"];
+DPR_G.iNI["atta"]["m"][1]["acc"] = ["attāno"];
+DPR_G.iNI["atta"]["m"][1]["ins"] = ["attehi"];
+DPR_G.iNI["atta"]["m"][1]["dat"] = ["attānaṃ"];
+DPR_G.iNI["atta"]["m"][1]["abl"] = ["attehi"];
+DPR_G.iNI["atta"]["m"][1]["gen"] = ["attānaṃ"];
+DPR_G.iNI["atta"]["m"][1]["loc"] = ["attanesu"];
+DPR_G.iNI["brahma"] = [];
+DPR_G.iNI["brahma"]["m"] = [];
+DPR_G.iNI["brahma"]["m"][0] = [];
+DPR_G.iNI["brahma"]["m"][0]["nom"] = ["brahmā"];
+DPR_G.iNI["brahma"]["m"][0]["voc"] = ["brahme"];
+DPR_G.iNI["brahma"]["m"][0]["acc"] = ["brahmānaṃ"];
+DPR_G.iNI["brahma"]["m"][0]["ins"] = ["brahmunā"];
+DPR_G.iNI["brahma"]["m"][0]["dat"] = ["brahmuno"];
+DPR_G.iNI["brahma"]["m"][0]["abl"] = ["brahmunā"];
+DPR_G.iNI["brahma"]["m"][0]["gen"] = ["brahmuno"];
+DPR_G.iNI["brahma"]["m"][0]["loc"] = ["brahmani"];
+DPR_G.iNI["brahma"]["m"][1] = [];
+DPR_G.iNI["brahma"]["m"][1]["nom"] = ["brahmāno"];
+DPR_G.iNI["brahma"]["m"][1]["voc"] = ["brahmāno"];
+DPR_G.iNI["brahma"]["m"][1]["acc"] = ["brahmāno"];
+DPR_G.iNI["brahma"]["m"][1]["ins"] = ["brahmehi"];
+DPR_G.iNI["brahma"]["m"][1]["dat"] = ["brahmānaṃ"];
+DPR_G.iNI["brahma"]["m"][1]["abl"] = ["brahmehi"];
+DPR_G.iNI["brahma"]["m"][1]["gen"] = ["brahmānaṃ"];
+DPR_G.iNI["brahma"]["m"][1]["loc"] = ["brahmanesu"];
+DPR_G.iNI["sā"] = [];
+DPR_G.iNI["sā"]["m"] = [];
+DPR_G.iNI["sā"]["m"][0] = [];
+DPR_G.iNI["sā"]["m"][0]["nom"] = ["sā"];
+DPR_G.iNI["yuva"] = [];
+DPR_G.iNI["yuva"]["m"] = [];
+DPR_G.iNI["yuva"]["m"][0] = [];
+DPR_G.iNI["yuva"]["m"][0]["nom"] = ["yuvā"];
+DPR_G.iNI["kamma"] = [];
+DPR_G.iNI["kamma"]["nt"] = [];
+DPR_G.iNI["kamma"]["nt"][0] = [];
+DPR_G.iNI["kamma"]["nt"][0]["nom"] = ["kammaṃ", "kamma"];
+DPR_G.iNI["kamma"]["nt"][0]["acc"] = ["kammaṃ", "kamma"];
+DPR_G.iNI["kamma"]["nt"][0]["ins"] = ["kammena", "kammunā", "kammanā"];
+DPR_G.iNI["kamma"]["nt"][0]["dat"] = ["kammāya", "kammassa", "kammuno"];
+DPR_G.iNI["kamma"]["nt"][0]["abl"] = [
+	"kammā",
+	"kammasmā",
+	"kammamhā",
+	"kammunā",
+	"kammanā",
+	"(kammato)",
+];
+DPR_G.iNI["kamma"]["nt"][0]["gen"] = ["kammassa", "kammuno"];
+DPR_G.iNI["kamma"]["nt"][0]["loc"] = ["kamme", "kammasmiṃ", "kammani"];
+DPR_G.iNI["kamma"]["nt"][1] = [];
+DPR_G.iNI["kamma"]["nt"][1]["nom"] = ["kammāni"];
+DPR_G.iNI["kamma"]["nt"][1]["acc"] = ["kammāni"];
+DPR_G.iNI["kamma"]["nt"][1]["ins"] = ["kammehi"];
+DPR_G.iNI["kamma"]["nt"][1]["dat"] = ["kammānaṃ"];
+DPR_G.iNI["kamma"]["nt"][1]["abl"] = ["kammehi"];
+DPR_G.iNI["kamma"]["nt"][1]["gen"] = ["kammānaṃ"];
+DPR_G.iNI["kamma"]["nt"][1]["loc"] = ["kammesu"];
+DPR_G.iNI["ti"] = [];
+DPR_G.iNI["ti"]["m"] = [];
+DPR_G.iNI["ti"]["m"][1] = [];
+DPR_G.iNI["ti"]["m"][1]["nom"] = ["tayo"];
+DPR_G.iNI["ti"]["m"][1]["acc"] = ["tayo"];
+DPR_G.iNI["ti"]["m"][1]["ins"] = ["tīhi"];
+DPR_G.iNI["ti"]["m"][1]["dat"] = ["tiṇṇaṃ"];
+DPR_G.iNI["ti"]["m"][1]["abl"] = ["tīhi"];
+DPR_G.iNI["ti"]["m"][1]["gen"] = ["tiṇṇaṃ"];
+DPR_G.iNI["ti"]["m"][1]["loc"] = ["tīsu"];
+DPR_G.iNI["ti"]["nt"] = [];
+DPR_G.iNI["ti"]["nt"][1] = [];
+DPR_G.iNI["ti"]["nt"][1]["nom"] = ["tīṇi"];
+DPR_G.iNI["ti"]["nt"][1]["acc"] = ["tīṇi"];
+DPR_G.iNI["ti"]["nt"][1]["ins"] = ["tīhi"];
+DPR_G.iNI["ti"]["nt"][1]["dat"] = ["tiṇṇaṃ"];
+DPR_G.iNI["ti"]["nt"][1]["abl"] = ["tīhi"];
+DPR_G.iNI["ti"]["nt"][1]["gen"] = ["tiṇṇaṃ"];
+DPR_G.iNI["ti"]["nt"][1]["loc"] = ["tīsu"];
+DPR_G.iNI["ti"]["f"] = [];
+DPR_G.iNI["ti"]["f"][1] = [];
+DPR_G.iNI["ti"]["f"][1]["nom"] = ["tisso"];
+DPR_G.iNI["ti"]["f"][1]["acc"] = ["tisso"];
+DPR_G.iNI["ti"]["f"][1]["ins"] = ["tīhi"];
+DPR_G.iNI["ti"]["f"][1]["dat"] = ["tissannaṃ"];
+DPR_G.iNI["ti"]["f"][1]["abl"] = ["tīhi"];
+DPR_G.iNI["ti"]["f"][1]["gen"] = ["tissannaṃ"];
+DPR_G.iNI["ti"]["f"][1]["loc"] = ["tīsu"];
+DPR_G.iNI["ubho"] = [];
+DPR_G.iNI["ubho"]["m"] = [];
+DPR_G.iNI["ubho"]["m"][1] = [];
+DPR_G.iNI["ubho"]["m"][1]["nom"] = ["ubho"];
+DPR_G.iNI["ubho"]["m"][1]["acc"] = ["ubho"];
+DPR_G.iNI["ubho"]["m"][1]["ins"] = ["ubhohi"];
+DPR_G.iNI["ubho"]["m"][1]["dat"] = ["ubhinnaṃ"];
+DPR_G.iNI["ubho"]["m"][1]["abl"] = ["ubhohi"];
+DPR_G.iNI["ubho"]["m"][1]["gen"] = ["ubhinnaṃ"];
+DPR_G.iNI["ubho"]["m"][1]["loc"] = ["ubhosu"];
+DPR_G.iNI["ubho"]["nt"] = [];
+DPR_G.iNI["ubho"]["nt"][1] = [];
+DPR_G.iNI["ubho"]["nt"][1]["nom"] = ["ubho"];
+DPR_G.iNI["ubho"]["nt"][1]["acc"] = ["ubho"];
+DPR_G.iNI["ubho"]["nt"][1]["ins"] = ["ubhohi"];
+DPR_G.iNI["ubho"]["nt"][1]["dat"] = ["ubhinnaṃ"];
+DPR_G.iNI["ubho"]["nt"][1]["abl"] = ["ubhohi"];
+DPR_G.iNI["ubho"]["nt"][1]["gen"] = ["ubhinnaṃ"];
+DPR_G.iNI["ubho"]["nt"][1]["loc"] = ["ubhosu"];
+DPR_G.iNI["ubho"]["f"] = [];
+DPR_G.iNI["ubho"]["f"][1] = [];
+DPR_G.iNI["ubho"]["f"][1]["nom"] = ["ubho"];
+DPR_G.iNI["ubho"]["f"][1]["acc"] = ["ubho"];
+DPR_G.iNI["ubho"]["f"][1]["ins"] = ["ubhohi"];
+DPR_G.iNI["ubho"]["f"][1]["dat"] = ["ubhinnaṃ"];
+DPR_G.iNI["ubho"]["f"][1]["abl"] = ["ubhohi"];
+DPR_G.iNI["ubho"]["f"][1]["gen"] = ["ubhinnaṃ"];
+DPR_G.iNI["ubho"]["f"][1]["loc"] = ["ubhosu"];
+DPR_G.iNI["yāvataka"] = [];
+DPR_G.iNI["yāvataka"]["m"] = [];
+DPR_G.iNI["yāvataka"]["m"][0] = [];
+DPR_G.iNI["yāvataka"]["m"][0]["nom"] = ["yāvatako"];
+DPR_G.iNI["yāvataka"]["m"][0]["acc"] = ["yāvatakaṃ"];
+DPR_G.iNI["yāvataka"]["m"][0]["ins"] = ["yāvatakena"];
+DPR_G.iNI["yāvataka"]["m"][0]["dat"] = ["yāvatakāya", "yāvatakassa"];
+DPR_G.iNI["yāvataka"]["m"][0]["abl"] = [
+	"yāvatakā",
+	"yāvatakasmā",
+	"yāvatakamhā",
+	"(yāvatakato)",
+];
+DPR_G.iNI["yāvataka"]["m"][0]["gen"] = ["yāvatakassa"];
+DPR_G.iNI["yāvataka"]["m"][0]["loc"] = ["yāvatake", "yāvatakasmiṃ"];
+DPR_G.iNI["yāvataka"]["m"][1] = [];
+DPR_G.iNI["yāvataka"]["m"][1]["nom"] = ["yāvatakā"];
+DPR_G.iNI["yāvataka"]["m"][1]["acc"] = ["yāvatake"];
+DPR_G.iNI["yāvataka"]["m"][1]["ins"] = ["yāvatakehi"];
+DPR_G.iNI["yāvataka"]["m"][1]["dat"] = ["yāvatakānaṃ"];
+DPR_G.iNI["yāvataka"]["m"][1]["abl"] = ["yāvatakehi"];
+DPR_G.iNI["yāvataka"]["m"][1]["gen"] = ["yāvatakānaṃ"];
+DPR_G.iNI["yāvataka"]["m"][1]["loc"] = ["yāvatakesu"];
+DPR_G.iNI["yāvataka"]["nt"] = [];
+DPR_G.iNI["yāvataka"]["nt"][0] = [];
+DPR_G.iNI["yāvataka"]["nt"][0]["nom"] = ["yāvatakaṃ"];
+DPR_G.iNI["yāvataka"]["nt"][0]["acc"] = ["yāvatakaṃ"];
+DPR_G.iNI["yāvataka"]["nt"][0]["ins"] = ["yāvatakena"];
+DPR_G.iNI["yāvataka"]["nt"][0]["dat"] = ["yāvatakāya", "yāvatakassa"];
+DPR_G.iNI["yāvataka"]["nt"][0]["abl"] = [
+	"yāvatakā",
+	"yāvatakasmā",
+	"yāvatakamhā",
+	"(yāvatakato)",
+];
+DPR_G.iNI["yāvataka"]["nt"][0]["gen"] = ["yāvatakassa"];
+DPR_G.iNI["yāvataka"]["nt"][0]["loc"] = ["yāvatake", "yāvatakasmiṃ"];
+DPR_G.iNI["yāvataka"]["nt"][1] = [];
+DPR_G.iNI["yāvataka"]["nt"][1]["nom"] = ["yāvatakāni"];
+DPR_G.iNI["yāvataka"]["nt"][1]["acc"] = ["yāvatakāni"];
+DPR_G.iNI["yāvataka"]["nt"][1]["ins"] = ["yāvatakehi"];
+DPR_G.iNI["yāvataka"]["nt"][1]["dat"] = ["yāvatakānaṃ"];
+DPR_G.iNI["yāvataka"]["nt"][1]["abl"] = ["yāvatakehi"];
+DPR_G.iNI["yāvataka"]["nt"][1]["gen"] = ["yāvatakānaṃ"];
+DPR_G.iNI["yāvataka"]["nt"][1]["loc"] = ["yāvatakesu"];
+DPR_G.iNI["yāvataka"]["f"] = [];
+DPR_G.iNI["yāvataka"]["f"][0] = [];
+DPR_G.iNI["yāvataka"]["f"][0]["nom"] = ["yāvatikā"];
+DPR_G.iNI["yāvataka"]["f"][0]["acc"] = ["yāvatikaṃ"];
+DPR_G.iNI["yāvataka"]["f"][0]["ins"] = ["yāvatikāya"];
+DPR_G.iNI["yāvataka"]["f"][0]["dat"] = ["yāvatikāya"];
+DPR_G.iNI["yāvataka"]["f"][0]["abl"] = ["yāvatikāya"];
+DPR_G.iNI["yāvataka"]["f"][0]["gen"] = ["yāvatikāya"];
+DPR_G.iNI["yāvataka"]["f"][0]["loc"] = ["yāvatikāya", "yāvatikāyaṃ"];
+DPR_G.iNI["yāvataka"]["f"][1] = [];
+DPR_G.iNI["yāvataka"]["f"][1]["nom"] = ["yāvatikāyo", "yāvatikā"];
+DPR_G.iNI["yāvataka"]["f"][1]["acc"] = ["yāvatikāyo", "yāvatikā"];
+DPR_G.iNI["yāvataka"]["f"][1]["ins"] = ["yāvatikāhi"];
+DPR_G.iNI["yāvataka"]["f"][1]["dat"] = ["yāvatikānaṃ"];
+DPR_G.iNI["yāvataka"]["f"][1]["abl"] = ["yāvatikāhi"];
+DPR_G.iNI["yāvataka"]["f"][1]["gen"] = ["yāvatikānaṃ"];
+DPR_G.iNI["yāvataka"]["f"][1]["loc"] = ["yāvatikāsu"];
+DPR_G.iNI["go"] = [];
+DPR_G.iNI["go"]["m"] = [];
+DPR_G.iNI["go"]["m"][0] = [];
+DPR_G.iNI["go"]["m"][0]["nom"] = ["go"];
+DPR_G.iNI["go"]["m"][0]["voc"] = ["go"];
+DPR_G.iNI["go"]["m"][0]["acc"] = ["gavaṃ"];
+DPR_G.iNI["go"]["m"][0]["ins"] = ["gavena"];
+DPR_G.iNI["go"]["m"][0]["dat"] = ["gavassa"];
+DPR_G.iNI["go"]["m"][0]["abl"] = ["gavā"];
+DPR_G.iNI["go"]["m"][0]["gen"] = ["gavassa"];
+DPR_G.iNI["go"]["m"][0]["loc"] = ["gave"];
+DPR_G.iNI["go"]["m"][1] = [];
+DPR_G.iNI["go"]["m"][1]["nom"] = ["gāvo"];
+DPR_G.iNI["go"]["m"][1]["voc"] = ["gāvo"];
+DPR_G.iNI["go"]["m"][1]["acc"] = ["gāvo"];
+DPR_G.iNI["go"]["m"][1]["ins"] = ["gohi"];
+DPR_G.iNI["go"]["m"][1]["dat"] = ["gunnaṃ"];
+DPR_G.iNI["go"]["m"][1]["abl"] = ["gohi"];
+DPR_G.iNI["go"]["m"][1]["gen"] = ["gunnaṃ", "gavaṃ"];
+DPR_G.iNI["go"]["m"][1]["loc"] = ["gosu"];
+DPR_G.iNI["go"]["f"] = [];
+DPR_G.iNI["go"]["f"][0] = [];
+DPR_G.iNI["go"]["f"][0]["nom"] = ["go"];
+DPR_G.iNI["go"]["f"][0]["voc"] = ["go"];
+DPR_G.iNI["go"]["f"][0]["acc"] = ["gavaṃ"];
+DPR_G.iNI["go"]["f"][0]["ins"] = ["gavena"];
+DPR_G.iNI["go"]["f"][0]["dat"] = ["gavassa"];
+DPR_G.iNI["go"]["f"][0]["abl"] = ["gavā"];
+DPR_G.iNI["go"]["f"][0]["gen"] = ["gavassa"];
+DPR_G.iNI["go"]["f"][0]["loc"] = ["gave"];
+DPR_G.iNI["go"]["f"][1] = [];
+DPR_G.iNI["go"]["f"][1]["nom"] = ["gāvo"];
+DPR_G.iNI["go"]["f"][1]["voc"] = ["gāvo"];
+DPR_G.iNI["go"]["f"][1]["acc"] = ["gāvo"];
+DPR_G.iNI["go"]["f"][1]["ins"] = ["gohi"];
+DPR_G.iNI["go"]["f"][1]["dat"] = ["gunnaṃ"];
+DPR_G.iNI["go"]["f"][1]["abl"] = ["gohi"];
+DPR_G.iNI["go"]["f"][1]["gen"] = ["gunnaṃ", "gavaṃ"];
+DPR_G.iNI["go"]["f"][1]["loc"] = ["gosu"];
+DPR_G.iNI["sakha"] = [];
+DPR_G.iNI["sakha"]["m"] = [];
+DPR_G.iNI["sakha"]["m"][0] = [];
+DPR_G.iNI["sakha"]["m"][0]["nom"] = ["sakhā"];
+DPR_G.iNI["sakha"]["m"][0]["voc"] = ["sakhā"];
+DPR_G.iNI["sakha"]["m"][0]["acc"] = ["sakhāraṃ"];
+DPR_G.iNI["sakha"]["m"][0]["ins"] = ["sakhinā"];
+DPR_G.iNI["sakha"]["m"][0]["dat"] = ["sakhino"];
+DPR_G.iNI["sakha"]["m"][0]["abl"] = ["sakhinā", "sakhārasmā"];
+DPR_G.iNI["sakha"]["m"][0]["gen"] = ["sakhino"];
+DPR_G.iNI["sakha"]["m"][0]["loc"] = ["sakhe"];
+DPR_G.iNI["sakha"]["m"][1] = [];
+DPR_G.iNI["sakha"]["m"][1]["nom"] = ["sakhāro"];
+DPR_G.iNI["sakha"]["m"][1]["voc"] = ["sakhāro"];
+DPR_G.iNI["sakha"]["m"][1]["acc"] = ["sakhāro"];
+DPR_G.iNI["sakha"]["m"][1]["ins"] = ["sakhārehi"];
+DPR_G.iNI["sakha"]["m"][1]["dat"] = ["sakhīnaṃ"];
+DPR_G.iNI["sakha"]["m"][1]["abl"] = ["sakhārehi"];
+DPR_G.iNI["sakha"]["m"][1]["gen"] = ["sakhīnaṃ"];
+DPR_G.iNI["sakha"]["m"][1]["loc"] = ["sakhāresu"];
+DPR_G.iNI["bhānumantu"] = [];
+DPR_G.iNI["bhānumantu"]["m"] = [];
+DPR_G.iNI["bhānumantu"]["m"][0] = [];
+DPR_G.iNI["bhānumantu"]["m"][0]["nom"] = ["bhānumā"];
+DPR_G.iNI["bhānumantu"]["m"][0]["acc"] = ["bhānumaṃ"];
+DPR_G.iNI["agghanaka"] = [];
+DPR_G.iNI["agghanaka"]["m"] = [];
+DPR_G.iNI["agghanaka"]["m"][0] = [];
+DPR_G.iNI["agghanaka"]["m"][0]["nom"] = ["agghanako"];
+DPR_G.iNI["agghanaka"]["m"][0]["acc"] = ["agghanakaṃ"];
+DPR_G.iNI["agghanaka"]["m"][0]["ins"] = ["agghanakena"];
+DPR_G.iNI["agghanaka"]["m"][0]["dat"] = ["agghanakāya", "agghanakassa"];
+DPR_G.iNI["agghanaka"]["m"][0]["abl"] = ["agghanakā", "agghanakasmā"];
+DPR_G.iNI["agghanaka"]["m"][0]["gen"] = ["agghanakassa"];
+DPR_G.iNI["agghanaka"]["m"][0]["loc"] = ["agghanake", "agghanakasmiṃ"];
+DPR_G.iNI["agghanaka"]["m"][1] = [];
+DPR_G.iNI["agghanaka"]["m"][1]["nom"] = ["agghanakā"];
+DPR_G.iNI["agghanaka"]["m"][1]["acc"] = ["agghanake"];
+DPR_G.iNI["agghanaka"]["m"][1]["ins"] = ["agghanakehi"];
+DPR_G.iNI["agghanaka"]["m"][1]["dat"] = ["agghanakānaṃ"];
+DPR_G.iNI["agghanaka"]["m"][1]["abl"] = ["agghanakehi"];
+DPR_G.iNI["agghanaka"]["m"][1]["gen"] = ["agghanakānaṃ"];
+DPR_G.iNI["agghanaka"]["m"][1]["loc"] = ["agghanakesu"];
+DPR_G.iNI["agghanaka"]["nt"] = [];
+DPR_G.iNI["agghanaka"]["nt"][0] = [];
+DPR_G.iNI["agghanaka"]["nt"][0]["nom"] = ["agghanakaṃ"];
+DPR_G.iNI["agghanaka"]["nt"][0]["acc"] = ["agghanakaṃ"];
+DPR_G.iNI["agghanaka"]["nt"][0]["ins"] = ["agghanakena"];
+DPR_G.iNI["agghanaka"]["nt"][0]["dat"] = ["agghanakāya", "agghanakassa"];
+DPR_G.iNI["agghanaka"]["nt"][0]["abl"] = ["agghanakā", "agghanakasmā"];
+DPR_G.iNI["agghanaka"]["nt"][0]["gen"] = ["agghanakassa"];
+DPR_G.iNI["agghanaka"]["nt"][0]["loc"] = ["agghanake", "agghanakasmiṃ"];
+DPR_G.iNI["agghanaka"]["nt"][1] = [];
+DPR_G.iNI["agghanaka"]["nt"][1]["nom"] = ["agghanakāni"];
+DPR_G.iNI["agghanaka"]["nt"][1]["acc"] = ["agghanakāni"];
+DPR_G.iNI["agghanaka"]["nt"][1]["ins"] = ["agghanakehi"];
+DPR_G.iNI["agghanaka"]["nt"][1]["dat"] = ["agghanakānaṃ"];
+DPR_G.iNI["agghanaka"]["nt"][1]["abl"] = ["agghanakehi"];
+DPR_G.iNI["agghanaka"]["nt"][1]["gen"] = ["agghanakānaṃ"];
+DPR_G.iNI["agghanaka"]["nt"][1]["loc"] = ["agghanakesu"];
+DPR_G.iNI["agghanaka"]["f"] = [];
+DPR_G.iNI["agghanaka"]["f"][0] = [];
+DPR_G.iNI["agghanaka"]["f"][0]["nom"] = ["agghanikā"];
+DPR_G.iNI["agghanaka"]["f"][0]["acc"] = ["agghanikaṃ"];
+DPR_G.iNI["agghanaka"]["f"][0]["ins"] = ["agghanikāya"];
+DPR_G.iNI["agghanaka"]["f"][0]["dat"] = ["agghanikāya"];
+DPR_G.iNI["agghanaka"]["f"][0]["abl"] = ["agghanikāya"];
+DPR_G.iNI["agghanaka"]["f"][0]["gen"] = ["agghanikāya"];
+DPR_G.iNI["agghanaka"]["f"][0]["loc"] = ["agghanikāya", "agghanikāyaṃ"];
+DPR_G.iNI["agghanaka"]["f"][1] = [];
+DPR_G.iNI["agghanaka"]["f"][1]["nom"] = ["agghanikāyo", "agghanikā"];
+DPR_G.iNI["agghanaka"]["f"][1]["acc"] = ["agghanikāyo", "agghanikā"];
+DPR_G.iNI["agghanaka"]["f"][1]["ins"] = ["agghanikāhi"];
+DPR_G.iNI["agghanaka"]["f"][1]["dat"] = ["agghanikānaṃ"];
+DPR_G.iNI["agghanaka"]["f"][1]["abl"] = ["agghanikāhi"];
+DPR_G.iNI["agghanaka"]["f"][1]["gen"] = ["agghanikānaṃ"];
+DPR_G.iNI["agghanaka"]["f"][1]["loc"] = ["agghanikāsu"];
+DPR_G.iNI["asmā"] = [];
+DPR_G.iNI["asmā"]["m"] = [];
+DPR_G.iNI["asmā"]["m"][0] = [];
+DPR_G.iNI["asmā"]["m"][0]["nom"] = ["asmā"];
+DPR_G.iNI["asmā"]["m"][0]["ins"] = ["asmanā", "asmena"];
+DPR_G.iNI["asmā"]["m"][0]["loc"] = ["asmani"];
+DPR_G.iNI["katama"] = [];
+DPR_G.iNI["katama"]["m"] = [];
+DPR_G.iNI["katama"]["m"][0] = [];
+DPR_G.iNI["katama"]["m"][0]["nom"] = ["katamo"];
+DPR_G.iNI["katama"]["m"][0]["acc"] = ["katamaṃ"];
+DPR_G.iNI["katama"]["m"][0]["ins"] = ["katamena"];
+DPR_G.iNI["katama"]["m"][0]["dat"] = ["katamassa"];
+DPR_G.iNI["katama"]["m"][0]["abl"] = ["katamasmā", "katamamhā"];
+DPR_G.iNI["katama"]["m"][0]["gen"] = ["katamassa"];
+DPR_G.iNI["katama"]["m"][0]["loc"] = ["katamasmiṃ", "katamamhi"];
+DPR_G.iNI["katama"]["m"][1] = [];
+DPR_G.iNI["katama"]["m"][1]["nom"] = ["katame"];
+DPR_G.iNI["katama"]["m"][1]["acc"] = ["katame"];
+DPR_G.iNI["katama"]["m"][1]["ins"] = ["katamehi"];
+DPR_G.iNI["katama"]["m"][1]["dat"] = ["katamesaṃ"];
+DPR_G.iNI["katama"]["m"][1]["abl"] = ["katamehi"];
+DPR_G.iNI["katama"]["m"][1]["gen"] = ["katamesaṃ", "katamesānaṃ"];
+DPR_G.iNI["katama"]["m"][1]["loc"] = ["katamesu"];
+DPR_G.iNI["katama"]["nt"] = [];
+DPR_G.iNI["katama"]["nt"][0] = [];
+DPR_G.iNI["katama"]["nt"][0]["nom"] = ["katamaṃ"];
+DPR_G.iNI["katama"]["nt"][0]["acc"] = ["katamaṃ"];
+DPR_G.iNI["katama"]["nt"][0]["ins"] = ["katamena"];
+DPR_G.iNI["katama"]["nt"][0]["dat"] = ["katamassa"];
+DPR_G.iNI["katama"]["nt"][0]["abl"] = ["katamasmā", "katamamhā"];
+DPR_G.iNI["katama"]["nt"][0]["gen"] = ["katamassa"];
+DPR_G.iNI["katama"]["nt"][0]["loc"] = ["katamasmiṃ", "katamamhi"];
+DPR_G.iNI["katama"]["nt"][1] = [];
+DPR_G.iNI["katama"]["nt"][1]["nom"] = ["katamāni"];
+DPR_G.iNI["katama"]["nt"][1]["acc"] = ["katamāni"];
+DPR_G.iNI["katama"]["nt"][1]["ins"] = ["katamehi"];
+DPR_G.iNI["katama"]["nt"][1]["dat"] = ["katamesaṃ"];
+DPR_G.iNI["katama"]["nt"][1]["abl"] = ["katamehi"];
+DPR_G.iNI["katama"]["nt"][1]["gen"] = ["katamesaṃ"];
+DPR_G.iNI["katama"]["nt"][1]["loc"] = ["katamesu"];
+DPR_G.iNI["katama"]["f"] = [];
+DPR_G.iNI["katama"]["f"][0] = [];
+DPR_G.iNI["katama"]["f"][0]["nom"] = ["katamā"];
+DPR_G.iNI["katama"]["f"][0]["acc"] = ["katamaṃ"];
+DPR_G.iNI["katama"]["f"][0]["ins"] = ["katamāya"];
+DPR_G.iNI["katama"]["f"][0]["dat"] = ["katamassā"];
+DPR_G.iNI["katama"]["f"][0]["abl"] = ["katamāya"];
+DPR_G.iNI["katama"]["f"][0]["gen"] = ["katamassā"];
+DPR_G.iNI["katama"]["f"][0]["loc"] = ["katamāya", "katamassaṃ"];
+DPR_G.iNI["katama"]["f"][1] = [];
+DPR_G.iNI["katama"]["f"][1]["nom"] = ["katamā"];
+DPR_G.iNI["katama"]["f"][1]["acc"] = ["katamā"];
+DPR_G.iNI["katama"]["f"][1]["ins"] = ["katamāhi"];
+DPR_G.iNI["katama"]["f"][1]["dat"] = ["katamāsaṃ"];
+DPR_G.iNI["katama"]["f"][1]["abl"] = ["katamāhi"];
+DPR_G.iNI["katama"]["f"][1]["gen"] = ["katamāsaṃ"];
+DPR_G.iNI["katama"]["f"][1]["loc"] = ["katamāsu"];
+DPR_G.iNI["odaka"] = [];
+DPR_G.iNI["odaka"]["m"] = [];
+DPR_G.iNI["odaka"]["m"][0] = [];
+DPR_G.iNI["odaka"]["m"][0]["nom"] = ["odako"];
+DPR_G.iNI["odaka"]["m"][0]["acc"] = ["odakaṃ"];
+DPR_G.iNI["odaka"]["m"][0]["ins"] = ["odakena"];
+DPR_G.iNI["odaka"]["m"][0]["dat"] = ["odakāya", "odakassa"];
+DPR_G.iNI["odaka"]["m"][0]["abl"] = ["odakā", "odakasmā"];
+DPR_G.iNI["odaka"]["m"][0]["gen"] = ["odakassa"];
+DPR_G.iNI["odaka"]["m"][0]["loc"] = ["odake", "odakasmiṃ"];
+DPR_G.iNI["odaka"]["m"][1] = [];
+DPR_G.iNI["odaka"]["m"][1]["nom"] = ["odakā"];
+DPR_G.iNI["odaka"]["m"][1]["acc"] = ["odake"];
+DPR_G.iNI["odaka"]["m"][1]["ins"] = ["odakehi"];
+DPR_G.iNI["odaka"]["m"][1]["dat"] = ["odakānaṃ"];
+DPR_G.iNI["odaka"]["m"][1]["abl"] = ["odakehi"];
+DPR_G.iNI["odaka"]["m"][1]["gen"] = ["odakānaṃ"];
+DPR_G.iNI["odaka"]["m"][1]["loc"] = ["odakesu"];
+DPR_G.iNI["odaka"]["nt"] = [];
+DPR_G.iNI["odaka"]["nt"][0] = [];
+DPR_G.iNI["odaka"]["nt"][0]["nom"] = ["odakaṃ"];
+DPR_G.iNI["odaka"]["nt"][0]["acc"] = ["odakaṃ"];
+DPR_G.iNI["odaka"]["nt"][0]["ins"] = ["odakena"];
+DPR_G.iNI["odaka"]["nt"][0]["dat"] = ["odakāya", "odakassa"];
+DPR_G.iNI["odaka"]["nt"][0]["abl"] = ["odakā", "odakasmā"];
+DPR_G.iNI["odaka"]["nt"][0]["gen"] = ["odakassa"];
+DPR_G.iNI["odaka"]["nt"][0]["loc"] = ["odake", "odakasmiṃ"];
+DPR_G.iNI["odaka"]["nt"][1] = [];
+DPR_G.iNI["odaka"]["nt"][1]["nom"] = ["odakāni"];
+DPR_G.iNI["odaka"]["nt"][1]["acc"] = ["odakāni"];
+DPR_G.iNI["odaka"]["nt"][1]["ins"] = ["odakehi"];
+DPR_G.iNI["odaka"]["nt"][1]["dat"] = ["odakānaṃ"];
+DPR_G.iNI["odaka"]["nt"][1]["abl"] = ["odakehi"];
+DPR_G.iNI["odaka"]["nt"][1]["gen"] = ["odakānaṃ"];
+DPR_G.iNI["odaka"]["nt"][1]["loc"] = ["odakesu"];
+DPR_G.iNI["odaka"]["f"] = [];
+DPR_G.iNI["odaka"]["f"][0] = [];
+DPR_G.iNI["odaka"]["f"][0]["nom"] = ["odikā"];
+DPR_G.iNI["odaka"]["f"][0]["acc"] = ["odikaṃ"];
+DPR_G.iNI["odaka"]["f"][0]["ins"] = ["odikāya"];
+DPR_G.iNI["odaka"]["f"][0]["dat"] = ["odikāya"];
+DPR_G.iNI["odaka"]["f"][0]["abl"] = ["odikāya"];
+DPR_G.iNI["odaka"]["f"][0]["gen"] = ["odikāya"];
+DPR_G.iNI["odaka"]["f"][0]["loc"] = ["odikāya", "odikāyaṃ"];
+DPR_G.iNI["odaka"]["f"][1] = [];
+DPR_G.iNI["odaka"]["f"][1]["nom"] = ["odikāyo", "odikā"];
+DPR_G.iNI["odaka"]["f"][1]["acc"] = ["odikāyo", "odikā"];
+DPR_G.iNI["odaka"]["f"][1]["ins"] = ["odikāhi"];
+DPR_G.iNI["odaka"]["f"][1]["dat"] = ["odikānaṃ"];
+DPR_G.iNI["odaka"]["f"][1]["abl"] = ["odikāhi"];
+DPR_G.iNI["odaka"]["f"][1]["gen"] = ["odikānaṃ"];
+DPR_G.iNI["odaka"]["f"][1]["loc"] = ["odikāsu"];
+DPR_G.iNI["santa"] = [];
+DPR_G.iNI["santa"]["m"] = [];
+DPR_G.iNI["santa"]["m"][0] = [];
+DPR_G.iNI["santa"]["m"][0]["nom"] = ["santo"];
+DPR_G.iNI["santa"]["m"][0]["acc"] = ["santaṃ", "sataṃ"];
+DPR_G.iNI["santa"]["m"][0]["ins"] = ["satā"];
+DPR_G.iNI["santa"]["m"][0]["abl"] = ["santato"];
+DPR_G.iNI["santa"]["m"][0]["loc"] = ["sati", "sante"];
+DPR_G.iNI["santa"]["m"][1] = [];
+DPR_G.iNI["santa"]["m"][1]["nom"] = ["santo"];
+DPR_G.iNI["santa"]["m"][1]["acc"] = ["sante"];
+DPR_G.iNI["santa"]["m"][1]["ins"] = ["sabbhi"];
+DPR_G.iNI["santa"]["m"][1]["gen"] = ["sataṃ"];
+DPR_G.iNI["santa"]["m"][1]["loc"] = ["santesu"];
+DPR_G.iNI["santa"]["nt"] = [];
+DPR_G.iNI["santa"]["nt"][0] = [];
+DPR_G.iNI["santa"]["nt"][0]["nom"] = ["santaṃ"];
+DPR_G.iNI["santa"]["nt"][0]["acc"] = ["santaṃ", "sataṃ"];
+DPR_G.iNI["santa"]["nt"][0]["ins"] = ["satā"];
+DPR_G.iNI["santa"]["nt"][0]["abl"] = ["santato"];
+DPR_G.iNI["santa"]["nt"][0]["loc"] = ["sati", "sante"];
+DPR_G.iNI["santa"]["nt"][1] = [];
+DPR_G.iNI["santa"]["nt"][1]["nom"] = ["santāni"];
+DPR_G.iNI["santa"]["nt"][1]["acc"] = ["santāni"];
+DPR_G.iNI["santa"]["nt"][1]["ins"] = ["sabbhi"];
+DPR_G.iNI["santa"]["nt"][1]["gen"] = ["sataṃ"];
+DPR_G.iNI["santa"]["nt"][1]["loc"] = ["santesu"];
+DPR_G.iNI["santa"]["f"] = [];
+DPR_G.iNI["santa"]["f"][0] = [];
+DPR_G.iNI["santa"]["f"][0]["nom"] = ["satī"];
+DPR_G.iNI["santa"]["f"][0]["acc"] = ["satiṃ"];
+DPR_G.iNI["santa"]["f"][0]["ins"] = ["satiyā"];
+DPR_G.iNI["santa"]["f"][0]["dat"] = ["satiyā"];
+DPR_G.iNI["santa"]["f"][0]["abl"] = ["satiyā"];
+DPR_G.iNI["santa"]["f"][0]["gen"] = ["satiyā"];
+DPR_G.iNI["santa"]["f"][0]["loc"] = ["satiyā", "satiyaṃ"];
+DPR_G.iNI["santa"]["f"][1] = [];
+DPR_G.iNI["santa"]["f"][1]["nom"] = ["satiyo"];
+DPR_G.iNI["santa"]["f"][1]["voc"] = ["satiyo"];
+DPR_G.iNI["santa"]["f"][1]["acc"] = ["satiyo"];
+DPR_G.iNI["santa"]["f"][1]["ins"] = ["satīhi"];
+DPR_G.iNI["santa"]["f"][1]["dat"] = ["satīnaṃ"];
+DPR_G.iNI["santa"]["f"][1]["abl"] = ["satīhi"];
+DPR_G.iNI["santa"]["f"][1]["gen"] = ["satīnaṃ"];
+DPR_G.iNI["santa"]["f"][1]["loc"] = ["satīsu"];
+DPR_G.iNI["jāti"] = [];
+DPR_G.iNI["jāti"]["f"] = [];
+DPR_G.iNI["jāti"]["f"][0] = [];
+DPR_G.iNI["jāti"]["f"][0]["nom"] = ["jāti"];
+DPR_G.iNI["jāti"]["f"][0]["voc"] = ["jāti"];
+DPR_G.iNI["jāti"]["f"][0]["acc"] = ["jātiṃ"];
+DPR_G.iNI["jāti"]["f"][0]["ins"] = ["jātiyā", "jaccā"];
+DPR_G.iNI["jāti"]["f"][0]["dat"] = ["jātiyā", "jaccā"];
+DPR_G.iNI["jāti"]["f"][0]["abl"] = ["jātiyā", "jaccā"];
+DPR_G.iNI["jāti"]["f"][0]["gen"] = ["jātiyā", "jaccā"];
+DPR_G.iNI["jāti"]["f"][0]["loc"] = ["jātiyā", "jātiyaṃ"];
+DPR_G.iNI["jāti"]["f"][1] = [];
+DPR_G.iNI["jāti"]["f"][1]["nom"] = ["jātiyo"];
+DPR_G.iNI["jāti"]["f"][1]["voc"] = ["jātiyo"];
+DPR_G.iNI["jāti"]["f"][1]["acc"] = ["jātiyo"];
+DPR_G.iNI["jāti"]["f"][1]["ins"] = ["jātīhi"];
+DPR_G.iNI["jāti"]["f"][1]["dat"] = ["jātīnaṃ"];
+DPR_G.iNI["jāti"]["f"][1]["abl"] = ["jātīhi"];
+DPR_G.iNI["jāti"]["f"][1]["gen"] = ["jātīnaṃ"];
+DPR_G.iNI["jāti"]["f"][1]["loc"] = ["jātīsu"];
+DPR_G.iNI["brahanta"] = [];
+DPR_G.iNI["brahanta"]["m"] = [];
+DPR_G.iNI["brahanta"]["m"][0] = [];
+DPR_G.iNI["brahanta"]["m"][0]["nom"] = ["brahā"];
+DPR_G.iNI["brahanta"]["m"][0]["acc"] = ["brahantaṃ"];
+DPR_G.iNI["brahanta"]["m"][1] = [];
+DPR_G.iNI["brahanta"]["m"][1]["nom"] = ["brahantā"];
+DPR_G.iNI["brahanta"]["f"] = [];
+DPR_G.iNI["brahanta"]["f"][0] = [];
+DPR_G.iNI["brahanta"]["f"][0]["nom"] = ["brahatī"];
+DPR_G.iNI["candimantu"] = [];
+DPR_G.iNI["candimantu"]["m"] = [];
+DPR_G.iNI["candimantu"]["m"][0] = [];
+DPR_G.iNI["candimantu"]["m"][0]["nom"] = ["candimā"];
+DPR_G.iNI["catubbaṇṇā"] = [];
+DPR_G.iNI["catubbaṇṇā"]["m"] = [];
+DPR_G.iNI["catubbaṇṇā"]["m"][1] = [];
+DPR_G.iNI["catubbaṇṇā"]["m"][1]["nom"] = ["catubbaṇṇā"];
+DPR_G.iNI["catubbaṇṇā"]["m"][1]["acc"] = ["catubbaṇṇe"];
+DPR_G.iNI["catubbaṇṇā"]["m"][1]["ins"] = ["catubbaṇṇehi"];
+DPR_G.iNI["catubbaṇṇā"]["m"][1]["dat"] = ["catubbaṇṇānaṃ"];
+DPR_G.iNI["catubbaṇṇā"]["m"][1]["abl"] = ["catubbaṇṇehi"];
+DPR_G.iNI["catubbaṇṇā"]["m"][1]["gen"] = ["catubbaṇṇānaṃ"];
+DPR_G.iNI["catubbaṇṇā"]["m"][1]["loc"] = ["catubbaṇṇesu"];
+DPR_G.iNI["yaṃ kiñ ci"] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][1] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][1]["acc"] = ["yāni kāni ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][1]["ins"] = ["yehi kehi ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][1]["dat"] = ["yesaṃ kesañ ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][1]["abl"] = ["yehi kehi ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][1]["gen"] = ["yesaṃ kesañ ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["nt"][1]["loc"] = ["yesu kesu ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][0] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][0]["nom"] = ["yā kā ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][0]["acc"] = ["yaṃ kaṃ ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][0]["ins"] = ["yāya kāya ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][0]["dat"] = ["yassā kassā ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][0]["abl"] = ["yāya kāya ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][0]["gen"] = ["yassā kassā ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][0]["loc"] = [
+	"yāya kāya ci",
+	"yāyaṃ kāyañ ci",
+	"yassaṃ kassañ ci",
+];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][1] = [];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][1]["nom"] = ["yā kā ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][1]["acc"] = ["yā kā ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][1]["ins"] = ["yāhi kāhi ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][1]["dat"] = ["yāsaṃ kāsañ ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][1]["abl"] = ["yāhi kāhi ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][1]["gen"] = ["yāsaṃ kāsañ ci"];
+DPR_G.iNI["yaṃ kiñ ci"]["f"][1]["loc"] = ["yāsu kāsu ci"];
+DPR_G.iNI["ta"] = [];
+DPR_G.iNI["ta"]["m"] = [];
+DPR_G.iNI["ta"]["m"][0] = [];
+DPR_G.iNI["ta"]["m"][0]["nom"] = ["so", "(sa)"];
+DPR_G.iNI["ta"]["m"][0]["acc"] = ["taṃ"];
+DPR_G.iNI["ta"]["m"][0]["ins"] = ["tena"];
+DPR_G.iNI["ta"]["m"][0]["dat"] = ["tassa"];
+DPR_G.iNI["ta"]["m"][0]["abl"] = ["tasmā", "tamhā"];
+DPR_G.iNI["ta"]["m"][0]["gen"] = ["tassa"];
+DPR_G.iNI["ta"]["m"][0]["loc"] = ["tasmiṃ", "tamhi"];
+DPR_G.iNI["ta"]["m"][1] = [];
+DPR_G.iNI["ta"]["m"][1]["nom"] = ["te"];
+DPR_G.iNI["ta"]["m"][1]["acc"] = ["te"];
+DPR_G.iNI["ta"]["m"][1]["ins"] = ["tehi"];
+DPR_G.iNI["ta"]["m"][1]["dat"] = ["tesaṃ"];
+DPR_G.iNI["ta"]["m"][1]["abl"] = ["tehi"];
+DPR_G.iNI["ta"]["m"][1]["gen"] = ["tesaṃ"];
+DPR_G.iNI["ta"]["m"][1]["loc"] = ["tesu"];
+DPR_G.iNI["ta"]["nt"] = [];
+DPR_G.iNI["ta"]["nt"][0] = [];
+DPR_G.iNI["ta"]["nt"][0]["nom"] = ["taṃ", "tad"];
+DPR_G.iNI["ta"]["nt"][0]["acc"] = ["taṃ", "tad"];
+DPR_G.iNI["ta"]["nt"][0]["ins"] = ["tena"];
+DPR_G.iNI["ta"]["nt"][0]["dat"] = ["tassa"];
+DPR_G.iNI["ta"]["nt"][0]["abl"] = ["tasmā", "tamhā"];
+DPR_G.iNI["ta"]["nt"][0]["gen"] = ["tassa"];
+DPR_G.iNI["ta"]["nt"][0]["loc"] = ["tasmiṃ", "tamhi"];
+DPR_G.iNI["ta"]["nt"][1] = [];
+DPR_G.iNI["ta"]["nt"][1]["nom"] = ["tāni"];
+DPR_G.iNI["ta"]["nt"][1]["acc"] = ["tāni"];
+DPR_G.iNI["ta"]["nt"][1]["ins"] = ["tehi"];
+DPR_G.iNI["ta"]["nt"][1]["dat"] = ["tesaṃ"];
+DPR_G.iNI["ta"]["nt"][1]["abl"] = ["tehi"];
+DPR_G.iNI["ta"]["nt"][1]["gen"] = ["tesaṃ"];
+DPR_G.iNI["ta"]["nt"][1]["loc"] = ["tesu"];
+DPR_G.iNI["ta"]["f"] = [];
+DPR_G.iNI["ta"]["f"][0] = [];
+DPR_G.iNI["ta"]["f"][0]["nom"] = ["sā"];
+DPR_G.iNI["ta"]["f"][0]["acc"] = ["taṃ"];
+DPR_G.iNI["ta"]["f"][0]["ins"] = ["tāya"];
+DPR_G.iNI["ta"]["f"][0]["dat"] = ["tassā"];
+DPR_G.iNI["ta"]["f"][0]["abl"] = ["tāya"];
+DPR_G.iNI["ta"]["f"][0]["gen"] = ["tassā"];
+DPR_G.iNI["ta"]["f"][0]["loc"] = ["tāyaṃ", "tāya", "tassaṃ"];
+DPR_G.iNI["ta"]["f"][1] = [];
+DPR_G.iNI["ta"]["f"][1]["nom"] = ["tā"];
+DPR_G.iNI["ta"]["f"][1]["acc"] = ["tā"];
+DPR_G.iNI["ta"]["f"][1]["ins"] = ["tāhi"];
+DPR_G.iNI["ta"]["f"][1]["dat"] = ["tāsaṃ"];
+DPR_G.iNI["ta"]["f"][1]["abl"] = ["tāhi"];
+DPR_G.iNI["ta"]["f"][1]["gen"] = ["tāsaṃ"];
+DPR_G.iNI["ta"]["f"][1]["loc"] = ["tāsu"];
+DPR_G.iNI["ya"] = [];
+DPR_G.iNI["ya"]["m"] = [];
+DPR_G.iNI["ya"]["m"][0] = [];
+DPR_G.iNI["ya"]["m"][0]["nom"] = ["yo"];
+DPR_G.iNI["ya"]["m"][0]["acc"] = ["yaṃ"];
+DPR_G.iNI["ya"]["m"][0]["ins"] = ["yena"];
+DPR_G.iNI["ya"]["m"][0]["dat"] = ["yassa"];
+DPR_G.iNI["ya"]["m"][0]["abl"] = ["yasmā", "yamhā"];
+DPR_G.iNI["ya"]["m"][0]["gen"] = ["yassa"];
+DPR_G.iNI["ya"]["m"][0]["loc"] = ["yasmiṃ", "yamhi"];
+DPR_G.iNI["ya"]["m"][1] = [];
+DPR_G.iNI["ya"]["m"][1]["nom"] = ["ye"];
+DPR_G.iNI["ya"]["m"][1]["acc"] = ["ye"];
+DPR_G.iNI["ya"]["m"][1]["ins"] = ["yehi"];
+DPR_G.iNI["ya"]["m"][1]["dat"] = ["yesaṃ"];
+DPR_G.iNI["ya"]["m"][1]["abl"] = ["yehi"];
+DPR_G.iNI["ya"]["m"][1]["gen"] = ["yesaṃ"];
+DPR_G.iNI["ya"]["m"][1]["loc"] = ["yesu"];
+DPR_G.iNI["ya"]["nt"] = [];
+DPR_G.iNI["ya"]["nt"][0] = [];
+DPR_G.iNI["ya"]["nt"][0]["nom"] = ["yaṃ", "yad"];
+DPR_G.iNI["ya"]["nt"][0]["acc"] = ["yaṃ", "yad"];
+DPR_G.iNI["ya"]["nt"][0]["ins"] = ["yena"];
+DPR_G.iNI["ya"]["nt"][0]["dat"] = ["yassa"];
+DPR_G.iNI["ya"]["nt"][0]["abl"] = ["yasmā", "yamhā"];
+DPR_G.iNI["ya"]["nt"][0]["gen"] = ["yassa"];
+DPR_G.iNI["ya"]["nt"][0]["loc"] = ["yasmiṃ", "yamhi"];
+DPR_G.iNI["ya"]["nt"][1] = [];
+DPR_G.iNI["ya"]["nt"][1]["nom"] = ["yāni"];
+DPR_G.iNI["ya"]["nt"][1]["acc"] = ["yāni"];
+DPR_G.iNI["ya"]["nt"][1]["ins"] = ["yehi"];
+DPR_G.iNI["ya"]["nt"][1]["dat"] = ["yesaṃ"];
+DPR_G.iNI["ya"]["nt"][1]["abl"] = ["yehi"];
+DPR_G.iNI["ya"]["nt"][1]["gen"] = ["yesaṃ"];
+DPR_G.iNI["ya"]["nt"][1]["loc"] = ["yesu"];
+DPR_G.iNI["ya"]["f"] = [];
+DPR_G.iNI["ya"]["f"][0] = [];
+DPR_G.iNI["ya"]["f"][0]["nom"] = ["yā"];
+DPR_G.iNI["ya"]["f"][0]["acc"] = ["yaṃ"];
+DPR_G.iNI["ya"]["f"][0]["ins"] = ["yāya"];
+DPR_G.iNI["ya"]["f"][0]["dat"] = ["yassā"];
+DPR_G.iNI["ya"]["f"][0]["abl"] = ["yāya"];
+DPR_G.iNI["ya"]["f"][0]["gen"] = ["yassā"];
+DPR_G.iNI["ya"]["f"][0]["loc"] = ["yāya", "yāyaṃ", "yassaṃ"];
+DPR_G.iNI["ya"]["f"][1] = [];
+DPR_G.iNI["ya"]["f"][1]["nom"] = ["yā"];
+DPR_G.iNI["ya"]["f"][1]["acc"] = ["yā"];
+DPR_G.iNI["ya"]["f"][1]["ins"] = ["yāhi"];
+DPR_G.iNI["ya"]["f"][1]["dat"] = ["yāsaṃ"];
+DPR_G.iNI["ya"]["f"][1]["abl"] = ["yāhi"];
+DPR_G.iNI["ya"]["f"][1]["gen"] = ["yāsaṃ"];
+DPR_G.iNI["ya"]["f"][1]["loc"] = ["yāsu"];
+DPR_G.iNI["ka"] = [];
+DPR_G.iNI["ka"]["m"] = [];
+DPR_G.iNI["ka"]["m"][0] = [];
+DPR_G.iNI["ka"]["m"][0]["nom"] = ["ko"];
+DPR_G.iNI["ka"]["m"][0]["acc"] = ["kaṃ"];
+DPR_G.iNI["ka"]["m"][0]["ins"] = ["kena"];
+DPR_G.iNI["ka"]["m"][0]["dat"] = ["kassa", "kissa"];
+DPR_G.iNI["ka"]["m"][0]["abl"] = ["kasmā", "kamhā"];
+DPR_G.iNI["ka"]["m"][0]["gen"] = ["kassa", "kissa"];
+DPR_G.iNI["ka"]["m"][0]["loc"] = ["kismiṃ", "kimhi"];
+DPR_G.iNI["ka"]["m"][1] = [];
+DPR_G.iNI["ka"]["m"][1]["nom"] = ["ke"];
+DPR_G.iNI["ka"]["m"][1]["acc"] = ["ke"];
+DPR_G.iNI["ka"]["m"][1]["ins"] = ["kehi"];
+DPR_G.iNI["ka"]["m"][1]["dat"] = ["kesaṃ"];
+DPR_G.iNI["ka"]["m"][1]["abl"] = ["kehi"];
+DPR_G.iNI["ka"]["m"][1]["gen"] = ["kesaṃ"];
+DPR_G.iNI["ka"]["m"][1]["loc"] = ["kesu"];
+DPR_G.iNI["ka"]["nt"] = [];
+DPR_G.iNI["ka"]["nt"][0] = [];
+DPR_G.iNI["ka"]["nt"][0]["nom"] = ["kiṃ"];
+DPR_G.iNI["ka"]["nt"][0]["acc"] = ["kiṃ"];
+DPR_G.iNI["ka"]["nt"][0]["ins"] = ["kena"];
+DPR_G.iNI["ka"]["nt"][0]["dat"] = ["kassa", "kissa"];
+DPR_G.iNI["ka"]["nt"][0]["abl"] = ["kasmā", "kamhā"];
+DPR_G.iNI["ka"]["nt"][0]["gen"] = ["kassa", "kissa"];
+DPR_G.iNI["ka"]["nt"][0]["loc"] = ["kismiṃ", "kimhi"];
+DPR_G.iNI["ka"]["nt"][1] = [];
+DPR_G.iNI["ka"]["nt"][1]["nom"] = ["kāni"];
+DPR_G.iNI["ka"]["nt"][1]["acc"] = ["kāni"];
+DPR_G.iNI["ka"]["nt"][1]["ins"] = ["kehi"];
+DPR_G.iNI["ka"]["nt"][1]["dat"] = ["kesaṃ"];
+DPR_G.iNI["ka"]["nt"][1]["abl"] = ["kehi"];
+DPR_G.iNI["ka"]["nt"][1]["gen"] = ["kesaṃ"];
+DPR_G.iNI["ka"]["nt"][1]["loc"] = ["kesu"];
+DPR_G.iNI["ka"]["f"] = [];
+DPR_G.iNI["ka"]["f"][0] = [];
+DPR_G.iNI["ka"]["f"][0]["nom"] = ["kā"];
+DPR_G.iNI["ka"]["f"][0]["acc"] = ["kaṃ"];
+DPR_G.iNI["ka"]["f"][0]["ins"] = ["kāya"];
+DPR_G.iNI["ka"]["f"][0]["dat"] = ["kassā"];
+DPR_G.iNI["ka"]["f"][0]["abl"] = ["kāya"];
+DPR_G.iNI["ka"]["f"][0]["gen"] = ["kassā"];
+DPR_G.iNI["ka"]["f"][0]["loc"] = ["kāya", "kāyaṃ", "kassaṃ"];
+DPR_G.iNI["ka"]["f"][1] = [];
+DPR_G.iNI["ka"]["f"][1]["nom"] = ["kā"];
+DPR_G.iNI["ka"]["f"][1]["acc"] = ["kā"];
+DPR_G.iNI["ka"]["f"][1]["ins"] = ["kāhi"];
+DPR_G.iNI["ka"]["f"][1]["dat"] = ["kāsaṃ"];
+DPR_G.iNI["ka"]["f"][1]["abl"] = ["kāhi"];
+DPR_G.iNI["ka"]["f"][1]["gen"] = ["kāsaṃ"];
+DPR_G.iNI["ka"]["f"][1]["loc"] = ["kāsu"];
+DPR_G.iNI["eta"] = [];
+DPR_G.iNI["eta"]["m"] = [];
+DPR_G.iNI["eta"]["m"][0] = [];
+DPR_G.iNI["eta"]["m"][0]["nom"] = ["eso", "(esa)"];
+DPR_G.iNI["eta"]["m"][0]["acc"] = ["etaṃ"];
+DPR_G.iNI["eta"]["m"][0]["ins"] = ["etena"];
+DPR_G.iNI["eta"]["m"][0]["dat"] = ["etassa"];
+DPR_G.iNI["eta"]["m"][0]["abl"] = ["etasmā", "etamhā"];
+DPR_G.iNI["eta"]["m"][0]["gen"] = ["etassa"];
+DPR_G.iNI["eta"]["m"][0]["loc"] = ["etasmiṃ", "etamhi"];
+DPR_G.iNI["eta"]["m"][1] = [];
+DPR_G.iNI["eta"]["m"][1]["nom"] = ["ete"];
+DPR_G.iNI["eta"]["m"][1]["acc"] = ["ete"];
+DPR_G.iNI["eta"]["m"][1]["ins"] = ["etehi"];
+DPR_G.iNI["eta"]["m"][1]["dat"] = ["etesaṃ"];
+DPR_G.iNI["eta"]["m"][1]["abl"] = ["etehi"];
+DPR_G.iNI["eta"]["m"][1]["gen"] = ["etesaṃ"];
+DPR_G.iNI["eta"]["m"][1]["loc"] = ["etesu"];
+DPR_G.iNI["eta"]["nt"] = [];
+DPR_G.iNI["eta"]["nt"][0] = [];
+DPR_G.iNI["eta"]["nt"][0]["nom"] = ["etaṃ", "etad"];
+DPR_G.iNI["eta"]["nt"][0]["acc"] = ["etaṃ", "etad"];
+DPR_G.iNI["eta"]["nt"][0]["ins"] = ["etena"];
+DPR_G.iNI["eta"]["nt"][0]["dat"] = ["etassa"];
+DPR_G.iNI["eta"]["nt"][0]["abl"] = ["etasmā", "etamhā"];
+DPR_G.iNI["eta"]["nt"][0]["gen"] = ["etassa"];
+DPR_G.iNI["eta"]["nt"][0]["loc"] = ["etasmiṃ", "etamhi"];
+DPR_G.iNI["eta"]["nt"][1] = [];
+DPR_G.iNI["eta"]["nt"][1]["nom"] = ["etāni"];
+DPR_G.iNI["eta"]["nt"][1]["acc"] = ["etāni"];
+DPR_G.iNI["eta"]["nt"][1]["ins"] = ["etehi"];
+DPR_G.iNI["eta"]["nt"][1]["dat"] = ["etesaṃ"];
+DPR_G.iNI["eta"]["nt"][1]["abl"] = ["etehi"];
+DPR_G.iNI["eta"]["nt"][1]["gen"] = ["etesaṃ"];
+DPR_G.iNI["eta"]["nt"][1]["loc"] = ["etesu"];
+DPR_G.iNI["eta"]["f"] = [];
+DPR_G.iNI["eta"]["f"][0] = [];
+DPR_G.iNI["eta"]["f"][0]["nom"] = ["esā"];
+DPR_G.iNI["eta"]["f"][0]["acc"] = ["etaṃ"];
+DPR_G.iNI["eta"]["f"][0]["ins"] = ["etāya"];
+DPR_G.iNI["eta"]["f"][0]["dat"] = ["etassā"];
+DPR_G.iNI["eta"]["f"][0]["abl"] = ["etāya"];
+DPR_G.iNI["eta"]["f"][0]["gen"] = ["etassā"];
+DPR_G.iNI["eta"]["f"][0]["loc"] = ["etāyaṃ", "etāya", "etassaṃ"];
+DPR_G.iNI["eta"]["f"][1] = [];
+DPR_G.iNI["eta"]["f"][1]["nom"] = ["etā"];
+DPR_G.iNI["eta"]["f"][1]["acc"] = ["etā"];
+DPR_G.iNI["eta"]["f"][1]["ins"] = ["etāhi"];
+DPR_G.iNI["eta"]["f"][1]["dat"] = ["etāsaṃ"];
+DPR_G.iNI["eta"]["f"][1]["abl"] = ["etāhi"];
+DPR_G.iNI["eta"]["f"][1]["gen"] = ["etāsaṃ"];
+DPR_G.iNI["eta"]["f"][1]["loc"] = ["etāsu"];
+DPR_G.iNI["eka"] = [];
+DPR_G.iNI["eka"]["nt"] = [];
+DPR_G.iNI["eka"]["nt"][1] = [];
+DPR_G.iNI["eka"]["nt"][1]["acc"] = ["ekāni"];
+DPR_G.iNI["eka"]["nt"][1]["ins"] = ["ekehi"];
+DPR_G.iNI["eka"]["nt"][1]["dat"] = ["ekesaṃ"];
+DPR_G.iNI["eka"]["nt"][1]["abl"] = ["ekehi"];
+DPR_G.iNI["eka"]["nt"][1]["gen"] = ["ekesaṃ"];
+DPR_G.iNI["eka"]["nt"][1]["loc"] = ["ekesu"];
+DPR_G.iNI["eka"]["f"] = [];
+DPR_G.iNI["eka"]["f"][0] = [];
+DPR_G.iNI["eka"]["f"][0]["nom"] = ["ekā"];
+DPR_G.iNI["eka"]["f"][0]["acc"] = ["ekaṃ"];
+DPR_G.iNI["eka"]["f"][0]["ins"] = ["ekāya"];
+DPR_G.iNI["eka"]["f"][0]["dat"] = ["ekissā"];
+DPR_G.iNI["eka"]["f"][0]["abl"] = ["ekāya"];
+DPR_G.iNI["eka"]["f"][0]["gen"] = ["ekissā"];
+DPR_G.iNI["eka"]["f"][0]["loc"] = ["ekissā"];
+DPR_G.iNI["eka"]["f"][1] = [];
+DPR_G.iNI["eka"]["f"][1]["nom"] = ["ekā"];
+DPR_G.iNI["eka"]["f"][1]["voc"] = ["ekā"];
+DPR_G.iNI["eka"]["f"][1]["acc"] = ["ekāhi"];
+DPR_G.iNI["eka"]["f"][1]["ins"] = ["ekāsaṃ"];
+DPR_G.iNI["eka"]["f"][1]["dat"] = ["ekāhi"];
+DPR_G.iNI["eka"]["f"][1]["abl"] = ["ekāsaṃ"];
+DPR_G.iNI["eka"]["f"][1]["gen"] = ["ekāhi"];
+DPR_G.iNI["eka"]["f"][1]["loc"] = ["ekāsu"];
+DPR_G.iNI["eka"]["m"] = [];
+DPR_G.iNI["eka"]["m"][0] = [];
+DPR_G.iNI["eka"]["m"][0]["nom"] = ["eko"];
+DPR_G.iNI["eka"]["m"][0]["acc"] = ["ekaṃ"];
+DPR_G.iNI["eka"]["m"][0]["ins"] = ["ekena"];
+DPR_G.iNI["eka"]["m"][0]["dat"] = ["ekassa"];
+DPR_G.iNI["eka"]["m"][0]["abl"] = ["ekasmā", "ekamhā"];
+DPR_G.iNI["eka"]["m"][0]["gen"] = ["ekassa"];
+DPR_G.iNI["eka"]["m"][0]["loc"] = ["ekasmiṃ", "ekamhi"];
+DPR_G.iNI["eka"]["m"][1] = [];
+DPR_G.iNI["eka"]["m"][1]["nom"] = ["eke"];
+DPR_G.iNI["eka"]["m"][1]["acc"] = ["eke"];
+DPR_G.iNI["eka"]["m"][1]["ins"] = ["ekehi"];
+DPR_G.iNI["eka"]["m"][1]["dat"] = ["ekesaṃ"];
+DPR_G.iNI["eka"]["m"][1]["abl"] = ["ekehi"];
+DPR_G.iNI["eka"]["m"][1]["gen"] = ["ekesaṃ"];
+DPR_G.iNI["eka"]["m"][1]["loc"] = ["ekesu"];
+DPR_G.iNI["eka"]["nt"] = [];
+DPR_G.iNI["eka"]["nt"][0] = [];
+DPR_G.iNI["eka"]["nt"][0]["nom"] = ["ekaṃ"];
+DPR_G.iNI["eka"]["nt"][0]["acc"] = ["ekaṃ"];
+DPR_G.iNI["eka"]["nt"][0]["ins"] = ["ekena"];
+DPR_G.iNI["eka"]["nt"][0]["dat"] = ["ekassa"];
+DPR_G.iNI["eka"]["nt"][0]["abl"] = ["ekasmā", "ekamhā"];
+DPR_G.iNI["eka"]["nt"][0]["gen"] = ["ekassa"];
+DPR_G.iNI["eka"]["nt"][0]["loc"] = ["ekasmiṃ", "ekamhi"];
+DPR_G.iNI["eka"]["nt"][1] = [];
+DPR_G.iNI["eka"]["nt"][1]["nom"] = ["ekāni"];
+DPR_G.iNI["eka"]["nt"][1]["acc"] = ["ekāni"];
+DPR_G.iNI["eka"]["nt"][1]["ins"] = ["ekehi"];
+DPR_G.iNI["eka"]["nt"][1]["dat"] = ["ekesaṃ"];
+DPR_G.iNI["eka"]["nt"][1]["abl"] = ["ekehi"];
+DPR_G.iNI["eka"]["nt"][1]["gen"] = ["ekesaṃ"];
+DPR_G.iNI["eka"]["nt"][1]["loc"] = ["ekesu"];
+DPR_G.iNI["eka"]["f"] = [];
+DPR_G.iNI["eka"]["f"][0] = [];
+DPR_G.iNI["eka"]["f"][0]["nom"] = ["ekā"];
+DPR_G.iNI["eka"]["f"][0]["acc"] = ["ekaṃ"];
+DPR_G.iNI["eka"]["f"][0]["ins"] = ["ekāya"];
+DPR_G.iNI["eka"]["f"][0]["dat"] = ["ekissā"];
+DPR_G.iNI["eka"]["f"][0]["abl"] = ["ekāya"];
+DPR_G.iNI["eka"]["f"][0]["gen"] = ["ekissā"];
+DPR_G.iNI["eka"]["f"][0]["loc"] = ["ekissā"];
+DPR_G.iNI["eka"]["f"][1] = [];
+DPR_G.iNI["eka"]["f"][1]["nom"] = ["ekā"];
+DPR_G.iNI["eka"]["f"][1]["voc"] = ["ekā"];
+DPR_G.iNI["eka"]["f"][1]["acc"] = ["ekāhi"];
+DPR_G.iNI["eka"]["f"][1]["ins"] = ["ekāsaṃ"];
+DPR_G.iNI["eka"]["f"][1]["dat"] = ["ekāhi"];
+DPR_G.iNI["eka"]["f"][1]["abl"] = ["ekāsaṃ"];
+DPR_G.iNI["eka"]["f"][1]["gen"] = ["ekāhi"];
+DPR_G.iNI["eka"]["f"][1]["loc"] = ["ekāsu"];
+DPR_G.iNI["paṭirāja"] = [];
+DPR_G.iNI["paṭirāja"]["m"] = [];
+DPR_G.iNI["paṭirāja"]["m"][0] = [];
+DPR_G.iNI["paṭirāja"]["m"][0]["nom"] = ["paṭirājā"];
+DPR_G.iNI["paṭirāja"]["m"][0]["acc"] = ["paṭirājānaṃ"];
+DPR_G.iNI["paṭirāja"]["m"][0]["ins"] = ["paṭiraññā"];
+DPR_G.iNI["paṭirāja"]["m"][0]["dat"] = ["paṭirañño"];
+DPR_G.iNI["paṭirāja"]["m"][0]["abl"] = ["paṭiraññā"];
+DPR_G.iNI["paṭirāja"]["m"][0]["gen"] = ["paṭirañño"];
+DPR_G.iNI["paṭirāja"]["m"][0]["loc"] = ["paṭirājini", "paṭiraññe"];
+DPR_G.iNI["paṭirāja"]["m"][1] = [];
+DPR_G.iNI["paṭirāja"]["m"][1]["nom"] = ["paṭirājāno"];
+DPR_G.iNI["paṭirāja"]["m"][1]["acc"] = ["paṭirājāno"];
+DPR_G.iNI["paṭirāja"]["m"][1]["ins"] = ["paṭirājūhi"];
+DPR_G.iNI["paṭirāja"]["m"][1]["dat"] = ["paṭiraññaṃ"];
+DPR_G.iNI["paṭirāja"]["m"][1]["abl"] = ["paṭirājūhi"];
+DPR_G.iNI["paṭirāja"]["m"][1]["gen"] = ["paṭiraññaṃ", "paṭirājūnaṃ"];
+DPR_G.iNI["paṭirāja"]["m"][1]["loc"] = ["paṭirājūsu"];
+DPR_G.iNI["rāja"] = [];
+DPR_G.iNI["rāja"]["m"] = [];
+DPR_G.iNI["rāja"]["m"][0] = [];
+DPR_G.iNI["rāja"]["m"][0]["nom"] = ["rājā"];
+DPR_G.iNI["rāja"]["m"][0]["acc"] = ["rājānaṃ"];
+DPR_G.iNI["rāja"]["m"][0]["ins"] = ["raññā"];
+DPR_G.iNI["rāja"]["m"][0]["dat"] = ["rañño"];
+DPR_G.iNI["rāja"]["m"][0]["abl"] = ["raññā"];
+DPR_G.iNI["rāja"]["m"][0]["gen"] = ["rañño"];
+DPR_G.iNI["rāja"]["m"][0]["loc"] = ["rājini", "raññe"];
+DPR_G.iNI["rāja"]["m"][1] = [];
+DPR_G.iNI["rāja"]["m"][1]["nom"] = ["rājāno"];
+DPR_G.iNI["rāja"]["m"][1]["acc"] = ["rājāno"];
+DPR_G.iNI["rāja"]["m"][1]["ins"] = ["rājūhi"];
+DPR_G.iNI["rāja"]["m"][1]["dat"] = ["raññaṃ"];
+DPR_G.iNI["rāja"]["m"][1]["abl"] = ["rājūhi"];
+DPR_G.iNI["rāja"]["m"][1]["gen"] = ["raññaṃ", "rājūnaṃ"];
+DPR_G.iNI["rāja"]["m"][1]["loc"] = ["rājūsu"];
+DPR_G.iNI["bhikkhu"] = [];
+DPR_G.iNI["bhikkhu"]["m"] = [];
+DPR_G.iNI["bhikkhu"]["m"][0] = [];
+DPR_G.iNI["bhikkhu"]["m"][0]["nom"] = ["bhikkhu"];
+DPR_G.iNI["bhikkhu"]["m"][0]["voc"] = ["bhikkhu"];
+DPR_G.iNI["bhikkhu"]["m"][0]["acc"] = ["bhikkhuṃ"];
+DPR_G.iNI["bhikkhu"]["m"][0]["ins"] = ["bhikkhunā"];
+DPR_G.iNI["bhikkhu"]["m"][0]["dat"] = ["bhikkhuno"];
+DPR_G.iNI["bhikkhu"]["m"][0]["abl"] = ["bhikkhunā"];
+DPR_G.iNI["bhikkhu"]["m"][0]["gen"] = ["bhikkhuno", "bhikkhussa"];
+DPR_G.iNI["bhikkhu"]["m"][0]["loc"] = ["bhikkhusmiṃ"];
+DPR_G.iNI["bhikkhu"]["m"][1] = [];
+DPR_G.iNI["bhikkhu"]["m"][1]["nom"] = ["bhikkhavo", "bhikkhū"];
+DPR_G.iNI["bhikkhu"]["m"][1]["voc"] = ["bhikkhavo", "bhikkhū", "bhikkhave"];
+DPR_G.iNI["bhikkhu"]["m"][1]["acc"] = ["bhikkhavo", "bhikkhū"];
+DPR_G.iNI["bhikkhu"]["m"][1]["ins"] = ["bhikkhūhi"];
+DPR_G.iNI["bhikkhu"]["m"][1]["dat"] = ["bhikkhūnaṃ"];
+DPR_G.iNI["bhikkhu"]["m"][1]["abl"] = ["bhikkhūhi"];
+DPR_G.iNI["bhikkhu"]["m"][1]["gen"] = ["bhikkhūnaṃ"];
+DPR_G.iNI["bhikkhu"]["m"][1]["loc"] = ["bhikkhūsu"];
+DPR_G.iNI["arahanta"] = [];
+DPR_G.iNI["arahanta"]["m"] = [];
+DPR_G.iNI["arahanta"]["m"][0] = [];
+DPR_G.iNI["arahanta"]["m"][0]["nom"] = ["arahā", "arahaṃ", "arahanto"];
+DPR_G.iNI["arahanta"]["m"][0]["voc"] = ["arahā"];
+DPR_G.iNI["arahanta"]["m"][0]["acc"] = ["arahantaṃ"];
+DPR_G.iNI["arahanta"]["m"][0]["ins"] = ["arahatā", "arahantena"];
+DPR_G.iNI["arahanta"]["m"][0]["dat"] = ["arahato"];
+DPR_G.iNI["arahanta"]["m"][0]["abl"] = ["arahatā"];
+DPR_G.iNI["arahanta"]["m"][0]["gen"] = ["arahato", "arahantassa"];
+DPR_G.iNI["arahanta"]["m"][0]["loc"] = ["arahati", "arahante"];
+DPR_G.iNI["arahanta"]["m"][1] = [];
+DPR_G.iNI["arahanta"]["m"][1]["nom"] = ["arahanto", "arahantā"];
+DPR_G.iNI["arahanta"]["m"][1]["voc"] = ["arahanto"];
+DPR_G.iNI["arahanta"]["m"][1]["acc"] = ["arahante"];
+DPR_G.iNI["arahanta"]["m"][1]["ins"] = ["arahantehi"];
+DPR_G.iNI["arahanta"]["m"][1]["dat"] = ["arahantānaṃ", "arahataṃ"];
+DPR_G.iNI["arahanta"]["m"][1]["abl"] = ["arahantehi"];
+DPR_G.iNI["arahanta"]["m"][1]["gen"] = ["arahantānaṃ", "arahataṃ"];
+DPR_G.iNI["arahanta"]["m"][1]["loc"] = ["arahantesu"];
+DPR_G.iNI["khattu"] = [];
+DPR_G.iNI["khattu"]["m"] = [];
+DPR_G.iNI["khattu"]["m"][0] = [];
+DPR_G.iNI["khattu"]["m"][0]["nom"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][0]["voc"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][0]["acc"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][0]["ins"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][0]["dat"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][0]["abl"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][0]["gen"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][0]["loc"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][1] = [];
+DPR_G.iNI["khattu"]["m"][1]["nom"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][1]["voc"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][1]["acc"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][1]["ins"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][1]["dat"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][1]["abl"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][1]["gen"] = ["khattu"];
+DPR_G.iNI["khattu"]["m"][1]["loc"] = ["khattu"];
+DPR_G.iNI["catu"] = [];
+DPR_G.iNI["catu"]["m"] = [];
+DPR_G.iNI["catu"]["m"][1] = [];
+DPR_G.iNI["catu"]["m"][1]["nom"] = ["cattāro"];
+DPR_G.iNI["catu"]["m"][1]["acc"] = ["cattāro"];
+DPR_G.iNI["catu"]["m"][1]["ins"] = ["catuhi", "catūhi"];
+DPR_G.iNI["catu"]["m"][1]["dat"] = ["catunnaṃ"];
+DPR_G.iNI["catu"]["m"][1]["abl"] = ["catuhi", "catūhi"];
+DPR_G.iNI["catu"]["m"][1]["gen"] = ["catunnaṃ"];
+DPR_G.iNI["catu"]["m"][1]["loc"] = ["catusu", "catūsu"];
+DPR_G.iNI["catu"]["nt"] = [];
+DPR_G.iNI["catu"]["nt"][1] = [];
+DPR_G.iNI["catu"]["nt"][1]["nom"] = ["cattāri"];
+DPR_G.iNI["catu"]["nt"][1]["acc"] = ["cattāri"];
+DPR_G.iNI["catu"]["nt"][1]["ins"] = ["catuhi", "catūhi"];
+DPR_G.iNI["catu"]["nt"][1]["dat"] = ["catunnaṃ"];
+DPR_G.iNI["catu"]["nt"][1]["abl"] = ["catuhi", "catūhi"];
+DPR_G.iNI["catu"]["nt"][1]["gen"] = ["catunnaṃ"];
+DPR_G.iNI["catu"]["nt"][1]["loc"] = ["catusu", "catūsu"];
+DPR_G.iNI["catu"]["f"] = [];
+DPR_G.iNI["catu"]["f"][1] = [];
+DPR_G.iNI["catu"]["f"][1]["nom"] = ["catasso"];
+DPR_G.iNI["catu"]["f"][1]["acc"] = ["catasso"];
+DPR_G.iNI["catu"]["f"][1]["ins"] = ["catuhi", "catūhi"];
+DPR_G.iNI["catu"]["f"][1]["dat"] = ["catunnaṃ"];
+DPR_G.iNI["catu"]["f"][1]["abl"] = ["catuhi", "catūhi"];
+DPR_G.iNI["catu"]["f"][1]["gen"] = ["catunnaṃ"];
+DPR_G.iNI["catu"]["f"][1]["loc"] = ["catusu", "catūsu"];
+DPR_G.iNI["addhā"] = [];
+DPR_G.iNI["addhā"]["m"] = [];
+DPR_G.iNI["addhā"]["m"][0] = [];
+DPR_G.iNI["addhā"]["m"][0]["nom"] = ["addhā"];
+DPR_G.iNI["addhā"]["m"][0]["acc"] = ["addhānaṃ"];
+DPR_G.iNI["addhā"]["m"][0]["ins"] = ["addhunā"];
+DPR_G.iNI["addhā"]["m"][0]["gen"] = ["addhuno"];
+DPR_G.iNI["addhā"]["m"][1] = [];
+DPR_G.iNI["addhā"]["m"][1]["nom"] = ["addhā"];
+DPR_G.iNI["muddhā"] = [];
+DPR_G.iNI["muddhā"]["m"] = [];
+DPR_G.iNI["muddhā"]["m"][0] = [];
+DPR_G.iNI["muddhā"]["m"][0]["nom"] = ["muddhā", "muddhaṃ"];
+DPR_G.iNI["muddhā"]["m"][0]["acc"] = ["muddhaṃ", "muddhānaṃ"];
+DPR_G.iNI["muddhā"]["m"][0]["ins"] = ["muddhanā"];
+DPR_G.iNI["muddhā"]["m"][0]["loc"] = ["muddhani"];
+DPR_G.iNI["puma"] = [];
+DPR_G.iNI["puma"]["m"] = [];
+DPR_G.iNI["puma"]["m"][0] = [];
+DPR_G.iNI["puma"]["m"][0]["nom"] = ["pumā"];
+DPR_G.iNI["puma"]["m"][0]["voc"] = ["pumaṃ", "puma"];
+DPR_G.iNI["puma"]["m"][0]["acc"] = ["pumānaṃ", "pumaṃ"];
+DPR_G.iNI["puma"]["m"][0]["ins"] = ["pumānā", "pumunā", "pumena"];
+DPR_G.iNI["puma"]["m"][0]["dat"] = ["pumuno", "pumassa"];
+DPR_G.iNI["puma"]["m"][0]["abl"] = [
+	"pumunā",
+	"pumānā",
+	"pumā",
+	"pumasmā",
+	"pumamhā",
+];
+DPR_G.iNI["puma"]["m"][0]["gen"] = ["pumuno", "pumassa"];
+DPR_G.iNI["puma"]["m"][0]["loc"] = ["pumāne", "pume", "pumasmiṃ", "pumamhi"];
+DPR_G.iNI["puma"]["m"][1] = [];
+DPR_G.iNI["puma"]["m"][1]["nom"] = ["pumāno", "pumā"];
+DPR_G.iNI["puma"]["m"][1]["voc"] = ["pumāno", "pumā"];
+DPR_G.iNI["puma"]["m"][1]["acc"] = ["pumāno", "pume"];
+DPR_G.iNI["puma"]["m"][1]["ins"] = [
+	"pumānehi",
+	"pumānebhi",
+	"pumehi",
+	"pumebhi",
+];
+DPR_G.iNI["puma"]["m"][1]["dat"] = ["pumānaṃ"];
+DPR_G.iNI["puma"]["m"][1]["abl"] = [
+	"pumānehi",
+	"pumānebhi",
+	"pumehi",
+	"pumebhi",
+];
+DPR_G.iNI["puma"]["m"][1]["gen"] = ["pumānaṃ"];
+DPR_G.iNI["puma"]["m"][1]["loc"] = ["pumānesu", "pumāsu", "pumesu"];
+DPR_G.iNI["dvi"] = [];
+DPR_G.iNI["dvi"]["m"] = [];
+DPR_G.iNI["dvi"]["m"][1] = [];
+DPR_G.iNI["dvi"]["m"][1]["nom"] = ["dve"];
+DPR_G.iNI["dvi"]["m"][1]["acc"] = ["dve"];
+DPR_G.iNI["dvi"]["m"][1]["ins"] = ["dvīhi"];
+DPR_G.iNI["dvi"]["m"][1]["dat"] = ["dvinnaṃ"];
+DPR_G.iNI["dvi"]["m"][1]["abl"] = ["dvīhi"];
+DPR_G.iNI["dvi"]["m"][1]["gen"] = ["dvinnaṃ"];
+DPR_G.iNI["dvi"]["m"][1]["loc"] = ["dvīsu"];
+DPR_G.iNI["dvi"]["nt"] = [];
+DPR_G.iNI["dvi"]["nt"][1] = [];
+DPR_G.iNI["dvi"]["nt"][1]["nom"] = ["dve"];
+DPR_G.iNI["dvi"]["nt"][1]["acc"] = ["dve"];
+DPR_G.iNI["dvi"]["nt"][1]["ins"] = ["dvīhi"];
+DPR_G.iNI["dvi"]["nt"][1]["dat"] = ["dvinnaṃ"];
+DPR_G.iNI["dvi"]["nt"][1]["abl"] = ["dvīhi"];
+DPR_G.iNI["dvi"]["nt"][1]["gen"] = ["dvinnaṃ"];
+DPR_G.iNI["dvi"]["nt"][1]["loc"] = ["dvīsu"];
+DPR_G.iNI["dvi"]["f"] = [];
+DPR_G.iNI["dvi"]["f"][1] = [];
+DPR_G.iNI["dvi"]["f"][1]["nom"] = ["dve"];
+DPR_G.iNI["dvi"]["f"][1]["acc"] = ["dve"];
+DPR_G.iNI["dvi"]["f"][1]["ins"] = ["dvīhi"];
+DPR_G.iNI["dvi"]["f"][1]["dat"] = ["dvinnaṃ"];
+DPR_G.iNI["dvi"]["f"][1]["abl"] = ["dvīhi"];
+DPR_G.iNI["dvi"]["f"][1]["gen"] = ["dvinnaṃ"];
+DPR_G.iNI["dvi"]["f"][1]["loc"] = ["dvīsu"];
+DPR_G.iNI["bhavanta"] = [];
+DPR_G.iNI["bhavanta"]["m"] = [];
+DPR_G.iNI["bhavanta"]["m"][0] = [];
+DPR_G.iNI["bhavanta"]["m"][0]["nom"] = ["bhavaṃ"];
+DPR_G.iNI["bhavanta"]["m"][0]["voc"] = ["bho"];
+DPR_G.iNI["bhavanta"]["m"][0]["acc"] = ["bhavantaṃ"];
+DPR_G.iNI["bhavanta"]["m"][0]["ins"] = ["bhotā"];
+DPR_G.iNI["bhavanta"]["m"][0]["dat"] = ["bhoto"];
+DPR_G.iNI["bhavanta"]["m"][0]["abl"] = ["bhotā"];
+DPR_G.iNI["bhavanta"]["m"][0]["gen"] = ["bhoto"];
+DPR_G.iNI["bhavanta"]["m"][0]["loc"] = ["bhoti"];
+DPR_G.iNI["tumha"] = [];
+DPR_G.iNI["tumha"]["m"] = [];
+DPR_G.iNI["tumha"]["m"][0] = [];
+DPR_G.iNI["tumha"]["m"][0]["loc"] = ["tayi"];
+DPR_G.iNI["tumha"]["m"][1] = [];
+DPR_G.iNI["tumha"]["m"][1]["dat"] = ["(tumhaṃ)"];
+DPR_G.iNI["tumha"]["nt"] = [];
+DPR_G.iNI["tumha"]["nt"][0] = [];
+DPR_G.iNI["tumha"]["nt"][0]["acc"] = ["tvaṃ"];
+DPR_G.iNI["tumha"]["nt"][0]["gen"] = ["te"];
+DPR_G.iNI["tumha"]["nt"][1] = [];
+DPR_G.iNI["tumha"]["nt"][1]["dat"] = ["vo"];
+DPR_G.iNI["tumha"]["f"] = [];
+DPR_G.iNI["tumha"]["f"][0] = [];
+DPR_G.iNI["tumha"]["f"][0]["acc"] = ["taṃ"];
+DPR_G.iNI["tumha"]["f"][0]["loc"] = ["tayi"];
+DPR_G.iNI["tumha"]["f"][1] = [];
+DPR_G.iNI["tumha"]["f"][1]["dat"] = ["(tumhaṃ)"];

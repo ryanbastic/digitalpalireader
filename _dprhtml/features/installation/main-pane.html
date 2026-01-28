@@ -1,0 +1,41 @@
+<div class="modal fade show" id="installation-dialog-root" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header p-2">
+        <h6 class="modal-title" id="exampleModalLongTitle">Install components for offline use</h6>
+        <button type="button" class="btn btn-outline-danger btn-sm mb-0" data-dismiss="modal" title="Close without saving...">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="installation-pane">
+          <div id="installation-pane-tab-panes">
+            <div id="installation-pane-tab-panes-general" class="installation-pane-tab-pane">
+              <div class="alert alert-primary" style="font-size: smaller;">
+                Select a component and press 'OK' to make that component available for offline use. Conversely if you wish to free up storage space, unselect one of the selected components and press 'OK'.
+                <br>
+                <br>
+                <strong>NOTE</strong>
+                <ul class="pl-3 mb-0">
+                  <li>If the download runs into network errors, please retry the same steps. Download will be resumed from where it errored out.</li>
+                </ul>
+              </div>
+              <div class="installation-pane-tab-pane-section d-flex flex-column ml-1">
+                <!--ko foreach: components -->
+                <div class="d-flex w-100 justify-content-start">
+                  <input class="mr-2" type="checkbox" data-bind="checked: install, attr: { id: 'componentInstallState' + $index() }">
+                  <label data-bind="text: getName($data), attr: { for: 'componentInstallState' + $index() }"></label>
+                </div>
+                <!--/ko-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer p-2 d-flex">
+        <button type="button" class="btn btn-secondary btn-sm mb-0" title="Cancel changes" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary btn-sm mb-0" title="Apply changes..." data-bind="click: applyChanges, enable: componentsToInstall().length || componentsToUninstall().length" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

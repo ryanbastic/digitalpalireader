@@ -1,0 +1,211 @@
+<div id="main-bottom-pane-root">
+  <div id="main-bottom-pane-tabs">
+    <div class="main-bottom-pane-tab-separator"></div>
+    <div class="main-bottom-pane-tab" title="Dictionary" data-tabid="D" data-bind="click: updateActiveTab, css: { 'main-bottom-pane-tab-pressed': isDTabSelected }"><span>D</span></div>
+    <div class="main-bottom-pane-tab-separator"></div>
+    <div class="main-bottom-pane-tab" title="Conversion: Convert between alphabets" data-tabid="Cv" data-bind="click: updateActiveTab, css: { 'main-bottom-pane-tab-pressed': isCvTabSelected }"><span>Cv</span></div>
+    <div class="main-bottom-pane-tab-separator"></div>
+    <div class="main-bottom-pane-tab" title="Textpad: A simple text editor" data-tabid="Tp" data-bind="click: updateActiveTab, css: { 'main-bottom-pane-tab-pressed': isTpTabSelected }"><span>Tp</span></div>
+    <div class="main-bottom-pane-tab-separator"></div>
+    <div class="main-bottom-pane-tab" title="Translation: An experimental sentence translator" data-tabid="Tr" data-bind="click: updateActiveTab, css: { 'main-bottom-pane-tab-pressed': isTrTabSelected }"><span>Tr</span></div>
+    <div class="main-bottom-pane-tab-separator"></div>
+    <div class="main-bottom-pane-tab" title="Conjugation: A tool to conjugate or decline individual words" data-tabid="Cj" data-bind="click: updateActiveTab, css: { 'main-bottom-pane-tab-pressed': isCjTabSelected }"><span>Cj</span></div>
+    <div class="main-bottom-pane-tab-separator"></div>
+  </div>
+  <div id="main-bottom-pane-tab-panes">
+    <div id="main-bottom-pane-tab-panes-D" data-bind="visible: isDTabSelected">
+      <div id="main-bottom-pane-tab-panes-D-container">
+        <div id="anf" class="chromeback">
+          <div id="brtop"></div>
+          <div id="brmid"></div>
+          <div id="brbot"></div>
+          <div id="anft">
+            <div style="text-align: center" id="anfa"></div>
+            <div style="text-align: center" id="anfb">
+              <table cellspacing="0" cellpadding="0" width=100%>
+                <tr>
+                  <td style="text-align: left" valign="top" id="anfleft"></td>
+                  <td valign=top style="text-align: center" id="anfcenter"></td>
+                  <td valign="top" style="text-align: right" id="anfright"></td>
+                </tr>
+              </table>
+            </div>
+            <div style="position:relative">
+              <div id="anfs" class="localized" script="ro"></div>
+              <div id="anfsd"></div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <div id="difout" class="difout">
+            <div id="cdif" class="cdif">
+              <div id="dif" class="dif paperback">
+                <div id="difb-bottom" class="difb">
+                </div>
+              </div>
+            </div>
+            <div id="difhist" class="hoverShow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="main-bottom-pane-tab-panes-Cv" data-bind="visible: isCvTabSelected">
+      <div class="cv-container force-show-scrollbar-on-macos">
+        <div id="cinput-container" class="d-flex localized" script="ro">
+          <textarea id="cinput" onkeydown="if(event.keyCode==13) DPR_BottomPane.cvConvert(true); event.keyCode=0;"></textarea>
+        </div>
+        <div id="cinform-div">
+          <label class="small-bold-font" for="cinform">From</label>
+          <select class="custom-select force-show-scrollbar-on-macos" size="3" id="cinform" onclick="DPR_convert_mod.changeConversion(1)">
+            <option name="Unicode">Unicode</option>
+            <option name="Velthuis" selected>Velthuis</option>
+            <option name="Thai">ไทย</option>
+            <option name="Sinhala">සිංහල</option>
+            <option name="Devanagari">देवनागरी</option>
+            <option name="Laos">ລາວ</option>
+            <option name="Myanmar">ဗမာစာ</option>
+            <option name="Khmer">ភាសាខ្មែរ</option>
+            <option name="Bengali">বাংলা</option>
+            <option name="Gurmukhi">ਗੁਰਮੁਖੀ</option>
+            <option name="Gujarati">ગુજરાતી</option>
+            <option name="Telugu">తెలుగు</option>
+            <option name="Kannada">ಕನ್ನಡ</option>
+            <option name="Malayalam">മലയാളം</option>
+            <option name="Tai Tham">Tai Tham LN</option>
+            <option name="Brahmi">Brāhmī</option>
+            <option name="Tibetan">བོད་སྐད།</option>
+            <option name="Cyrillic">кириллица</option>
+          </select>
+        </div>
+        <div id="cactions">
+          <button id="buttonCvConv" class="btn btn-sm btn-light my-1" onclick="DPR_BottomPane.cvConvert(false,document.getElementById('lower').checked)" data-toggle="tooltip" data-placement="right"
+            title="Convert from one format to another">Convert</button>
+          <button class="btn btn-sm btn-light my-1" onclick="document.getElementById('coutput').value=DPR_BottomPane.cvSortaz(document.getElementById('cinput').value.replace(/\n/g,' ').replace(/\r/g,' ').split(' ')).join('\n');"
+            data-toggle="tooltip" data-placement="right" title="Sort input by Pāli word order">Sort</button>
+          <button class="btn btn-sm btn-light my-1" onclick="DPR_convert_mod.clearboth()" data-toggle="tooltip" data-placement="right"
+            title="clear both boxes">Clear</button>
+          <div id="cactions-lowercase">
+            <input class="btn btn-sm btn-light m-0" type="checkbox" id="lower" name="lower" data-toggle="tooltip" data-placement="right"
+              title="convert to lowercase"/>
+            <label for="lower" class="pl-1 mt-2">lowercase</label>
+          </div>
+        </div>
+        <div id="coutform-div">
+          <label class="small-bold-font" for="coutform">To</label>
+          <select class="custom-select force-show-scrollbar-on-macos" size="3" id="coutform" onclick="DPR_convert_mod.changeConversion(2)">
+            <option name="Unicode">Unicode</option>
+            <option name="Velthuis" selected>Velthuis</option>
+            <option name="Thai">ไทย</option>
+            <option name="Sinhala">සිංහල</option>
+            <option name="Devanagari">देवनागरी</option>
+            <option name="Laos">ລາວ</option>
+            <option name="Myanmar">ဗမာစာ</option>
+            <option name="Khmer">ភាសាខ្មែរ</option>
+            <option name="Bengali">বাংলা</option>
+            <option name="Gurmukhi">ਗੁਰਮੁਖੀ</option>
+            <option name="Gujarati">ગુજરાતી</option>
+            <option name="Telugu">తెలుగు</option>
+            <option name="Kannada">ಕನ್ನಡ</option>
+            <option name="Malayalam">മലയാളം</option>
+            <option name="Tai Tham">Tai Tham LN</option>
+            <option name="Brahmi">Brāhmī</option>
+            <option name="Tibetan">བོད་སྐད།</option>
+            <option name="Cyrillic">кириллица</option>
+          </select>
+        </div>
+        <div id="coutput-container" class="d-flex localized" script="ro">
+          <textarea id="coutput"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEXT PAD -->
+    <div id="main-bottom-pane-tab-panes-Tp" class="h-100" data-bind="visible: isTpTabSelected">
+      <!--
+        Autocomplete attribute weirdness is explained here:
+        - https://stackoverflow.com/questions/43217431/how-to-stop-chrome-from-autocompleting-text-areas
+        - https://bugs.chromium.org/p/chromium/issues/detail?id=914451
+      -->
+      <div id="main-bottom-pane-tab-panes-Tp-container" class="d-flex flex-column h-100">
+        <textarea class="h-100 m-1" id="pad" spellcheck="false" autocomplete="nope" style="resize: none;"></textarea>
+        <div class="d-flex justify-content-center m-1">
+          <button class="btn btn-light mb-0" onclick="DPR_convert_mod.clearPad()" title="Erase all text">Clear</button>
+          <span class="mat-button-group-seperator"></span>
+          <button class="btn btn-light mb-0 mr-1" title="convert to Velthuis" onmouseup="document.getElementById('pad').value = DPR_BottomPane.tpToVel(document.getElementById('pad').value)">Velthuis</button>
+          <button class="btn btn-light mb-0" title="convert to Unicode" onmouseup="document.getElementById('pad').value = DPR_BottomPane.tpToUni(document.getElementById('pad').value)">Unicode</button>
+          <span class="mat-button-group-seperator"></span>
+          <button class="btn btn-light mb-0" title="analyze text as Pāli passage" onmouseup="DPR_BottomPane.tpSendTextPad(DPR_Chrome.getPrimarySectionId(), DPR1_send_mod.eventSend(event))">Analyze</button>
+          <span class="mat-button-group-seperator"></span>
+          <button class="btn btn-light mb-0 mr-1"
+            onclick="DPR_PAL.copyToClipboard(document.getElementById('pad').value); DPR1_format_mod.alertFlash('Text copied to clipboard.','green');"
+            title="Copy text to clipboard">Copy</button>
+          <button class="btn btn-light mb-0" onclick="DPR_BottomPane.tpSavePad()" title="save textpad content to file">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="main-bottom-pane-tab-panes-Tr" data-bind="visible: isTrTabSelected">
+      <p class="oneDec">
+        Enter a single Pāli sentence below (Velthuis or Unicode):
+      </p>
+      <textarea id="input" class="bottom-item" rows="2">
+      </textarea>
+      <p id="translation" class="bottom-center"></p>
+      <p id="altTable" class="bottom-center"></p>
+      <div class="bottom-container bottom-center">
+        <button id="translate" class="btn btn-light cv-btn-group" onclick="DPR_BottomPane.trTranslateText()" data-toggle="tooltip" data-placement="right"
+          title="Translate the text">Translate</button>
+        <button class="btn btn-light cv-btn-group" onclick="DPR_BottomPane.trInsertWordByWord()"
+          data-toggle="tooltip" data-placement="right" title="Translate each word">Word-by-word</button>
+        <button id="clear" class="btn btn-light cv-btn-group" onclick="DPR_translate_mod.clearText()" data-toggle="tooltip" data-placement="right"
+          title="Clear text">Clear</button>
+      </div>
+      <div class="bottom-center" style="font-size: small;">
+        Notes: this translation tool is highly experimental.  Most actual Pāli sentences found in the Tipitaka probably won't
+        translate completely, if it all. For an example of a sentence that does work, try clicking on this one:
+      </div>
+      <div class="bottom-center" style="font-size: small;">
+        <a class="green tiny" href="javascript:void(0)" onclick="DPR_BottomPane.trTranslateTextFromBottomPane(this);">
+          dhammikā upāsakā pāpakehi manussehi mā carantu
+        </a>
+      </div>
+    </div>
+
+    <div id="main-bottom-pane-tab-panes-Cj" data-bind="visible: isCjTabSelected">
+      <form onsubmit="DPR_conjugate_mod.insertConj(); return false">
+        <p></p>
+        <input type="hidden" id="QwhichS" value="10" />
+        <p id="QwhichT" class="txt"></p>
+        <p id="QwhichC" class="cite"></p>
+        <p class="oneDec">
+          Enter a word to conjugate, and/or declension form:
+        </p>
+        <div id="main-bottom-pane-tab-panes-Cj-form">
+          <div id="word-div">
+            word:
+          </div>
+          <div id="word-input">
+            <input type="text" id="word" value="" class="dect" />
+          </div>
+          <div id="form-div">
+            form:
+          </div>
+          <div id="form-input">
+            <input type="text" id="form" value="" class="dect" />
+          </div>
+        </div>
+        <div class="center">
+          <p id="conjugation"></p>
+        </div>
+        <div class="center">
+          <button type="button" id="conjugate" class="btn btn-light cv-btn-group" onclick="DPR_BottomPane.cjInsertConj()"
+            title="Translate the text">Conjugate</button>
+          <button type="button" id="clear" class="btn btn-light cv-btn-group" onclick="DPR_conjugate_mod.clearText()"
+            title="Clear text">Clear</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

@@ -385,15 +385,24 @@ export class SearchTabViewModel {
 		input.id = book.id;
 		input.value = book.value;
 		input.dataset.value = book.value;
-		input.checked = book.selected();
+		// Handle both observable and plain boolean values
+		input.checked = typeof book.selected === "function" ? book.selected() : !!book.selected;
 
 		input.addEventListener("change", () => {
-			book.selected(input.checked);
+			// Update the book.selected value if it's an observable
+			if (typeof book.selected === "function") {
+				book.selected(input.checked);
+			} else {
+				book.selected = input.checked;
+			}
 		});
 
-		book.selected.subscribe((val) => {
-			input.checked = val;
-		});
+		// Only subscribe if it's an observable
+		if (typeof book.selected === "function" && book.selected.subscribe) {
+			book.selected.subscribe((val) => {
+				input.checked = val;
+			});
+		}
 
 		const label = document.createElement("label");
 		label.className = "form-check-label";

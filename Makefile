@@ -1,3 +1,6 @@
+run:
+	go run ./cmd/dpr
+
 build:
 	docker build --no-cache -t digitalpalireader .
 

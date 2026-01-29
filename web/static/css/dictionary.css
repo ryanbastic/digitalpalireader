@@ -173,6 +173,52 @@
     line-height: var(--line-height-relaxed);
 }
 
+/* Compound word popup styles */
+.dict-popup-compound {
+    max-height: 400px;
+}
+
+.dict-compound-breakdown {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    background-color: var(--color-bg-alt);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--space-3);
+    font-family: var(--font-pali);
+}
+
+.dict-compound-definitions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.dict-compound-part {
+    padding: var(--space-2);
+    border-left: 3px solid var(--color-accent);
+    background-color: var(--color-bg-alt);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.dict-compound-part-word {
+    font-weight: 600;
+    color: var(--color-accent);
+    font-family: var(--font-pali);
+    margin-bottom: var(--space-1);
+}
+
+.dict-compound-part-def {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text);
+}
+
+.dict-compound-part-def.dict-not-found {
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .dict-popup {
@@ -183,5 +229,9 @@
         max-width: none;
         max-height: 50vh;
         border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+    }
+
+    .dict-popup-compound {
+        max-height: 60vh;
     }
 }

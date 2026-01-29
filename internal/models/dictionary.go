@@ -30,8 +30,17 @@ type DictLookupRequest struct {
 
 // DictLookupResponse represents a dictionary lookup response
 type DictLookupResponse struct {
-	Query   string      `json:"query"`
-	Results []DictEntry `json:"results"`
+	Query      string           `json:"query"`
+	Results    []DictEntry      `json:"results"`
+	IsCompound bool             `json:"isCompound,omitempty"`
+	Breakdown  []CompoundPart   `json:"breakdown,omitempty"`
+}
+
+// CompoundPart represents a component of a compound word
+type CompoundPart struct {
+	Word    string      `json:"word"`    // The component word as it appears
+	Base    string      `json:"base"`    // Dictionary form of the word
+	Results []DictEntry `json:"results"` // Dictionary entries for this component
 }
 
 // DictIndex maps words to entry locations

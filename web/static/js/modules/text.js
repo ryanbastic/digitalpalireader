@@ -90,20 +90,45 @@ function renderText(section) {
  * Make Pali words clickable for dictionary lookup
  */
 function makeWordsClickable(html) {
-    // Find text nodes within <p> tags and wrap words
-    // This is a simplified version - a full implementation would use
-    // proper DOM manipulation
+    // Pali character pattern including diacritics
+    const paliWordPattern = /^[a-zA-ZāīūṭḍṅñṇṃḷĀĪŪṬḌṄÑṆṂḶ]+$/;
 
-    // For now, wrap words in the content
-    return html.replace(/<p class="pali">([^<]+)/g, (match, text) => {
-        const wrapped = text.split(/\s+/).map(word => {
-            // Only wrap actual words (not punctuation, numbers, etc.)
-            if (word.match(/^[a-zA-ZāīūṭḍṅñṇṃḷĀĪŪṬḌṄÑṆṂḶ]+$/)) {
-                return `<span class="pali-word">${word}</span>`;
+    /**
+     * Wrap individual words in a text string with clickable spans
+     */
+    function wrapWordsInText(text) {
+        return text.split(/(\s+)/).map(token => {
+            // Preserve whitespace tokens as-is
+            if (/^\s+$/.test(token)) {
+                return token;
             }
-            return word;
-        }).join(' ');
-        return `<p class="pali">${wrapped}`;
+            // Check if this is a Pali word (may have trailing punctuation)
+            const match = token.match(/^([a-zA-ZāīūṭḍṅñṇṃḷĀĪŪṬḌṄÑṆṂḶ]+)(.*)$/);
+            if (match) {
+                const word = match[1];
+                const suffix = match[2]; // punctuation like , . ; etc.
+                return `<span class="pali-word">${word}</span>${suffix}`;
+            }
+            return token;
+        }).join('');
+    }
+
+    // Process each paragraph with class="pali"
+    return html.replace(/<p class="pali">([\s\S]*?)<\/p>/g, (match, innerContent) => {
+        // Process text content, preserving HTML tags
+        // This regex matches either HTML tags (to preserve) or text content (to process)
+        const processed = innerContent.replace(/(<[^>]+>)|([^<]+)/g, (m, tag, text) => {
+            if (tag) {
+                // Preserve HTML tags as-is
+                return tag;
+            }
+            if (text) {
+                // Process text content - wrap Pali words
+                return wrapWordsInText(text);
+            }
+            return m;
+        });
+        return `<p class="pali">${processed}</p>`;
     });
 }
 

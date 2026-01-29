@@ -31,6 +31,14 @@ func (h *DictionaryHandler) Lookup(w http.ResponseWriter, r *http.Request) {
 		dictType = "PED"
 	}
 
+	// Check search options
+	// fz/fuzzy: fuzzy matching (ignores diacritics and consonant doubling)
+	// sw: starts-with only (don't match words containing the query)
+	// analyze: compound word analysis (default true)
+	fuzzy := r.URL.Query().Get("fz") == "true" || r.URL.Query().Get("fuzzy") == "true"
+	startsWithOnly := r.URL.Query().Get("sw") == "true"
+	analyze := r.URL.Query().Get("analyze") != "false"
+
 	response := models.DictLookupResponse{
 		Query:   query,
 		Results: []models.DictEntry{},
@@ -40,21 +48,49 @@ func (h *DictionaryHandler) Lookup(w http.ResponseWriter, r *http.Request) {
 
 	switch models.DictType(dictType) {
 	case models.DictPED:
-		response.Results, err = h.parser.LookupPED(query)
+		response.Results, err = h.parser.LookupPEDWithOptions(query, fuzzy, startsWithOnly)
+		// If no results and analysis is enabled, try compound analysis / stemming
+		if len(response.Results) == 0 && analyze {
+			compoundResponse, compErr := h.parser.AnalyzeCompound(query)
+			if compErr == nil {
+				// Copy results from stemming or compound analysis
+				if len(compoundResponse.Results) > 0 {
+					response.Results = compoundResponse.Results
+				}
+				if compoundResponse.IsCompound {
+					response.IsCompound = compoundResponse.IsCompound
+					response.Breakdown = compoundResponse.Breakdown
+				}
+			}
+		}
 	case models.DictDPPN:
-		response.Results, err = h.parser.LookupDPPN(query)
+		response.Results, err = h.parser.LookupDPPNWithOptions(query, fuzzy, startsWithOnly)
 	case models.DictMulti:
 		// Search all dictionaries
-		pedResults, pedErr := h.parser.LookupPED(query)
+		pedResults, pedErr := h.parser.LookupPEDWithOptions(query, fuzzy, startsWithOnly)
 		if pedErr == nil {
 			response.Results = append(response.Results, pedResults...)
 		}
-		dppnResults, dppnErr := h.parser.LookupDPPN(query)
+		dppnResults, dppnErr := h.parser.LookupDPPNWithOptions(query, fuzzy, startsWithOnly)
 		if dppnErr == nil {
 			response.Results = append(response.Results, dppnResults...)
 		}
+		// If no results and analysis is enabled, try compound analysis / stemming
+		if len(response.Results) == 0 && analyze {
+			compoundResponse, compErr := h.parser.AnalyzeCompound(query)
+			if compErr == nil {
+				// Copy results from stemming or compound analysis
+				if len(compoundResponse.Results) > 0 {
+					response.Results = compoundResponse.Results
+				}
+				if compoundResponse.IsCompound {
+					response.IsCompound = compoundResponse.IsCompound
+					response.Breakdown = compoundResponse.Breakdown
+				}
+			}
+		}
 	default:
-		response.Results, err = h.parser.LookupPED(query)
+		response.Results, err = h.parser.LookupPEDWithOptions(query, fuzzy, startsWithOnly)
 	}
 
 	if err != nil {

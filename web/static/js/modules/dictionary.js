@@ -142,6 +142,9 @@ export async function lookupWord(word, x, y) {
 
         if (response.results && response.results.length > 0) {
             showPopup(word, response.results[0], x, y);
+        } else if (response.isCompound && response.breakdown && response.breakdown.length > 0) {
+            // Show compound word breakdown
+            showCompoundPopup(word, response.breakdown, x, y);
         } else {
             showPopup(word, null, x, y);
         }
@@ -209,13 +212,84 @@ function showPopup(word, entry, x, y) {
 }
 
 /**
+ * Show compound word breakdown popup
+ */
+function showCompoundPopup(word, breakdown, x, y) {
+    // Remove existing popup
+    const existing = document.querySelector('.dict-popup');
+    if (existing) {
+        existing.remove();
+    }
+
+    const popup = document.createElement('div');
+    popup.className = 'dict-popup dict-popup-compound';
+
+    // Build breakdown display
+    const breakdownParts = breakdown.map(part => {
+        if (part.base !== part.word) {
+            return `${escapeHtml(part.word)} (${escapeHtml(part.base)})`;
+        }
+        return escapeHtml(part.word);
+    }).join(' + ');
+
+    // Build definitions for each part
+    let definitionsHtml = '';
+    for (const part of breakdown) {
+        if (part.results && part.results.length > 0) {
+            const entry = part.results[0];
+            definitionsHtml += `
+                <div class="dict-compound-part">
+                    <div class="dict-compound-part-word">${escapeHtml(entry.word)}</div>
+                    <div class="dict-compound-part-def">${truncateDefinition(entry.definition, 150)}</div>
+                </div>
+            `;
+        } else {
+            definitionsHtml += `
+                <div class="dict-compound-part">
+                    <div class="dict-compound-part-word">${escapeHtml(part.base)}</div>
+                    <div class="dict-compound-part-def dict-not-found">No definition found</div>
+                </div>
+            `;
+        }
+    }
+
+    popup.innerHTML = `
+        <button class="dict-popup-close">&times;</button>
+        <div class="dict-popup-word">${escapeHtml(word)}</div>
+        <div class="dict-compound-breakdown">${breakdownParts}</div>
+        <div class="dict-compound-definitions">${definitionsHtml}</div>
+    `;
+
+    // Position popup (allow more height for compound words)
+    popup.style.left = `${Math.min(x, window.innerWidth - 420)}px`;
+    popup.style.top = `${Math.min(y + 20, window.innerHeight - 450)}px`;
+
+    document.body.appendChild(popup);
+
+    // Close button
+    popup.querySelector('.dict-popup-close').addEventListener('click', () => {
+        popup.remove();
+    });
+
+    // Click outside to close
+    setTimeout(() => {
+        document.addEventListener('click', function closePopup(e) {
+            if (!popup.contains(e.target)) {
+                popup.remove();
+                document.removeEventListener('click', closePopup);
+            }
+        });
+    }, 100);
+}
+
+/**
  * Truncate definition for popup display
  */
-function truncateDefinition(definition) {
+function truncateDefinition(definition, maxLength = 300) {
     // Strip HTML and truncate
     const text = definition.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-    if (text.length > 300) {
-        return text.substring(0, 300) + '...';
+    if (text.length > maxLength) {
+        return text.substring(0, maxLength) + '...';
     }
     return definition;
 }

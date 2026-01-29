@@ -240,7 +240,7 @@ function showCompoundPopup(word, breakdown, x, y) {
             definitionsHtml += `
                 <div class="dict-compound-part">
                     <div class="dict-compound-part-word">${escapeHtml(entry.word)}</div>
-                    <div class="dict-compound-part-def">${truncateDefinition(entry.definition, 150)}</div>
+                    <div class="dict-compound-part-def">${truncateDefinition(entry.definition)}</div>
                 </div>
             `;
         } else {
@@ -283,14 +283,10 @@ function showCompoundPopup(word, breakdown, x, y) {
 }
 
 /**
- * Truncate definition for popup display
+ * Format definition for popup display (no truncation)
  */
 function truncateDefinition(definition, maxLength = 300) {
-    // Strip HTML and truncate
-    const text = definition.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-    if (text.length > maxLength) {
-        return text.substring(0, maxLength) + '...';
-    }
+    // Return full definition - popup has overflow:auto for scrolling
     return definition;
 }
 

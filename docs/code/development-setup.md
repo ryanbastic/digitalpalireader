@@ -167,7 +167,6 @@ Lists project dependencies and scripts:
     "test": "pnpm vitest"
   },
   "dependencies": {
-    "knockout": "^3.5.0",
     "jquery": "^3.4.1",
     // ... more
   },

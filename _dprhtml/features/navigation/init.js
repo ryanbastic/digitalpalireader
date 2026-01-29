@@ -399,6 +399,7 @@ const parseNavigationURLParams = () => {
 	let query = "";
 	let para = "";
 	urlParams.forEach((parameter) => {
+		if (!parameter) return;
 		const [psec0, psec1] = parameter.split("=");
 		switch (psec0) {
 			case "loc":

@@ -10,59 +10,59 @@
       <div class="modal-body">
         <div id="settings-pane">
           <div id="settings-pane-tabs">
-            <button class="settings-pane-tab" data-tabid="General" data-bind="click: updateActiveSettingsTab, css: { 'settings-pane-tab-selected': isGeneralSettingsTabSelected }">General</button>
-            <button class="settings-pane-tab" data-tabid="Layout" data-bind="click: updateActiveSettingsTab, css: { 'settings-pane-tab-selected': isLayoutSettingsTabSelected }">Layout</button>
-            <button class="settings-pane-tab" data-tabid="Text" data-bind="click: updateActiveSettingsTab, css: { 'settings-pane-tab-selected': isTextSettingsTabSelected }">Text</button>
+            <button class="settings-pane-tab" data-tabid="General">General</button>
+            <button class="settings-pane-tab" data-tabid="Layout">Layout</button>
+            <button class="settings-pane-tab" data-tabid="Text">Text</button>
           </div>
           <div id="settings-pane-tab-panes">
-            <div id="settings-pane-tab-panes-general" class="settings-pane-tab-pane" data-bind="visible: isGeneralSettingsTabSelected">
+            <div id="settings-pane-tab-panes-general" class="settings-pane-tab-pane">
               <div class="settings-pane-tab-pane-section settings-pane-tab-pane-section-2col-grid">
                 <div class="settings-pane-tab-pane-section-header">Show in Text</div>
 
-                <input id="showPages" name="showPages" type="checkbox" data-bind="checked: showPages"/>
+                <input id="showPages" name="showPages" type="checkbox"/>
                 <label for="showPages">Page Numbers</label>
 
-                <input id="showPagesFull" name="showPagesFull" type="checkbox" data-bind="checked: showPagesFull"/>
+                <input id="showPagesFull" name="showPagesFull" type="checkbox"/>
                 <label for="showPagesFull">Full Page Numbers</label>
 
-                <input id="showVariants" name="showVariants" type="checkbox" data-bind="checked: showVariants"/>
+                <input id="showVariants" name="showVariants" type="checkbox"/>
                 <label for="showVariants">Variant Readings</label>
 
-                <input id="showVariantsInline" name="showVariantsInline" type="checkbox" data-bind="checked: showVariantsInline"/>
+                <input id="showVariantsInline" name="showVariantsInline" type="checkbox"/>
                 <label for="showVariantsInline">Variants Inline</label>
 
-                <input id="showPermalinks" name="showPermalinks" type="checkbox" data-bind="checked: showPermalinks"/>
+                <input id="showPermalinks" name="showPermalinks" type="checkbox"/>
                 <label for="showPermalinks">Permalinks</label>
 
-                <input id="showNames" name="showNames" type="checkbox" data-bind="checked: showNames"/>
+                <input id="showNames" name="showNames" type="checkbox"/>
                 <label for="showNames">DPPN Links</label>
 
-                <input id="showPedLinks" name="showPedLinks" type="checkbox" data-bind="checked: showPedLinks"/>
+                <input id="showPedLinks" name="showPedLinks" type="checkbox"/>
                 <label for="showPedLinks">Add Word Links to PED Entries</label>
               </div>
               <div class="settings-pane-tab-pane-section settings-pane-tab-pane-section-2col-grid">
                 <div class="settings-pane-tab-pane-section-header">Misc. Preferences</div>
 
-                <input id="nigahita" name="nigahita" type="checkbox" data-bind="checked: nigahita"/>
+                <input id="nigahita" name="nigahita" type="checkbox"/>
                 <label for="nigahita">Use ṁ instead of ṃ</label>
 
-                <input id="ctrans" name="ctrans" type="checkbox" data-bind="checked: ctrans"/>
+                <input id="ctrans" name="ctrans" type="checkbox"/>
                 <label for="ctrans">Show Translations</label>
 
-                <input id="autodict" name="autodict" type="checkbox" data-bind="checked: autodict"/>
+                <input id="autodict" name="autodict" type="checkbox"/>
                 <label for="autodict">Enable Dictionary search-as-you-type</label>
 
-                <input id="copyWord" name="copyWord" type="checkbox" data-bind="checked: copyWord"/>
+                <input id="copyWord" name="copyWord" type="checkbox"/>
                 <label for="copyWord">Copy words to clipboard on click</label>
 
                 <div style="grid-column: 1 / 3; grid-row: span 2;">
                   <div>Show context menu item:</div>
                   <div style="display: flex;">
-                    <input class="mr-1" type="radio" id="allContext" name="selectMode" data-bind="enable: false, checkedValue: true, checked: allContext" />
+                    <input class="mr-1" type="radio" id="allContext" name="selectMode" disabled />
                     <label class="mr-3" for="allContext">always</label><br>
-                    <input class="mr-1" type="radio" id="contextSelected" name="selectMode" data-bind="enable: false, checkedValue: true, checked: contextSelected" />
+                    <input class="mr-1" type="radio" id="contextSelected" name="selectMode" disabled />
                     <label class="mr-3 text-nowrap" for="contextSelected">when text selected</label><br>
-                    <input class="mr-1" type="radio" id="noContext" name="selectMode" data-bind="enable: false, checkedValue: true, checked: noContext" />
+                    <input class="mr-1" type="radio" id="noContext" name="selectMode" disabled />
                     <label class="mr-3" for="noContext">never</label>
                   </div>
                 </div>
@@ -70,97 +70,97 @@
                 <div style="grid-column: 1 / 3; grid-row: span 2;">
                   <div style="display: flex;">
                     <label for="altlimit" class="text-nowrap" >Maximum Definitions Per Compound:</label>
-                    <input class="ml-1" id="altlimit" name="altlimit" type="text" size="3" maxlength="16" data-bind="value: altlimit"/>
+                    <input class="ml-1" id="altlimit" name="altlimit" type="text" size="3" maxlength="16"/>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div id="settings-pane-tab-panes-layout" class="settings-pane-tab-pane" data-bind="visible: isLayoutSettingsTabSelected">
+            <div id="settings-pane-tab-panes-layout" class="settings-pane-tab-pane">
               <div class="settings-pane-tab-pane-section settings-pane-tab-pane-section-4col-grid">
                 <div class="settings-pane-tab-pane-section-header">Page Background</div>
 
-                <input id="pcolbk" name="pcolbk" type="checkbox" data-bind="checked: pcolbk" />
+                <input id="pcolbk" name="pcolbk" type="checkbox" />
                 <label class="ml-1" for="pcolbk">Color</label>
-                <input class="ml-1" id="colbk" name="colbk" type="text" maxlength="16" style="justify-self: stretch;" data-bind="enable: pcolbk, value: colbk" />
-                <input class="ml-1" id="colbkc" type="color" data-bind="enable: pcolbk, value: colbk" />
+                <input class="ml-1" id="colbk" name="colbk" type="text" maxlength="16" style="justify-self: stretch;" />
+                <input class="ml-1" id="colbkc" type="color" />
 
-                <input id="pimgbk" name="pimgbk" type="checkbox" data-bind="checked: pimgbk" />
+                <input id="pimgbk" name="pimgbk" type="checkbox" />
                 <label class="ml-1" for="pimgbk">Image</label>
-                <input class="ml-1 mr-0" id="imgbk" name="imgbk" type="text" style="grid-column: 3 / span 2; justify-self: stretch;" data-bind="enable: pimgbk, value: imgbk" />
+                <input class="ml-1 mr-0" id="imgbk" name="imgbk" type="text" style="grid-column: 3 / span 2; justify-self: stretch;" />
               </div>
 
               <div class="settings-pane-tab-pane-section settings-pane-tab-pane-section-3col-grid">
                 <div class="settings-pane-tab-pane-section-header">Other colors</div>
 
                 <label for="colInput">Input Boxes</label>
-                <input class="ml-1" id="colInput" name="colInput" type="text" maxlength="16" style="justify-self: stretch;" data-bind="value: colInput" />
-                <input class="ml-1" id="colInputc" type="color" data-bind="value: colInput" />
+                <input class="ml-1" id="colInput" name="colInput" type="text" maxlength="16" style="justify-self: stretch;" />
+                <input class="ml-1" id="colInputc" type="color" />
 
                 <label for="colButton">Buttons (normal)</label>
-                <input class="ml-1" id="colButton" name="colButton" type="text" maxlength="16" style="justify-self: stretch;" data-bind="value: colButton" >
-                <input class="ml-1" id="colButtonc" type="color" data-bind="value: colButton" />
+                <input class="ml-1" id="colButton" name="colButton" type="text" maxlength="16" style="justify-self: stretch;" >
+                <input class="ml-1" id="colButtonc" type="color" />
 
                 <label for="colButtonSel">Buttons (on hover)</label>
-                <input class="ml-1" id="colButtonSel" name="colButtonSel" type="text" maxlength="16" style="justify-self: stretch;" data-bind="value: colButtonSel" />
-                <input class="ml-1" id="colButtonSelc" type="color" data-bind="value: colButtonSel" />
+                <input class="ml-1" id="colButtonSel" name="colButtonSel" type="text" maxlength="16" style="justify-self: stretch;" />
+                <input class="ml-1" id="colButtonSelc" type="color" />
               </div>
 
               <div class="settings-pane-tab-pane-section settings-pane-tab-pane-section-4col-grid">
                 <div class="settings-pane-tab-pane-section-header">Sidebar Background</div>
 
-                <input id="pcolbkcp" name="pcolbkcp" type="checkbox" data-bind="checked: pcolbkcp" />
+                <input id="pcolbkcp" name="pcolbkcp" type="checkbox" />
                 <label class="ml-1" for="pcolbkcp">Color</label>
-                <input class="ml-1" id="colbkcp" name="colbkcp" type="text" maxlength="16" style="justify-self: stretch;" data-bind="enable: pcolbkcp, value: colbkcp" />
-                <input class="ml-1" id="colbkcpc" type="color" data-bind="enable: pcolbkcp, value: colbkcp" />
+                <input class="ml-1" id="colbkcp" name="colbkcp" type="text" maxlength="16" style="justify-self: stretch;" />
+                <input class="ml-1" id="colbkcpc" type="color" />
 
-                <input id="pimgbkcp" name="pimgbkcp" type="checkbox" data-bind="checked: pimgbkcp" />
+                <input id="pimgbkcp" name="pimgbkcp" type="checkbox" />
                 <label class="ml-1" for="pimgbkcp">Image</label>
-                <input class="ml-1 mr-0" id="imgbkcp" name="imgbkcp" type="text" size="20" style="grid-column: 3 / span 2; justify-self: stretch;" data-bind="enable: pimgbkcp, value: imgbkcp" />
+                <input class="ml-1 mr-0" id="imgbkcp" name="imgbkcp" type="text" size="20" style="grid-column: 3 / span 2; justify-self: stretch;" />
               </div>
 
               <div class="settings-pane-tab-pane-section settings-pane-tab-pane-section-2col-grid">
                 <div class="settings-pane-tab-pane-section-header">Misc.</div>
 
                 <label for="setRows" style="justify-self: stretch; white-space: nowrap;" >Sidebar Set Rows</label>
-                <input class="ml-1 mr-0" id="setRows" name="setRows" type="text" size="20" style="justify-self: stretch;" data-bind="value: setRows" />
+                <input class="ml-1 mr-0" id="setRows" name="setRows" type="text" size="20" style="justify-self: stretch;" />
               </div>
             </div>
-            <div id="settings-pane-tab-panes-text" class="settings-pane-tab-pane" data-bind="visible: isTextSettingsTabSelected">
+            <div id="settings-pane-tab-panes-text" class="settings-pane-tab-pane">
               <div class="settings-pane-tab-pane-section settings-pane-tab-pane-section-3col-grid">
                 <div class="settings-pane-tab-pane-section-header">Text colors</div>
 
                 <label for="coltext">Normal</label>
-                <input class="ml-1" id="coltext" name="coltext" type="text" maxlength="16" style="justify-self: stretch;" data-bind="value: coltext" />
-                <input class="ml-1" id="coltextc" type="color" data-bind="value: coltext" />
+                <input class="ml-1" id="coltext" name="coltext" type="text" maxlength="16" style="justify-self: stretch;" />
+                <input class="ml-1" id="coltextc" type="color" />
 
                 <label for="colsel">Selected</label>
-                <input class="ml-1" id="colsel" name="colsel" type="text" maxlength="16" style="justify-self: stretch;" data-bind="value: colsel" />
-                <input class="ml-1" id="colselc" type="color" data-bind="value: colsel" />
+                <input class="ml-1" id="colsel" name="colsel" type="text" maxlength="16" style="justify-self: stretch;" />
+                <input class="ml-1" id="colselc" type="color" />
 
                 <label for="coldppn">DPPN</label>
-                <input class="ml-1" id="coldppn" name="coldppn" type="text" maxlength="16" style="justify-self: stretch;" data-bind="value: coldppn" />
-                <input class="ml-1" id="coldppnc" type="color" data-bind="value: coldppn" />
+                <input class="ml-1" id="coldppn" name="coldppn" type="text" maxlength="16" style="justify-self: stretch;" />
+                <input class="ml-1" id="coldppnc" type="color" />
 
                 <label for="colped">PED</label>
-                <input class="ml-1" id="colped" name="colped" type="text" maxlength="16" style="justify-self: stretch;" data-bind="value: colped" />
-                <input class="ml-1" id="colpedc" type="color" data-bind="value: colped" />
+                <input class="ml-1" id="colped" name="colped" type="text" maxlength="16" style="justify-self: stretch;" />
+                <input class="ml-1" id="colpedc" type="color" />
 
                 <label for="colcpd">CPED</label>
-                <input class="ml-1" id="colcpd" name="colcpd" type="text" maxlength="16" style="justify-self: stretch;" data-bind="value: colcpd" />
-                <input class="ml-1" id="colcpdc" type="color" data-bind="value: colcpd" />
+                <input class="ml-1" id="colcpd" name="colcpd" type="text" maxlength="16" style="justify-self: stretch;" />
+                <input class="ml-1" id="colcpdc" type="color" />
               </div>
               <div class="settings-pane-tab-pane-section settings-pane-tab-pane-section-2col-grid">
                 <div class="settings-pane-tab-pane-section-header">Text formatting</div>
 
                 <label for="colfont" style="white-space: nowrap;">Font Family</label>
-                <input class="ml-1" id="colfont" name="colfont" type="text" maxlength="16" style="justify-self: stretch;" data-bind="value: colfont"/>
+                <input class="ml-1" id="colfont" name="colfont" type="text" maxlength="16" style="justify-self: stretch;"/>
 
                 <label for="colsize" style="white-space: nowrap;">Text Size</label>
-                <input class="ml-1" id="colsize" name="colsize" type="text" maxlength="16" style="justify-self: stretch;" data-bind="value: colsize"/>
+                <input class="ml-1" id="colsize" name="colsize" type="text" maxlength="16" style="justify-self: stretch;"/>
 
                 <label for="translits" style="white-space: nowrap;">Text Script</label>
-                <select class="ml-1" id="translits" style="justify-self: stretch;" data-bind="value: translits">
+                <select class="ml-1" id="translits" style="justify-self: stretch;">
                   <option value="0">Roman</option>
                   <option value="1">ไทย</option>
                   <option value="2">සිංහල</option>
@@ -185,10 +185,10 @@
         </div>
       </div>
       <div class="modal-footer p-2 d-flex">
-        <button type="button" class="btn btn-danger btn-sm mb-0 mr-auto" title="Hard reset all settings..." data-bind="click: hardReset">Hard reset</button>
-        <button type="button" class="btn btn-secondary btn-sm mb-0" title="Restore defaults..." data-bind="click: defaultPreferences">Defaults</button>
-        <button type="button" class="btn btn-secondary btn-sm mb-0" title="Cancel changes..." data-bind="click: cancelPreferences" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary btn-sm mb-0" title="Apply changes and close..." data-bind="click: savePreferences" data-dismiss="modal">OK</button>
+        <button type="button" class="btn btn-danger btn-sm mb-0 mr-auto" title="Hard reset all settings...">Hard reset</button>
+        <button type="button" class="btn btn-secondary btn-sm mb-0" title="Restore defaults...">Defaults</button>
+        <button type="button" class="btn btn-secondary btn-sm mb-0" title="Cancel changes..." data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary btn-sm mb-0" title="Apply changes and close..." data-dismiss="modal">OK</button>
       </div>
     </div>
   </div>

@@ -1,11 +1,18 @@
 import * as DprGlobals from "../../dpr_globals.js";
 import * as Navigation from "../navigation/init.js";
+import { createObservable } from "../../js/observables.js";
+import {
+	bindValue,
+	bindChecked,
+	bindClick,
+	bindSubmit,
+} from "../../js/bindings.js";
 
 export class OtherDialogsViewModel {
 	constructor() {
-		this.quicklinkInput = ko.observable();
-		this.quicklinkInNewTab = ko.observable(false);
-		this.bookmarkName = ko.observable();
+		this.quicklinkInput = createObservable("");
+		this.quicklinkInNewTab = createObservable(false);
+		this.bookmarkName = createObservable("");
 		this.sectionId = window.DPR_Chrome.getPrimarySectionId();
 		OtherDialogsViewModel.subscribeToEvents(this);
 	}
@@ -19,7 +26,7 @@ export class OtherDialogsViewModel {
 		$("#quicklink-dialog-root").modal("show");
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	async sendQuickLinkFromDialog() {
 		const place = this.quicklinkInput();
 		const outplace = window.DPR_navigation_common_mod.convertShortLink(place);
@@ -41,7 +48,7 @@ export class OtherDialogsViewModel {
 		}
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	gotoHome() {
 		window.DPR1_chrome_mod.openDPRTab(
 			window.DPR_PAL.dprHomePage,
@@ -50,7 +57,7 @@ export class OtherDialogsViewModel {
 		);
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	gotoPrevDictEntry() {
 		// TODO: Following was the code. But I cannot find bout or dBot
 		const dBot = undefined;
@@ -61,7 +68,7 @@ export class OtherDialogsViewModel {
 		}
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	gotoNextDictEntry() {
 		// TODO: Following was the code. But I cannot find bout or dBot
 		const dBot = undefined;
@@ -72,17 +79,17 @@ export class OtherDialogsViewModel {
 		}
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	toggleDPRSidebar() {
 		window.DPR_Chrome.toggleDPRSidebar();
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	showBottomPane(key) {
 		window.DPR1_chrome_mod.DPRShowBottomPane(window.BottomPaneTabIds[key - 1]);
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	sendToConvert() {
 		if (window.getSelection().toString() !== "") {
 			window.DPR_convert_mod.sendtoconvert(window.getSelection().toString());
@@ -100,7 +107,7 @@ export class OtherDialogsViewModel {
 		}
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	sendToTextpad() {
 		if (window.getSelection().toString() !== "") {
 			window.DPR_convert_mod.sendtoPad(window.getSelection().toString());
@@ -118,7 +125,7 @@ export class OtherDialogsViewModel {
 		}
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	appendToTextpad() {
 		if (window.getSelection().toString() !== "") {
 			window.DPR_convert_mod.sendtoPad(window.getSelection().toString(), true);
@@ -137,18 +144,18 @@ export class OtherDialogsViewModel {
 		}
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	displayPaliQuote() {
 		window.DPR_bv_mod.showBv();
 		$("#paliquote-dialog-root").modal("show");
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	showBookmarksDialog() {
 		$("#bookmark-dialog-root").modal("show");
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	sendBookmarkFromDialog() {
 		const loc = Navigation.ViewModel.placeArray();
 		const name = this.bookmarkName();
@@ -190,23 +197,23 @@ export class OtherDialogsViewModel {
 		window.DPR1_format_mod.alertFlash("Bookmark Saved", "green");
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	resetSettings() {
 		window.DPR_prefload_mod.resetAllDprSettings();
 		window.location.reload();
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	openNewQuizz() {
 		// TODO: when quiz is implemented
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	openHelp() {
 		$("#helpDialog").modal("show");
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	openHelpVideo() {
 		window.DPR1_chrome_mod.openDPRTab(
 			"https://www.youtube.com/watch?v=qP2i7xY2sRI",
@@ -215,12 +222,45 @@ export class OtherDialogsViewModel {
 		);
 	}
 
-	// NOTE: Needs to be a instance member as it is called from ko
+	// NOTE: Needs to be a instance member as it is called from binding
 	launchFeedbackForm() {
 		window.DPR1_chrome_mod.openDPRTab(
 			$(".feedback-form-link").attr("href"),
 			"DPR-feedback",
 			0,
+		);
+	}
+
+	bindQuicklinksDOM(rootElement) {
+		if (!rootElement) return;
+
+		const form = rootElement.querySelector("form");
+		bindSubmit(form, this.sendQuickLinkFromDialog, this);
+
+		bindValue(
+			rootElement.querySelector("#dialog-quicklinkInput"),
+			this.quicklinkInput,
+		);
+		bindChecked(
+			rootElement.querySelector("#quicklink-new-tab"),
+			this.quicklinkInNewTab,
+		);
+		bindClick(
+			rootElement.querySelector('[data-bind*="sendQuickLinkFromDialog"]'),
+			this.sendQuickLinkFromDialog,
+			this,
+		);
+	}
+
+	bindBookmarksDOM(rootElement) {
+		if (!rootElement) return;
+
+		const form = rootElement.querySelector("form");
+		bindSubmit(form, this.sendBookmarkFromDialog, this);
+
+		bindValue(
+			rootElement.querySelector("#dialog-bookmarkInput"),
+			this.bookmarkName,
 		);
 	}
 

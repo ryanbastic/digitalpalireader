@@ -2,76 +2,7 @@ import * as DprGlobals from "../dpr_globals.js";
 import * as Dictionary from "../features/dictionary/init.js";
 import * as Navigation from "../features/navigation/init.js";
 import * as Search from "../features/search/init.js";
-
-// Simple reactive state management (replaces knockout observables)
-function createObservable(initialValue) {
-	let value = initialValue;
-	const subscribers = new Set();
-
-	const observable = {
-		get() {
-			return value;
-		},
-		set(newValue) {
-			if (value !== newValue) {
-				value = newValue;
-				subscribers.forEach((fn) => fn(newValue));
-			}
-		},
-		subscribe(fn) {
-			subscribers.add(fn);
-			return () => subscribers.delete(fn);
-		},
-	};
-
-	// Make it callable like knockout for compatibility
-	const fn = function (newValue) {
-		if (arguments.length === 0) {
-			return observable.get();
-		}
-		observable.set(newValue);
-	};
-	fn.get = observable.get;
-	fn.set = observable.set;
-	fn.subscribe = observable.subscribe;
-
-	return fn;
-}
-
-function createComputed(computeFn, dependencies) {
-	const subscribers = new Set();
-	let cachedValue = computeFn();
-
-	const recompute = () => {
-		const newValue = computeFn();
-		if (cachedValue !== newValue) {
-			cachedValue = newValue;
-			subscribers.forEach((fn) => fn(newValue));
-		}
-	};
-
-	// Subscribe to all dependencies
-	dependencies.forEach((dep) => dep.subscribe(recompute));
-
-	const computed = {
-		get() {
-			return cachedValue;
-		},
-		subscribe(fn) {
-			subscribers.add(fn);
-			return () => subscribers.delete(fn);
-		},
-	};
-
-	// Make it callable like knockout for compatibility
-	const fn = function () {
-		return computed.get();
-	};
-	fn.get = computed.get;
-	fn.subscribe = computed.subscribe;
-
-	return fn;
-}
+import { createObservable, createComputed } from "./observables.js";
 
 export class DprViewModel {
 	constructor() {

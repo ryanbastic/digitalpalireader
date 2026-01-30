@@ -1,12 +1,14 @@
 import * as DprGlobals from "../../dpr_globals.js";
+import { createObservable } from "../../js/observables.js";
+import { bindClick, bindCss, bindVisible } from "../../js/bindings.js";
 
 export class BottomPaneTabsViewModel {
 	constructor() {
-		this.isDTabSelected = ko.observable(true);
-		this.isCvTabSelected = ko.observable(false);
-		this.isTpTabSelected = ko.observable(false);
-		this.isTrTabSelected = ko.observable(false);
-		this.isCjTabSelected = ko.observable(false);
+		this.isDTabSelected = createObservable(true);
+		this.isCvTabSelected = createObservable(false);
+		this.isTpTabSelected = createObservable(false);
+		this.isTrTabSelected = createObservable(false);
+		this.isCjTabSelected = createObservable(false);
 	}
 
 	updateActiveTabId(tabId) {
@@ -19,6 +21,45 @@ export class BottomPaneTabsViewModel {
 
 	updateActiveTab(_, event) {
 		this.updateActiveTabId($(event.currentTarget).data("tabid"));
+	}
+
+	bindDOM(rootElement) {
+		if (!rootElement) return;
+
+		// Bind tab buttons
+		const tabs = rootElement.querySelectorAll(".main-bottom-pane-tab");
+		tabs.forEach((tab) => {
+			const tabId = tab.dataset.tabid;
+			if (tabId) {
+				const selectedObservable = this[`is${tabId}TabSelected`];
+				if (selectedObservable) {
+					bindClick(tab, this.updateActiveTab, this);
+					bindCss(tab, { "main-bottom-pane-tab-pressed": selectedObservable });
+				}
+			}
+		});
+
+		// Bind tab pane visibility
+		bindVisible(
+			rootElement.querySelector("#main-bottom-pane-tab-panes-D"),
+			this.isDTabSelected,
+		);
+		bindVisible(
+			rootElement.querySelector("#main-bottom-pane-tab-panes-Cv"),
+			this.isCvTabSelected,
+		);
+		bindVisible(
+			rootElement.querySelector("#main-bottom-pane-tab-panes-Tp"),
+			this.isTpTabSelected,
+		);
+		bindVisible(
+			rootElement.querySelector("#main-bottom-pane-tab-panes-Tr"),
+			this.isTrTabSelected,
+		);
+		bindVisible(
+			rootElement.querySelector("#main-bottom-pane-tab-panes-Cj"),
+			this.isCjTabSelected,
+		);
 	}
 }
 

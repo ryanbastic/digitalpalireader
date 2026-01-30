@@ -81,7 +81,14 @@ const initFeedbackFormParameters = () => {
 const loadHtmlFragmentAsync = (id, html, vm = null) => {
 	$(id).html(html);
 	if (vm) {
-		ko.applyBindings(vm, $(`${id}-root`)[0]);
+		const rootElement = $(`${id}-root`)[0];
+		if (vm.bindDOM) {
+			vm.bindDOM(rootElement);
+		} else if (vm.bindQuicklinksDOM && id === "#quicklink-dialog") {
+			vm.bindQuicklinksDOM(rootElement);
+		} else if (vm.bindBookmarksDOM && id === "#bookmark-dialog") {
+			vm.bindBookmarksDOM(rootElement);
+		}
 	}
 };
 

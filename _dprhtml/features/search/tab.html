@@ -21,7 +21,7 @@
           </div>
         </div>
         <input type="text" id="isearch" class="form-control" placeholder="Search term"
-          data-bind="textInput: searchString" onkeydown="DPRSend.sendSearchOnEnterKey(event)" />
+          onkeydown="DPRSend.sendSearchOnEnterKey(event)" />
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" type="button" id="searchButton"
             title="Search for word or phrase in selected volumes" onmouseup="DPRSend.sendSearch(DPRSend.eventSend(event));">
@@ -33,7 +33,7 @@
     <div class="col-md-2">
       <div class="form-check mb-2">
         <input class="form-check-input" type="checkbox" id="tsoRx"
-          title="Use Regular Expressions for wildcards in search" data-bind="checked: searchRegex" />
+          title="Use Regular Expressions for wildcards in search" />
         <label class="form-check-label" for="tsoRx">
           Rx
         </label>
@@ -44,7 +44,7 @@
     <div class="form-group col-md-12 mb-2">
       <label class="sr-only" for="tipType">tipType</label>
       <select id="tipType" class="form-control" title="Choose a search type - hover over the name for description"
-        onchange="DPROpts.tipitakaOptions()" data-bind="value: searchType">
+        onchange="DPROpts.tipitakaOptions()">
         <option title="Search multiple sets" label="Multiple Sets" selected value="0">Multiple Sets</option>
         <option title="Search multiple books in a single set" label="Books in Set" value="1">Books in Set</option>
         <option title="Search a single book" label="Single Book" value="2">Single Book</option>
@@ -56,8 +56,7 @@
   <div class="form-row">
     <div id="tsoSET" class="form-group col mb-1">
       <label class="sr-only" for="tsoSETm">tsoSETm</label>
-      <select id="tsoSETm" class="form-control" title="Choose which set to search" onchange="DPRNav.setSearchBookList()"
-        data-bind="value: searchSetString">
+      <select id="tsoSETm" class="form-control" title="Choose which set to search" onchange="DPRNav.setSearchBookList()">
         <option value="v" label="Vinaya" selected>Vinaya</option>
         <option value="d" label="Dīgha">Dīgha</option>
         <option value="m" label="Majjhima">Majjhima</option>
@@ -74,8 +73,7 @@
     <div id="tsoMAT2" class="form-group col mb-1">
       <label class="sr-only" for="tsoMAT2m">tsoMAT2</label>
       <select id="tsoMAT2m" class="form-control" title="Choose which heirarchy to search"
-        onchange="DPRXML.updateSearchHierarchyAfterSetSearchBookList(0)"
-        data-bind="selectedOptions: searchHierarchy">
+        onchange="DPRXML.updateSearchHierarchyAfterSetSearchBookList(0)">
         <option value="m" label="Mūla" selected>Mūla</option>
         <option value="a" label="Aṭṭhakathā">Aṭṭhakathā</option>
         <option value="t" label="Ṭīka">Ṭīka</option>
@@ -89,8 +87,7 @@
         <div class="form-group col-md-12 m-0">
           <label class="sr-only" for="tsoBOOKm">tsoBOOKm</label>
           <select id="tsoBOOKm" class="form-control" title="Choose which book to search"
-            onchange="DPRXML.updateSearchHierarchy(0)"
-            data-bind="options: bookMenu, optionsText: 'label', optionsValue: 'value', value: searchBookDropdown(), valueAllowUnset: true">
+            onchange="DPRXML.updateSearchHierarchy(0)">
           </select>
         </div>
       </div>
@@ -100,44 +97,34 @@
   <div class="card chromeback" id="tsoPart">
     <div class="card-body p-2">
       <div class="form-row">
-        <div id="tsoPR" class="form-group col-md-12 m-0" data-bind="value: partialValue, valueAllowUnset: true">
+        <div id="tsoPR" class="form-group col-md-12 m-0">
           <div id="tsoP1" class="form-check">
-            <input id="tsoH1" class="form-check-input my-3" type="radio" name="tsoPR" title="Search this part" value="1"
-              data-bind="checked: partialValue" />
+            <input id="tsoH1" class="form-check-input my-3" type="radio" name="tsoPR" title="Search this part" value="1" />
             <select id="tsoPmeta" class="form-control mb-1" title="Choose which book to search"
-              onchange="DPRXML.updateSearchHierarchy(1)"
-              data-bind="options: metaList, optionsText: 'label', optionsValue: 'value', value: metaListValue, valueAllowUnset: true, attr:{'label': 'tsoPmeta'}, enable: partialValue() >= 1">
+              onchange="DPRXML.updateSearchHierarchy(1)">
             </select>
           </div>
           <div id="tsoP2" class="form-check">
-            <input id="tsoH2" class="form-check-input my-3" type="radio" name="tsoPR" title="Search this part" value="2"
-              data-bind="checked: partialValue" />
+            <input id="tsoH2" class="form-check-input my-3" type="radio" name="tsoPR" title="Search this part" value="2" />
             <select id="tsoPvolume" class="form-control mb-1" title="Choose which book to search"
-              onchange="DPRXML.updateSearchHierarchy(2)"
-              data-bind="options: volumeList, optionsText: 'label', optionsValue: 'value', value: volumeListValue, valueAllowUnset: true, attr:{'label': 'tsoPvolume'}, enable: partialValue() >= 2">
+              onchange="DPRXML.updateSearchHierarchy(2)">
             </select>
           </div>
           <div id="tsoP3" class="form-check">
-            <input id="tsoH3" class="form-check-input my-3" type="radio" name="tsoPR" title="Search this part" value="3"
-              data-bind="checked: partialValue" />
+            <input id="tsoH3" class="form-check-input my-3" type="radio" name="tsoPR" title="Search this part" value="3" />
             <select id="tsoPvagga" class="form-control mb-1" title="Choose which book to search"
-              onchange="DPRXML.updateSearchHierarchy(3)"
-              data-bind="options: vaggaList, optionsText: 'label', optionsValue: 'value', value: vaggaListValue, valueAllowUnset: true, attr:{'label': 'tsoPvagga'}, enable: partialValue() >= 3">
+              onchange="DPRXML.updateSearchHierarchy(3)">
             </select>
           </div>
           <div id="tsoP4" class="form-check">
-            <input id="tsoH4" class="form-check-input my-3" type="radio" name="tsoPR" title="Search this part" value="4"
-              data-bind="checked: partialValue" />
+            <input id="tsoH4" class="form-check-input my-3" type="radio" name="tsoPR" title="Search this part" value="4" />
             <select id="tsoPsutta" class="form-control mb-1" title="Choose which book to search"
-              onchange="DPRXML.updateSearchHierarchy(4)"
-              data-bind="options: suttaList, optionsText: 'label', optionsValue: 'value', value: suttaListValue, valueAllowUnset: true, attr:{'label': 'tsoPsutta'}, enable: partialValue() >= 4">
+              onchange="DPRXML.updateSearchHierarchy(4)">
             </select>
           </div>
           <div id="tsoP5" class="form-check">
-            <input id="tsoH5" class="form-check-input my-3" type="radio" name="tsoPR" title="Search this part" value="5"
-              data-bind="checked: partialValue" />
-            <select id="tsoPsection" class="form-control mb-1" title="Choose which book to search"
-              data-bind="options: sectionList, optionsText: 'label', optionsValue: 'value', value: sectionListValue, valueAllowUnset: true, attr:{'label': 'tsoPsection'}, enable: partialValue() >= 5">
+            <input id="tsoH5" class="form-check-input my-3" type="radio" name="tsoPR" title="Search this part" value="5" />
+            <select id="tsoPsection" class="form-control mb-1" title="Choose which book to search">
             </select>
           </div>
         </div>
@@ -156,7 +143,7 @@
         <div class="col-md-10 px-0">
           <div id="tsoCO1">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="tsoCOv" data-bind="checked: searchSetV" />
+              <input class="form-check-input" type="checkbox" id="tsoCOv" />
               <label class="form-check-label" for="tsoCOv">
                 Vinaya
               </label>
@@ -164,31 +151,31 @@
           </div>
           <div id="tsoCO2">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="tsoCOd" data-bind="checked: searchSetD" />
+              <input class="form-check-input" type="checkbox" id="tsoCOd" />
               <label class="form-check-label" for="tsoCOd">
                 Dīgha
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="tsoCOm" data-bind="checked: searchSetM" />
+              <input class="form-check-input" type="checkbox" id="tsoCOm" />
               <label class="form-check-label" for="tsoCOm">
                 Majjhima
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="tsoCOs" data-bind="checked: searchSetS" />
+              <input class="form-check-input" type="checkbox" id="tsoCOs" />
               <label class="form-check-label" for="tsoCOs">
                 Saṃyutta
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="tsoCOa" data-bind="checked: searchSetA" />
+              <input class="form-check-input" type="checkbox" id="tsoCOa" />
               <label class="form-check-label" for="tsoCOa">
                 Aṅguttara
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="tsoCOk" data-bind="checked: searchSetK" />
+              <input class="form-check-input" type="checkbox" id="tsoCOk" />
               <label class="form-check-label" for="tsoCOk">
                 Khuddaka
               </label>
@@ -196,31 +183,31 @@
           </div>
           <div id="tsoCO3">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="tsoCOy" data-bind="checked: searchSetY" />
+              <input class="form-check-input" type="checkbox" id="tsoCOy" />
               <label class="form-check-label" for="tsoCOy">
                 Abhidhamma
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="tsoCOx" data-bind="checked: searchSetX" />
+              <input class="form-check-input" type="checkbox" id="tsoCOx" />
               <label class="form-check-label" for="tsoCOx">
                 Vism
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="tsoCOb" data-bind="checked: searchSetB" />
+              <input class="form-check-input" type="checkbox" id="tsoCOb" />
               <label class="form-check-label" for="tsoCOb">
                 Abhidh-s
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="tsoCOg" data-bind="checked: searchSetG" />
+              <input class="form-check-input" type="checkbox" id="tsoCOg" />
               <label class="form-check-label" for="tsoCOg">
                 Byākaraṇa
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="tsoCOn" data-bind="checked: searchSetN" />
+              <input class="form-check-input" type="checkbox" id="tsoCOn" />
               <label class="form-check-label" for="tsoCOn">
                 Añña
               </label>
@@ -242,21 +229,11 @@
         </div>
         <div class="col-md-10 px-0">
           <div class="row">
-            <div id="tsoBOA" class="col-md-6" data-bind="foreach: bookListA">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox"
-                  data-bind="value: value, attr:{'id': id, 'data-value': value}, checked: selected" />
-                <label class="form-check-label" for="tsoCOv" data-bind="text: label">
-                </label>
-              </div>
+            <div id="tsoBOA" class="col-md-6">
+              <!-- Book list A will be rendered via JavaScript -->
             </div>
-            <div id="tsoBOB" class="col-md-6" data-bind="foreach: bookListB">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox"
-                  data-bind="value: value, attr:{'id': id, 'data-value': value}, checked: selected" />
-                <label class="form-check-label" for="tsoCOv" data-bind="text: label">
-                </label>
-              </div>
+            <div id="tsoBOB" class="col-md-6">
+              <!-- Book list B will be rendered via JavaScript -->
             </div>
           </div>
         </div>
@@ -275,19 +252,19 @@
         </div>
         <div class="col-md-10 px-0">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="tsoMATm" data-bind="checked: searchM" />
+            <input class="form-check-input" type="checkbox" id="tsoMATm" />
             <label class="form-check-label" for="tsoMATm">
               Mūla
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="tsoMATa" data-bind="checked: searchA" />
+            <input class="form-check-input" type="checkbox" id="tsoMATa" />
             <label class="form-check-label" for="tsoMATa">
               Aṭṭhakathā
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="tsoMATt" data-bind="checked: searchT" />
+            <input class="form-check-input" type="checkbox" id="tsoMATt" />
             <label class="form-check-label" for="tsoMATt">
               Ṭīka
             </label>
@@ -296,32 +273,26 @@
       </div>
     </div>
   </div>
-  <div class="form-row" data-bind="visible: isStorageSupportedByBrowser">
+  <div class="form-row" id="search-history-row">
     <div class="form-group col mb-1">
       <label class="small-bold-font"></label>
       <div id="search-history">
-
-        <!--ko let: { info: historyInfo() || {} }-->
-        <select id="search-history" class="custom-select searchselect"
-          data-bind="options: searchHistoryArray,
-            value: selectedHistoryItem,
-            optionsText: 'displayText'">
+        <select id="search-history-select" class="custom-select searchselect">
         </select>
-        <!--/ko-->
       </div>
     </div>
   </div>
 
-  <div class="form-row mb-2" data-bind="visible: isStorageSupportedByBrowser">
+  <div class="form-row mb-2" id="search-history-buttons-row">
     <div id="mat-button-group" class="form-group col mb-1 d-flex justify-content-center">
       <button type="button" class="btn btn-light m-0 p-1" title="Clear all history entries" name="hist-clear" id="hist-clear"
-        autocomplete="off" value="m" data-bind="click: clearSearchHistory">clear</button>
+        autocomplete="off" value="m">clear</button>
       <div class="mat-button-group-seperator"></div>
       <button type="button" class="btn btn-light m-0 p-1" title="Use these search options with a different query" name="hist-sim" id="hist-sim"
-        autocomplete="off" value="a" data-bind="click: simSearchHistory">similar</button>
+        autocomplete="off" value="a">similar</button>
       <div class="mat-button-group-seperator"></div>
       <button type="button" class="btn btn-light m-0 p-1" title="Run this search with the same options" name="hist-same" id="hist-same"
-        autocomplete="off" value="t" data-bind="click: sameSearchHistory">same</button>
+        autocomplete="off" value="t">same</button>
     </div>
   </div>
 </div>

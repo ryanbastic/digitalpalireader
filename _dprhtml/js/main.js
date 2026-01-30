@@ -14,6 +14,6 @@ window.ddump = (_a) => {};
 /* End: Legacy stuff. */
 
 // NOTE: Ensure these are the very last lines.
-ko.applyBindings(DprVM.ViewModel);
+DprVM.ViewModel.bindDOM();
 document.addEventListener("keypress", DprVM.DprKeyboardHandler);
 window.document.addEventListener("DOMContentLoaded", IH.mainInitialize);

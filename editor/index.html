@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pāli XML Editor</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pāli XML Editor</h1>
+            <div class="header-actions">
+                <span id="current-file"></span>
+                <button id="save-btn" disabled>Save</button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="file-browser">
+                <h2>Tipitaka Files</h2>
+                <div id="breadcrumb">
+                    <span class="crumb" data-path="">tipitaka</span>
+                </div>
+                <ul id="file-list"></ul>
+            </aside>
+
+            <main class="editor-panel">
+                <div class="editor-placeholder" id="placeholder">
+                    <p>Select an XML file from the file browser to begin editing.</p>
+                    <p class="hint">The files are organized by edition:</p>
+                    <ul>
+                        <li><strong>my/</strong> - Myanmar (Burmese) edition</li>
+                        <li><strong>th/</strong> - Thai edition</li>
+                    </ul>
+                </div>
+                <textarea id="editor" spellcheck="false"></textarea>
+            </main>
+        </div>
+
+        <footer>
+            <div id="status">Ready</div>
+            <div id="line-info"></div>
+        </footer>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script>
+        const fileList = document.getElementById('file-list');
+        const breadcrumb = document.getElementById('breadcrumb');
+        const editor = document.getElementById('editor');
+        const saveBtn = document.getElementById('save-btn');
+        const currentFileEl = document.getElementById('current-file');
+        const placeholder = document.getElementById('placeholder');
+        const status = document.getElementById('status');
+        const lineInfo = document.getElementById('line-info');
+        const toast = document.getElementById('toast');
+
+        let currentPath = '';
+        let currentDir = '';
+        let originalContent = '';
+        let hasChanges = false;
+
+        // Initialize
+        loadDirectory('');
+
+        // Load directory listing
+        async function loadDirectory(dir) {
+            try {
+                const response = await fetch(`/api/files?dir=${encodeURIComponent(dir)}`);
+                if (!response.ok) throw new Error('Failed to load directory');
+                const files = await response.json();
+
+                currentDir = dir;
+                renderFileList(files);
+                updateBreadcrumb(dir);
+                setStatus(`Loaded ${files.length} items`);
+            } catch (err) {
+                showToast('Error loading directory: ' + err.message, 'error');
+            }
+        }
+
+        // Render file list
+        function renderFileList(files) {
+            fileList.innerHTML = '';
+
+            if (currentDir !== '') {
+                const li = document.createElement('li');
+                li.className = 'file-item folder';
+                li.innerHTML = '<span class="icon">📁</span> ..';
+                li.onclick = () => {
+                    const parent = currentDir.split('/').slice(0, -1).join('/');
+                    loadDirectory(parent);
+                };
+                fileList.appendChild(li);
+            }
+
+            files.forEach(file => {
+                const li = document.createElement('li');
+                li.className = 'file-item ' + (file.isDir ? 'folder' : 'file');
+
+                const icon = file.isDir ? '📁' : '📄';
+                li.innerHTML = `<span class="icon">${icon}</span> ${file.name}`;
+
+                if (file.isDir) {
+                    li.onclick = () => loadDirectory(file.path);
+                } else {
+                    li.onclick = () => loadFile(file.path);
+                    if (file.path === currentPath) {
+                        li.classList.add('active');
+                    }
+                }
+
+                fileList.appendChild(li);
+            });
+        }
+
+        // Update breadcrumb navigation
+        function updateBreadcrumb(dir) {
+            breadcrumb.innerHTML = '<span class="crumb" data-path="">tipitaka</span>';
+
+            if (dir) {
+                const parts = dir.split('/');
+                let path = '';
+                parts.forEach((part, i) => {
+                    path = path ? path + '/' + part : part;
+                    breadcrumb.innerHTML += ` / <span class="crumb" data-path="${path}">${part}</span>`;
+                });
+            }
+
+            // Add click handlers
+            breadcrumb.querySelectorAll('.crumb').forEach(crumb => {
+                crumb.onclick = () => loadDirectory(crumb.dataset.path);
+            });
+        }
+
+        // Load file content
+        async function loadFile(path) {
+            if (hasChanges && !confirm('You have unsaved changes. Discard them?')) {
+                return;
+            }
+
+            try {
+                setStatus('Loading file...');
+                const response = await fetch(`/api/file?path=${encodeURIComponent(path)}`);
+                if (!response.ok) throw new Error('Failed to load file');
+                const data = await response.json();
+
+                currentPath = path;
+                originalContent = data.content;
+                editor.value = data.content;
+                hasChanges = false;
+
+                placeholder.style.display = 'none';
+                editor.style.display = 'block';
+                saveBtn.disabled = true;
+                currentFileEl.textContent = path;
+
+                // Update active state in file list
+                document.querySelectorAll('.file-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Reload directory to show active state
+                loadDirectory(currentDir);
+
+                setStatus(`Loaded: ${path}`);
+                updateLineInfo();
+            } catch (err) {
+                showToast('Error loading file: ' + err.message, 'error');
+            }
+        }
+
+        // Save file
+        async function saveFile() {
+            if (!currentPath || !hasChanges) return;
+
+            try {
+                setStatus('Saving...');
+                const response = await fetch('/api/file', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        path: currentPath,
+                        content: editor.value
+                    })
+                });
+
+                if (!response.ok) {
+                    const text = await response.text();
+                    throw new Error(text);
+                }
+
+                originalContent = editor.value;
+                hasChanges = false;
+                saveBtn.disabled = true;
+                setStatus(`Saved: ${currentPath}`);
+                showToast('File saved successfully!', 'success');
+            } catch (err) {
+                showToast('Error saving file: ' + err.message, 'error');
+                setStatus('Save failed');
+            }
+        }
+
+        // Event listeners
+        editor.addEventListener('input', () => {
+            hasChanges = editor.value !== originalContent;
+            saveBtn.disabled = !hasChanges;
+            if (hasChanges) {
+                currentFileEl.textContent = currentPath + ' (modified)';
+            } else {
+                currentFileEl.textContent = currentPath;
+            }
+        });
+
+        editor.addEventListener('keyup', updateLineInfo);
+        editor.addEventListener('click', updateLineInfo);
+
+        editor.addEventListener('keydown', (e) => {
+            // Ctrl+S to save
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                saveFile();
+            }
+            // Tab inserts spaces
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                const start = editor.selectionStart;
+                const end = editor.selectionEnd;
+                editor.value = editor.value.substring(0, start) + '  ' + editor.value.substring(end);
+                editor.selectionStart = editor.selectionEnd = start + 2;
+                editor.dispatchEvent(new Event('input'));
+            }
+        });
+
+        saveBtn.addEventListener('click', saveFile);
+
+        // Warn before leaving with unsaved changes
+        window.addEventListener('beforeunload', (e) => {
+            if (hasChanges) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+
+        // Helper functions
+        function setStatus(msg) {
+            status.textContent = msg;
+        }
+
+        function updateLineInfo() {
+            const text = editor.value.substring(0, editor.selectionStart);
+            const lines = text.split('\n');
+            const line = lines.length;
+            const col = lines[lines.length - 1].length + 1;
+            lineInfo.textContent = `Line ${line}, Col ${col}`;
+        }
+
+        function showToast(message, type = 'info') {
+            toast.textContent = message;
+            toast.className = 'toast ' + type + ' show';
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

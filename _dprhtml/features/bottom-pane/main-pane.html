@@ -1,19 +1,19 @@
 <div id="main-bottom-pane-root">
   <div id="main-bottom-pane-tabs">
     <div class="main-bottom-pane-tab-separator"></div>
-    <div class="main-bottom-pane-tab" title="Dictionary" data-tabid="D" data-bind="click: updateActiveTab, css: { 'main-bottom-pane-tab-pressed': isDTabSelected }"><span>D</span></div>
+    <div class="main-bottom-pane-tab" title="Dictionary" data-tabid="D"><span>D</span></div>
     <div class="main-bottom-pane-tab-separator"></div>
-    <div class="main-bottom-pane-tab" title="Conversion: Convert between alphabets" data-tabid="Cv" data-bind="click: updateActiveTab, css: { 'main-bottom-pane-tab-pressed': isCvTabSelected }"><span>Cv</span></div>
+    <div class="main-bottom-pane-tab" title="Conversion: Convert between alphabets" data-tabid="Cv"><span>Cv</span></div>
     <div class="main-bottom-pane-tab-separator"></div>
-    <div class="main-bottom-pane-tab" title="Textpad: A simple text editor" data-tabid="Tp" data-bind="click: updateActiveTab, css: { 'main-bottom-pane-tab-pressed': isTpTabSelected }"><span>Tp</span></div>
+    <div class="main-bottom-pane-tab" title="Textpad: A simple text editor" data-tabid="Tp"><span>Tp</span></div>
     <div class="main-bottom-pane-tab-separator"></div>
-    <div class="main-bottom-pane-tab" title="Translation: An experimental sentence translator" data-tabid="Tr" data-bind="click: updateActiveTab, css: { 'main-bottom-pane-tab-pressed': isTrTabSelected }"><span>Tr</span></div>
+    <div class="main-bottom-pane-tab" title="Translation: An experimental sentence translator" data-tabid="Tr"><span>Tr</span></div>
     <div class="main-bottom-pane-tab-separator"></div>
-    <div class="main-bottom-pane-tab" title="Conjugation: A tool to conjugate or decline individual words" data-tabid="Cj" data-bind="click: updateActiveTab, css: { 'main-bottom-pane-tab-pressed': isCjTabSelected }"><span>Cj</span></div>
+    <div class="main-bottom-pane-tab" title="Conjugation: A tool to conjugate or decline individual words" data-tabid="Cj"><span>Cj</span></div>
     <div class="main-bottom-pane-tab-separator"></div>
   </div>
   <div id="main-bottom-pane-tab-panes">
-    <div id="main-bottom-pane-tab-panes-D" data-bind="visible: isDTabSelected">
+    <div id="main-bottom-pane-tab-panes-D">
       <div id="main-bottom-pane-tab-panes-D-container">
         <div id="anf" class="chromeback">
           <div id="brtop"></div>
@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div id="main-bottom-pane-tab-panes-Cv" data-bind="visible: isCvTabSelected">
+    <div id="main-bottom-pane-tab-panes-Cv">
       <div class="cv-container force-show-scrollbar-on-macos">
         <div id="cinput-container" class="d-flex localized" script="ro">
           <textarea id="cinput" onkeydown="if(event.keyCode==13) DPR_BottomPane.cvConvert(true); event.keyCode=0;"></textarea>
@@ -121,7 +121,7 @@
     </div>
 
     <!-- TEXT PAD -->
-    <div id="main-bottom-pane-tab-panes-Tp" class="h-100" data-bind="visible: isTpTabSelected">
+    <div id="main-bottom-pane-tab-panes-Tp" class="h-100">
       <!--
         Autocomplete attribute weirdness is explained here:
         - https://stackoverflow.com/questions/43217431/how-to-stop-chrome-from-autocompleting-text-areas
@@ -145,7 +145,7 @@
       </div>
     </div>
 
-    <div id="main-bottom-pane-tab-panes-Tr" data-bind="visible: isTrTabSelected">
+    <div id="main-bottom-pane-tab-panes-Tr">
       <p class="oneDec">
         Enter a single Pāli sentence below (Velthuis or Unicode):
       </p>
@@ -172,7 +172,7 @@
       </div>
     </div>
 
-    <div id="main-bottom-pane-tab-panes-Cj" data-bind="visible: isCjTabSelected">
+    <div id="main-bottom-pane-tab-panes-Cj">
       <form onsubmit="DPR_conjugate_mod.insertConj(); return false">
         <p></p>
         <input type="hidden" id="QwhichS" value="10" />

@@ -1,22 +1,38 @@
 import * as DprGlobals from "../../dpr_globals.js";
 import * as DprVM from "../../js/dprviewmodel.js";
 import * as DprComponentRegistry from "./component-registry.js";
+import {
+	createObservableArray,
+	createComputed,
+} from "../../js/observables.js";
+import {
+	bindClick,
+	bindEnable,
+	bindForEach,
+	bindChecked,
+} from "../../js/bindings.js";
 
 export class InstallationViewModel {
 	constructor() {
-		this.components = ko.observableArray();
+		this.components = createObservableArray([]);
 
-		this.componentsToInstall = ko.pureComputed(function _() {
-			return this.components().filter(
-				(c) => !DprComponentRegistry.isComponentInstalled(c.id) && c.install(),
-			);
-		}, this);
+		this.componentsToInstall = createComputed(
+			() => {
+				return this.components().filter(
+					(c) => !DprComponentRegistry.isComponentInstalled(c.id) && c.install(),
+				);
+			},
+			[this.components],
+		);
 
-		this.componentsToUninstall = ko.pureComputed(function _() {
-			return this.components().filter(
-				(c) => DprComponentRegistry.isComponentInstalled(c.id) && !c.install(),
-			);
-		}, this);
+		this.componentsToUninstall = createComputed(
+			() => {
+				return this.components().filter(
+					(c) => DprComponentRegistry.isComponentInstalled(c.id) && !c.install(),
+				);
+			},
+			[this.components],
+		);
 	}
 
 	showInstallationDialog() {
@@ -52,6 +68,66 @@ export class InstallationViewModel {
 		}
 
 		InstallationViewModel.finalizeInstall();
+	}
+
+	bindDOM(rootElement) {
+		if (!rootElement) return;
+
+		const container = rootElement.querySelector(
+			".installation-pane-tab-pane-section",
+		);
+
+		// Bind forEach for components
+		if (container) {
+			bindForEach(container, this.components, (component, index) => {
+				const div = document.createElement("div");
+				div.className = "d-flex w-100 justify-content-start";
+
+				const checkbox = document.createElement("input");
+				checkbox.className = "mr-2";
+				checkbox.type = "checkbox";
+				checkbox.id = `componentInstallState${index}`;
+				checkbox.checked = component.install();
+
+				checkbox.addEventListener("change", () => {
+					component.install(checkbox.checked);
+					// Trigger recompute of computed observables
+					this.components(this.components());
+				});
+
+				component.install.subscribe((val) => {
+					checkbox.checked = val;
+				});
+
+				const label = document.createElement("label");
+				label.setAttribute("for", `componentInstallState${index}`);
+				label.textContent = getName(component);
+
+				div.appendChild(checkbox);
+				div.appendChild(label);
+
+				return div;
+			});
+		}
+
+		// Bind OK button
+		const okButton = rootElement.querySelector(
+			'[title="Apply changes..."]',
+		);
+		if (okButton) {
+			bindClick(okButton, this.applyChanges, this);
+
+			// Enable/disable based on whether there are changes
+			const updateEnabled = () => {
+				okButton.disabled = !(
+					this.componentsToInstall().length ||
+					this.componentsToUninstall().length
+				);
+			};
+
+			this.components.subscribe(updateEnabled);
+			updateEnabled();
+		}
 	}
 
 	static initializeInstall() {
@@ -177,6 +253,13 @@ export class InstallationViewModel {
 			throw error;
 		}
 	}
+}
+
+// Helper function to get component name
+function getName(component) {
+	const comp = DprComponentRegistry.getComponentFromId(component.id);
+	const installed = DprComponentRegistry.isComponentInstalled(component.id);
+	return `${comp.name} (${installed ? "Installed" : "Not Installed"})`;
 }
 
 export const ViewModel = new InstallationViewModel();

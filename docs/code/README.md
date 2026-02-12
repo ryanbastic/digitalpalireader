@@ -30,7 +30,6 @@ If you're new to web development, here's what you'll encounter:
 | **JavaScript (ES6+)** | The programming language | [MDN JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) |
 | **HTML5** | Page structure | [MDN HTML Basics](https://developer.mozilla.org/en-US/docs/Learn/HTML) |
 | **CSS3** | Styling and layout | [MDN CSS Basics](https://developer.mozilla.org/en-US/docs/Learn/CSS) |
-| **Knockout.js** | UI data binding | [Knockout Documentation](https://knockoutjs.com/documentation/introduction.html) |
 | **jQuery** | DOM manipulation | [jQuery Learning Center](https://learn.jquery.com/) |
 | **Bootstrap 4** | Responsive CSS framework | [Bootstrap Documentation](https://getbootstrap.com/docs/4.4/) |
 | **Vite** | Build tool & dev server | [Vite Guide](https://vitejs.dev/guide/) |

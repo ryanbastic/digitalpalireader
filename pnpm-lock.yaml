@@ -20,9 +20,6 @@ importers:
       jquery-resizable-dom:
         specifier: 0.35.0
         version: 0.35.0
-      knockout:
-        specifier: 3.5.0
-        version: 3.5.0
       luxon:
         specifier: 1.27.0
         version: 1.27.0
@@ -642,9 +639,6 @@ packages:
     peerDependenciesMeta:
       canvas:
         optional: true
-
-  knockout@3.5.0:
-    resolution: {integrity: sha512-vBUF/IsBDzaejHkNpiquKdc5uPrImXuQ4Mb9lEfNNJ5cyHGI8ThDupR+h3eMFZhfmPE/brfwcIAn/fm0yOvJUg==}
 
   loupe@3.1.2:
     resolution: {integrity: sha512-23I4pFZHmAemUnz8WZXbYRSKYj801VDaNv9ETuMh7IrMc7VuVVSo+Z9iLE3ni30+U48iDWfi30d3twAXBYmnCg==}
@@ -1364,8 +1358,6 @@ snapshots:
       - bufferutil
       - supports-color
       - utf-8-validate
-
-  knockout@3.5.0: {}
 
   loupe@3.1.2: {}
 

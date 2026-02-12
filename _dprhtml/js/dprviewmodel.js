@@ -2,36 +2,41 @@ import * as DprGlobals from "../dpr_globals.js";
 import * as Dictionary from "../features/dictionary/init.js";
 import * as Navigation from "../features/navigation/init.js";
 import * as Search from "../features/search/init.js";
+import { createObservable, createComputed } from "./observables.js";
 
 export class DprViewModel {
 	constructor() {
-		this.sidebarVisible = ko.observable(
+		this.sidebarVisible = createObservable(
 			DPR_prefload_mod.loadSideBarVisibleState(),
 		);
-		this.loadingFeatureVisible = ko.observable(true);
-		this.landingFeatureVisible = ko.observable(false);
-		this.activeTab = ko.observable(Navigation.featureName);
-		this.mainFeaturesVisible = ko.observable(false);
-		this.navigationFeatureVisible = ko.computed(function () {
-			return (
+		this.loadingFeatureVisible = createObservable(true);
+		this.landingFeatureVisible = createObservable(false);
+		this.activeTab = createObservable(Navigation.featureName);
+		this.mainFeaturesVisible = createObservable(false);
+
+		this.navigationFeatureVisible = createComputed(
+			() =>
 				this.mainFeaturesVisible() &&
-				this.activeTab() === Navigation.featureName
-			);
-		}, this);
-		this.searchFeatureVisible = ko.computed(function () {
-			return (
-				this.mainFeaturesVisible() && this.activeTab() === Search.featureName
-			);
-		}, this);
-		this.dictionaryFeatureVisible = ko.computed(function () {
-			return (
+				this.activeTab() === Navigation.featureName,
+			[this.mainFeaturesVisible, this.activeTab],
+		);
+
+		this.searchFeatureVisible = createComputed(
+			() =>
+				this.mainFeaturesVisible() && this.activeTab() === Search.featureName,
+			[this.mainFeaturesVisible, this.activeTab],
+		);
+
+		this.dictionaryFeatureVisible = createComputed(
+			() =>
 				this.mainFeaturesVisible() &&
-				this.activeTab() === Dictionary.featureName
-			);
-		}, this);
-		this.installationOngoing = ko.observable(false);
-		this.installationBar = ko.observable();
-		this.installationBarWidth = ko.observable(0);
+				this.activeTab() === Dictionary.featureName,
+			[this.mainFeaturesVisible, this.activeTab],
+		);
+
+		this.installationOngoing = createObservable(false);
+		this.installationBar = createObservable("");
+		this.installationBarWidth = createObservable(0);
 		this.commands = createCommands();
 		this.parseURLParameters();
 	}
@@ -62,20 +67,182 @@ export class DprViewModel {
 	}
 
 	updateCommand(id, cmd) {
-		const cmdVM = Object.entries(this.commands).find(([_, x]) => x().id === id);
+		const command = this.commands[id];
 
-		if (cmdVM) {
+		if (command) {
 			let c = cmd;
-			if (cmdVM[1]().id.startsWith(DPR_CMD_TRANSLATE_)) {
+			if (id.startsWith(DPR_CMD_TRANSLATE_)) {
 				c = {
 					...c,
 					...{ title: `${cmd.title} (Shift + click to open in new window)` },
 				};
 			}
-			cmdVM[1]({ ...cmdVM[1](), ...c });
+			command.update(c);
 		} else {
 			console.error("Unable to find command:", id, "to update with", cmd);
 		}
+	}
+
+	// Bind the view model to the DOM
+	bindDOM() {
+		// Visibility bindings
+		this._bindVisibility("main-container-loading-page", this.loadingFeatureVisible);
+		this._bindHidden("main-container", this.loadingFeatureVisible);
+		this._bindVisibility("main-sidebar", this.sidebarVisible);
+		this._bindVisibility("main-panel-splitter", this.sidebarVisible);
+		this._bindVisibility("instProgressDiv", this.installationOngoing);
+		this._bindVisibility("main-pane-container", this.mainFeaturesVisible);
+		this._bindVisibility("main-content-landing-page", this.landingFeatureVisible);
+		this._bindVisibility("search-header", this.searchFeatureVisible);
+
+		// Context menu visibility (depends on multiple computed values)
+		const contextMenuTopLevel = document.getElementById("context-menu-top-level");
+		if (contextMenuTopLevel) {
+			const updateContextMenuTopLevel = () => {
+				const visible =
+					this.navigationFeatureVisible() ||
+					this.searchFeatureVisible() ||
+					this.dictionaryFeatureVisible();
+				contextMenuTopLevel.style.display = visible ? "" : "none";
+			};
+			this.navigationFeatureVisible.subscribe(updateContextMenuTopLevel);
+			this.searchFeatureVisible.subscribe(updateContextMenuTopLevel);
+			this.dictionaryFeatureVisible.subscribe(updateContextMenuTopLevel);
+			updateContextMenuTopLevel();
+		}
+
+		this._bindVisibility("context-menu", this.navigationFeatureVisible);
+
+		// Installation bar bindings
+		const installationBar = document.getElementById("installationBar");
+		if (installationBar) {
+			const updateInstallationBar = () => {
+				installationBar.innerHTML = this.installationBar();
+				installationBar.style.width = this.installationBarWidth() + "%";
+			};
+			this.installationBar.subscribe(updateInstallationBar);
+			this.installationBarWidth.subscribe(updateInstallationBar);
+			updateInstallationBar();
+		}
+
+		// Disable install button when installation ongoing
+		const installButton = document.getElementById("context-menu-install-button");
+		if (installButton) {
+			const updateInstallButton = () => {
+				installButton.disabled = this.installationOngoing();
+			};
+			this.installationOngoing.subscribe(updateInstallButton);
+			updateInstallButton();
+		}
+
+		// Bind command buttons
+		this._bindCommandButtons();
+	}
+
+	_bindVisibility(elementId, observable) {
+		const element = document.getElementById(elementId);
+		if (element) {
+			const update = () => {
+				element.style.display = observable() ? "" : "none";
+			};
+			observable.subscribe(update);
+			update();
+		}
+	}
+
+	_bindHidden(elementId, observable) {
+		const element = document.getElementById(elementId);
+		if (element) {
+			const update = () => {
+				element.style.display = observable() ? "none" : "";
+			};
+			observable.subscribe(update);
+			update();
+		}
+	}
+
+	_bindCommandButtons() {
+		// Map of command IDs to their button element IDs
+		const commandButtonMap = {
+			[DPR_CMD_GOTO_PREV]: "cmd-btn-gotoPrev",
+			[DPR_CMD_GOTO_INDEX]: "cmd-btn-gotoIndex",
+			[DPR_CMD_GOTO_NEXT]: "cmd-btn-gotoNext",
+			[DPR_CMD_GOTO_RELM]: "cmd-btn-gotoRelm",
+			[DPR_CMD_GOTO_RELA]: "cmd-btn-gotoRela",
+			[DPR_CMD_GOTO_RELT]: "cmd-btn-gotoRelt",
+			[DPR_CMD_GOTO_MYANMAR]: "cmd-btn-gotoMyanmar",
+			[DPR_CMD_GOTO_THAI]: "cmd-btn-gotoThai",
+			[DPR_CMD_SEND_TO_CONVERTER]: "cmd-btn-sendToConverter",
+			[DPR_CMD_SEND_TO_TEXTPAD]: "cmd-btn-sendToTextpad",
+			[DPR_CMD_SAVE_TO_DESKTOP]: "cmd-btn-saveToDesktop",
+			[DPR_CMD_COPY_PLACE_TO_SIDEBAR]: "cmd-btn-copyPlaceToSidebar",
+			[DPR_CMD_COPY_PERMALINK]: "cmd-btn-copyPermalink",
+			[DPR_CMD_SEARCH_IN_BOOK]: "cmd-btn-searchInBook",
+			[DPR_CMD_BOOKMARK_SECTION]: "cmd-btn-bookmarkSection",
+		};
+
+		// Bind translate commands (0-10)
+		for (let i = 0; i <= 10; i++) {
+			commandButtonMap[`translate${i}`] = `cmd-btn-translate${i}`;
+		}
+
+		// Bind button groups
+		const groupMap = {
+			"cmd-group-rel": [DPR_CMD_GOTO_RELM, DPR_CMD_GOTO_RELA, DPR_CMD_GOTO_RELT],
+			"cmd-group-script": [DPR_CMD_GOTO_MYANMAR, DPR_CMD_GOTO_THAI],
+			"cmd-group-clipboard": [DPR_CMD_COPY_PLACE_TO_SIDEBAR, DPR_CMD_COPY_PERMALINK],
+			"cmd-group-search": [DPR_CMD_SEARCH_IN_BOOK],
+			"cmd-group-bookmark": [DPR_CMD_BOOKMARK_SECTION],
+			"cmd-group-translate": Array.from({ length: 11 }, (_, i) => `translate${i}`),
+		};
+
+		// Bind individual buttons
+		for (const [cmdId, btnId] of Object.entries(commandButtonMap)) {
+			const button = document.getElementById(btnId);
+			const command = this.commands[cmdId];
+			if (button && command) {
+				this._bindCommandButton(button, command);
+			}
+		}
+
+		// Bind button groups (show group if any command is visible)
+		for (const [groupId, cmdIds] of Object.entries(groupMap)) {
+			const group = document.getElementById(groupId);
+			if (group) {
+				const commands = cmdIds.map((id) => this.commands[id]).filter(Boolean);
+				const updateGroup = () => {
+					const anyVisible = commands.some((cmd) => cmd.get().visible);
+					group.style.display = anyVisible ? "" : "none";
+				};
+				commands.forEach((cmd) => cmd.subscribe(updateGroup));
+				updateGroup();
+			}
+		}
+	}
+
+	_bindCommandButton(button, command) {
+		const update = () => {
+			const cmd = command.get();
+			button.style.display = cmd.visible ? "" : "none";
+			button.disabled = !cmd.canExecute;
+			button.title = cmd.title || "";
+
+			// Handle icon for translate commands
+			const img = button.querySelector("img.context-menu-command-icon");
+			if (img && cmd.icon) {
+				img.src = cmd.icon;
+			}
+		};
+
+		button.addEventListener("click", (e) => {
+			const cmd = command.get();
+			if (cmd.canExecute && cmd.execute) {
+				cmd.execute(e);
+			}
+		});
+
+		command.subscribe(update);
+		update();
 	}
 }
 
@@ -626,17 +793,17 @@ export const DprKeyboardHandler = (e) => {
 	}
 
 	const cmd = Object.entries(ViewModel.commands).find(([_, x]) =>
-		x().matchKey(e),
+		x.get().matchKey(e),
 	);
 	if (
 		cmd &&
-		!cmd[1]().notImplemented &&
-		cmd[1]().canExecute &&
-		cmd[1]().visible
+		!cmd[1].get().notImplemented &&
+		cmd[1].get().canExecute &&
+		cmd[1].get().visible
 	) {
-		cmd[1]().execute(e);
-		event && event.preventDefault();
-		return cmd[1]();
+		cmd[1].get().execute(e);
+		e && e.preventDefault();
+		return cmd[1].get();
 	}
 };
 
@@ -644,9 +811,29 @@ const __dprCommandsMap = {};
 dprCommandList.forEach((x) => (__dprCommandsMap[x.id] = x));
 Object.freeze(__dprCommandsMap);
 
+// Creates a command observable with update capability
+function createCommandObservable(initialValue) {
+	let value = { ...initialValue };
+	const subscribers = new Set();
+
+	return {
+		get() {
+			return value;
+		},
+		update(updates) {
+			value = { ...value, ...updates };
+			subscribers.forEach((fn) => fn(value));
+		},
+		subscribe(fn) {
+			subscribers.add(fn);
+			return () => subscribers.delete(fn);
+		},
+	};
+}
+
 function createCommands() {
 	const cmds = {};
-	dprCommandList.forEach((x) => (cmds[x.id] = ko.observable(x)));
+	dprCommandList.forEach((x) => (cmds[x.id] = createCommandObservable(x)));
 	Object.freeze(cmds);
 
 	return cmds;
